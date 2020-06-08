@@ -9,6 +9,7 @@
 <body>
 Hello ~~~~ 여기가 홈이야
 홈입니다 updatedsf
+df
 <p>
 
 <a href="boardList.do">게시판</a>
