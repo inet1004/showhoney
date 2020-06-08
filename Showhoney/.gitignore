@@ -1,4 +1,7 @@
 /target/
+/src/main/webapp/META-INF
+/.settings/org.eclipse.jdt.core.prefs
+
 # Eclipse #
 .project
 .metadata
