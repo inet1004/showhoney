@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.micol.prj.board.vo.BoardService;
@@ -18,7 +19,7 @@ public class BoardController {
 	
 	@RequestMapping("/main.do")
 	public String main(Model model) {
-		return "main";
+		return "/main/main";
 	}
 
 	@RequestMapping("/boardList.do")
@@ -39,6 +40,11 @@ public class BoardController {
 		mav.addObject("list", list);
 		mav.setViewName("board/boardList");
 		return mav;
+	}
+	
+	@RequestMapping(value="layout.do", method = RequestMethod.GET)
+	public String layout(Model model) {
+		return "layout";
 	}
 	
 }
