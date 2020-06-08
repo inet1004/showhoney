@@ -38,7 +38,7 @@ public class BoardController {
 	public ModelAndView boardList(ModelAndView mav) {
 		List<BoardVo> list = boardService.getSelectList();
 		mav.addObject("list", list);
-		mav.setViewName("board/boardList");
+		mav.setViewName("/board/boardList");
 		return mav;
 	}
 	
