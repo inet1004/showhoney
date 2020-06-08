@@ -1,0 +1,18 @@
+/target/
+# Eclipse #
+.project
+.metadata
+.settings/
+.loadpath
+.classpath
+
+# Directories #
+/build/
+/bin/
+target/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.db
