@@ -8,6 +8,7 @@
 </head>
 <body>
 Hello ~~~~ 여기가 홈이야
+홈입니다 update
 <p>
 
 <a href="boardList.do">게시판</a>
