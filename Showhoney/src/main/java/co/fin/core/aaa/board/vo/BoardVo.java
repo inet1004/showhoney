@@ -1,4 +1,4 @@
-package co.fin.core.board.vo;
+package co.fin.core.aaa.board.vo;
 
 import java.sql.Date;
 

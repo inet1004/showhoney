@@ -7,13 +7,13 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="/WEB-INF/spring/sql-map-config.xml" />
-		<property name="mapperLocations" value="classpath:/co/fin/core/*/map/*.xml" />
+		<property name="mapperLocations" value="classpath:/co/fin/core/*/*/map/*.xml" />
 	</bean>
 	
 <!-- Mapper InterFace 위치 정의-->
 	<!-- MapperConfigurer setup for MyBatis Database Layer with @Mapper("deptMapper") in DeptMapper Interface -->
  	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="co.fin.core.*.serviceImpl" />
+		<property name="basePackage" value="co.fin.core.*.*.serviceImpl" />
 	</bean>
 
 </beans>

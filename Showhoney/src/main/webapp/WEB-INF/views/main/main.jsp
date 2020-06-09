@@ -12,6 +12,8 @@ Hello ~~~~ 여기가 홈이야
 df
 <p>
 
-<a href="boardList.do">게시판</a>
+<!-- <a href="boardList.do">게시판</a>  -->
+<a href="customerList.do">고객목록</a>
+<a href="customerInsertForm.do">회원가입</a>
 </body>
 </html>

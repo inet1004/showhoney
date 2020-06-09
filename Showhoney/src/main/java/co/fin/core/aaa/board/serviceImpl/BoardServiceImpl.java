@@ -1,12 +1,12 @@
-package co.fin.core.board.serviceImpl;
+package co.fin.core.aaa.board.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.fin.core.board.vo.BoardService;
-import co.fin.core.board.vo.BoardVo;
+import co.fin.core.aaa.board.vo.BoardService;
+import co.fin.core.aaa.board.vo.BoardVo;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {

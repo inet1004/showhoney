@@ -1,4 +1,4 @@
-package co.fin.core.board.web;
+package co.fin.core.aaa.board.web;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.fin.core.board.vo.BoardService;
-import co.fin.core.board.vo.BoardVo;
+import co.fin.core.aaa.board.vo.BoardService;
+import co.fin.core.aaa.board.vo.BoardVo;
 
 @Controller
 public class BoardController {
