@@ -1,4 +1,4 @@
-package co.micol.prj.board.vo;
+package co.fin.core.board.vo;
 
 import java.util.List;
 

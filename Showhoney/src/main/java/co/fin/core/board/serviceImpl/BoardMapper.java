@@ -1,10 +1,10 @@
-package co.micol.prj.board.serviceImpl;
+package co.fin.core.board.serviceImpl;
 
 import java.util.List;
 
 import org.mybatis.spring.annotation.MapperScan;
 
-import co.micol.prj.board.vo.BoardVo;
+import co.fin.core.board.vo.BoardVo;
 
 /*public interface boardMapper extends BoardService {
 

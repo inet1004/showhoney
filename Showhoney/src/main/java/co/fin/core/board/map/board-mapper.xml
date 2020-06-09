@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.board.serviceImpl.BoardMapper">
+
+	<select id="getSelectList" resultType="co.fin.core.board.vo.BoardVo">
+		SELECT * FROM BOARD ORDER BY BOARDID DESC
+	</select>
+	
+	<select id="getSelect" parameterType="co.fin.core.board.vo.BoardVo" resultType="co.fin.core.board.vo.BoardVo">
+		SELECT * FROM BOARD WHERE BOARDID = #{boardId}
+	</select>
+	
+	<insert id="boardInsert" parameterType="co.fin.core.board.vo.BoardVo">
+		
+	</insert>
+	
+	<update id="boardUpdate" parameterType="co.fin.core.board.vo.BoardVo">
+	
+	</update>
+	
+	<delete id="boardDelete" parameterType="co.fin.core.board.vo.BoardVo">
+		
+	</delete>
+	
+</mapper>

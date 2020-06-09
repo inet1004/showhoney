@@ -44,7 +44,7 @@
     <beans:property name="maxInMemorySize" value="200000000" />
 	</beans:bean>
 
-	<context:component-scan base-package="co.micol.prj" />
+	<context:component-scan base-package="co.fin.core" />
 
 
 

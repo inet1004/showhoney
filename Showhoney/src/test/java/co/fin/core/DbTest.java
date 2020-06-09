@@ -1,4 +1,4 @@
-package co.micol.prj;
+package co.fin.core;
 
 import java.sql.Connection;
 import javax.inject.Inject;
