@@ -15,7 +15,7 @@
 }
 
 #menu {
-	float: left;
+	float: right;
 	width: 15%;
 	background-color: gray;
 }
