@@ -186,7 +186,7 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
+		
 		<!-- log jdbc -->
 		<dependency>
 			<groupId>org.lazyluke</groupId>
@@ -200,7 +200,6 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.4</version>
 		</dependency>
-
 
 		<!-- Test -->
 		<dependency>
