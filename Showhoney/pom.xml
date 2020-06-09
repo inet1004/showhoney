@@ -3,8 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>co.fin</groupId>
-	<artifactId>core</artifactId>
+	<groupId>co.micol</groupId>
+	<artifactId>prj</artifactId>
 	<name>SpringPrj</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
@@ -186,7 +186,7 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
+		
 		<!-- log jdbc -->
 		<dependency>
 			<groupId>org.lazyluke</groupId>
@@ -200,7 +200,6 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.4</version>
 		</dependency>
-
 
 		<!-- Test -->
 		<dependency>
