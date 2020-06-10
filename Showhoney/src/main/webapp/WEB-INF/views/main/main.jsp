@@ -23,6 +23,19 @@ df
 <a href="customerList.do">고객목록</a>
 <a href="customerInsertForm.do">회원가입</a>
 <a href="login.do">로그인</a>
+
+
+
+<% if(session.getAttribute("customer_id")==null){ //세션이 설정되지 않을 경우 %>
+<a href="login.do">로그인</a>
+<% }else{ %>
+<form method="post" action="logout.jsp">
+	<%=session.getAttribute("customer_id") %>님 환영합니다~
+	<input type="submit" value="로그아웃" />
+</form>
+<% } %>
+
+
 	
 </body>
 
