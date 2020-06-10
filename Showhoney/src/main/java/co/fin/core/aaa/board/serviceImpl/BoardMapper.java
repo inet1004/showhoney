@@ -2,6 +2,7 @@ package co.fin.core.aaa.board.serviceImpl;
 
 import java.util.List;
 
+
 import org.mybatis.spring.annotation.MapperScan;
 
 import co.fin.core.aaa.board.vo.BoardVo;
