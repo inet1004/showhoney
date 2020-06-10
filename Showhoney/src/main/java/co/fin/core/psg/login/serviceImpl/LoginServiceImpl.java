@@ -14,14 +14,13 @@ public class LoginServiceImpl implements LoginService {
 
 	@Autowired
 	LoginMapper dao;
-//	LoginService dao;
 
 	@Override
 	public boolean loginCheck(LoginVo vo, HttpSession session) {
 		int result = dao.loginCheck(vo);
 		if (result == 1) {	//true 일경우 세션 등록
 			//세션 변수 등록
-			session.setAttribute("userId",vo.getCustomer_id());
+			session.setAttribute("customer_id",vo.getCustomer_id());
 			return true;
 		}
 		

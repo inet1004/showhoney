@@ -33,8 +33,6 @@ public class LoginController {
 		boolean result = loginService.loginCheck(vo, session);
 		ModelAndView mav = new ModelAndView();
 		
-		
-		
 		if(result) {
 			mav.setViewName("redirect:main.do");
 			mav.addObject("msg","성공");
@@ -52,7 +50,7 @@ public class LoginController {
 		
 		loginService.logout(session);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:login.do");
+		mav.setViewName("redirect:main.do");
 		mav.addObject("msg", "logout");
 		
 		return mav;
