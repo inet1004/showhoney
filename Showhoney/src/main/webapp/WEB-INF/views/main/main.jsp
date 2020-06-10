@@ -30,7 +30,7 @@ df
 <a href="login.do">로그인</a>
 <% }else{ %>
 <form method="post" action="logout.jsp">
-	<%=session.getAttribute("customer_id") %>님 환영합니다~
+	<%=session.getAttribute("customer_id") %>님 환영합니다~~~
 	<input type="submit" value="로그아웃" />
 </form>
 <% } %>
