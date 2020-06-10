@@ -22,8 +22,13 @@ Hello ~~~~ 여기가 홈이야
 df
 <p>
 
-<a href="customerList.do">고객목록</a>
-<a href="customerInsertForm.do">회원가입</a>
+<a href="customerList.do">고객목록</a><br/>
+<a href="customerInsertForm.do">고객회원가입</a><br/>
+<a href="companyInsertForm.do">기업정보등록</a><br/>
+<a href="companyList.do">기업목록</a><br/>
+<a href="companyUserList.do">기업회원목록</a><br/>
+<a href="companyUserInsertForm.do">기업회원가입</a><br/>
+</body>
 
 
 
