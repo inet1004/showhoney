@@ -35,13 +35,13 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void customerUpdate(CustomerVo vo) {
-		// TODO Auto-generated method stub
+		dao.customerUpdate(vo);
 
 	}
 
 	@Override
 	public void customerDelete(CustomerVo vo) {
-		// TODO Auto-generated method stub
+		dao.customerDelete(vo);
 
 	}
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.kjh.company.serviceImpl.CompanyMapper">
+	<select id="getSelectList" resultType="co.fin.core.kjh.company.vo.CompanyVo">
+		SELECT * FROM COMPANY
+	</select>
+	
+	<select id="getSelect" parameterType="co.fin.core.kjh.company.vo.CompanyVo" resultType="co.fin.core.kjh.company.vo.CompanyVo">
+		SELECT * FROM COMPANY WHERE COMPANY_NO = #{company_no}
+	</select>
+	
+	<insert id="companyInsert" parameterType="co.fin.core.kjh.company.vo.CompanyVo">
+		INSERT INTO COMPANY VALUES(SEQ_COMPANY_NO.nextval,#{company_name},#{company_phone},#{company_addr},#{company_email},#{ceo_name},#{ceo_phone},#{business_license_number})
+	</insert>
+	
+	<update id="companyUpdate" parameterType="co.fin.core.kjh.company.vo.CompanyVo">
+	
+	</update>
+	
+	<delete id="companyDelete" parameterType="co.fin.core.kjh.company.vo.CompanyVo">
+		
+	</delete>
+	
+</mapper>

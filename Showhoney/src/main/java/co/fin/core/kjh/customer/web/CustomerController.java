@@ -17,7 +17,6 @@ public class CustomerController {
 	private CustomerService customerService;
 	
 	@RequestMapping("/customerList.do")
-	
 	public ModelAndView customerList(ModelAndView mav) {
 		List<CustomerVo> list = customerService.getSelectList();
 		mav.addObject("list",list);

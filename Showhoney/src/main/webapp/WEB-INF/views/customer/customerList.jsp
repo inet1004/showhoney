@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>고객 목록</h2>
 	<c:forEach var="customer" items="${list }">
 		${customer.customer_id } &nbsp;&nbsp;&nbsp;
 		${customer.customer_pw } &nbsp;&nbsp;&nbsp;

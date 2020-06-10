@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.kjh.companyuser.serviceImpl.CompanyUserMapper">
+	<select id="getSelectList" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		SELECT * FROM COMPANY_USER
+	</select>
+	
+	<select id="getSelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		SELECT * FROM COMPANY_USER WHERE COMPANY_NO = #{company_no}
+	</select>
+	
+	<insert id="companyUserInsert" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		INSERT INTO COMPANY_USER (COMPANY_USER_ID,COMPANY_USER_PW,COMPANY_NO,COMPANY_PROFILE) VALUES(#{company_user_id},#{company_user_pw},#{company_no},#{company_profile})
+	</insert>
+	
+	<!-- <insert id="companyUserInsert" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		<selectKey resultType="int" keyProperty="company_no" order="BEFORE">
+        	SELECT MAX(company_no) FROM COMPANY        
+    	</selectKey>   
+		INSERT INTO COMPANY_USER (COMPANY_USER_ID,COMPANY_USER_PW,COMPANY_NO,COMPANY_PROFILE) VALUES(#{company_user_id},#{company_user_pw},#{company_no},#{company_profile})
+	</insert> -->
+	
+	
+	
+	
+	<update id="companyUserUpdate" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+	
+	</update>
+	
+	<delete id="companyUserDelete" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		
+	</delete>
+	
+</mapper>

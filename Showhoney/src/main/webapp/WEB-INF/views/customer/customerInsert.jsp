@@ -10,7 +10,7 @@
 <body>
 	<form id="frm" name="frm" action="customerInsert.do" method="post">
 		아이디 <input type="text" id="customer_id" name="customer_id"><br/>
-		비밀번호 <input type="text" id="customer_pw" name="customer_pw"><br/>
+		비밀번호 <input type="password" id="customer_pw" name="customer_pw"><br/>
 		주소 <input type="text" id="customer_addr" name="customer_addr"><br/>
 		이메일 <input type="text" id="customer_email" name="customer_email"><br/>
 		이름 <input type="text" id="customer_name" name="customer_name"><br/>
