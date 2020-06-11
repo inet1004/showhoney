@@ -28,6 +28,11 @@ df
 <a href="companyList.do">기업목록</a><br/>
 <a href="companyUserList.do">기업회원목록</a><br/>
 <a href="companyUserInsertForm.do">기업회원가입</a><br/>
+<br/><br/><br/>
+<h2>(공사중)관리자 페이지</h2>
+<a href="adminManage.do">관리자 페이지</a><br/>
+<a href="adminManageList.do">기업관리</a><br/>
+<a href="adminPresentation.do">발표회관리</a><br/>
 </body>
 
 
