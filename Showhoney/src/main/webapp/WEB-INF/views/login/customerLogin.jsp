@@ -26,25 +26,13 @@ body, html {
 	margin-top: 3%;
 }
 
-.bgimg {
-	background-image: url('img/info/info.jpg');
-	min-height: 100%;
-	background-position: center;
-	background-size: cover;
-}
-
 .button {
 	margin: auto;
 	margin-top: 5%;
 	width: 80%;
 	font-size: Xlarge;
 }
-.showlogo{
-	width: 35%;
-	margin-left: 205px;
-	margin-top: 100px;
-	
-}
+
 </style>
 <title>Info</title>
 <body>
@@ -59,8 +47,7 @@ body, html {
 			</div>
 		
 		<div class="w3-display-middle">
-		<img src="img/info/logo.png" class="showlogo w3-jumbo w3-animate-top">
-		<p style="text-align:center"><b></b></p>
+		<p style="text-align:center"><b><b></p>
 		</div>
 	</div>
 	

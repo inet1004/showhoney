@@ -31,13 +31,8 @@ body, html {
 	margin-top: 3%;
 }
 
-.bgimg::after {
-	min-height: 100%;
-	background-position: center;
-}
-
 .bgimg {
-	background-image: url('img/info/info2.png');
+	background-image: url('img/info/info.jpg');
 	min-height: 100%;
 	background-position: center;
 	background-size: cover;
@@ -59,8 +54,7 @@ body, html {
 </style>
 <title>Info</title>
 <body>
-	<div
-		class="bgimg w3-display-container w3-animate-opacity w3-text-black">
+	<div class="bgimg w3-display-container w3-animate-opacity w3-text-black">
 		<div class="logo row w3-display-topleft w3-padding-large w3-xxlarge">
 			<h1>SHOW HONEY</h1>
 		</div>
@@ -69,18 +63,42 @@ body, html {
 			<a href="#회원가입" class="w3-bar-item w3-button w3-right"><b>회원가입</b></a>
 			<a href="#문의사항" class="w3-bar-item w3-button w3-right"><b>문의사항</b></a>
 		</div>
+	</div>
 
-		<div class="row w3-display-middle div">
-			<div class="row">
+		<div class="w3-display-middle div">
+		<div style="margin-top: 15%; margin-left: 30%">
+		<div class="row"> 
+			<div class="col-md-pull-6">
+				<i class="fas fa-user fa-7x" style="margin-left: 5%;"></i>
+				<button type="button" class="btn btn-dark" style="margin-top: 30%;">개인 회원가입</button>
+			</div> 
+			<div class="col-md-pull-6">
+				<i class="fas fa-user-tie fa-7x" style="margin-left: 5%;"></i>
+				<button type="button" class="btn btn-dark" style="margin-top: 30%;">기업 회원가입</button>
+			</div> 
+		</div>
+		</div>
+		</div>
+		
+		
+	
+		
+
+		
+		
+		
+			<!--  
 				<div class="col" style="font-size: 20px; margin-top: 80px; margin-left: 20%;">
 					<i class="fas fa-user fa-7x"></i>
-					<button type="button" class="btn btn-dark" style="margin-top: 80px;">개인회원가입</button>
+					<button type="button" class="btn btn-dark" style="margin-top: 80px;">개인</button>
 				</div>
 				<div class="col" style="font-size: 20px; margin-top: 80px; margin-left: 20%;">
 					<i class="fas fa-user-tie fa-7x"></i>
-					<button type="button" class="btn btn-dark" style="margin-top: 80px;">기업회원가입</button>
+					<button type="button" class="btn btn-dark" style="margin-right: 15px; margin-top: 30px;">기업</button>
 				</div>
-			</div>
+		
 		</div>
+		
+		-->
 </body>
 </html>
