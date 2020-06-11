@@ -2,11 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="co.fin.core.psg.login.serviceImpl.LoginMapper">
-
+	
 	<select id="loginCheck" resultType="int">
 		<![CDATA[
 			SELECT count(*) FROM customer
 			WHERE customer_id = #{customer_id} AND customer_pw = #{customer_pw}
+		]]>
+	</select>
+	
+	<select id="loginCheckCom" resultType="int">
+		<![CDATA[
+			SELECT count(*) FROM company_user
+			WHERE company_user_id = #{company_user_id} AND company_user_pw = #{company_user_pw}
 		]]>
 	</select>
 
