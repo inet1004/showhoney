@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.kjh.admin.serviceImpl.AdminMapper">
+	
+	<select id="getSelectWaitingList" resultType="co.fin.core.kjh.admin.vo.AdminVo">
+		select c.company_no as company_no, company_name, company_phone, company_addr, company_email, ceo_name, ceo_phone, business_license_number, company_user_id, company_user_pw, company_user_auth, company_profile
+from company c, company_user cu 
+where c.company_no = cu.company_no and company_user_auth = 'n'
+	</select>
+	
+	<select id="getSelect" parameterType="co.fin.core.kjh.admin.vo.AdminVo" resultType="co.fin.core.kjh.admin.vo.AdminVo">
+		
+	</select>
+	
+	<insert id="adminInsert" parameterType="co.fin.core.kjh.admin.vo.AdminVo">
+		
+	</insert>
+	
+	
+	<update id="adminUpdate" parameterType="co.fin.core.kjh.admin.vo.AdminVo">
+		<!--  adminUpdate는 승인 거절 버튼에서 승인을 누르면 작동하는 코드입니다. 작성자: 김정현 -->
+		update company_user set company_user_auth = 'y' where company_user_id = #{company_user_id}
+	</update>
+	
+	<delete id="adminDelete" parameterType="co.fin.core.kjh.admin.vo.AdminVo">
+		<!-- adminDelete는 승인 거절 버튼에서 거절을 누르면 작동하는 코드입니다. 작성자: 김정현 -->
+		delete from company where company_no = #{company_no} 
+		
+	</delete>
+	
+</mapper>
