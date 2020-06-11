@@ -44,4 +44,26 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 
 	}
 
+	@Override
+	public void companyInsert(CompanyUserVo vo) {
+		dao.companyInsert(vo);
+		dao.companyUserInsert(vo); //여기까지 한 기업+기업회원 처리
+		dao.companyUserInsert2(vo);
+		dao.companyUserInsert3(vo);
+		
+		
+	}
+
+	@Override
+	public void companyUserInsert2(CompanyUserVo vo) {
+		dao.companyUserInsert2(vo);
+		
+	}
+
+	@Override
+	public void companyUserInsert3(CompanyUserVo vo) {
+		dao.companyUserInsert3(vo);
+		
+	}
+
 }

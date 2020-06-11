@@ -9,17 +9,25 @@
 		SELECT * FROM COMPANY_USER WHERE COMPANY_NO = #{company_no}
 	</select>
 	
+	<insert id="companyInsert" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		<selectKey resultType="int" keyProperty="company_no" order="BEFORE">
+        	SELECT SEQ_COMPANY_NO.nextval FROM dual
+    	</selectKey>   
+		INSERT INTO COMPANY VALUES(#{company_no},#{company_name},#{company_phone},#{company_addr},#{company_email},#{ceo_name},#{ceo_phone},#{business_license_number})
+	</insert>
+	
 	<insert id="companyUserInsert" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		
 		INSERT INTO COMPANY_USER (COMPANY_USER_ID,COMPANY_USER_PW,COMPANY_NO,COMPANY_PROFILE) VALUES(#{company_user_id},#{company_user_pw},#{company_no},#{company_profile})
 	</insert>
 	
-	<!-- <insert id="companyUserInsert" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
-		<selectKey resultType="int" keyProperty="company_no" order="BEFORE">
-        	SELECT MAX(company_no) FROM COMPANY        
-    	</selectKey>   
-		INSERT INTO COMPANY_USER (COMPANY_USER_ID,COMPANY_USER_PW,COMPANY_NO,COMPANY_PROFILE) VALUES(#{company_user_id},#{company_user_pw},#{company_no},#{company_profile})
-	</insert> -->
+	<insert id="companyUserInsert2" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		INSERT INTO COMPANY_USER (COMPANY_USER_ID,COMPANY_USER_PW,COMPANY_NO,COMPANY_PROFILE) VALUES(#{company_user_id2},#{company_user_pw2},#{company_no},#{company_profile})
+	</insert>
 	
+	<insert id="companyUserInsert3" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		INSERT INTO COMPANY_USER (COMPANY_USER_ID,COMPANY_USER_PW,COMPANY_NO,COMPANY_PROFILE) VALUES(#{company_user_id3},#{company_user_pw3},#{company_no},#{company_profile})
+	</insert>
 	
 	
 	

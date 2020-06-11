@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h2>기업회원가입</h2>
-	<!-- <form id="frm" name="frm" action="companyUserInsert.do" method="post">
+	<form id="frm" name="frm" action="companyUserInsert.do" method="post">
 		기업명 <input type="text" id="company_name" name="company_name"><br/>
 		기업전화번호 <input type="text" id="company_phone" name="company_phone"><br/>
 		기업주소 <input type="text" id="company_addr" name="company_addr"><br/>
@@ -21,21 +21,29 @@
 		
 		아이디 <input type="text" id="company_user_id" name="company_user_id"><br/>
 		비밀번호 <input type="password" id="company_user_pw" name="company_user_pw"><br/>
+		프로필사진  <input type="text" id="company_profile" name="company_profile"><br/>
+		
+		아이디2 <input type="text" id="company_user_id2" name="company_user_id2"><br/>
+		비밀번호2 <input type="password" id="company_user_pw2" name="company_user_pw2"><br/>
+		<!-- 프로필사진2  <input type="text" id="company_profile" name="company_profile"><br/> -->
+		
+		아이디3 <input type="text" id="company_user_id3" name="company_user_id3"><br/>
+		비밀번호3 <input type="password" id="company_user_pw3" name="company_user_pw3"><br/>
+		<!-- 프로필사진3  <input type="text" id="company_profile" name="company_profile"><br/> -->
+		
+		
+		<button type="submit">가입하기</button>
+		<button type="reset">다시작성</button>
+	</form>
+	
+	<!-- <form id="frm" name="frm" action="companyUserInsert.do" method="post">
+		아이디 <input type="text" id="company_user_id" name="company_user_id"><br/>
+		비밀번호 <input type="password" id="company_user_pw" name="company_user_pw"><br/>
 		기업고유번호 <input type="text" id="company_no" name="company_no"><br/>
 		  승인여부(히든처리필요) <input type="text" id="company_user_auth" name="company_user_auth"><br/>
 		프로필사진  <input type="text" id="company_profile" name="company_profile"><br/>
 		<button type="submit">가입하기</button>
 		<button type="reset">다시작성</button>
 	</form> -->
-	
-	<form id="frm" name="frm" action="companyUserInsert.do" method="post">
-		아이디 <input type="text" id="company_user_id" name="company_user_id"><br/>
-		비밀번호 <input type="password" id="company_user_pw" name="company_user_pw"><br/>
-		기업고유번호 <input type="text" id="company_no" name="company_no"><br/>
-		  <!-- 승인여부(히든처리필요) <input type="text" id="company_user_auth" name="company_user_auth"><br/> -->
-		프로필사진  <input type="text" id="company_profile" name="company_profile"><br/>
-		<button type="submit">가입하기</button>
-		<button type="reset">다시작성</button>
-	</form>
 </body>
 </html>
