@@ -32,16 +32,22 @@ df
 
 
 
-<% if(session.getAttribute("customer_id")==null){ //세션이 설정되지 않을 경우 %>
-<a href="login.do">로그인</a>
-<% }else{ %>
-<form method="post" action="logout.do">
-	<%=session.getAttribute("customer_id") %>님 환영합니다~~~
-	<input type="submit" value="로그아웃" />
-</form>
+<br><p/>
+<br><p/>
+
+<% if(session.getAttribute("customer_id")!=null){ //세션이 설정되지 않을 경우 %>
+	<form method="post" action="logout.do">
+		[고객회원] <%=session.getAttribute("customer_id") %>님 환영합니다~~~
+		<input type="submit" value="로그아웃" /> <br><p/>기업 로그인은 고객 로그아웃하여야 합니다.
+	</form>
+<% }else if(session.getAttribute("company_user_id")!=null){ %>
+	<form method="post" action="logout.do">
+		[기업회원] <%=session.getAttribute("company_user_id") %>님 환영합니다~~~
+		<input type="submit" value="로그아웃" /> <br><p/>고객회원 로그인은 기업 로그아웃하여야 합니다.
+	</form>
+<% } else { %>
+<a href="login.do">고객 로그인</a> <a href="loginCom.do">기업 로그인</a>
 <% } %>
-
-
 	
 </body>
 
