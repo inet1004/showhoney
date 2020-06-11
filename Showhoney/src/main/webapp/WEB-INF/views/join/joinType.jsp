@@ -54,7 +54,7 @@ body, html {
 </style>
 <title>Info</title>
 <body>
-	<div class="bgimg w3-display-container w3-animate-opacity w3-text-black">
+	<div class="bgimg w3-display-container w3-text-black">
 		<div class="logo row w3-display-topleft w3-padding-large w3-xxlarge">
 			<h1>SHOW HONEY</h1>
 		</div>
