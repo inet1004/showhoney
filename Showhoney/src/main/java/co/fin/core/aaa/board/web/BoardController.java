@@ -17,9 +17,14 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@RequestMapping("/main.do")
-	public String main(Model model) {
-		return "/main/main";
+	@RequestMapping("/maintest.do")
+	public String maintest(Model model) {
+		return "no/main/maintest";
+	}
+	
+	@RequestMapping("/joinType.do")
+	public String loginType(Model model) {
+		return "no/join/joinType";
 	}
 
 	@RequestMapping("/boardList.do")
@@ -47,4 +52,17 @@ public class BoardController {
 		return "layout";
 	}
 	
+	@RequestMapping(value="companyLogin.do", method = RequestMethod.GET)
+	public String companyLogin(Model model) {
+		return "no/login/companyLogin";
+	}
+	
+	@RequestMapping(value="customerJoin.do", method = RequestMethod.GET)
+	public String customerJoin(Model model) {
+		return "no/join/customerJoin";
+	}
+	@RequestMapping(value="companyJoin.do", method = RequestMethod.GET)
+	public String companyJoin(Model model) {
+		return "no/join/companyJoin";
+	}
 }

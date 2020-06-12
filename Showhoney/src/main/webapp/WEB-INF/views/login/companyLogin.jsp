@@ -26,25 +26,13 @@ body, html {
 	margin-top: 3%;
 }
 
-.bgimg {
-	background-image: url('img/info/info.jpg');
-	min-height: 100%;
-	background-position: center;
-	background-size: cover;
-}
-
 .button {
 	margin: auto;
 	margin-top: 5%;
 	width: 80%;
 	font-size: Xlarge;
 }
-.showlogo{
-	width: 35%;
-	margin-left: 205px;
-	margin-top: 100px;
-	
-}
+
 </style>
 <title>Info</title>
 <body>
@@ -54,13 +42,12 @@ body, html {
 		</div>
 			<div class="top col-md-4 col-md-offset-4 w3-hide-small w3-right ">
 				<a href="#로그인" class="w3-bar-item w3-button w3-right"><b>로그인</b></a> 
-				<a href="joinType.do" class="w3-bar-item w3-button w3-right"><b>회원가입</b></a>
+				<a href="#회원가입" class="w3-bar-item w3-button w3-right"><b>회원가입</b></a>
 				<a href="#문의사항" class="w3-bar-item w3-button w3-right"><b>문의사항</b></a>
 			</div>
 		
 		<div class="w3-display-middle">
-		<img src="img/info/logo.png" class="showlogo w3-jumbo w3-animate-top">
-		<p style="text-align:center"><b></b></p>
+		<p style="text-align:center"><b><b></p>
 		</div>
 	</div>
 	
