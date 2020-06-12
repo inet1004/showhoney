@@ -103,9 +103,12 @@
 </td>
 		<td>${admin.company_user_id }</td>
      	<td>
-      		<%-- <button type="button" class="btn btn-info" onclick="location.href='adminUpdate.do'" name="${admin.company_user_id }">승인</button> --%>
-      		<a href="adminUpdate.do?company_user_id=${admin.company_user_id}">승인</a>
-      		<a href="adminDelete.do?company_no=${admin.company_no}">거절</a>
+      		
+      		<button type="button" class="btn btn-info" data-toggle="" onclick="location.href='adminUpdate.do?company_user_id=${admin.company_user_id}'">승인</button>&nbsp;
+      		<button type="button" class="btn btn-info" data-toggle="" onclick="location.href='adminDelete.do?company_user_id=${admin.company_user_id}'">거절</button>
+      		 
+      		<%-- <a href="adminUpdate.do?company_user_id=${admin.company_user_id}">승인</a>&nbsp;
+      		<a href="adminDelete.do?company_user_id=${admin.company_user_id}">거절</a> --%>
       		<!-- <button type="button" class="btn btn-info">거절</button>	 -->
       	</td>
       
