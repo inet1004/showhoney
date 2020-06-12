@@ -1,41 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>info</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="css/stylish-portfolio.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
 body, h1 {
-	font-family: "Raleway", sans-serif
+	font-family: "Raleway", sans-serif;
+
 }
 
-body, html {
-	height: 100%
-}
-
-.logo {
-	margin-left: 2%
-}
-
-.top {
-	text-align: right;
-	font-size: large;
-	margin-right: 5%;
-	margin-top: 3%;
-}
-
-.bgimg {
-	background-image: url('img/info/info.jpg');
-	min-height: 100%;
-	background-position: center;
-	background-size: cover;
+a{
+	font-size: 20px;
+	font-color: black;
 }
 
 .button {
@@ -47,58 +43,74 @@ body, html {
 
 .div {
 	background-color: rgba(0, 0, 0, 0.56);
-	margin: center;
-	width: 40%;
-	height: 50%;
+
 }
+
 </style>
-<title>Info</title>
-<body>
-	<div class="bgimg w3-display-container w3-text-black">
-		<div class="logo row w3-display-topleft w3-padding-large w3-xxlarge">
-			<h1>SHOW HONEY</h1>
-		</div>
-		<div class="top col-md-4 col-md-offset-4 w3-hide-small w3-right ">
-			<a href="#로그인" class="w3-bar-item w3-button w3-right"><b>로그인</b></a>
-			<a href="#회원가입" class="w3-bar-item w3-button w3-right"><b>회원가입</b></a>
-			<a href="#문의사항" class="w3-bar-item w3-button w3-right"><b>문의사항</b></a>
-		</div>
-	</div>
+</head>
+<body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="info.do">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">문의사항</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="joinType.do">회원가입</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+	  <!-- Header -->
+	  <header class="masthead d-flex">
+	    <div class="container text-center my-auto">
+	    	<div class="div">
+	    	<div>
+	    		<i class="fas fa-user fa-7x" style="margin-top:15%"></i>
+	    		<i class="fas fa-user-tie fa-7x" style="margin-left:15%"></i>
+	    	</div>
+	    	<div style="margin-top:5%">
+	    		<button type="button" class="btn btn-dark" onclick="customerJoin.do" style="margin-bottom:15%">개인 회원가입</button>
+	    		<button type="button" class="btn btn-dark" onclick="companyJoin.do" style="margin-left:13%; margin-bottom:15%">기업 회원가입</button>
+	    	</div>
+			</div>
 
-		<div class="w3-display-middle div">
-		<div style="margin-top: 15%; margin-left: 30%">
-		<div class="row"> 
-			<div class="col-md-pull-6">
-				<i class="fas fa-user fa-7x" style="margin-left: 5%;"></i>
-				<button type="button" class="btn btn-dark" style="margin-top: 30%;">개인 회원가입</button>
-			</div> 
-			<div class="col-md-pull-6">
-				<i class="fas fa-user-tie fa-7x" style="margin-left: 5%;"></i>
-				<button type="button" class="btn btn-dark" style="margin-top: 30%;">기업 회원가입</button>
-			</div> 
-		</div>
-		</div>
-		</div>
-		
-		
-	
-		
+	    </div>
+	    <div class="overlay"></div>
+	  </header>
+	        
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        <div><p>djsdjfskl</p></div>
+        
+        
 
-		
-		
-		
-			<!--  
-				<div class="col" style="font-size: 20px; margin-top: 80px; margin-left: 20%;">
-					<i class="fas fa-user fa-7x"></i>
-					<button type="button" class="btn btn-dark" style="margin-top: 80px;">개인</button>
-				</div>
-				<div class="col" style="font-size: 20px; margin-top: 80px; margin-left: 20%;">
-					<i class="fas fa-user-tie fa-7x"></i>
-					<button type="button" class="btn btn-dark" style="margin-right: 15px; margin-top: 30px;">기업</button>
-				</div>
-		
-		</div>
-		
-		-->
-</body>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
