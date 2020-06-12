@@ -23,17 +23,6 @@ public class BoardController {
 		return "layout";
 	}
 	
-	
-	@RequestMapping("/companyJoin.do")
-	public String companyJoin(Model model) {
-		return "no/join/companyJoin";
-	}
-	
-	@RequestMapping("/customerJoin.do")
-	public String customerJoin(Model model) {
-		return "no/join/customerJoin";
-	}
-	
 	@RequestMapping("/joinType.do")
 	public String joinType(Model model) {
 		return "no/join/joinType";

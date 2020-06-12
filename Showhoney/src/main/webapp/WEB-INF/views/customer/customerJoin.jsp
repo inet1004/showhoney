@@ -57,12 +57,12 @@ a{
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="info.do">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    	<li class="nav-item"><a class="nav-link js-scroll-trigger" href="info.do">HOME</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">문의사항</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="joinType.do">회원가입</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,7 +71,7 @@ a{
 	  <!-- Header -->
 <header class="d-flex">
 	<div class="container text-center my-auto">
-		<form id="" name="" method="post" action="">
+		<form id="frm" name="frm" method="post" action="customerInsert.do" enctype="multipart/form-data">
 			<div class="frm" >
 			
 				<div class="row">
@@ -85,81 +85,85 @@ a{
 				
 				<div class="row text-center" style="margin-left:20%; margin-top:10%">
 				<div class="col-md-2">
-					<label for="companyname">ID</label>
+					<label for="customer_id">ID</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="text">
+					 <input class="w3-input w3-border w3-round-large" id="customer_id" name="customer_id" type="text">
 				</div>
 				<div class="col-md-2">
 					<button type="button" class="btn btn-outline-dark">중복확인</button>
 				</div>		
 			</div>
+			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
-					<label for="companyname">PW</label>
+					<label for="customer_pw">PW</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
-				</div>
-			</div>
-			<div class="row text-center" style="margin-left:20%; margin-top:2%">
-				<div class="col-md-2">
-					<label for="companyname">PW확인</label>
-				</div>
-				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="text">
-				</div>
-			</div>
-			<div class="row text-center" style="margin-left:20%; margin-top:2%">
-				<div class="col-md-2">
-					<label for="companyname">이 름</label>
-				</div>
-				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="customer_pw" name="customer_pw" type="password">
 				</div>
 			</div>
 			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
-					<label for="companyname">이메일</label>
+					<label for="customer_pwcheck">PW확인</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="customer_pwcheck" name="customer_pwcheck" type="password">
 				</div>
 			</div>
 			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
-					<label for="companyname">전화번호</label>
+					<label for="customer_name">이 름</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="customer_name" name="customer_name" type="text">
 				</div>
 			</div>
 			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
-					<label for="companyname">주 소</label>
+					<label for="customer_email">이메일</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="customer_email" name="customer_email" type="text">
 				</div>
 			</div>
 			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
-					<label for="companyname">직 장</label>
+					<label for="customer_phone">전화번호</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="customer_phone" name="customer_phone" type="text">
 				</div>
 			</div>
+			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
-					<label for="companyname">프로필 사진</label>
+					<label for="customer_addr">주 소</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="customer_addr" name="customer_addr" type="text">
+				</div>
+			</div>
+			
+			<div class="row text-center" style="margin-left:20%; margin-top:2%">
+				<div class="col-md-2">
+					<label for="customer_company_name">직 장</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="customer_company_name" name="customer_company_name" type="text">
+				</div>
+			</div>
+			
+			<div class="row text-center" style="margin-left:20%; margin-top:2%">
+				<div class="col-md-2">
+					<label for="customer_profile">프로필 사진</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="customer_profile" name="uploadFile" type="file">
 				</div>
 			</div>
 			
@@ -167,7 +171,7 @@ a{
 		<div class="row">
 			<div class="col text-center" style="margin-top:10%; margin-bottom: 35%" >
 					<button class="btn btn-outline-danger button" type="reset">다시작성</button>
-					<button class="btn btn-outline-info button" type="button">완 료</button>
+					<button class="btn btn-outline-info button" type="submit">완 료</button>
 				</div>
 			</div>		
 	    

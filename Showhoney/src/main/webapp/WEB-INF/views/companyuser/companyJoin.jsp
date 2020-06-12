@@ -57,12 +57,12 @@ a{
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="info.do">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    	<li class="nav-item"><a class="nav-link js-scroll-trigger" href="info.do">HOME</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">문의사항</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="joinType.do">회원가입</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,9 +71,9 @@ a{
 	  <!-- Header -->
 <header class="d-flex">
   <!-- 기업 정보 -->
-  
-	<div class="container text-center my-auto">
-		<form id="" name="" method="post" action="">
+  	<div class="container text-center my-auto">
+  <form id="" name="" method="post" action="" enctype="">
+
 			<div class="frm" >
 			
 				<div class="row">
@@ -267,11 +267,11 @@ a{
 			</div>		
 
 			</div>
-	    		
-	    		
-	    	</form>
+	    	  </form>	
+	    	</div>	
+	  
 	    
-	    </div>
+	    
 	  </header>
 
         <!-- Bootstrap core JS-->
