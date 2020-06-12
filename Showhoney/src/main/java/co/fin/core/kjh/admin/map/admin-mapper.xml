@@ -24,7 +24,7 @@ where c.company_no = cu.company_no and company_user_auth = 'n'
 	
 	<delete id="adminDelete" parameterType="co.fin.core.kjh.admin.vo.AdminVo">
 		<!-- adminDelete는 승인 거절 버튼에서 거절을 누르면 작동하는 코드입니다. 작성자: 김정현 -->
-		delete from company where company_no = #{company_no} 
+		delete from company_user where company_user_id = #{company_user_id} 
 		
 	</delete>
 	
