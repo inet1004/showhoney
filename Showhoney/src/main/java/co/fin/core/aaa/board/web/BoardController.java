@@ -17,16 +17,16 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@RequestMapping("/maintest.do")
-	public String maintest(Model model) {
-		return "no/main/maintest";
+	@RequestMapping("/info.do")
+	public String info(Model model) {
+		return "no/main/info";
 	}
 	
 	@RequestMapping("/joinType.do")
-	public String loginType(Model model) {
+	public String joinType(Model model) {
 		return "no/join/joinType";
 	}
-
+	
 	@RequestMapping("/boardList.do")
 
 	/*	public String boardList(Model model) {
@@ -46,23 +46,5 @@ public class BoardController {
 		mav.setViewName("/board/boardList");
 		return mav;
 	}
-	
-	@RequestMapping(value="layout.do", method = RequestMethod.GET)
-	public String layout(Model model) {
-		return "layout";
-	}
-	
-	@RequestMapping(value="companyLogin.do", method = RequestMethod.GET)
-	public String companyLogin(Model model) {
-		return "no/login/companyLogin";
-	}
-	
-	@RequestMapping(value="customerJoin.do", method = RequestMethod.GET)
-	public String customerJoin(Model model) {
-		return "no/join/customerJoin";
-	}
-	@RequestMapping(value="companyJoin.do", method = RequestMethod.GET)
-	public String companyJoin(Model model) {
-		return "no/join/companyJoin";
-	}
+
 }
