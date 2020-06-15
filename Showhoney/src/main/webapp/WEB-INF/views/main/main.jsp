@@ -33,9 +33,9 @@ df
 <a href="adminManage.do">관리자 페이지</a><br/>
 <a href="adminManageList.do">기업관리</a><br/>
 <a href="adminPresentation.do">발표회관리</a><br/>
+<a href="adminExhibitionManage.do">박람회관리</a><br/>
+<a href="ExhibitionInsertForm.do">박람회등록</a><br/>
 </body>
-
-
 
 <br><p/>
 <br><p/>
@@ -52,9 +52,6 @@ df
 	</form>
 <% } else { %>
 <a href="login.do">고객 로그인</a> <a href="loginCom.do">기업 로그인</a>
-<% } %>
-	
+<% } %>	
 </body>
-
-
 </html>
