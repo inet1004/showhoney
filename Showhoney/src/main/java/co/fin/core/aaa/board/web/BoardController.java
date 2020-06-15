@@ -1,28 +1,31 @@
 package co.fin.core.aaa.board.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import co.fin.core.aaa.board.vo.BoardService;
+import co.fin.core.aaa.board.vo.BoardVo;
 
 @Controller
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-<<<<<<< HEAD
-	@RequestMapping("/main.do")
+	@RequestMapping("/maintest.do")
 	public String maintest(Model model) {
-		return "/main/main";
+		return "no/main/maintest";
 	}
-//	
-//	@RequestMapping("/joinType.do")
-//	public String loginType(Model model) {
-//		return "no/join/joinType";
-//	}
+	
+	@RequestMapping("/joinType.do")
+	public String loginType(Model model) {
+		return "no/join/joinType";
+	}
 
 	@RequestMapping("/boardList.do")
 
@@ -42,43 +45,24 @@ public class BoardController {
 		mav.addObject("list", list);
 		mav.setViewName("/board/boardList");
 		return mav;
-
-	@RequestMapping("/info.do")
-	public String info(Model model) {
-		return "no/main/info";
-
 	}
 	
-
-//	@RequestMapping(value="layout.do", method = RequestMethod.GET)
-//	public String layout(Model model) {
-//		return "layout";
-//	}
-//	
-//	@RequestMapping(value="companyLogin.do", method = RequestMethod.GET)
-//	public String companyLogin(Model model) {
-//		return "no/login/companyLogin";
-//	}
-//	
-//	@RequestMapping(value="customerJoin.do", method = RequestMethod.GET)
-//	public String customerJoin(Model model) {
-//		return "no/join/customerJoin";
-//	}
-//	@RequestMapping(value="companyJoin.do", method = RequestMethod.GET)
-//	public String companyJoin(Model model) {
-//		return "no/join/companyJoin";
-//	}
-=======
 	@RequestMapping(value="layout.do", method = RequestMethod.GET)
 	public String layout(Model model) {
 		return "layout";
 	}
 	
-	@RequestMapping("/joinType.do")
-	public String joinType(Model model) {
-		return "no/join/joinType";
+	@RequestMapping(value="companyLogin.do", method = RequestMethod.GET)
+	public String companyLogin(Model model) {
+		return "no/login/companyLogin";
 	}
 	
-	
->>>>>>> branch 'master' of https://github.com/inet1004/showhoney
+	@RequestMapping(value="customerJoin.do", method = RequestMethod.GET)
+	public String customerJoin(Model model) {
+		return "no/join/customerJoin";
+	}
+	@RequestMapping(value="companyJoin.do", method = RequestMethod.GET)
+	public String companyJoin(Model model) {
+		return "no/join/companyJoin";
+	}
 }
