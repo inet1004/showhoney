@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="co.fin.core.aaa.board.serviceImpl.BoardMapper">
-
+<!-- 
 	<select id="getSelectList" resultType="co.fin.core.aaa.board.vo.BoardVo">
 		SELECT * FROM BOARD ORDER BY BOARDID DESC
 	</select>
@@ -22,4 +22,5 @@
 		
 	</delete>
 	
+	 -->
 </mapper>

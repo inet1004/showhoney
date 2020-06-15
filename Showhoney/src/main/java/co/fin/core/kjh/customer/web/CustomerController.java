@@ -38,6 +38,7 @@ public class CustomerController {
 	public ModelAndView customerInsert(CustomerVo vo, ModelAndView mav) throws IOException { 
 		
 		
+		
 		MultipartFile uploadFile = vo.getUploadFile();
 		if(!uploadFile.isEmpty()) {
 			String fileName = uploadFile.getOriginalFilename( );

@@ -25,6 +25,28 @@
 <link href="css/stylish-portfolio.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<!-- jq -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+	$(function(){
+		$('#next').click(function(){
+			$('.content1').hide()
+			$('.content2').show()
+		})
+
+	})
+	function back1(){
+		history.go(-1)
+	}
+	
+	function back2() {
+	$('.content2').hide()
+	$('.content1').show()
+	}
+</script>
 <style>
 body, h1 {
 	font-family: "Raleway", sans-serif;
@@ -51,6 +73,10 @@ a{
 	height: 130%;
 	font-size: 18px;
 }
+
+.content2{
+	display: none;
+}
 </style>
 </head>
 <body id="page-top">
@@ -67,108 +93,102 @@ a{
                 </div>
             </div>
         </nav>
-        
+      				
+      				   <!-- 기업 정보 -->
 	  <!-- Header -->
 <header class="d-flex">
-  <!-- 기업 정보 -->
+ 
   	<div class="container text-center my-auto">
-  <form id="" name="" method="post" action="" enctype="">
+  <form id="frm" name="frm" method="post" action="companyUserInsert.do" enctype="multipart/form-data">
 
-			<div class="frm" >
+			<div class="frm content1" >
 			
 				<div class="row">
 					<div class="col-md-2 col-sm-2" style="margin-top: 5%;">
-						<i class="far fa-arrow-alt-circle-left fa-3x"></i>
+						<i class="far fa-arrow-alt-circle-left fa-3x" onclick="back1()"></i>
 					</div>
 					<div class="col-md-8 col-xs-8" style="margin-top: 5%">
 						<img src="img/info/logo.png" class="logo">
 					</div>	
 				</div>
+				
 			<div class="row" style="margin-left:30%; margin-top:10%">
-				<div class="col-md-pull-3">
-					<label for="companyname">기업이름</label>
+				<div class="col-md-4">
+					<label for="company_name">기업명</label>
 				</div>
 				<div class="col-md-6">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="text">
+					 <input class="w3-input w3-border w3-round-large" id="company_name" name="company_name" type="text">
 				</div>
 			</div>
 			
 			<div class="row" style="margin-left:30%; margin-top:2%">
 				<div class="col-md-pull-3">
-					<label for="">업 태</label>
+					<label for="business_license_number">사업자<br>등록번호</label>
 				</div>
-				<div class="col-md-6" style="margin-left:4%;">
-					 <input class="w3-input w3-border w3-round-large" name="last" type="text">
+				<div class="col-md-6">
+					 <input class="w3-input w3-border w3-round-large" name="business_license_number" id="business_license_number" type="text" style=" height: 100%;">
 				</div>
 			</div>
 			
 			<div class="row" style="margin-left:30%; margin-top:2%">
 				<div class="col-md-pull-3">
-					<label for=" ">사업자<br>등록번호</label>
+					<label for="company_phone">기업 전화번호</label>
 				</div>
 				<div class="col-md-6">
-					 <input class="w3-input w3-border w3-round-large" name="last" type="text" style=" height: 100%;">
-				</div>
-			</div>
-			
-			<div class="row" style="margin-left:30%; margin-top:2%">
-				<div class="col-md-pull-3">
-					<label for=" ">전화번호</label>
-				</div>
-				<div class="col-md-6">
-					 <input class="w3-input w3-border w3-round-large" name="last" type="text">
+					 <input class="w3-input w3-border w3-round-large" name="company_phone" id="company_phone" type="text">
 				</div>
 			</div>
 			
 			<div class="row" style="margin-left:30%; margin-top:2%">
 				<div class="col-md-pull-3" >
-					<label for=" ">대표자</label>
+					<label for="ceo_name">CEO이름</label>
 				</div>
 				<div class="col-md-6" style="margin-left:3%;">
-					 <input class="w3-input w3-border w3-round-large" name="last" type="text">
+					 <input class="w3-input w3-border w3-round-large" name="ceo_name" id="ceo_name" type="text">
 				</div>
 			</div>
 			
 			<div class="row" style="margin-left:30%; margin-top:2%">
 				<div class="col-md-pull-3">
-					<label for=" ">기업주소</label>
+					<label for="ceo_phone">CEO 전화번호</label>
+				</div>
+				<div class="col-md-6" style="margin-left:4%;">
+					 <input class="w3-input w3-border w3-round-large" name="ceo_phone" id="ceo_phone" type="text">
+				</div>
+			</div>
+			
+			<div class="row" style="margin-left:30%; margin-top:2%">
+				<div class="col-md-pull-3">
+					<label for="company_addr">기업주소</label>
 				</div>
 				<div class="col-md-6">
-					 <input class="w3-input w3-border w3-round-large" name="last" type="text">
+					 <input class="w3-input w3-border w3-round-large" name="company_addr" id="company_addr" type="text">
 				</div>
 			</div>
 			
 			<div class="row" style="margin-left:30%; margin-top:2%">
 				<div class="col-md-pull-3">
-					<label for=" ">이메일</label>
+					<label for="company_email">이메일</label>
 				</div>
 				<div class="col-md-6" style="margin-left:3%;">
-					 <input class="w3-input w3-border w3-round-large" name="last" type="text">
-				</div>
-			</div>
-			
-			<div class="row" style="margin-left:30%; margin-top:2%">
-				<div class="col-md-pull-3">
-					<label for=" ">기업 프로필</label>
-				</div>
-				<div class="col-md-6" style="margin-left:3%;">
-					 <input class="w3-input w3-border w3-round-large" name="last" type="file">
+					 <input class="w3-input w3-border w3-round-large" name="company_email" id="company_email" type="text">
 				</div>
 			</div>
 				
 		<div class="row">
 			<div class="col text-center" style="margin-top:10%; margin-bottom: 35%" >
 					<button class="btn btn-outline-danger button" type="reset">다시작성</button>
-					<button class="btn btn-outline-info button" type="button">다 음</button>
+					<button class="btn btn-outline-info button next" id="next" type="button">다 음</button>
 				</div>
 			</div>		
 	    </div>
 	    
 	  <!-- 기업 id, pw -->		
-	    	<div class="frm" >
+	    	<div class="frm content2" >
+	    	
 				<div class="row">
 					<div class="col-md-2 col-sm-2" style="margin-top: 5%;">
-						<i class="far fa-arrow-alt-circle-left fa-3x"></i>
+						<i class="far fa-arrow-alt-circle-left fa-3x back2" onclick="back2()"></i>
 					</div>
 					<div class="col-md-8 col-xs-8" style="margin-top: 5%">
 						<img src="img/info/logo.png" class="logo">
@@ -177,10 +197,19 @@ a{
 				
 				<div class="row text-center" style="margin-left:20%; margin-top:10%">
 				<div class="col-md-2">
-					<label for="companyname">기업ID</label>
+					<label for="company_profile">기업 프로필</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="text">
+					 <input class="w3-input w3-border w3-round-large" id="company_profile" name="uploadFile" type="file">
+				</div>	
+			</div>
+			
+				<div class="row text-center" style="margin-left:20%; margin-top:10%">
+				<div class="col-md-2">
+					<label for="company_user_id">기업ID</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_id" name="company_user_id" type="text">
 				</div>
 				<div class="col-md-2">
 					<button type="button" class="btn btn-outline-dark">중복확인</button>
@@ -188,13 +217,23 @@ a{
 			</div>
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
-					<label for="companyname">기업PW</label>
+					<label for="company_user_pw">기업PW</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pw" name="company_user_pw" type="password">
 				</div>
 			</div>
+			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
+				<div class="col-md-2">
+					<label for="company_user_pwck">PW 확인</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck" name="company_user_pwck" type="password">
+				</div>
+			</div>
+			
+	  <!-- <div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
 					<label for="companyname">이 름</label>
 				</div>
@@ -203,40 +242,14 @@ a{
 				</div>
 			</div>
 			
-			<div class="row text-center" style="margin-left:20%; margin-top:5%">
-				<div class="col-md-2">
-					<label for="companyname">기업ID</label>
-				</div>
-				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="text">
-				</div>
-				<div class="col-md-2">
-					<button type="button" class="btn btn-outline-dark">중복확인</button>
-				</div>		
-			</div>
-			<div class="row text-center" style="margin-left:20%; margin-top:2%">
-				<div class="col-md-2">
-					<label for="companyname">기업PW</label>
-				</div>
-				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
-				</div>
-			</div>
-			<div class="row text-center" style="margin-left:20%; margin-top:2%">
-				<div class="col-md-2">
-					<label for="companyname">이 름</label>
-				</div>
-				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="text">
-				</div>
-			</div>
+		 -->
 			
 			<div class="row text-center" style="margin-left:20%; margin-top:5%">
 				<div class="col-md-2">
-					<label for="companyname">기업ID</label>
+					<label for="company_user_id2">기업ID</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="text">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_id2" name="company_user_id2" type="text">
 				</div>
 				<div class="col-md-2">
 					<button type="button" class="btn btn-outline-dark">중복확인</button>
@@ -244,25 +257,55 @@ a{
 			</div>
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
-					<label for="companyname">기업PW</label>
+					<label for="company_user_pw2">기업PW</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pw2" name="company_user_pw2" type="password">
 				</div>
 			</div>
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
-					<label for="companyname">이 름</label>
+					<label for="company_user_pwck2">PW 확인</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="text">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck2" name="company_user_pwck2" type="password">
 				</div>
 			</div>
+			
+			
+			<div class="row text-center" style="margin-left:20%; margin-top:5%">
+				<div class="col-md-2">
+					<label for="company_user_id3">기업ID</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_id3" name="company_user_id3" type="text">
+				</div>
+				<div class="col-md-2">
+					<button type="button" class="btn btn-outline-dark">중복확인</button>
+				</div>		
+			</div>
+			<div class="row text-center" style="margin-left:20%; margin-top:2%">
+				<div class="col-md-2">
+					<label for="company_user_pw3">기업PW</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pw3" name="company_user_pw3" type="password">
+				</div>
+			</div>
+			<div class="row text-center" style="margin-left:20%; margin-top:2%">
+				<div class="col-md-2">
+					<label for="company_user_pwck3">PW 확인</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck3" name="company_user_pwck3" type="password">
+				</div>
+			</div>
+
 			
 			<div class="row">
 			<div class="col text-center" style="margin-top:10%; margin-bottom: 35%" >
 					<button class="btn btn-outline-danger button" type="reset">다시작성</button>
-					<button class="btn btn-outline-info button" type="button">완 료</button>
+					<button class="btn btn-outline-info button" type="submit">완 료</button>
 				</div>
 			</div>		
 

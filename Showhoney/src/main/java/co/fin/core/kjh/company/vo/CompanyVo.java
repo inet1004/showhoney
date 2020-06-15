@@ -9,7 +9,8 @@ public class CompanyVo {
 	private String ceo_name;
 	private String ceo_phone;
 	private String business_license_number;
-
+	
+	
 	public CompanyVo() {
 		// TODO Auto-generated constructor stub
 	}
