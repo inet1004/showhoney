@@ -1,11 +1,14 @@
 package co.fin.core.kjh.companyuser.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CompanyUserVo {
 	private String company_user_id;
 	private String company_user_pw;
 	private int company_no;
 	private String company_user_auth;
 	private String company_profile;
+	private MultipartFile uploadFile;
 	
 	private String company_name;
 	private String company_phone;
@@ -63,6 +66,14 @@ public class CompanyUserVo {
 
 	public void setCompany_profile(String company_profile) {
 		this.company_profile = company_profile;
+	}
+	
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 
 	public String getCompany_name() {

@@ -5,7 +5,7 @@
   
 <tiles-definitions>
     <definition name="layout" template="/WEB-INF/views/layout/layout.jsp">
-		<put-attribute name="companyHeader" value="/WEB-INF/views/layout/companyHeader.jsp"/>
+		<put-attribute name="companyHeader" value="/WEB-INF/views/layout/customerHeader.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/main/main.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp"/>
 	</definition>
@@ -18,10 +18,22 @@
 	</definition>	
 	
 	-->
+	
     <definition name="no/*/*" template="/WEB-INF/views/layout/nolayout.jsp">      
       <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
     </definition>
-	 <definition name="/*/*" extends="layout">      
+    
+     <definition name="com/*/*" extends="layout"> 
+      <put-attribute name="companyHeader" value="/WEB-INF/views/layout/companyHeader.jsp"/> 
+      <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+    </definition>
+    
+    <definition name="adm/*/*" extends="layout"> 
+      <put-attribute name="companyHeader" value="/WEB-INF/views/layout/adminHeader.jsp"/> 
+      <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+    </definition>
+    
+	 <definition name="*/*" extends="layout">      
       <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
     </definition>
 
