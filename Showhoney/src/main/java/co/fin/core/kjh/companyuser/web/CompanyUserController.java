@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,12 +38,14 @@ public class CompanyUserController {
 	}
 
 	@RequestMapping("/companyUserInsert.do")
-	public ModelAndView companyUserInsert(CompanyUserVo vo, ModelAndView mav) throws IOException {
+	public ModelAndView companyUserInsert(HttpServletRequest request, CompanyUserVo vo, ModelAndView mav) throws IOException {
+		
+		String path = request.getSession().getServletContext().getRealPath("/resources/FileUpload");
 		
 		MultipartFile uploadFile = vo.getUploadFile();
 		if(!uploadFile.isEmpty()) {
 			String fileName = uploadFile.getOriginalFilename( );
-			uploadFile.transferTo(new File("D:\\Dev\\git\\showhoney\\Showhoney\\src\\main\\webapp\\upload\\companyProfile" + fileName));
+			uploadFile.transferTo(new File(path, fileName));
 			vo.setCompany_profile(fileName);
 
 		}
