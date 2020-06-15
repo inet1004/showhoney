@@ -28,7 +28,7 @@ public class BoardController {
 	
 	@RequestMapping("/doing.do")
 	public String doing(Model model) {
-		return "main/main";
+		return "/main/main";
 	}
 	
 	@RequestMapping("/boardList.do")
