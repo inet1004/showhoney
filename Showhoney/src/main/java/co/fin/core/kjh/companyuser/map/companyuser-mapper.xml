@@ -6,8 +6,19 @@
 	</select>
 	
 	<select id="getSelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
-		SELECT * FROM COMPANY_USER WHERE COMPANY_NO = #{company_no}
+		SELECT * FROM COMPANY_USER WHERE 
+		 <choose>
+    <when test="company_user_id != null and company_user_id != ''">
+      company_user_id = #{company_user_id}
+    </when>
+    <otherwise>
+      	COMPANY_NO = #{company_no}
+    </otherwise>
+  </choose>
+	
 	</select>
+	
+
 	
 	<insert id="companyInsert" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		<selectKey resultType="int" keyProperty="company_no" order="BEFORE">
