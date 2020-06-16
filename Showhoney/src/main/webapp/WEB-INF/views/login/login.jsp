@@ -44,7 +44,6 @@
 
 
 	<h1>고객로그인 페이지</h1>
-	<hr />
 		<c:choose>
 			<c:when test="${empty sessionScope.customer_id}">
 			<!-- 로그인이 안되어 있으면 -->
@@ -87,9 +86,11 @@
 		<br><p/>
 
 	
+	<hr>
+		<br><p/>
+	
 	
 	<h1>소셜 Login</h1>
-	<hr>
 		<c:choose>
 			<c:when test="${sessionId != null}">
 				<h2>네이버 아이디 로그인 성공하셨습니다!!</h2>

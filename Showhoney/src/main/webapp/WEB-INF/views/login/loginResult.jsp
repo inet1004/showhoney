@@ -41,12 +41,10 @@
 		
 
 	<h1>Login Form</h1>
-	<hr>
 	<br>
 
 
 	<h1>고객로그인 페이지</h1>
-	<hr />
 		<c:choose>
 			<c:when test="${empty sessionScope.customer_id}">
 			<!-- 로그인이 안되어 있으면 -->
