@@ -91,5 +91,14 @@ a{
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        
+        
+        
+<hr>
+<br>
+<a href="snslogin.do">로그인 하러 가기 </a>
+<hr>
+
+        
     </body>
 </html>

@@ -1,5 +1,7 @@
 package co.fin.core.kjh.customer.vo;
 
+import java.util.Date;
+
 public class CustomerVo {
 	private String customer_id;
 	private String customer_pw;
@@ -77,7 +79,5 @@ public class CustomerVo {
 	public void setCustomer_profile(String customer_profile) {
 		this.customer_profile = customer_profile;
 	}
-	
-	
 	
 }
