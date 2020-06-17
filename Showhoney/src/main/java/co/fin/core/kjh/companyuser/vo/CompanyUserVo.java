@@ -1,12 +1,15 @@
 package co.fin.core.kjh.companyuser.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CompanyUserVo {
 	private String company_user_id;
 	private String company_user_pw;
 	private int company_no;
 	private String company_user_auth;
 	private String company_profile;
-	
+	private MultipartFile uploadFile;
+
 	private String company_name;
 	private String company_phone;
 	private String company_addr;
@@ -14,13 +17,13 @@ public class CompanyUserVo {
 	private String ceo_name;
 	private String ceo_phone;
 	private String business_license_number;
-	
+
 	private String company_user_id2;
 	private String company_user_pw2;
-	
+
 	private String company_user_id3;
 	private String company_user_pw3;
-	
+
 	public CompanyUserVo() {
 		// TODO Auto-generated constructor stub
 	}
@@ -63,6 +66,14 @@ public class CompanyUserVo {
 
 	public void setCompany_profile(String company_profile) {
 		this.company_profile = company_profile;
+	}
+
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 
 	public String getCompany_name() {
@@ -152,8 +163,5 @@ public class CompanyUserVo {
 	public void setCompany_user_pw3(String company_user_pw3) {
 		this.company_user_pw3 = company_user_pw3;
 	}
-	
-	
-	
 
 }

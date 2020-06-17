@@ -52,12 +52,12 @@ a{
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="info.do">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">문의사항</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="joinType.do">회원가입</a></li>
+                    	<li class="nav-item"><a class="nav-link " href="info.do">HOME</a></li>
+                        <li class="nav-item"><a class="nav-link " href="">문의사항</a></li>
+                        <li class="nav-item"><a class="nav-link " href="joinType.do">회원가입</a></li>
                     </ul>
                 </div>
             </div>
@@ -72,8 +72,8 @@ a{
 	    		<i class="fas fa-user-tie fa-7x" style="margin-left:15%"></i>
 	    	</div>
 	    	<div style="margin-top:5%">
-	    		<button type="button" class="btn btn-dark" onclick="customerJoin.do" style="margin-bottom:15%">개인 회원가입</button>
-	    		<button type="button" class="btn btn-dark" onclick="companyJoin.do" style="margin-left:13%; margin-bottom:15%">기업 회원가입</button>
+	    		<button type="button" class="btn btn-dark" onclick="location.href='customerJoin.do'" style="margin-bottom:15%">개인 회원가입</button>
+	    		<button type="button" class="btn btn-dark" onclick="location.href='companyuserJoin.do'" style="margin-left:13%; margin-bottom:15%">기업 회원가입</button>
 	    	</div>
 			</div>
 

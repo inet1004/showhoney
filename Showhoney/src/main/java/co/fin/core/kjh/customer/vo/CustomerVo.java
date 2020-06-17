@@ -1,6 +1,6 @@
 package co.fin.core.kjh.customer.vo;
 
-import java.util.Date;
+import org.springframework.web.multipart.MultipartFile;
 
 public class CustomerVo {
 	private String customer_id;
@@ -11,9 +11,18 @@ public class CustomerVo {
 	private String customer_company_name;
 	private String customer_phone;
 	private String customer_profile;
-	
+	private MultipartFile uploadFile;
+
 	public CustomerVo() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 
 	public String getCustomer_id() {
@@ -79,5 +88,5 @@ public class CustomerVo {
 	public void setCustomer_profile(String customer_profile) {
 		this.customer_profile = customer_profile;
 	}
-	
+
 }

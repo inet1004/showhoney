@@ -42,7 +42,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Tiles -->
+			<!-- Tiles -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-extras</artifactId>
@@ -53,7 +53,6 @@
 			<artifactId>tiles-servlet</artifactId>
 			<version>3.0.8</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-jsp</artifactId>
@@ -70,6 +69,14 @@
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-api</artifactId>
 			<version>3.0.8</version>
+		</dependency>
+		
+		<!-- jackson -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.11.0</version>
 		</dependency>
 
 		<!-- AspectJ -->
