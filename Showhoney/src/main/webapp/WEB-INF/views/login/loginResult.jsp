@@ -33,55 +33,11 @@
 </head>
 <body>
 
-
-
-	<center>
-	
-	
-		
+	<div align="center">
 
 	<h1>Login Form</h1>
 	<br>
 
-
-	<h1>고객로그인 페이지</h1>
-		<c:choose>
-			<c:when test="${empty sessionScope.customer_id}">
-			<!-- 로그인이 안되어 있으면 -->
-				<form id="loginFrm" name="loginFrm" action="loginCheck.do">
-					<table>
-						<tr>
-							<td>아이디</td>
-							<td><input type="text" name="customer_id" id="customer_id" placeholder="10글자" maxlength="10"></td>
-						</tr>
-						<tr>
-							<td>패스워드</td>
-							<td><input type="password" name="customer_pw" id="customer_pw" maxlength="20"></td>
-						</tr>
-						<c:if test="${msg == '실패'}">
-							<tr>
-								<td colspan=2>
-									아이디 또는 패스워드가 틀렸습니다.
-								</td>
-							</tr>
-						</c:if>
-						<tr>
-							<td colspan=2>
-								<input type="button" id="login" value="로그인" />
-							</td>
-						</tr>
-					</table>
-				</form>
-			</c:when>
-			<c:otherwise>
-				<h3>${sessionScope.customer_id}님 환영합니다.</h3>
-				<a href="logout.do">로그아웃</a>
-			</c:otherwise>
-		</c:choose>
-		
-	
-	
-	<center>
 		<c:choose>
 			<c:when test="${sessionId != null}">
 				<h2>네이버 아이디 로그인 성공하셨습니다!!</h2>
@@ -109,7 +65,8 @@
 				<br>
 			</c:otherwise>
 		</c:choose>
-	</center>
+		
+	</div>
 
 </body>
 

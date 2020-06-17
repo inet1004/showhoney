@@ -16,5 +16,20 @@
 			WHERE company_user_id = #{company_user_id} AND company_user_pw = #{company_user_pw}
 		]]>
 	</select>
+	
+	<!-- 추가 -->
+	<select id="getCustomerPw" resultType="String">
+		<![CDATA[
+			SELECT customer_pw FROM customer WHERE customer_id = #{customer_id}
+		]]>
+	</select>
+	
+	<!-- 추가 -->
+	<select id="getCompanyUserPw" resultType="String">
+		<![CDATA[
+			SELECT company_user_pw FROM company_user WHERE company_user_id = #{company_user_id}
+		]]>
+	</select>
+	
 
 </mapper>
