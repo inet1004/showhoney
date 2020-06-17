@@ -1,13 +1,7 @@
 package co.fin.core.psg.login.vo;
 
-import java.util.Date;
-
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Service;
-
-import co.fin.core.kjh.customer.vo.CustomerVo;
 
 @Service
 public interface LoginService {

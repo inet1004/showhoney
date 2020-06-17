@@ -1,14 +1,10 @@
 package co.fin.core.psg.login.serviceImpl;
 
-import java.util.Date;
-
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.fin.core.kjh.customer.vo.CustomerVo;
 import co.fin.core.psg.login.vo.LoginComVo;
 import co.fin.core.psg.login.vo.LoginService;
 import co.fin.core.psg.login.vo.LoginVo;
