@@ -9,13 +9,26 @@ where c.company_no = cu.company_no and company_user_auth = 'n'
 	</select>
 	
 	<select id="getSelect" parameterType="co.fin.core.kjh.admin.vo.AdminVo" resultType="co.fin.core.kjh.admin.vo.AdminVo">
-		
 	</select>
+	
+	<select id="getSelectExhibitionList" parameterType="co.fin.core.kjh.admin.vo.ExhibitionVo" resultType="co.fin.core.kjh.admin.vo.ExhibitionVo">
+		select exhibition_no, to_char(exhibition_start_date,'yyyy-mm-dd') as exhibition_start_date, to_char(exhibition_end_date,'yyyy-mm-dd') as exhibition_end_date, exhibition_name
+		from exhibition
+	</select>
+	
+	
 	
 	<insert id="adminInsert" parameterType="co.fin.core.kjh.admin.vo.AdminVo">
 		
 	</insert>
 	
+	<insert id="ExhibitionInsert" parameterType="co.fin.core.kjh.admin.vo.ExhibitionVo">
+		<selectKey resultType="int" keyProperty="exhibition_no" order="BEFORE">
+        	SELECT SEQ_EXHIBITION_NO.nextval FROM dual
+    	</selectKey>
+		INSERT INTO EXHIBITION 
+		VALUES(#{exhibition_no},#{exhibition_start_date},#{exhibition_end_date},#{exhibition_name})	
+	</insert>
 	
 	<update id="adminUpdate" parameterType="co.fin.core.kjh.admin.vo.AdminVo">
 		<!--  adminUpdate는 승인 거절 버튼에서 승인을 누르면 작동하는 코드입니다. 작성자: 김정현 -->
@@ -25,6 +38,12 @@ where c.company_no = cu.company_no and company_user_auth = 'n'
 	<delete id="adminDelete" parameterType="co.fin.core.kjh.admin.vo.AdminVo">
 		<!-- adminDelete는 승인 거절 버튼에서 거절을 누르면 작동하는 코드입니다. 작성자: 김정현 -->
 		delete from company_user where company_user_id = #{company_user_id} 
+		
+	</delete>
+	
+	<delete id="ExhibitionDelete" parameterType="co.fin.core.kjh.admin.vo.ExhibitionVo">
+		<!-- ExhibitionDelete는 삭제 버튼에서 거절을 누르면 작동하는 코드입니다. 작성자: 남현욱 -->
+		delete from exhibition where exhibition_no = #{exhibition_no} 
 		
 	</delete>
 	

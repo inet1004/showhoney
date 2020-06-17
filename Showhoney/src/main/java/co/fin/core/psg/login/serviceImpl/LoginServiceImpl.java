@@ -23,8 +23,9 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	LoginMapper loginMapper;
 
-	@Autowired
-	PasswordEncoder passwordEncoder;
+	/*
+	 * @Autowired PasswordEncoder passwordEncoder;
+	 */
 
 	@Override
 	public boolean loginCheck(LoginVo vo, HttpSession session) {
@@ -33,16 +34,14 @@ public class LoginServiceImpl implements LoginService {
 //		String encPassword = passwordEncoder.encode(vo.getPassword());
 //		vo.setPassword(encPassword);
 		
-		String pw = loginMapper.getCustomerPw(vo, session);
-		boolean result = passwordEncoder.matches(vo.getCustomer_pw(), pw);
-			
-//		int result = dao.loginCheck(vo);
-//		if (result == 1) {	//true 일경우 세션 등록
-		if (result) {	//true 일경우 세션 등록
-			//세션 변수 등록
-			session.setAttribute("customer_id",vo.getCustomer_id());
-			return true;
-		}
+/*
+ * String pw = loginMapper.getCustomerPw(vo, session); boolean result =
+ * passwordEncoder.matches(vo.getCustomer_pw(), pw);
+ * 
+ * // int result = dao.loginCheck(vo); // if (result == 1) { //true 일경우 세션 등록 if
+ * (result) { //true 일경우 세션 등록 //세션 변수 등록
+ * session.setAttribute("customer_id",vo.getCustomer_id()); return true; }
+ */
 		
 		return false;
 	}

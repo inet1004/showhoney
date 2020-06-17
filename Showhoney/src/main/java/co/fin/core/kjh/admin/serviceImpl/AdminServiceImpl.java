@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import co.fin.core.kjh.admin.vo.AdminService;
 import co.fin.core.kjh.admin.vo.AdminVo;
+import co.fin.core.kjh.admin.vo.ExhibitionVo;
 
 @Service("adminService")
 public class AdminServiceImpl implements AdminService {
@@ -43,5 +44,39 @@ public class AdminServiceImpl implements AdminService {
 		dao.adminDelete(vo);
 
 	}
+
+	
+
+
+	@Override
+	public ExhibitionVo getSelectExhibition(ExhibitionVo exvo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void ExhibitionInsert(ExhibitionVo exvo) {
+		dao.ExhibitionInsert(exvo);
+		
+	}
+
+	@Override
+	public void ExhibitionUpdate(ExhibitionVo exvo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ExhibitionDelete(ExhibitionVo exvo) {
+		dao.ExhibitionDelete(exvo);
+		
+	}
+
+	@Override
+	public List<ExhibitionVo> getSelectExhibitionList() {
+		// TODO Auto-generated method stub
+		return dao.getSelectExhibitionList();
+	}	
+	
 
 }
