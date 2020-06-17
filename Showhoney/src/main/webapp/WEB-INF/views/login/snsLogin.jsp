@@ -40,7 +40,7 @@
 </head>
 <body>
 
-	<div align="center">
+	<center>
 
 		<h1>고객로그인 페이지</h1>
 		<c:choose>
@@ -78,8 +78,35 @@
 			</c:otherwise>
 		</c:choose>
 
+
 		<br><p />
-		</div>
+
+		<hr>
+		
+		<br>
+		<br><p />
+
+
+		<h1>소셜 Login</h1>
+		<c:choose>
+			<c:when test="${sessionId != null}">
+				<h2>네이버 아이디 로그인 성공하셨습니다!!</h2>
+				<h3>'${sessionId}' 님 환영합니다!</h3>
+				<h3>
+					<a href="logout.do">로그아웃</a>
+				</h3>
+			</c:when>
+			<c:otherwise>
+
+				<!-- 네이버 로그인 창으로 이동 -->
+				<div id="naver_id_login" style="text-align: center">
+					<a href="${url}"> <img width="223"
+						src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png" /></a>
+				</div>
+				<br>
+			</c:otherwise>
+		</c:choose>
+	</center>
 
 </body>
 

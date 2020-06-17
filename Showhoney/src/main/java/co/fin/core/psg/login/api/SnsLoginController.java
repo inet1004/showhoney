@@ -37,7 +37,7 @@ public class SnsLoginController {
 		System.out.println("네이버:" + naverAuthUrl);
 		// 네이버
 		model.addAttribute("url", naverAuthUrl);
-		return "/login/login";
+		return "/login/snsLogin";
 	}
 
 	// 네이버 로그인 성공시 callback호출 메소드
