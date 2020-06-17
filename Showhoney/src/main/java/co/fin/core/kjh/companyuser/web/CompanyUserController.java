@@ -57,7 +57,7 @@ public class CompanyUserController {
 	         vo.setCompany_profile("");
 	      }
 	      
-	       companyUserService.companyUserInsert(vo);
+	       companyUserService.companyInsert(vo);
 	       mav.setViewName("no/main/info");
 	       
 	      return mav;
