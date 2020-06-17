@@ -13,9 +13,9 @@ public interface LoginMapper {
 	
 	
 	//고객 로그인 pw 값가져오기(추가)
-	public String getCustomerPw(LoginVo vo, HttpSession session);
+	public String getCustomerPw(LoginVo vo);
 	//기업 로그인 pw 값가져오기(추가)
-	public String getCompanyUserPw(LoginComVo cvo, HttpSession session);
+	public String getCompanyUserPw(LoginComVo cvo);
 	
 	
 }
