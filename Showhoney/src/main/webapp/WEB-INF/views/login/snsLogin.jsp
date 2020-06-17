@@ -42,6 +42,9 @@
 
 	<center>
 
+		<br> <br>
+		<p />
+
 		<h1>고객로그인 페이지</h1>
 		<c:choose>
 			<c:when test="${empty sessionScope.customer_id}">
@@ -79,12 +82,13 @@
 		</c:choose>
 
 
-		<br><p />
+		<br>
+		<p />
 
 		<hr>
-		
-		<br>
-		<br><p />
+
+		<br> <br>
+		<p />
 
 
 		<h1>소셜 Login</h1>
