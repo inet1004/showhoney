@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.servlet.ModelAndView;
 
 import co.fin.core.kjh.company.vo.CompanyService;
@@ -28,17 +29,16 @@ public class CompanyController {
 	@RequestMapping("/companyInsertForm.do")
 	
 	public ModelAndView companyInsertForm(ModelAndView mav) {
-		mav.setViewName("no/company/companyInsertForm");
+		mav.setViewName("/company/companyInsert");
 		return mav;
 	}
 	
 	@RequestMapping("/companyInsert.do")
 	
 	public ModelAndView companyInsert(CompanyVo vo, ModelAndView mav) {
-		
 		companyService.companyInsert(vo);
 		
-		mav.setViewName("/main/info");
+		mav.setViewName("/main/main");
 		return mav;
 	}
 	

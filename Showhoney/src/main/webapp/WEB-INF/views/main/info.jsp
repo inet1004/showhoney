@@ -41,14 +41,13 @@ a{
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">SHOWHONEY</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="doing.do">공사중</a></li>
-                        <li class="nav-item"><a class="nav-link" href="info.do">문의사항</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link" href="joinType.do">회원가입</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="doing.do">공사중</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">문의사항</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="joinType.do">회원가입</a></li>
                     </ul>
                 </div>
             </div>
@@ -93,5 +92,14 @@ a{
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        
+        
+        
+<hr>
+<br>
+<a href="snslogin.do">로그인 하러 가기 </a>
+<hr>
+
+        
     </body>
 </html>

@@ -45,6 +45,11 @@
 	</beans:bean>
 
 	<context:component-scan base-package="co.fin.core" />
+	
+	<!-- 로그인에서 추가 -->
+	<!-- NaverLoginBO Class에 대한 Bean설정 추가 -->
+	<beans:bean id="naverLoginBO" class="co.fin.core.psg.login.api.NaverLoginBO" />
+	
 
 
 

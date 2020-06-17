@@ -78,6 +78,43 @@ a{
 	display: none;
 }
 </style>
+<script>
+$(function(){
+	$('#company_user_id, #company_user_id2, #company_user_id3').blur(function() {
+						var compny_user_id = $(this).val();
+						var check = $(this).closest(".row").next().find("div")
+						$.ajax({
+							url : '${pageContext.request.contextPath}/companyUser/idCheck.do?company_user_id='
+									+ compny_user_id,
+							type : 'get',
+							success : function(data) {
+								console.log("1 = 중복o / 0 = 중복x : " + data);
+
+								if (data == 1) {
+									check.text("사용중인 아이디입니다 :(");
+									check.css("color", "red");
+
+								} else if(compny_user_id == "") {
+									check.text('아이디를 입력해주세요 :)');
+									check.css('color', 'red');
+									
+								} else {
+									check.text("멋진 아이디네요! :)");
+									check.css("color", "green");
+								
+								} 
+
+							},
+							error : function() {
+								console.log("실패");
+
+							}
+						});
+					});
+	
+				});
+</script>
+
 </head>
 <body id="page-top">
         <!-- Navigation-->
@@ -113,10 +150,10 @@ a{
 				</div>
 				
 			<div class="row" style="margin-left:30%; margin-top:10%">
-				<div class="col-md-4">
+				<div class="col-md-pull-3">
 					<label for="company_name">기업명</label>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6" style="margin-left:5%;">
 					 <input class="w3-input w3-border w3-round-large" id="company_name" name="company_name" type="text">
 				</div>
 			</div>
@@ -125,7 +162,7 @@ a{
 				<div class="col-md-pull-3">
 					<label for="business_license_number">사업자<br>등록번호</label>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6" style="margin-left:3%;">
 					 <input class="w3-input w3-border w3-round-large" name="business_license_number" id="business_license_number" type="text" style=" height: 100%;">
 				</div>
 			</div>
@@ -150,9 +187,9 @@ a{
 			
 			<div class="row" style="margin-left:30%; margin-top:2%">
 				<div class="col-md-pull-3">
-					<label for="ceo_phone">CEO 전화번호</label>
+					<label for="ceo_phone">CEO Phone</label>
 				</div>
-				<div class="col-md-6" style="margin-left:4%;">
+				<div class="col-md-6" style="margin-left:%;">
 					 <input class="w3-input w3-border w3-round-large" name="ceo_phone" id="ceo_phone" type="text">
 				</div>
 			</div>
@@ -178,7 +215,7 @@ a{
 		<div class="row">
 			<div class="col text-center" style="margin-top:10%; margin-bottom: 35%" >
 					<button class="btn btn-outline-danger button" type="reset">다시작성</button>
-					<button class="btn btn-outline-info button next" id="next" type="button">다 음</button>
+					<button class="btn btn-outline-info button p" id="next" type="button">다 음</button>
 				</div>
 			</div>		
 	    </div>
@@ -211,10 +248,12 @@ a{
 				<div class="col-md-5">
 					 <input class="w3-input w3-border w3-round-large" id="company_user_id" name="company_user_id" type="text">
 				</div>
-				<div class="col-md-2">
-					<button type="button" class="btn btn-outline-dark">중복확인</button>
+				</div>
+				
+				<div class="row text-center">
+					<div class="check_font" style="margin-left:40%" id="id_check"></div>
 				</div>		
-			</div>
+			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
 					<label for="company_user_pw">기업PW</label>
@@ -230,6 +269,7 @@ a{
 				</div>
 				<div class="col-md-5">
 					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck" name="company_user_pwck" type="password">
+					  <small id="pwCheckHelp" class="form-text" style="color:red; display: none">비밀번호가 일치하지 않아요 :(</small>
 				</div>
 			</div>
 			
@@ -250,11 +290,13 @@ a{
 				</div>
 				<div class="col-md-5">
 					 <input class="w3-input w3-border w3-round-large" id="company_user_id2" name="company_user_id2" type="text">
-				</div>
-				<div class="col-md-2">
-					<button type="button" class="btn btn-outline-dark">중복확인</button>
-				</div>		
+				</div>	
 			</div>
+			
+			<div class="row text-center">
+				<div class="check_font" style="margin-left:40%" id="id_check"></div>
+			</div>
+				
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
 					<label for="company_user_pw2">기업PW</label>
@@ -280,10 +322,12 @@ a{
 				<div class="col-md-5">
 					 <input class="w3-input w3-border w3-round-large" id="company_user_id3" name="company_user_id3" type="text">
 				</div>
-				<div class="col-md-2">
-					<button type="button" class="btn btn-outline-dark">중복확인</button>
-				</div>		
 			</div>
+			
+			<div class="row text-center">
+					<div class="check_font" style="margin-left:40%" id="id_check"></div>
+				</div>
+			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
 					<label for="company_user_pw3">기업PW</label>

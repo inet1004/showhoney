@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.fin.core.kjh.customer.vo.CustomerService;
 import co.fin.core.kjh.customer.vo.CustomerVo;
+import co.fin.core.kjh.customer.vo.CustomerFileRenamePolicy;
 
 @Controller
 public class CustomerController {
@@ -28,31 +31,41 @@ public class CustomerController {
 		return mav;
 	}
 	
-	@RequestMapping("/customerJoin.do")
+@RequestMapping("/customerJoin.do")
 	
 	public ModelAndView customerJoin(ModelAndView mav) {
 		mav.setViewName("no/customer/customerJoin");
 		return mav;
 	}
-	
+		
+
 	@RequestMapping("/customerInsert.do")
+	public ModelAndView customerInsert(HttpServletRequest request, CustomerVo vo, ModelAndView mav) throws IOException {      
+	      
+	      MultipartFile uploadFile = vo.getUploadFile();
+	      String path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/customerProfile");
+	      System.out.println(path);
+	      
+	      if(!uploadFile.isEmpty()) {
+	         String fileName = uploadFile.getOriginalFilename();
+	         File file = new File(path, fileName); 
+	         file = new CustomerFileRenamePolicy().rename(file);
+	         uploadFile.transferTo(file);
+	         vo.setCustomer_profile(file.getName());
+	      }else {
+	         vo.setCustomer_profile("");
+	      }
+	      
+	       customerService.customerInsert(vo);
+	       mav.setViewName("no/main/info");
+	       
+	      return mav;
+	   }
 	
-	public ModelAndView customerInsert(HttpServletRequest request, CustomerVo vo, ModelAndView mav) throws IOException { 
-		
-		String path = request.getSession().getServletContext().getRealPath("/resources/FileUpload");
-		
-		System.out.println("@@@@@@@@@@@@@@@@@@" + path);
-		MultipartFile uploadFile = vo.getUploadFile();
-		if(!uploadFile.isEmpty()) {
-			String fileName = uploadFile.getOriginalFilename( );
-			uploadFile.transferTo(new File( path, fileName));
-			vo.setCustomer_profile(fileName);
-		}
-		customerService.customerInsert(vo);
-		
-		mav.setViewName("no/main/info");
-		return mav;
+	@RequestMapping(value="/customer/idCheck.do", method = RequestMethod.GET)
+	@ResponseBody
+	public int idCheck(CustomerVo vo) {
+		CustomerVo customer = customerService.getSelect(vo);
+		return customer == null ? 0 : 1 ;
 	}
-	
-	
 }

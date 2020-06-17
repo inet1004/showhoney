@@ -8,5 +8,6 @@
 </head>
 <body>
 <jsp:forward page="info.do"></jsp:forward>
+
 </body>
 </html>

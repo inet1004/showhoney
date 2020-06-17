@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 
 </head>
@@ -33,9 +32,9 @@ df
 <a href="adminManage.do">관리자 페이지</a><br/>
 <a href="adminManageList.do">기업관리</a><br/>
 <a href="adminPresentation.do">발표회관리</a><br/>
-<a href="adminExhibitionManage.do">박람회관리</a><br/>
-<a href="ExhibitionInsertForm.do">박람회등록</a><br/>
 </body>
+
+
 
 <br><p/>
 <br><p/>
@@ -52,6 +51,9 @@ df
 	</form>
 <% } else { %>
 <a href="login.do">고객 로그인</a> <a href="loginCom.do">기업 로그인</a>
-<% } %>	
+<% } %>
+	
 </body>
+
+
 </html>

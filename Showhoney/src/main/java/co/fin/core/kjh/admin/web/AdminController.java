@@ -9,13 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import co.fin.core.kjh.admin.vo.AdminService;
 import co.fin.core.kjh.admin.vo.AdminVo;
-import co.fin.core.kjh.admin.vo.ExhibitionVo;
 
 @Controller
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
-	
+
 	@RequestMapping("/adminManage.do")
 
 	public ModelAndView adminManage(ModelAndView mav) {
@@ -52,37 +51,5 @@ public class AdminController {
 		mav.setViewName("/main/main");
 		return mav;
 	}
-	
-	@RequestMapping("/ExhibitionDelete.do")
-	public ModelAndView ExhibitionDelete(ExhibitionVo exvo, ModelAndView mav) {
-		adminService.ExhibitionDelete(exvo);
-		mav.setViewName("/main/main");
-		return mav;
-	}
-	
-	
-	@RequestMapping("/adminExhibitionManage.do")
-	public ModelAndView adminExhibitionManage(ModelAndView mav) {
-		List<ExhibitionVo> elist = adminService.getSelectExhibitionList();
-		mav.addObject("elist", elist);
-		mav.setViewName("/admin/adminExhibitionManage");
-		return mav;
-	}	
-	
-	
-	@RequestMapping("/ExhibitionInsert.do")
-	public ModelAndView ExhibitionInsert(ExhibitionVo exvo, ModelAndView mav) {
-		adminService.ExhibitionInsert(exvo);
-		
-		mav.setViewName("redirect:main.do");
-		return mav;
-	}
-	
-	@RequestMapping("/ExhibitionInsertForm.do")
-	public ModelAndView ExhibitionInsertForm(ExhibitionVo exvo, ModelAndView mav) {
-		mav.setViewName("/exhibition/exhibitionInsert");
-		return mav;
-	}
-	
 	
 }

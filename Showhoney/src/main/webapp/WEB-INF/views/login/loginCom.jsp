@@ -13,8 +13,12 @@
 	<script src="resources/jQuery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
+
+	<div align="center">
+	<br><p/>
+
 	<h1>기업로그인 페이지</h1>
-	<hr />
+
 		<c:choose>
 			<c:when test="${empty sessionScope.company_user_id}">
 			<!-- 로그인이 안되어 있으면 -->
@@ -35,8 +39,9 @@
 								</td>
 							</tr>
 						</c:if>
+						<tr height="30"></tr>
 						<tr>
-							<td colspan=2>
+							<td colspan=2 align="center">
 								<input type="button" id="loginCom" value="로그인" />
 							</td>
 						</tr>
@@ -48,6 +53,9 @@
 				<a href="logout.do">로그아웃</a>
 			</c:otherwise>
 		</c:choose>
+		
+	</div>	
+		
 </body>
 <script type="text/javascript">
 	$(document).ready(function(e){
@@ -70,4 +78,5 @@
 		
 	});
 </script>
+
 </html>

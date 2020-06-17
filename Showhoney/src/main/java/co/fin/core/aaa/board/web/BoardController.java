@@ -21,6 +21,11 @@ public class BoardController {
 		return "no/main/info";
 	}
 	
+	@RequestMapping("/bothLogin.do")
+	public String bothLogin(Model model) {
+		return "no/login/bothLogin";
+	}
+	
 	@RequestMapping("/joinType.do")
 	public String joinType(Model model) {
 		return "no/join/joinType";
@@ -28,8 +33,15 @@ public class BoardController {
 	
 	@RequestMapping("/doing.do")
 	public String doing(Model model) {
-		return "/main/main";
+		return "com/main/main";
 	}
+	
+	@RequestMapping("/companyBooth.do")
+	public String companyBooth(Model model) {
+		return "com/companyuser/companyBooth";
+	}
+	
+	
 	
 	@RequestMapping("/boardList.do")
 

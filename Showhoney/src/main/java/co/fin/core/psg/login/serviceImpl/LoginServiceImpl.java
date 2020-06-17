@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import co.fin.core.psg.login.vo.LoginComVo;
@@ -16,10 +17,28 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	LoginMapper dao;
 
+	@Autowired
+	LoginService loginService;
+	
+	@Autowired
+	LoginMapper loginMapper;
+
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
 	@Override
 	public boolean loginCheck(LoginVo vo, HttpSession session) {
-		int result = dao.loginCheck(vo);
-		if (result == 1) {	//true 일경우 세션 등록
+
+//      public void regist(UserVO vo) throws Exception{
+//		String encPassword = passwordEncoder.encode(vo.getPassword());
+//		vo.setPassword(encPassword);
+		
+		String pw = loginMapper.getCustomerPw(vo, session);
+		boolean result = passwordEncoder.matches(vo.getCustomer_pw(), pw);
+			
+//		int result = dao.loginCheck(vo);
+//		if (result == 1) {	//true 일경우 세션 등록
+		if (result) {	//true 일경우 세션 등록
 			//세션 변수 등록
 			session.setAttribute("customer_id",vo.getCustomer_id());
 			return true;
@@ -48,5 +67,7 @@ public class LoginServiceImpl implements LoginService {
 		session.invalidate();
 
 	}
+
+
 
 }

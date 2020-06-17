@@ -5,7 +5,6 @@ import java.util.List;
 import org.mybatis.spring.annotation.MapperScan;
 
 import co.fin.core.kjh.admin.vo.AdminVo;
-import co.fin.core.kjh.admin.vo.ExhibitionVo;
 
 @MapperScan("adminMap")
 public interface AdminMapper {
@@ -15,10 +14,4 @@ public interface AdminMapper {
 	void adminUpdate(AdminVo vo);
 	void adminDelete(AdminVo vo);
 
-	List<ExhibitionVo> getSelectExhibitionList();
-	AdminVo getSelectExhibition(ExhibitionVo exvo);
-	void ExhibitionInsert(ExhibitionVo exvo);
-	void ExhibitionUpdate(ExhibitionVo exvo);
-	void ExhibitionDelete(ExhibitionVo exvo);	
 }
-
