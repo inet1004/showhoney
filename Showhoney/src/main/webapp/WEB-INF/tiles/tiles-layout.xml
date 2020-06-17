@@ -24,11 +24,14 @@
       <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
     </definition>
     
-    <definition name="/*/*" template="/WEB-INF/views/layout/layout.jsp">      
+	<definition name="/*/*" extends="layout">      
       <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
     </definition>
 	
-	
+	<!--  <definition name="/*/*" template="/WEB-INF/views/layout/layout.jsp">      
+      <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+    </definition>
+	-->
 	
 	
     <!--   <definition name="admin/*/*" template="/WEB-INF/views/layout/layout.jsp">

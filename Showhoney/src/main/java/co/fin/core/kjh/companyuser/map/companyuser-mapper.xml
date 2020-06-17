@@ -4,7 +4,7 @@
 	<select id="getSelectList" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		SELECT * FROM COMPANY_USER
 	</select>
-	<select id="getSelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+ 	<select id="getSelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		SELECT * FROM COMPANY_USER WHERE 
 		 <choose>
     <when test="company_user_id != null and company_user_id != ''">
@@ -16,6 +16,7 @@
   </choose>
 	
 	</select>
+	
 	
 	<insert id="companyInsert" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		<selectKey resultType="int" keyProperty="company_no" order="BEFORE">

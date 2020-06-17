@@ -31,21 +31,93 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script>
-	$(function(){
-		$('#next').click(function(){
-			$('.content1').hide()
-			$('.content2').show()
-		})
-
-	})
+	function check(re, what, message) {
+		   if(re.test(what.value)) {
+		       return true;
+		   }
+		   alert(message);
+		   what.value = "";
+		   what.focus();
+		   //return false;
+	}
+	
 	function back1(){
 		history.go(-1)
 	}
 	
 	function back2() {
-	$('.content2').hide()
-	$('.content1').show()
+		$('.content2').hide()
+		$('.content1').show()
 	}
+	
+	$(function(){
+		
+		$('#next').click(function(){
+			 var re2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; // 이메일이 적합한지 검사할 정규식
+			 
+			 var email = document.getElementById("company_email");
+		       
+				if(!check(re2, email, "적합하지 않은 이메일 형식입니다.")) {
+		           return false;
+		       }
+				 
+			$('.content1').hide()
+			$('.content2').show()
+		})
+
+		
+		$('#company_user_id, #company_user_id2, #company_user_id3').change(function() {
+			  var re = /^[a-zA-Z0-9]{4,12}$/ // 아이디와 패스워드가 적합한지 검사할 정규식
+				 
+			  function check(re, what, message) {
+				   if(re.test(what.value)) {
+				       return true;
+				   }
+				   alert(message);
+				   what.value = "";
+				   what.focus();
+				   //return false;
+			}
+					if(!check(re,this,"아이디는 4~12자의 영문 대소문자와 숫자로만 입력")) {
+						    	 return false;
+					}
+							var compny_user_id = $(this).val();
+							var check = $(this).closest(".row").next().find("div")
+							$.ajax({
+								url : '${pageContext.request.contextPath}/companyUser/idCheck.do?company_user_id='
+										+ compny_user_id,
+								type : 'get',
+								success : function(data) {
+									console.log("1 = 중복o / 0 = 중복x : " + data);
+
+									if (data == 1) {
+										check.text("사용중인 아이디입니다 :(");
+										check.css("color", "red");
+
+									} else if(compny_user_id == "") {
+										check.text('아이디를 입력해주세요 :)');
+										check.css('color', 'red');
+										
+									} else {
+										check.text("멋진 아이디네요! :)");
+										check.css("color", "green");
+									
+									} 
+
+								},
+								error : function() {
+									console.log("실패");
+
+								}
+							});
+						});
+		
+	});
+					 
+	
+ 
+					 
+
 </script>
 <style>
 body, h1 {
@@ -79,40 +151,9 @@ a{
 }
 </style>
 <script>
-$(function(){
-	$('#company_user_id, #company_user_id2, #company_user_id3').blur(function() {
-						var compny_user_id = $(this).val();
-						var check = $(this).closest(".row").next().find("div")
-						$.ajax({
-							url : '${pageContext.request.contextPath}/companyUser/idCheck.do?company_user_id='
-									+ compny_user_id,
-							type : 'get',
-							success : function(data) {
-								console.log("1 = 중복o / 0 = 중복x : " + data);
 
-								if (data == 1) {
-									check.text("사용중인 아이디입니다 :(");
-									check.css("color", "red");
 
-								} else if(compny_user_id == "") {
-									check.text('아이디를 입력해주세요 :)');
-									check.css('color', 'red');
-									
-								} else {
-									check.text("멋진 아이디네요! :)");
-									check.css("color", "green");
-								
-								} 
 
-							},
-							error : function() {
-								console.log("실패");
-
-							}
-						});
-					});
-	
-				});
 </script>
 
 </head>
@@ -120,7 +161,7 @@ $(function(){
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand js-scroll-trigger" href="info.do">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     	<li class="nav-item"><a class="nav-link js-scroll-trigger" href="info.do">HOME</a></li>
@@ -136,7 +177,7 @@ $(function(){
 <header class="d-flex">
  
   	<div class="container text-center my-auto">
-  <form id="frm" name="frm" method="post" action="companyUserInsert.do" enctype="multipart/form-data">
+  <form id="frm" name="frm" method="post" action="companyUserInsert.do" enctype="multipart/form-data" onsubmit="return validate()">
 
 			<div class="frm content1" >
 			
@@ -154,7 +195,7 @@ $(function(){
 					<label for="company_name">기업명</label>
 				</div>
 				<div class="col-md-6" style="margin-left:5%;">
-					 <input class="w3-input w3-border w3-round-large" id="company_name" name="company_name" type="text">
+					 <input class="w3-input w3-border w3-round-large" id="company_name" name="company_name" type="text" placeholder="기업명" required>
 				</div>
 			</div>
 			
@@ -163,7 +204,7 @@ $(function(){
 					<label for="business_license_number">사업자<br>등록번호</label>
 				</div>
 				<div class="col-md-6" style="margin-left:3%;">
-					 <input class="w3-input w3-border w3-round-large" name="business_license_number" id="business_license_number" type="text" style=" height: 100%;">
+					 <input class="w3-input w3-border w3-round-large" name="business_license_number" id="business_license_number" type="text" style=" height: 100%;" placeholder="사업자 등록번호" required>
 				</div>
 			</div>
 			
@@ -172,7 +213,7 @@ $(function(){
 					<label for="company_phone">기업 전화번호</label>
 				</div>
 				<div class="col-md-6">
-					 <input class="w3-input w3-border w3-round-large" name="company_phone" id="company_phone" type="text">
+					 <input class="w3-input w3-border w3-round-large" name="company_phone" id="company_phone" type="text" placeholder="기업전화번호" required>
 				</div>
 			</div>
 			
@@ -181,7 +222,7 @@ $(function(){
 					<label for="ceo_name">CEO이름</label>
 				</div>
 				<div class="col-md-6" style="margin-left:3%;">
-					 <input class="w3-input w3-border w3-round-large" name="ceo_name" id="ceo_name" type="text">
+					 <input class="w3-input w3-border w3-round-large" name="ceo_name" id="ceo_name" type="text" placeholder="대표자 이름" required>
 				</div>
 			</div>
 			
@@ -190,7 +231,7 @@ $(function(){
 					<label for="ceo_phone">CEO Phone</label>
 				</div>
 				<div class="col-md-6" style="margin-left:%;">
-					 <input class="w3-input w3-border w3-round-large" name="ceo_phone" id="ceo_phone" type="text">
+					 <input class="w3-input w3-border w3-round-large" name="ceo_phone" id="ceo_phone" type="text" placeholder="대표자 전화번호" required>
 				</div>
 			</div>
 			
@@ -199,7 +240,7 @@ $(function(){
 					<label for="company_addr">기업주소</label>
 				</div>
 				<div class="col-md-6">
-					 <input class="w3-input w3-border w3-round-large" name="company_addr" id="company_addr" type="text">
+					 <input class="w3-input w3-border w3-round-large" name="company_addr" id="company_addr" type="text" placeholder="기업 주소" required>
 				</div>
 			</div>
 			
@@ -208,7 +249,7 @@ $(function(){
 					<label for="company_email">이메일</label>
 				</div>
 				<div class="col-md-6" style="margin-left:3%;">
-					 <input class="w3-input w3-border w3-round-large" name="company_email" id="company_email" type="text">
+					 <input class="w3-input w3-border w3-round-large" name="company_email" id="company_email" type="text" placeholder="기업 E-mail" required>
 				</div>
 			</div>
 				
@@ -241,56 +282,13 @@ $(function(){
 				</div>	
 			</div>
 			
-				<div class="row text-center" style="margin-left:20%; margin-top:10%">
+			<div class="row text-center" style="margin-left:20%; margin-top:10%">
 				<div class="col-md-2">
 					<label for="company_user_id">기업ID</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_id" name="company_user_id" type="text">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_id" name="company_user_id" type="text" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
 				</div>
-				</div>
-				
-				<div class="row text-center">
-					<div class="check_font" style="margin-left:40%" id="id_check"></div>
-				</div>		
-			
-			<div class="row text-center" style="margin-left:20%; margin-top:2%">
-				<div class="col-md-2">
-					<label for="company_user_pw">기업PW</label>
-				</div>
-				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pw" name="company_user_pw" type="password">
-				</div>
-			</div>
-			
-			<div class="row text-center" style="margin-left:20%; margin-top:2%">
-				<div class="col-md-2">
-					<label for="company_user_pwck">PW 확인</label>
-				</div>
-				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck" name="company_user_pwck" type="password">
-					  <small id="pwCheckHelp" class="form-text" style="color:red; display: none">비밀번호가 일치하지 않아요 :(</small>
-				</div>
-			</div>
-			
-	  <!-- <div class="row text-center" style="margin-left:20%; margin-top:2%">
-				<div class="col-md-2">
-					<label for="companyname">이 름</label>
-				</div>
-				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="companyname" type="text">
-				</div>
-			</div>
-			
-		 -->
-			
-			<div class="row text-center" style="margin-left:20%; margin-top:5%">
-				<div class="col-md-2">
-					<label for="company_user_id2">기업ID</label>
-				</div>
-				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_id2" name="company_user_id2" type="text">
-				</div>	
 			</div>
 			
 			<div class="row text-center">
@@ -299,10 +297,42 @@ $(function(){
 				
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
+					<label for="company_user_pw">기업PW</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pw" name="company_user_pw" type="password" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
+				</div>
+			</div>
+			
+			<div class="row text-center" style="margin-left:20%; margin-top:2%">
+				<div class="col-md-2">
+					<label for="company_user_pwck">PW 확인</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck" name="company_user_pwck" type="password" placeholder=" 비밀번호를 확인하세요" required>
+				</div>
+			</div>
+			
+			<div class="row text-center" style="margin-left:20%; margin-top:5%">
+				<div class="col-md-2">
+					<label for="company_user_id2">기업ID</label>
+				</div>
+				<div class="col-md-5">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_id2" name="company_user_id2" type="text" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
+				</div>	
+			</div>
+			
+			
+			<div class="row text-center">
+				<div class="check_font" style="margin-left:40%" id="id_check"></div>
+			</div>
+			
+			<div class="row text-center" style="margin-left:20%; margin-top:2%">
+				<div class="col-md-2">
 					<label for="company_user_pw2">기업PW</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pw2" name="company_user_pw2" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pw2" name="company_user_pw2" type="password" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
 				</div>
 			</div>
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
@@ -310,7 +340,7 @@ $(function(){
 					<label for="company_user_pwck2">PW 확인</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck2" name="company_user_pwck2" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck2" name="company_user_pwck2" type="password" placeholder="비밀번호를 확인하세요" required>
 				</div>
 			</div>
 			
@@ -320,20 +350,20 @@ $(function(){
 					<label for="company_user_id3">기업ID</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_id3" name="company_user_id3" type="text">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_id3" name="company_user_id3" type="text" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
 				</div>
 			</div>
 			
 			<div class="row text-center">
-					<div class="check_font" style="margin-left:40%" id="id_check"></div>
-				</div>
+				<div class="check_font" style="margin-left:40%" id="id_check"></div>
+			</div>
 			
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
 				<div class="col-md-2">
 					<label for="company_user_pw3">기업PW</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pw3" name="company_user_pw3" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pw3" name="company_user_pw3" type="password" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
 				</div>
 			</div>
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
@@ -341,7 +371,7 @@ $(function(){
 					<label for="company_user_pwck3">PW 확인</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck3" name="company_user_pwck3" type="password">
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck3" name="company_user_pwck3" type="password" placeholder="비밀번호를 확인하세요" required>
 				</div>
 			</div>
 
