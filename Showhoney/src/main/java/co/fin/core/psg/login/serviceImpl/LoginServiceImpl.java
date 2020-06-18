@@ -29,8 +29,8 @@ public class LoginServiceImpl implements LoginService {
 	public boolean loginCheck(LoginVo vo, HttpSession session) {
 
 		// public void regist(UserVO vo) throws Exception{
-		// String encPassword = passwordEncoder.encode(vo.getPassword());
-		// vo.setPassword(encPassword);
+		// String encPassword = passwordEncoder.encode(vo.getCustomer_pw());
+		// vo.setCustomer_pw(encPassword);
 
 		String pw = loginMapper.getCustomerPw(vo);  //session은 넣을 필요 없음
 		boolean result = passwordEncoder.matches(vo.getCustomer_pw(), pw);
