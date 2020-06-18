@@ -59,8 +59,36 @@ a {
 }
 </style>
 <script>
+function check(re, what, message) {
+	   if(re.test(what.value)) {
+	       return true;
+	   }
+	   alert(message);
+	   what.value = "";
+	   what.focus();
+	   //return false;
+}
+
 $(function(){
-	$('#customer_id').blur(function() {
+	function check(re, what, message) {
+		   if(re.test(what.value)) {
+		       return true;
+		   }
+		   alert(message);
+		   what.value = "";
+		   what.focus();
+		   //return false;
+		}	
+			
+	$('#customer_id').change(function() {
+		
+					var re = /^[a-zA-Z0-9]{4,12}$/ 
+					var id =  document.getElementById("customer_id");
+					
+						if(!check(re,id,"아이디는 4~12자의 영문 대소문자와 숫자로만 입력")) {
+					    	 return false;
+					       }
+					
 						var customer_id = $('#customer_id').val();
 						$.ajax({
 							url : '${pageContext.request.contextPath}/customer/idCheck.do?customer_id='
@@ -72,17 +100,17 @@ $(function(){
 								if (data == 1) {
 									$("#id_check").text("사용중인 아이디입니다 :(");
 									$("#id_check").css("color", "red");
-									$("#reg_submit").attr("disabled", true);
+									//$("#reg_submit").attr("disabled", true);
 
 								} else if(customer_id == "") {
 									$('#id_check').text('아이디를 입력해주세요 :)');
 									$('#id_check').css('color', 'red');
-									$("#reg_submit").attr("disabled", true);
+									
 									
 								} else {
 									$("#id_check").text("멋진 아이디네요! :)");
 									$("#id_check").css("color", "green");
-									$("#reg_submit").attr("disabled", false);
+									
 								
 								} 
 
@@ -94,6 +122,52 @@ $(function(){
 						})
 					})
 })
+
+//고객 비밀번호 체크
+	function pwtypecheck() {
+		var pw = $("#customer_pw").val();
+		var pwtype = /^[a-zA-Z0-9]{6,12}$/;
+		
+		if(pw == '' || !pwtype.test(pw)) {
+			$('#pwblur').html("6~20자 영문자 또는 숫자 입력.");
+			$('#pwblur').css("color", "red");
+		} else {
+			$('#pwblur').html("좋아요 :)");
+			$('#pwblur').css("color", "green");
+		}
+			
+	}
+	
+	function pwcheck(){
+		var pwck = $("#customer_pw").val();
+		var pw = $("#customer_pwcheck").val();
+		
+		if(pw != '' && pwck == pw){
+			$('#pwblurck').html("비밀번호 일치");
+			$('#pwblurck').css("color", "green");
+		}else{
+			$('#pwblurck').html("비밀번호 불일치");
+			$('#pwblurck').css("color", "red");
+		}
+	}
+	
+	//고객 이메일 체크
+	function emailcheck(){
+	var email = $("#customer_email").val();
+	var emailRule = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+	
+	if(email != ""){
+		if(!emailRule.test(email)){
+			$("#emailblur").html("ex) abcd1234@naver.com")
+			$('#emailblur').css("color", "red");
+			return false;
+		}else{
+			$("#emailblur").html("사용 가능한 이메일입니다.")
+			$('#emailblur').css("color", "green");
+			return true;
+		}
+	}
+}
 </script>
 </head>
 <body id="page-top">
@@ -152,18 +226,18 @@ $(function(){
 							<label for="customer_pw">PW</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_pw" name="customer_pw" type="password" placeholder="Password" required>
+							<input class="w3-input w3-border w3-round-large" id="customer_pw" name="customer_pw" type="password" placeholder=" 비밀번호" required required onblur="pwtypecheck()">
+							<span class="help-block" id="pwblur"></span> 
 						</div>
 					</div>
 
-					<div class="row text-center"
-						style="margin-left: 20%; margin-top: 2%">
+					<div class="row text-center" style="margin-left: 20%; margin-top: 2%">
 						<div class="col-md-2">
 							<label for="customer_pwcheck">PW확인</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large"
-								id="customer_pwcheck" name="customer_pwcheck" type="password" placeholder="PasswordCheck" required>
+							<input class="w3-input w3-border w3-round-large" id="customer_pwcheck" name="customer_pwcheck" type="password" placeholder="비밀번호를 확인하세요" required onblur="pwcheck()">
+							<span class="help-block" id="pwblurck"></span>
 						</div>
 					</div>
 
@@ -183,7 +257,8 @@ $(function(){
 							<label for="customer_email">이메일</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_email" name="customer_email" type="text" placeholder="E-mail">
+							<input class="w3-input w3-border w3-round-large" id="customer_email" name="customer_email" type="text" placeholder="E-mail" onblur="emailcheck()">
+							<span class="help-block" id="emailblur"></span>
 						</div>
 					</div>
 

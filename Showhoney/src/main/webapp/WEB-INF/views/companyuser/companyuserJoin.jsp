@@ -78,9 +78,9 @@
 				   what.focus();
 				   //return false;
 			}
-					if(!check(re,this,"아이디는 4~12자의 영문 대소문자와 숫자로만 입력")) {
+							if(!check(re,this,"아이디는 4~12자의 영문 대소문자와 숫자로만 입력")) {
 						    	 return false;
-					}
+						       }
 							var compny_user_id = $(this).val();
 							var check = $(this).closest(".row").next().find("div")
 							$.ajax({
@@ -113,9 +113,95 @@
 						});
 		
 	});
-					 
+	//기업 ID 1
+	function pwtypecheck() {
+		var pw = $("#company_user_pw").val();
+		var pwtype = /^[a-zA-Z0-9]{6,12}$/;
+		
+		if(pw == '' || !pwtype.test(pw)) {
+			$('#pwblur').html("6~20자 영문자 또는 숫자 입력.");
+			$('#pwblur').css("color", "red");
+		} else {
+			$('#pwblur').html("좋아요 :)");
+			$('#pwblur').css("color", "green");
+		}
+			
+	}
 	
- 
+	function pwcheck(){
+		var pwck = $("#company_user_pwck").val();
+		var pw = $("#company_user_pw").val();
+		
+		if(pw != '' && pwck == pw){
+			$('#pwblurck').html("비밀번호 일치");
+			$('#pwblurck').css("color", "green");
+		}else{
+			$('#pwblurck').html("비밀번호 불일치");
+			$('#pwblurck').css("color", "red");
+		}
+	}
+	
+	//기업 ID 2
+	function pwtypecheck2() {
+		var pw2 = $("#company_user_pw2").val();
+		var pwtype = /^[a-zA-Z0-9]{6,12}$/;
+		
+		if(pw2 == '' || !pwtype.test(pw2)) {
+			$('#pwblur2').html("6~20자 영문자 또는 숫자 입력.");
+			$('#pwblur2').css("color", "black");
+		} else {
+			$('#pwblur2').html("좋아요 :)");
+			$('#pwblur2').css("color", "green");
+		}
+			
+	}
+	
+	function pwcheck2(){
+		var pwck2 = $("#company_user_pwck2").val();
+		var pw2 = $("#company_user_pw2").val();
+		
+		if(pw2 != '' && pwck2 == pw2){
+			$('#pwblurck2').html("비밀번호 일치");
+			$('#pwblurck2').css("color", "green");
+		}else{
+			$('#pwblurck2').html("비밀번호 불일치");
+			$('#pwblurck2').css("color", "red");
+		}
+	}
+	
+	//기업 ID3
+	function pwtypecheck3() {
+		var pw3 = $("#company_user_pw3").val();
+		var pwtype = /^[a-zA-Z0-9]{6,12}$/;
+		
+		if(pw3 == '' || !pwtype.test(pw3)) {
+			$('#pwblur3').html("6~20자 영문자 또는 숫자 입력.");
+			$('#pwblur3').css("color", "black");
+		} else {
+			$('#pwblur3').html("좋아요 :)");
+			$('#pwblur3').css("color", "green");
+		}
+			
+	}
+	
+	function pwcheck3(){
+		var pwck3 = $("#company_user_pwck3").val();
+		var pw3 = $("#company_user_pw3").val();
+		
+		if(pw3 != '' && pwck3 == pw3){
+			$('#pwblurck3').html("비밀번호 일치");
+			$('#pwblurck3').css("color", "green");
+		}else{
+			$('#pwblurck3').html("비밀번호 불일치");
+			$('#pwblurck3').css("color", "red");
+		} 
+		
+		function good() {
+			alert("회원가입 신청이 완료되었습니다 ! ")
+		}
+	}
+		
+	
 					 
 
 </script>
@@ -177,7 +263,7 @@ a{
 <header class="d-flex">
  
   	<div class="container text-center my-auto">
-  <form id="frm" name="frm" method="post" action="companyUserInsert.do" enctype="multipart/form-data" onsubmit="return validate()">
+  <form id="frm" name="frm" method="post" action="companyUserInsert.do" enctype="multipart/form-data" onsubmit="return good()">
 
 			<div class="frm content1" >
 			
@@ -287,7 +373,7 @@ a{
 					<label for="company_user_id">기업ID</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_id" name="company_user_id" type="text" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
+					 <input class="w3-input w3-border w3-round-large" id="company_user_id" name="company_user_id" type="text" placeholder=" ID 1 " required>
 				</div>
 			</div>
 			
@@ -300,7 +386,8 @@ a{
 					<label for="company_user_pw">기업PW</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pw" name="company_user_pw" type="password" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pw" name="company_user_pw" type="password" placeholder=" 비밀번호 " required onblur="pwtypecheck()">
+					<span class="help-block" id="pwblur"></span> 
 				</div>
 			</div>
 			
@@ -309,7 +396,8 @@ a{
 					<label for="company_user_pwck">PW 확인</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck" name="company_user_pwck" type="password" placeholder=" 비밀번호를 확인하세요" required>
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck" name="company_user_pwck" type="password" placeholder=" 비밀번호를 확인하세요" required onblur="pwcheck()">
+					<span class="help-block" id="pwblurck"></span> 
 				</div>
 			</div>
 			
@@ -318,7 +406,7 @@ a{
 					<label for="company_user_id2">기업ID</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_id2" name="company_user_id2" type="text" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
+					 <input class="w3-input w3-border w3-round-large" id="company_user_id2" name="company_user_id2" type="text" placeholder=" ID 2 " required>
 				</div>	
 			</div>
 			
@@ -332,7 +420,8 @@ a{
 					<label for="company_user_pw2">기업PW</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pw2" name="company_user_pw2" type="password" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pw2" name="company_user_pw2" type="password" placeholder=" 비밀번호 " required onblur="pwtypecheck2()">
+					 <span class="help-block" id="pwblur2"></span> 
 				</div>
 			</div>
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
@@ -340,7 +429,8 @@ a{
 					<label for="company_user_pwck2">PW 확인</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck2" name="company_user_pwck2" type="password" placeholder="비밀번호를 확인하세요" required>
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck2" name="company_user_pwck2" type="password" placeholder="비밀번호를 확인하세요" required onblur="pwcheck2()">
+					 <span class="help-block" id="pwblurck2"></span> 
 				</div>
 			</div>
 			
@@ -350,7 +440,7 @@ a{
 					<label for="company_user_id3">기업ID</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_id3" name="company_user_id3" type="text" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
+					 <input class="w3-input w3-border w3-round-large" id="company_user_id3" name="company_user_id3" type="text" placeholder=" ID 3 " required>
 				</div>
 			</div>
 			
@@ -363,7 +453,8 @@ a{
 					<label for="company_user_pw3">기업PW</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pw3" name="company_user_pw3" type="password" placeholder=" 4~12자의 영문대소문자와 숫자로만 입력" required>
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pw3" name="company_user_pw3" type="password" placeholder=" 비밀번호" required onblur="pwtypecheck3()">
+					 <span class="help-block" id="pwblur3"></span> 
 				</div>
 			</div>
 			<div class="row text-center" style="margin-left:20%; margin-top:2%">
@@ -371,7 +462,8 @@ a{
 					<label for="company_user_pwck3">PW 확인</label>
 				</div>
 				<div class="col-md-5">
-					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck3" name="company_user_pwck3" type="password" placeholder="비밀번호를 확인하세요" required>
+					 <input class="w3-input w3-border w3-round-large" id="company_user_pwck3" name="company_user_pwck3" type="password" placeholder="비밀번호를 확인하세요" required onblur="pwcheck3()">
+					 <span class="help-block" id="pwblurck3"></span> 
 				</div>
 			</div>
 
