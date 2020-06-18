@@ -56,7 +56,7 @@ public class AdminController {
 	@RequestMapping("/ExhibitionDelete.do")
 	public ModelAndView ExhibitionDelete(ExhibitionVo exvo, ModelAndView mav) {
 		adminService.ExhibitionDelete(exvo);
-		mav.setViewName("/main/main");
+		mav.setViewName("redirect:adminExhibitionManage.do");
 		return mav;
 	}
 	
@@ -74,15 +74,21 @@ public class AdminController {
 	public ModelAndView ExhibitionInsert(ExhibitionVo exvo, ModelAndView mav) {
 		adminService.ExhibitionInsert(exvo);
 		
-		mav.setViewName("redirect:main.do");
+		mav.setViewName("redirect:adminExhibitionManage.do");
 		return mav;
 	}
 	
 	@RequestMapping("/ExhibitionInsertForm.do")
 	public ModelAndView ExhibitionInsertForm(ExhibitionVo exvo, ModelAndView mav) {
-		mav.setViewName("/exhibition/exhibitionInsert");
+		mav.setViewName("com/exhibition/exhibitionInsert");
 		return mav;
 	}
 	
+	@RequestMapping("/CouponList.do")
+
+	public ModelAndView CouponList(ModelAndView mav) {
+		mav.setViewName("/coupon/couponList");
+		return mav;
+	}
 	
 }
