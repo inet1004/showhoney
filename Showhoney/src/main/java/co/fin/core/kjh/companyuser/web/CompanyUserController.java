@@ -44,7 +44,7 @@ public class CompanyUserController {
 	public ModelAndView companyUserInsert(HttpServletRequest request, CompanyUserVo vo, ModelAndView mav) throws IOException {
 		
 		 MultipartFile uploadFile = vo.getUploadFile();
-	      String path = request.getSession().getServletContext().getRealPath("/resources/FileUpload");
+	      String path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/companyUserProfile");
 	      System.out.println(path);
 	      
 	      if(!uploadFile.isEmpty()) {
