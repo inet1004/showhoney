@@ -1,4 +1,4 @@
-package co.fin.core.kjh.booth.web;
+package co.fin.core.kbk.booth.web;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.servlet.ModelAndView;
 
-import co.fin.core.kjh.booth.vo.BoothService;
-import co.fin.core.kjh.booth.vo.BoothVo;
+import co.fin.core.kbk.booth.vo.BoothService;
+import co.fin.core.kbk.booth.vo.BoothVo;
 
 @Controller
 public class BoothController {
@@ -21,7 +21,7 @@ public class BoothController {
 	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav) {
 		List<BoothVo> list = boothService.getSelectBoothList(vo);
 		mav.addObject("list", list);
-		mav.setViewName("/booth/boothList");
+		mav.setViewName("com/booth/boothList");
 		return mav;
 	}
 

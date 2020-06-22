@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.kbk.booth.serviceImpl.BoothMapper">
+	<select id="getSelectBoothList" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
+		<!-- select booth_no,brochure_path,video_path,video_call_path,booth_introduction,b.company_no,b.exhibition_no,booth_profile,company_name, exhibition_name from booth b, company c, exhibition e where b.company_no = c.company_no and b.exhibition_no = e.exhibition_no and b.exhibition_no = #{exhibition_no} -->
+		select booth_no,brochure_path,video_path,video_call_path,booth_introduction,b.company_no,b.exhibition_no,booth_profile,company_name from booth b, company c where b.company_no = c.company_no and b.exhibition_no = #{exhibition_no}
+	</select>
+	
+	<select id="getSelect" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
+		
+	</select>
+	
+	<insert id="boothInsert" parameterType="co.fin.core.kbk.booth.vo.BoothVo">
+		<selectKey resultType="int" keyProperty="booth_no" order="BEFORE">
+			SELECT SEQ_BOOTH_NO.nextval FROM dual
+		</selectKey>
+			INSERT INTO BOOTH VALUES (#{booth_no}, #{brochure_path}, #{video_path}, #{video_call_path}, #{booth_introduction}, #{company_no}, #{exhibition_no}, #{company_tel} ,#{booth_profile})
+	</insert>
+	
+	<insert id="productInsert" parameterType="co.fin.core.kbk.product.vo.ProductVo">
+		INSERT INTO PRODUCT (PRODUCT_NO, PRODUCT_NAME, PRODUCT_DESC, IMAGE_PATH, PRODUCT_MALL ,BOOTH_NO ) VALUES (#{SEQ_PRODUCT_NO.nextval}, #{product_name}, #{product_desc}, #{image_path}, #{product_mall}, #{booth_no})
+	</insert>
+	
+	<update id="boothUpdate" parameterType="co.fin.core.kbk.booth.vo.BoothVo">
+	
+	</update>
+	
+	<delete id="boothDelete" parameterType="co.fin.core.kbk.booth.vo.BoothVo">
+		
+	</delete>
+	
+</mapper>

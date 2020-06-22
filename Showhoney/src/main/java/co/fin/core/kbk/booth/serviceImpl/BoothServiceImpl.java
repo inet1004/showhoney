@@ -1,12 +1,13 @@
-package co.fin.core.kjh.booth.serviceImpl;
+package co.fin.core.kbk.booth.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.fin.core.kjh.booth.vo.BoothService;
-import co.fin.core.kjh.booth.vo.BoothVo;
+import co.fin.core.kbk.booth.vo.BoothService;
+import co.fin.core.kbk.booth.vo.BoothVo;
+import co.fin.core.kbk.product.vo.ProductVo;
 
 @Service("boothService")
 public class BoothServiceImpl implements BoothService {
@@ -41,5 +42,6 @@ public class BoothServiceImpl implements BoothService {
 		dao.boothDelete(vo);
 
 	}
+
 
 }

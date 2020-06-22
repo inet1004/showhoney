@@ -1,10 +1,11 @@
-package co.fin.core.kjh.booth.serviceImpl;
+package co.fin.core.kbk.booth.serviceImpl;
 
 import java.util.List;
 
 import org.mybatis.spring.annotation.MapperScan;
 
-import co.fin.core.kjh.booth.vo.BoothVo;
+import co.fin.core.kbk.booth.vo.BoothVo;
+import co.fin.core.kbk.product.vo.ProductVo;
 
 @MapperScan("boothMap")
 public interface BoothMapper {

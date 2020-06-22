@@ -1,4 +1,4 @@
-package co.fin.core.kjh.booth.vo;
+package co.fin.core.kbk.booth.vo;
 
 import java.util.List;
 

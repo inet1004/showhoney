@@ -196,10 +196,8 @@
 			$('#pwblurck3').css("color", "red");
 		} 
 		
-		function good() {
-			alert("회원가입 신청이 완료되었습니다 ! ")
-		}
 	}
+
 		
 	
 					 

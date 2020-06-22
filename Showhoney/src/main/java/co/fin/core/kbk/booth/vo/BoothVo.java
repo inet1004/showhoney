@@ -1,4 +1,6 @@
-package co.fin.core.kjh.booth.vo;
+package co.fin.core.kbk.booth.vo;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class BoothVo {
 	private int booth_no;
@@ -8,13 +10,25 @@ public class BoothVo {
 	private String booth_introduction;
 	private int company_no;
 	private int exhibition_no;
+	private int company_tel;
 	private String booth_profile;
+	private MultipartFile booth_uploadfile;
+	
 	private String company_name;
 	private String exhibition_name;
-	
+
 	public BoothVo() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public int getCompany_tel() {
+		return company_tel;
+	}
+
+	public void setCompany_tel(int company_tel) {
+		this.company_tel = company_tel;
+	}
+
 
 	public int getBooth_no() {
 		return booth_no;
@@ -95,8 +109,14 @@ public class BoothVo {
 	public void setExhibition_name(String exhibition_name) {
 		this.exhibition_name = exhibition_name;
 	}
-	
-	
+
+	public MultipartFile getBooth_uploadfile() {
+		return booth_uploadfile;
+	}
+
+	public void setBooth_uploadfile(MultipartFile booth_uploadfile) {
+		this.booth_uploadfile = booth_uploadfile;
+	}
 	
 
 }
