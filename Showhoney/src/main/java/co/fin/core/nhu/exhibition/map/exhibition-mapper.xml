@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.nhu.exhibition.serviceImpl.ExhibitionMapper">
+	<select id="getSelectExhibitionList" resultType="co.fin.core.nhu.exhibition.vo.Exhibition2Vo">
+			SELECT EXHIBITION_NO, EXHIBITION_START_DATE, EXHIBITION_END_DATE, EXHIBITION_NAME FROM EXHIBITION <![CDATA[WHERE EXHIBITION_START_DATE <= TO_CHAR(SYSDATE) AND EXHIBITION_END_DATE >= TO_CHAR(SYSDATE)]]>
+	</select>
+	
+	<select id="getSelect" parameterType="co.fin.core.nhu.exhibition.vo.Exhibition2Vo" resultType="co.fin.core.nhu.exhibition.vo.Exhibition2Vo">
+		
+	</select>
+	
+	<insert id="exhibitionInsert" parameterType="co.fin.core.nhu.exhibition.vo.Exhibition2Vo">
+		
+	</insert>
+	
+	<update id="exhibitionUpdate" parameterType="co.fin.core.nhu.exhibition.vo.Exhibition2Vo">
+	
+	</update>
+	
+	<delete id="exhibitionDelete" parameterType="co.fin.core.nhu.exhibition.vo.Exhibition2Vo">
+		
+	</delete>
+	
+</mapper>

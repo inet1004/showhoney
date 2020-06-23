@@ -91,4 +91,18 @@ public class AdminController {
 		return mav;
 	}
 	
+	@RequestMapping("/viewExhibition.do")
+
+	public ModelAndView viewExhibition(ModelAndView mav) {
+		mav.setViewName("/exhibition/exhibitionList");
+		return mav;
+	}
+	
+	@RequestMapping("/goPayment.do")
+	
+	public ModelAndView goPayment(ModelAndView mav) {
+		mav.setViewName("/price/payment");
+		return mav;
+	}
+	
 }

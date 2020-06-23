@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Bootstrap basic table example</title>
+    <title>ticketList</title>
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,34 +15,27 @@
 <body>
 <br>
 <div>
-<h1 align="center">박람회 등록</h1><br>
+<h1 align="center">쿠 폰 내 역 test</h1><br>
 </div>
 <div class="container">
 
-
-
-
 <table class="table" >
   <tr>
-      <th>박람회고유번호</th>
-      <th>시작일자</th>
-      <th>종료일자</th>
-      <th>박람회이름</th>
-      <th>상태</th>
-      <th>입장</th>
+      <th>티켓번호</th>
+      <th>가격</th>
+      <th>티켓상태</th>
+      <th>전시회이름</th>
+      <th></th>
   </tr>
-  <c:forEach var="admin" items="${elist }">
+  <c:forEach var="ticket" items="${tlist }">
   <tr>
-	  <td>${admin.exhibition_no }</td>
-      <td>${admin.exhibition_start_date }</td>
-	  <td>${admin.exhibition_end_date }</td>
-      <td>${admin.exhibition_name }</td>  
+	  <td>${ticket.ticket_no }</td>
+      <td>${ticket.ticket_price }</td>
+	  <td>${ticket.ticket_status }</td>
+	  <td>${ticket.exhibition_name }</td>
       <td>
       <button type="button" class="btn btn-info" data-toggle="" 
-      onclick="location.href='ExhibitionDelete.do?exhibition_no=${admin.exhibition_no}'">삭제</button>
-  	  </td>
-  	  <td><button type="button" class="btn btn-info" data-toggle="" 
-      onclick="location.href='boothList.do?exhibition_no=${admin.exhibition_no}'">입장</button>
+      onclick="location.href='ticketPayment.do'">구입</button>
   	  </td>
   </tr>
   

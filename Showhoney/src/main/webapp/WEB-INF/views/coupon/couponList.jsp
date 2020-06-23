@@ -15,7 +15,7 @@
 <body>
 <br>
 <div>
-<h1 align="center">박람회 등록</h1><br>
+<h1 align="center">쿠폰 등록</h1><br>
 </div>
 <div class="container">
 
@@ -24,30 +24,17 @@
 
 <table class="table" >
   <tr>
-      <th>박람회고유번호</th>
-      <th>시작일자</th>
-      <th>종료일자</th>
-      <th>박람회이름</th>
-      <th>상태</th>
-      <th>입장</th>
+      <th>기업명</th>
+      <th>쿠폰번호</th>
+      <th>유효기간</th>
   </tr>
-  <c:forEach var="admin" items="${elist }">
   <tr>
-	  <td>${admin.exhibition_no }</td>
-      <td>${admin.exhibition_start_date }</td>
-	  <td>${admin.exhibition_end_date }</td>
-      <td>${admin.exhibition_name }</td>  
-      <td>
-      <button type="button" class="btn btn-info" data-toggle="" 
-      onclick="location.href='ExhibitionDelete.do?exhibition_no=${admin.exhibition_no}'">삭제</button>
-  	  </td>
-  	  <td><button type="button" class="btn btn-info" data-toggle="" 
-      onclick="location.href='boothList.do?exhibition_no=${admin.exhibition_no}'">입장</button>
-  	  </td>
+	  <td>현대자동차</td>
+      <td>12341234</td>
+	  <td>~2020.06.10</td>
+  	  
   </tr>
   
-  
-    </c:forEach>
 </table>
 </div><br /><br />
 </body>

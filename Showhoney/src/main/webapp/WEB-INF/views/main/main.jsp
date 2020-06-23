@@ -2,10 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,6 +33,10 @@ df
 <a href="adminPresentation.do">발표회관리</a><br/>
 <a href="adminExhibitionManage.do">박람회관리</a><br/>
 <a href="ExhibitionInsertForm.do">박람회등록</a><br/>
+<a href="CouponList.do">쿠폰리스트</a><br/>
+<a href="exhibitionList.do">박람회 목록</a><br/>
+<a href="goPayment.do">결제하러가기</a><br/>
+<a href="ticketList.do">티켓리스트</a>
 </body>
 
 <br><p/>
