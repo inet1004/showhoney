@@ -7,9 +7,18 @@ public class ProductVo {
 	private int product_no;
 	private String product_name;
 	private String product_desc;
-	private String image_path;
+	private String product_image_path;
 	private MultipartFile product_uploadfile;
 	private String product_mall;
+	private int booth_no;
+
+	public int getBooth_no() {
+		return booth_no;
+	}
+
+	public void setBooth_no(int pvo) {
+		this.booth_no = pvo;
+	}
 
 	public int getProduct_no() {
 		return product_no;
@@ -35,12 +44,12 @@ public class ProductVo {
 		this.product_desc = product_desc;
 	}
 
-	public String getImage_path() {
-		return image_path;
+	public String getProduct_image_path() {
+		return product_image_path;
 	}
 
-	public void setImage_path(String image_path) {
-		this.image_path = image_path;
+	public void setProduct_image_path(String product_image_path) {
+		this.product_image_path = product_image_path;
 	}
 
 	public MultipartFile getProduct_uploadfile() {

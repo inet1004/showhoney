@@ -8,7 +8,7 @@ import co.fin.core.kbk.product.vo.ProductVo;
 
 @MapperScan("productMap")
 public interface ProductMapper {
-	List<ProductVo> getSelectList();
+	List<ProductVo> getSelectList(ProductVo vo);
 	ProductVo getSelect(ProductVo vo);
 	void productInsert(ProductVo vo);
 	void productUpdate(ProductVo vo);

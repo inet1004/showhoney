@@ -30,16 +30,19 @@ public class BoardController {
 	public String joinType(Model model) {
 		return "no/join/joinType";
 	}
+//	
+//	@RequestMapping("/boothInsert.do")
+//	public String boothInsert(Model model) {
+//		return "com/companyuser/boothInsert";
+//	}
 	
-	@RequestMapping("/doing.do")
-	public String doing(Model model) {
-		return "com/main/main";
-	}
+//	/*
+//	 * @RequestMapping("/companyBoothModify.do") public String
+//	 * companyBoothModify(Model model) { return
+//	 * "com/companyuser/companyBoothModify"; }
+//	 */
 	
-	@RequestMapping("/companyBooth.do")
-	public String companyBooth(Model model) {
-		return "com/companyuser/companyBooth";
-	}
+	
 	
 	
 	

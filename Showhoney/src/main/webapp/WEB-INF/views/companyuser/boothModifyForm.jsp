@@ -27,7 +27,7 @@ lable {
 
 <body>
 <div class="container">
-    <form id="frm" name="frm" action="info.do" method="post" enctype="multipart/form-data">
+    <form id="frm" name="frm" action="modify.do" method="post" enctype="multipart/form-data">
     <div class="container-fluid video-player">
         <div class="container">
               <div style="margin-top:5%">
@@ -61,7 +61,7 @@ lable {
 						  <input class="w3-input w3-border" name="company_tel" id="company_tel" type="text"></p>
 						  
 						  <p><label>브로슈어 파일 업로드</label>
-						  <input class="w3-input w3-border" name="brochure_path" id="brochure_path" type="file"></p>
+						  <input class="w3-input w3-border" name="brochure_uploadfile" id="brochure_path" type="file"></p>
 					</div>
                 </div>
 

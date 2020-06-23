@@ -10,25 +10,73 @@ public class BoothVo {
 	private String booth_introduction;
 	private int company_no;
 	private int exhibition_no;
-	private int company_tel;
+	private String company_tel;
 	private String booth_profile;
 	private MultipartFile booth_uploadfile;
-	
+	private MultipartFile brochure_uploadfile;
+
 	private String company_name;
 	private String exhibition_name;
+	
+	private String[] product_img;
+	private String[] product_name;
+	private String[] product_desc;
+	private MultipartFile[] product_uploadfile;
+	private String product_mall;
+	
+	
+
+	public String getProduct_mall() {
+		return product_mall;
+	}
+
+	public void setProduct_mall(String product_mall) {
+		this.product_mall = product_mall;
+	}
+
+	public String[] getProduct_img() {
+		return product_img;
+	}
+
+	public void setProduct_img(String[] product_img) {
+		this.product_img = product_img;
+	}
+
+	public String[] getProduct_name() {
+		return product_name;
+	}
+
+	public void setProduct_name(String[] product_name) {
+		this.product_name = product_name;
+	}
+
+	public String[] getProduct_desc() {
+		return product_desc;
+	}
+
+	public void setProduct_desc(String[] product_desc) {
+		this.product_desc = product_desc;
+	}
+
+	public MultipartFile[] getProduct_uploadfile() {
+		return product_uploadfile;
+	}
+
+	public void setProduct_uploadfile(MultipartFile[] product_uploadfile) {
+		this.product_uploadfile = product_uploadfile;
+	}
 
 	public BoothVo() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public int getCompany_tel() {
+
+	public String getCompany_tel() {
 		return company_tel;
 	}
 
-	public void setCompany_tel(int company_tel) {
+	public void setCompany_tel(String company_tel) {
 		this.company_tel = company_tel;
 	}
-
 
 	public int getBooth_no() {
 		return booth_no;
@@ -117,6 +165,13 @@ public class BoothVo {
 	public void setBooth_uploadfile(MultipartFile booth_uploadfile) {
 		this.booth_uploadfile = booth_uploadfile;
 	}
-	
+
+	public MultipartFile getBrochure_uploadfile() {
+		return brochure_uploadfile;
+	}
+
+	public void setBrochure_uploadfile(MultipartFile brochure_uploadfile) {
+		this.brochure_uploadfile = brochure_uploadfile;
+	}
 
 }
