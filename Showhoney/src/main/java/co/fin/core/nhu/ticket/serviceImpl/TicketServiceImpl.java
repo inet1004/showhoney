@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.fin.core.kjh.booth.vo.BoothService;
-import co.fin.core.kjh.booth.vo.BoothVo;
 import co.fin.core.nhu.exhibition.vo.Exhibition2Vo;
 import co.fin.core.nhu.exhibition.vo.ExhibitionService;
 import co.fin.core.nhu.ticket.vo.TicketService;

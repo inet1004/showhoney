@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.mybatis.spring.annotation.MapperScan;
 
-import co.fin.core.kjh.booth.vo.BoothVo;
 import co.fin.core.nhu.exhibition.vo.Exhibition2Vo;
 
 @MapperScan("exhibitionMap")

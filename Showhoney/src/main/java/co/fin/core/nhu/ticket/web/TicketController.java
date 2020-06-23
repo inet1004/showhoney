@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.servlet.ModelAndView;
 
-import co.fin.core.kjh.booth.vo.BoothService;
-import co.fin.core.kjh.booth.vo.BoothVo;
-import co.fin.core.nhu.exhibition.vo.Exhibition2Vo;
-import co.fin.core.nhu.exhibition.vo.ExhibitionService;
 import co.fin.core.nhu.ticket.vo.TicketService;
 import co.fin.core.nhu.ticket.vo.TicketVo;
 
