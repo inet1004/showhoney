@@ -11,8 +11,14 @@ import co.fin.core.kbk.product.vo.ProductVo;
 public interface BoothMapper {
 	List<BoothVo> getSelectBoothList(BoothVo vo);
 	BoothVo getSelect(BoothVo vo);
-	void productInsert(ProductVo vo);
 	void boothInsert(BoothVo vo);
 	void boothUpdate(BoothVo vo);
 	void boothDelete(BoothVo vo);
+	
+	//product mapper
+	List<ProductVo> getSelectList(ProductVo vo);
+	ProductVo getSelect(ProductVo vo);
+	void productInsert(ProductVo vo);
+	void productUpdate(ProductVo vo);
+	void productDelete(ProductVo vo);
 }

@@ -38,13 +38,23 @@ public class BoothController {
 		return "com/companyuser/boothForm";
 	}
 	
-//	@RequestMapping("/boothInsert.do")
-//	public ModelAndView boothInsert(HttpServletRequest request, BoothVo bvo, ProductVo pvo,  ModelAndView mav, CompanyUserVo cvo) throws IOException {
-//			
-//		boothService.boothInsert(bvo, pvo, request);
-//		mav.setViewName("com/companyuser/boothInsert");
-//		return mav;
-//	}
+	@RequestMapping("/boothInsert.do")
+	public ModelAndView boothInsert(HttpServletRequest request, BoothVo bvo, ProductVo pvo,  ModelAndView mav, CompanyUserVo cvo) throws IOException {
+			
+		boothService.boothInsert(bvo, pvo, request);
+		mav.setViewName("redirect:/boothSelect.do?booth_no="+bvo.getBooth_no());
+		return mav;
+	}
+	
+	@RequestMapping("/boothSelect.do")
+	public String boothSelect(BoothVo vo, Model model) {
+		
+		List<BoothVo> list = boothService.getSelectBoothList(vo);
+		
+		model.addAttribute("product", boothService.getSelect(vo));
+		model.addAttribute("list", list);
+		return "com/companyuser/boothSelect";
+	}
 	
 	@RequestMapping("/boothModifyForm.do")
 	public String boothModifyForm(Model model) {
