@@ -33,7 +33,7 @@
 					<div>
 						<!-- 영상 <a href="${list[0].video_call_path }"> -->
 						<label><i class="fas fa-video fa-3x"></i></label>
-						<button class="w3-btn w3-link w3-xlarge">1:1 영상상담</button>
+						<button class="w3-btn w3-link w3-xlarge" onclick="${list[0].booth_introduction }">1:1 영상상담</button>
 					</div>
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->
