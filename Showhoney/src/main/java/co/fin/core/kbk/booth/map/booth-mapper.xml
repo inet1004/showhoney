@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="co.fin.core.kbk.booth.serviceImpl.BoothMapper">
 	
-	<select id="getSelectBoothList" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
+	<select id="bgetSelectBoothList" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
 		SELECT booth_no, brochure_path, video_path, video_call_path, booth_introduction, company_no, exhibition_no, company_tel, booth_profile FROM BOOTH
 		<where>
 		<if test = "company_no != null and company_no != ''">
@@ -14,14 +14,13 @@
 		</where>
 	</select>
 	
-	<select id="getSelect" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.product.vo.ProductVo">
+	<select id="getSelectList" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.ProductVo">
 			SELECT product_no, product_name, product_desc, product_image_path, product_mall FROM PRODUCT
 		<where>
 		<if test = "booth_no != null and booth_no != ''">
 			AND booth_no = #{booth_no}
 		</if>
 		</where>
-		
 	</select>
 	
 	<insert id="boothInsert" parameterType="co.fin.core.kbk.booth.vo.BoothVo">
@@ -31,7 +30,7 @@
 			INSERT INTO BOOTH(BOOTH_NO, BROCHURE_PATH, VIDEO_PATH, VIDEO_CALL_PATH, BOOTH_INTRODUCTION, COMPANY_NO, EXHIBITION_NO, BOOTH_PROFILE, COMPANY_TEL) VALUES (#{booth_no}, #{brochure_path}, #{video_path}, #{video_call_path}, #{booth_introduction}, #{company_no}, #{exhibition_no}, #{booth_profile}, #{company_tel})
 	</insert>
 	
-	<insert id="productInsert" parameterType="co.fin.core.kbk.product.vo.ProductVo">
+	<insert id="productInsert" parameterType="co.fin.core.kbk.booth.vo.ProductVo">
 		<selectKey resultType="int" keyProperty="product_no" order="BEFORE">
 			SELECT SEQ_PRODUCT_NO.nextval FROM dual
 		</selectKey>
@@ -39,12 +38,17 @@
 	</insert>
 	
 	<update id="boothUpdate" parameterType="co.fin.core.kbk.booth.vo.BoothVo">
-		UPDATE BOOTH SET brochure_path = #{brochure_path}, video_path = #{video_path}, video_call_path = #{video_call_path}, booth_introduction = #{booth_introduction}, booth_profile = #{booth_profile}, company_tel = #{company_tel}) WHERE booth_no = #{booth_no}
+		UPDATE BOOTH (BROCHURE_PATH, VIDEO_PATH, VIDEO_CALL_PATH, BOOTH_INTRODUCTION, BOOTH_PROFILE, COMPANY_TEL ) SET brochure_path = #{brochure_path}, video_path = #{video_path}, video_call_path = #{video_call_path}, booth_introduction = #{booth_introduction}, booth_profile = #{booth_profile}, company_tel = #{company_tel}) WHERE booth_no = #{booth_no}
 	</update>
 	
-	<update id="productUpdate" parameterType="co.fin.core.kbk.product.vo.ProductVo">
-		UPDATE PRODUCT SET  product_name = #{product_name}, product_desc = #{product_desc}, product_image_path = #{product_image_path}, product_mall = #{product_mall} WEHRE product_no = #{product_no}
+	<update id="productUpdate" parameterType="co.fin.core.kbk.booth.vo.ProductVo">
+		UPDATE PRODUCT (PRODUCT_NAME, PRODUCT_DESC, PRODUCT_IMAGE_PATH, PRODUCT_MALL, PRODUCT_NO ) SET  product_name = #{product_name}, product_desc = #{product_desc}, product_image_path = #{product_image_path}, product_mall = #{product_mall} WEHRE product_no = #{product_no}
 	</update>
+	
+	<delete id="productDelete" parameterType="co.fin.core.kbk.booth.vo.ProductVo">
+		
+		DELETE FROM PRODUCT WHERE product_no = #{product_no}
+	</delete>
 	
 	<delete id="boothDelete" parameterType="co.fin.core.kbk.booth.vo.BoothVo">
 		

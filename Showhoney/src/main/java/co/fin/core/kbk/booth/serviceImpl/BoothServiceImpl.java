@@ -12,27 +12,21 @@ import org.springframework.web.multipart.MultipartFile;
 
 import co.fin.core.kbk.booth.vo.BoothService;
 import co.fin.core.kbk.booth.vo.BoothVo;
-import co.fin.core.kbk.product.serviceImpl.ProductMapper;
-import co.fin.core.kbk.product.vo.ProductVo;
+import co.fin.core.kbk.booth.vo.ProductVo;
+
 
 @Service("boothService")
 public class BoothServiceImpl implements BoothService {
 	
 	@Autowired
 	private BoothMapper dao;
-	@Autowired
-	private ProductMapper pDao;
 	
 
 	@Override
-	public List<BoothVo> getSelectBoothList(BoothVo vo) {
-		return dao.getSelectBoothList(vo);
+	public List<BoothVo> bgetSelectBoothList(BoothVo vo) {
+		return dao.bgetSelectBoothList(vo);
 	}
 
-	@Override
-	public BoothVo getSelect(BoothVo vo) {
-		return dao.getSelect(vo);
-	}
 
 	@Override
 	public void boothInsert(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException {
@@ -54,7 +48,7 @@ public class BoothServiceImpl implements BoothService {
 			bvo.setBrochure_path(bro_fileName);
 		}
 		
-		bvo.setExhibition_no(88);
+		bvo.setExhibition_no(82);
 		bvo.setCompany_no(258); //TODO 수정필요
 		dao.boothInsert(bvo);
 		
@@ -93,7 +87,7 @@ public class BoothServiceImpl implements BoothService {
 	@Override
 	public List<ProductVo> getSelectList(ProductVo vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getSelectList(vo);
 	}
 
 	@Override
