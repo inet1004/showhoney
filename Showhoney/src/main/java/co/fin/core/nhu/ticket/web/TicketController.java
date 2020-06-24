@@ -21,14 +21,14 @@ public class TicketController {
 	public ModelAndView exhibitionList(ModelAndView mav) {
 		List<TicketVo> tlist = ticketService.getSelectTicketList();
 		mav.addObject("tlist", tlist);
-		mav.setViewName("/ticket/ticket_sample");
+		mav.setViewName("com/ticket/ticket_sample");
 		return mav;
 	}
 	
 	@RequestMapping("/ticketPayment.do")
 	
 	public ModelAndView ticketPayment(ModelAndView mav) {
-		mav.setViewName("/price/payment");
+		mav.setViewName("com/price/payment");
 		return mav;
 	}
 }

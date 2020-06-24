@@ -59,29 +59,7 @@ a{
 	      <img src="img/info/logo.png" style="width: 50%;">
 	    </div>
 	    <div class="overlay"></div>
-	  </header>
-	        
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        <div><p>djsdjfskl</p></div>
-        
+	  </header>        
         
 
         <!-- Bootstrap core JS-->
