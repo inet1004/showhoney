@@ -14,9 +14,10 @@
       <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
     </definition>
     
-    <definition name="com/*/*" extends="layout"> 
+    <definition name="com/*/*" template="/WEB-INF/views/layout/companylayout.jsp"> 
       <put-attribute name="Header" value="/WEB-INF/views/layout/companyHeader.jsp"/> 
       <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+	  <put-attribute name="footer" value="/WEB-INF/views/layout/companyfooter.jsp"/>
     </definition>
     
     <definition name="adm/*/*" extends="layout"> 

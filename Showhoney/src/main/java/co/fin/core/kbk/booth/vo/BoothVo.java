@@ -1,5 +1,7 @@
 package co.fin.core.kbk.booth.vo;
 
+import java.util.Arrays;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class BoothVo {
@@ -25,6 +27,18 @@ public class BoothVo {
 	private String product_mall;
 	
 	
+
+	@Override
+	public String toString() {
+		return "BoothVo [booth_no=" + booth_no + ", brochure_path=" + brochure_path + ", video_path=" + video_path
+				+ ", video_call_path=" + video_call_path + ", booth_introduction=" + booth_introduction
+				+ ", company_no=" + company_no + ", exhibition_no=" + exhibition_no + ", company_tel=" + company_tel
+				+ ", company_name=" + company_name
+				+ ", exhibition_name=" + exhibition_name + ", product_img=" + Arrays.toString(product_img)
+				+ ", product_name=" + Arrays.toString(product_name) + ", product_desc=" + Arrays.toString(product_desc)
+				+ ", product_mall=" + product_mall
+				+ "]";
+	}
 
 	public String getProduct_mall() {
 		return product_mall;
