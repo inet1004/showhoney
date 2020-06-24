@@ -35,8 +35,8 @@ df
 <a href="ExhibitionInsertForm.do">박람회등록</a><br/>
 <a href="CouponList.do">쿠폰리스트</a><br/>
 <a href="exhibitionList.do">박람회 목록</a><br/>
-<a href="goPayment.do">결제하러가기</a><br/>
-<a href="ticketList.do">티켓리스트</a>
+<a href="ticketList.do">티켓리스트</a><br/>
+<a href="pay.do">결제하러가기</a>
 </body>
 
 <br><p/>

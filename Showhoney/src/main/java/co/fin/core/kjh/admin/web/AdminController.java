@@ -65,7 +65,7 @@ public class AdminController {
 	public ModelAndView adminExhibitionManage(ModelAndView mav) {
 		List<ExhibitionVo> elist = adminService.getSelectExhibitionList();
 		mav.addObject("elist", elist);
-		mav.setViewName("/admin/adminExhibitionManage");
+		mav.setViewName("com/admin/adminExhibitionManage");
 		return mav;
 	}	
 	
@@ -95,13 +95,6 @@ public class AdminController {
 
 	public ModelAndView viewExhibition(ModelAndView mav) {
 		mav.setViewName("/exhibition/exhibitionList");
-		return mav;
-	}
-	
-	@RequestMapping("/goPayment.do")
-	
-	public ModelAndView goPayment(ModelAndView mav) {
-		mav.setViewName("/price/payment");
 		return mav;
 	}
 	
