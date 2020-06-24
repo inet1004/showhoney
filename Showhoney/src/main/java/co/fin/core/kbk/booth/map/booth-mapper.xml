@@ -38,11 +38,26 @@
 	</insert>
 	
 	<update id="boothUpdate" parameterType="co.fin.core.kbk.booth.vo.BoothVo">
-		UPDATE BOOTH (BROCHURE_PATH, VIDEO_PATH, VIDEO_CALL_PATH, BOOTH_INTRODUCTION, BOOTH_PROFILE, COMPANY_TEL ) SET brochure_path = #{brochure_path}, video_path = #{video_path}, video_call_path = #{video_call_path}, booth_introduction = #{booth_introduction}, booth_profile = #{booth_profile}, company_tel = #{company_tel}) WHERE booth_no = #{booth_no}
+		UPDATE BOOTH
+		<set>
+			<if test = "brochure_path != null and brochure_path != ''">
+				brochure_path = #{brochure_path},
+			</if>
+			<if test = "booth_profile != null and booth_profile != ''">
+				booth_profile = #{booth_profile}
+			</if>
+		</set>
+		 WHERE booth_no = #{booth_no}
 	</update>
 	
 	<update id="productUpdate" parameterType="co.fin.core.kbk.booth.vo.ProductVo">
-		UPDATE PRODUCT (PRODUCT_NAME, PRODUCT_DESC, PRODUCT_IMAGE_PATH, PRODUCT_MALL, PRODUCT_NO ) SET  product_name = #{product_name}, product_desc = #{product_desc}, product_image_path = #{product_image_path}, product_mall = #{product_mall} WEHRE product_no = #{product_no}
+		UPDATE PRODUCT 
+		<set>
+			<if test="product_image_path != null and product_image_path != ''">
+				product_image_path = #{product_image_path}
+			</if>
+		</set>
+			WEHRE product_no = #{product_no}
 	</update>
 	
 	<delete id="productDelete" parameterType="co.fin.core.kbk.booth.vo.ProductVo">

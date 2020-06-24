@@ -93,19 +93,17 @@ public class BoothServiceImpl implements BoothService {
 	@Override
 	public ProductVo getSelect(ProductVo vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getSelect(vo);
 	}
 
 	@Override
 	public void productInsert(ProductVo vo, HttpServletRequest request) throws IOException {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void productUpdate(ProductVo vo) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

@@ -33,7 +33,7 @@
 					<div>
 						<!-- 영상 <a href="${list[0].video_call_path }"> -->
 						<label><i class="fas fa-video fa-3x"></i></label>
-						<button class="w3-btn w3-link w3-xlarge" onclick="${list[0].booth_introduction }">1:1 영상상담</button>
+						<button class="w3-btn w3-link w3-xlarge" onclick="">1:1 영상상담</button>
 					</div>
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->
@@ -74,7 +74,7 @@
 <div class="row">
 	<div class="col-lg-6" align="right">
 		<p>
-			<button class="w3-button w3-blue w3-round-xlarge" type="button" onclick="location.href='boothModifyForm.do'">수정하기</button>
+			<button class="w3-button w3-blue w3-round-xlarge" type="button" onclick="location.href='boothModifyForm.do?booth_no=${list[0].booth_no}'">수정하기</button>
 		</p>
 	</div>
 </div>

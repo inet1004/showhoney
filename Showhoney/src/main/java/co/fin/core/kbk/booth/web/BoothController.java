@@ -65,5 +65,21 @@ public class BoothController {
 		model.addAttribute("list", list);
 		return "com/companyuser/boothModifyForm";
 	}
+	
+	@RequestMapping("/boothUpdate.do")
+	public ModelAndView boothUpdate(BoothVo bvo, ModelAndView mav) throws IOException {
+			
+		boothService.boothUpdate(bvo);
+		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+bvo.getBooth_no());
+		return mav;
+	}
+	
+	@RequestMapping("/productUpdate.do")
+	public ModelAndView productUpdate(ProductVo pvo, BoothVo bvo, ModelAndView mav) throws IOException {
+			
+		boothService.productUpdate(pvo);
+		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+pvo.getBooth_no());
+		return mav;
+	}
 
 }
