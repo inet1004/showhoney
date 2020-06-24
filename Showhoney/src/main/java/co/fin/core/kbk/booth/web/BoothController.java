@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import co.fin.core.kbk.booth.vo.BoothService;
 import co.fin.core.kbk.booth.vo.BoothVo;
-import co.fin.core.kbk.product.vo.ProductVo;
+import co.fin.core.kbk.booth.vo.ProductVo;
 import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
 
 @Controller
@@ -26,7 +26,7 @@ public class BoothController {
 	
 	@RequestMapping(value = "/boothList.do")
 	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav) {
-		List<BoothVo> list = boothService.getSelectBoothList(vo);
+		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
 		mav.addObject("list", list);
 		mav.setViewName("com/booth/boothList");
 		
@@ -38,16 +38,31 @@ public class BoothController {
 		return "com/companyuser/boothForm";
 	}
 	
-//	@RequestMapping("/boothInsert.do")
-//	public ModelAndView boothInsert(HttpServletRequest request, BoothVo bvo, ProductVo pvo,  ModelAndView mav, CompanyUserVo cvo) throws IOException {
-//			
-//		boothService.boothInsert(bvo, pvo, request);
-//		mav.setViewName("com/companyuser/boothInsert");
-//		return mav;
-//	}
+	@RequestMapping("/boothInsert.do")
+	public ModelAndView boothInsert(HttpServletRequest request, BoothVo bvo, ProductVo pvo,  ModelAndView mav, CompanyUserVo cvo) throws IOException {
+			
+		boothService.boothInsert(bvo, pvo, request);
+		mav.setViewName("redirect:/boothSelect.do?booth_no="+bvo.getBooth_no());
+		return mav;
+	}
+	
+	@RequestMapping("/boothSelect.do")
+	public String boothSelect(BoothVo vo, ProductVo pvo, Model model) {
+		
+		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+		
+		model.addAttribute("productlist", boothService.getSelectList(pvo));
+		model.addAttribute("list", list);
+		return "com/companyuser/boothSelect";
+	}
 	
 	@RequestMapping("/boothModifyForm.do")
-	public String boothModifyForm(Model model) {
+	public String boothModifyForm(BoothVo vo, ProductVo pvo, Model model ) {
+		
+		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+		
+		model.addAttribute("productlist", boothService.getSelectList(pvo));
+		model.addAttribute("list", list);
 		return "com/companyuser/boothModifyForm";
 	}
 

@@ -27,12 +27,12 @@ lable {
 
 <body>
 <div class="container">
-    <form id="frm" name="frm" action="modify.do" method="post" enctype="multipart/form-data">
+    <form id="frm" name="frm" action="boothModifyForm.do" method="post" enctype="multipart/form-data">
     <div class="container-fluid video-player">
         <div class="container">
               <div style="margin-top:5%">
                  <label for="video"> 홍보영상 주소를 입력해 주세요 </label>
-                   <input class="w3-input w3-border w3-animate-input" type="text" id="video_path" name="video_path">
+                   <textarea class="w3-input w3-border w3-animate-input" rows="5" cols="50" id="video_path" name="video_path">${list[0].video_path }</textarea>
                </div>
             <hr>
             <div class="row vr-gallery">
@@ -40,11 +40,12 @@ lable {
                     <div class="row">
                         <div class="col-md-12 col-lg-6 light-bg pr-0 pd-md">
                             <label for="company_logo">Logo사진 첨부</label>
-                             <input class="w3-input w3-border w3-round-large" id="booth_profile" name="booth_uploadfile" type="file">
+                             <input class="w3-input w3-border w3-round-large" id="booth_profile" name="booth_uploadfile" type="file" >
+                     		 <span>${list[0].booth_profile }</span>
                         </div>
                         <div class="col-md-12 col-lg-6 light-bg ">
                            <label for="comment">부스를 소개해주세요</label>
-     						 <textarea class="form-control" rows="15" id="booth_introduction" name="booth_introduction" ></textarea>
+     						 <textarea class="form-control" rows="15" id="booth_introduction" name="booth_introduction" >${list[0].booth_introduction }</textarea>
                         </div>
                     </div>
                 </div>
@@ -68,6 +69,9 @@ lable {
             </div>
 
         </div>
+        	<div>
+        		<button class="w3-button w3-blue w3-round-xlarge" type="submit"> 부스스정 완료 </button>
+        	</div>
     </div>
 
 <!-- 상품 -->
@@ -97,11 +101,8 @@ lable {
 	</div>
 	</div>
 	 <div class="row">
-	 	<div class="col-lg-6" align="right">
- 	 		<p><button class="w3-button w3-red w3-round-xlarge" type="reset">재작성</button></p>
-		</div>
 		<div class="col-lg-6" >
- 			<p><button class="w3-button w3-blue w3-round-xlarge" type="submit"> 등 록 </button></p>
+ 			<p><button class="w3-button w3-blue w3-round-xlarge" type="submit"> 상품수정 완료 </button></p>
  		</div>
     </div>
  </form>

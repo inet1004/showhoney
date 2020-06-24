@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.nhu.payment.serviceImpl.PayMapper">
+	<select id="getSelectPayList" resultType="co.fin.core.nhu.payment.vo.PayVo">
+	
+	</select>
+	
+	<select id="getSelect" parameterType="co.fin.core.nhu.payment.vo.PayVo" resultType="co.fin.core.nhu.payment.vo.PayVo">
+		
+	</select>
+	
+	<insert id="payInsert" parameterType="co.fin.core.nhu.payment.vo.PayVo">
+		INSERT INTO PAYMENT_DETAILS(PAYMENT_NO, PAYMENT_DATE, PAYMENT_APPROVAL_NUMBER, PAYMENT_TYPE, PAYMENT_SUM, TICKET_NO, CUSTOMER_ID) 
+VALUES(seq_payment_no.nextval, SYSDATE, #{payment_approval_number}, #{payment_type}, #{payment_sum}, 1, #{customer_id})
+	</insert>
+	
+	<update id="payUpdate" parameterType="co.fin.core.nhu.payment.vo.PayVo">
+	
+	</update>
+	
+	<delete id="payDelete" parameterType="co.fin.core.nhu.payment.vo.PayVo">
+		
+	</delete>
+	
+</mapper>

@@ -50,10 +50,10 @@
 	              </a>
 	              <div class="text p-4 d-block">
 	                <div class="meta mb-3">
-	                  <div><a href="#">${booth.company_name }</a></div>&nbsp;
+	                  <div><a href="boothSelect.do?booth_no=${booth.booth_no }">iiiiiii${booth.company_name }</a></div>&nbsp;
 	                  <div><a href="#"><i class="far fa-heart"></i></a></div>
 	                </div>
-	                <h3 class="heading"><a href="#">${booth.booth_introduction }</a></h3>
+	                <h3 class="heading"><a href="boothSelect.do?booth_no=${booth.booth_no }">${booth.booth_introduction }</a></h3>
 	              </div>
 	            </div>
 	          </div>

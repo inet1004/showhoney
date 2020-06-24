@@ -1,33 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<script>
+$(document).ready(function(){
+	var maxField = 3; //최대개수
+	var extcnt = 0; //최초카운트
+	
+	$('.add_btn').click(function(){
+		if(extcnt < maxField) {
+			extcnt++;
+			$('#productlist').append($('.append:last').clone())
+		}
+	});
+	
+	$('.remove_btn').click(function(){
+		$(this).parent($('.append:last').remove())
+		extcnt--;
+	})
+	
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
-    <link rel="stylesheet" href="asset/css/style.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Booth</title>
-<style type="text/css">
-lable {
-	color: gray;
-	font-color: gray;
-}
-</style>
-</head>
+})
+</script>
 
-<body>
-<div class="container">
-    <form id="frm" name="frm" action="modify.do" method="post" enctype="multipart/form-data">
+    <form id="frm" name="frm" action="boothInsert.do" method="post" enctype="multipart/form-data">
     <div class="container-fluid video-player">
         <div class="container">
               <div style="margin-top:5%">
@@ -67,7 +61,7 @@ lable {
 
             </div>
 
-        </div>
+        </div>   
     </div>
 
 <!-- 상품 -->
@@ -75,12 +69,17 @@ lable {
         <h2 class="text-uppercase text-center">PRODUCT</h2>
         <hr class="mx-auto" />
         <div class="play-list mt-5 pt-4">
-            <div class="container">
+            <div class="container" id="productlist">
             <div>
                  <label for="video"> 구매링크 입력란 </label>
                    <input class="w3-input w3-border w3-animate-input" type="text" id="product_mall" name="product_mall">
                </div>
-				<div class="w3-container w3-card-4 w3-light-grey" style="margin-top:5%;">
+               <div style="margin-top:5%; align:right;">
+               <button type="button" class="btn btn-primary add_btn">상품추가</button>
+               <button type="button" class="btn btn-danger remove_btn">삭 제</button>
+               <span style="color: red;"> 총 4개만 등록가능합니다. </span>
+               </div>
+				<div class="w3-container w3-card-4 w3-light-grey append" >
 				  <h2>상품 1 </h2>
 				  <p>상품정보를 입력하세요</p>
 				
@@ -105,15 +104,3 @@ lable {
  		</div>
     </div>
  </form>
- </div>
-
-    <script src="asset/js/popper.min.js"></script>
-    <script src="asset/js/jquery-1.12.0.min.js"></script>
-    <script src="asset/js/bootstrap.min.js"></script>
-    <script src="asset/js/owl.carousel.min.js"></script>
-    <script src="asset/js/jquery.yu2fvl.js"></script>
-    <script src="asset/js/main.js"></script>
-
-</body>
-
-</html>
