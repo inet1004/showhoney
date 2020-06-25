@@ -64,9 +64,8 @@
                 <h4>${exhibition.exhibition_no}.${exhibition.exhibition_name }</h4>
                 <p>${exhibition.exhibition_start_date } ~ ${exhibition.exhibition_end_date }</p>
                 <p><button type="button" class="btn btn-primary" data-toggle="" 
-      onclick="location.href='boothList.do?exhibition_no=${exhibition.exhibition_no}'">부스입장</button>
-                	<button type="button" onclick="location.href='adminExhibitionManage.do'" class="btn btn-primary">발표회입장</button></p>
-              </div>
+      onclick="location.href='boothList.do?exhibition_no=${exhibition.exhibition_no}'">박람회입장</button>
+                	</div>
             </div>
           </div>
 		</c:forEach>

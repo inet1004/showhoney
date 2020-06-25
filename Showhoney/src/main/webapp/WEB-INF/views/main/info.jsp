@@ -34,6 +34,9 @@ a{
 	font-color: black;
 }
 
+.container{
+	max-width: 90%;
+}
 
 </style>
 </head>
