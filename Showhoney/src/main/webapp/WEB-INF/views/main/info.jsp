@@ -45,7 +45,7 @@ a{
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="doing.do">공사중</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">문의사항</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="ask.do">문의사항</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">로그인</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="joinType.do">회원가입</a></li>
                     </ul>
@@ -56,7 +56,7 @@ a{
 	  <!-- Header -->
 	  <header class="masthead d-flex">
 	    <div class="container text-center my-auto">
-	      <img src="img/info/logo.png" style="width: 50%;">
+	      <img src="img/info/logo.png" style="width: 30%;">
 	    </div>
 	    <div class="overlay"></div>
 	  </header>        
