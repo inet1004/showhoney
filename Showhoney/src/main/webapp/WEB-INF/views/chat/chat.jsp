@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 	<title>Chating</title>
@@ -27,7 +30,7 @@
 		.chating{
 			background-color: #000;
 			width: 500px;
-			height: 500px;
+			height: 450px;
 			overflow: auto;
 		}
 		.chating .me{
@@ -63,7 +66,7 @@
 
 	function wsOpen(){
 		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
-		var uri = "ws://" + location.host + "/core/chating.do/"+$("#roomNumber").val();
+		var uri = "ws://" + location.host + "/core/chating/"+$("#roomNumber").val();
 		alert(uri);
 		ws = new WebSocket(uri);
 //		ws = new WebSocket("ws://" + location.host + "/core/chating/"+$("#roomNumber").val());
@@ -162,6 +165,19 @@
 <body>
 	<div id="container" class="container">
 		<h1>${roomName}의 채팅방</h1>
+
+		<c:choose>
+			<c:when test="${empty sessionScope.customer_id}">
+				<h5>!! 로그인이 필요합니다. !!</h5>
+				<a href="login.do">&nbsp;&nbsp; *로그인 하기 </a>			
+			</c:when>
+			<c:otherwise>
+				<h5>[ ${sessionScope.customer_id} ]님 환영합니다.</h5>
+				<a href="logout.do">&nbsp;&nbsp;*로그아웃 하기 &nbsp;&nbsp;</a>
+				<a href="room">&nbsp;&nbsp;*방 목록 가기 </a>
+			</c:otherwise>
+		</c:choose>
+
 		<input type="hidden" id="sessionId" value="">
 		<input type="hidden" id="roomNumber" value="${roomNumber}">
 		

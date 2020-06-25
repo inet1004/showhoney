@@ -21,7 +21,7 @@ public class ExhibitionController {
 	public ModelAndView exhibitionList(ModelAndView mav) {
 		List<Exhibition2Vo> list = exhibitionService.getSelectExhibitionList();
 		mav.addObject("list", list);
-		mav.setViewName("com/exhibition/exhibitionList");
+		mav.setViewName("cus/exhibition/exhibitionList");
 		return mav;
 	}
 

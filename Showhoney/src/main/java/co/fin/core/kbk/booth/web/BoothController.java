@@ -26,7 +26,7 @@ public class BoothController {
 	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav) {
 		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
 		mav.addObject("list", list);
-		mav.setViewName("com/booth/boothList");
+		mav.setViewName("cus/booth/boothList");
 		
 		return mav;
 	}

@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 	<title>Room</title>
@@ -82,7 +85,7 @@
 	}
 
 	function getRoom(){
-		commonAjax('/core/getRoom.do', "", 'post', function(result){   // /getRoom
+		commonAjax('/core/getRoom', "", 'post', function(result){   // /getRoom
 			createChatingRoom(result);
 		});
 	}
@@ -91,7 +94,7 @@
 		$("#createRoom").click(function(){
 			var msg = {	roomName : $('#roomName').val()	};
 
-			commonAjax('/core/createRoom.do', msg, 'post', function(result){   // /createRoom
+			commonAjax('/core/createRoom', msg, 'post', function(result){   // /createRoom
 				createChatingRoom(result);
 			});
 
@@ -100,8 +103,8 @@
 	}
 
 	function goRoom(number, name){
-		alert("/moveChating.do?roomName="+name+"&"+"roomNumber="+number);
-		location.href="/core/moveChating.do?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		alert("/moveChating?roomName="+name+"&"+"roomNumber="+number);
+		location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
 	}
 
 	function createChatingRoom(res){
@@ -141,6 +144,18 @@
 	<br><p/>
 	<br><p/>
 		<h1>채팅방</h1>
+
+		<c:choose>
+			<c:when test="${empty sessionScope.customer_id}">
+				<h5>!! 이용을 위해 로그인이 필요합니다. !!</h5>
+				<a href="login.do">&nbsp;&nbsp; *로그인 하기 </a>			
+			</c:when>
+			<c:otherwise>
+				<h5>[ ${sessionScope.customer_id} ]님 환영합니다. &nbsp;&nbsp;</h5>
+				<a href="logout.do">&nbsp;&nbsp; *로그아웃 하기 </a>
+			</c:otherwise>
+		</c:choose>
+		
 		<div id="roomContainer" class="roomContainer">
 			<table id="roomList" class="roomList"></table>
 		</div>

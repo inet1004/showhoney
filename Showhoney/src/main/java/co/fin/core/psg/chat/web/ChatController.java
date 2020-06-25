@@ -20,7 +20,7 @@ public class ChatController {
 	List<Room> roomList = new ArrayList<Room>();
 	static int roomNumber = 0;
 	
-	@RequestMapping("/chat.do") // /chat
+	@RequestMapping("/chat") // /chat
 	public ModelAndView chat() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("com/chat/chat");
@@ -31,7 +31,7 @@ public class ChatController {
 	 * 방 페이지
 	 * @return
 	 */
-	@RequestMapping("/room.do") // /room
+	@RequestMapping("/room") // /room.do
 	public ModelAndView room() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("com/chat/room");
@@ -43,7 +43,7 @@ public class ChatController {
 	 * @param params
 	 * @return
 	 */
-	@RequestMapping("/createRoom.do")  // /createRoom
+	@RequestMapping("/createRoom")  // /createRoom
 	public @ResponseBody List<Room> createRoom(@RequestParam HashMap<Object, Object> params){
 		String roomName = (String) params.get("roomName");
 		if(roomName != null && !roomName.trim().equals("")) {
@@ -60,7 +60,7 @@ public class ChatController {
 	 * @param params
 	 * @return
 	 */
-	@RequestMapping("/getRoom.do")   // /getRoom
+	@RequestMapping("/getRoom")   // /getRoom.do
 	public @ResponseBody List<Room> getRoom(@RequestParam HashMap<Object, Object> params){
 		return roomList;
 	}
@@ -69,7 +69,7 @@ public class ChatController {
 	 * 채팅방
 	 * @return
 	 */
-	@RequestMapping("/moveChating.do")  // /moveChating
+	@RequestMapping("/moveChating")  // /moveChating
 	public ModelAndView chating(@RequestParam HashMap<Object, Object> params) {
 		ModelAndView mv = new ModelAndView();
 		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));

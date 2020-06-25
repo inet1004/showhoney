@@ -98,4 +98,11 @@ public class AdminController {
 		return mav;
 	}
 	
+	@RequestMapping("/like.do")
+
+	public ModelAndView like(ModelAndView mav) {
+		mav.setViewName("/like/like");
+		return mav;
+	}
+	
 }

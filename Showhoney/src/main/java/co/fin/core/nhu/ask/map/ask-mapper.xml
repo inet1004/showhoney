@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.nhu.ask.serviceImpl.AskMapper">
+	<select id="getSelectAskList" resultType="co.fin.core.nhu.ask.vo.AskVo">
+		SELECT ASK_NO, ASK_TITLE, ASK_DATE, ASK_NAME FROM ASK
+	</select>
+	
+	<select id="getSelect" parameterType="co.fin.core.nhu.ask.vo.AskVo" resultType="co.fin.core.nhu.ask.vo.AskVo">
+		SELECT ASK_NO, ASK_TITLE, ASK_CONTENTS, ASK_DATE, ASK_NAME FROM ASK WHERE ASK_NO = #{ask_no}
+	</select>
+	
+	<insert id="askInsert" parameterType="co.fin.core.nhu.ask.vo.AskVo">
+		<selectKey resultType="int" keyProperty="ask_no" order="BEFORE">
+			SELECT SEQ_ASK_NO.nextval FROM dual
+		</selectKey>	
+		INSERT INTO ASK
+		VALUES(#{ask_no}, #{ask_title}, #{ask_contents}, SYSDATE, #{ask_name})
+	</insert>
+	
+	<update id="askUpdate" parameterType="co.fin.core.nhu.ask.vo.AskVo">
+	
+	</update>
+	
+	<delete id="askDelete" parameterType="co.fin.core.nhu.ask.vo.AskVo">
+		
+	</delete>
+	
+</mapper>
