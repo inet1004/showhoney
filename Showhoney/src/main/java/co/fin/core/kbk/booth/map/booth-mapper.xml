@@ -54,12 +54,12 @@
 	<update id="productUpdate" parameterType="co.fin.core.kbk.booth.vo.ProductVo">
 		UPDATE PRODUCT 
 		<set>
-			product_name = #{product_name}, product_desc = #{product_desc}, product_mall = #{product_mall}
+			product_name = #{product_name}, product_desc = #{product_desc}, product_mall = #{product_mall}, booth_no = #{booth_no}
 			<if test="product_image_path != null and product_image_path != ''">
 				product_image_path = #{product_image_path}
 			</if>
 		</set>
-			WEHRE product_no = #{product_no}
+			WHERE product_no = #{product_no}
 	</update>
 	
 	<delete id="productDelete" parameterType="co.fin.core.kbk.booth.vo.ProductVo">
