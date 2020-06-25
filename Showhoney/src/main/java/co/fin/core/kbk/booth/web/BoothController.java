@@ -33,6 +33,7 @@ public class BoothController {
 	
 	@RequestMapping("/boothForm.do")
 	public String boothForm(Model model) {
+		
 		return "com/companyuser/boothForm";
 	}
 	
@@ -79,5 +80,13 @@ public class BoothController {
 		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+pvo.getBooth_no());
 		return mav;
 	}
-
+	
+	@RequestMapping("/customerBoothList.do")
+	public ModelAndView customerBoothList(BoothVo vo, ModelAndView mav) {
+		List<BoothVo> list = boothService.getSelectCustomerBoothList(vo);
+		mav.addObject("list", list);
+		mav.setViewName("cus/booth/customerBoothList");
+		
+		return mav;
+	}
 }

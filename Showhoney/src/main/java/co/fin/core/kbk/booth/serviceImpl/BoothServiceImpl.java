@@ -115,4 +115,10 @@ public class BoothServiceImpl implements BoothService {
 	}
 
 
+	@Override
+	public List<BoothVo> getSelectCustomerBoothList(BoothVo vo) {
+		return dao.getSelectCustomerBoothList(vo);
+	}
+
+
 }

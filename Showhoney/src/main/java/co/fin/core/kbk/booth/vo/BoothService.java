@@ -12,6 +12,9 @@ public interface BoothService {
 	void boothUpdate(BoothVo vo);
 	void boothDelete(BoothVo vo);
 	
+	//Customer
+	List<BoothVo> getSelectCustomerBoothList(BoothVo vo);
+	
 	//product
 	List<ProductVo> getSelectList(ProductVo vo);
 	ProductVo getSelect(ProductVo vo);
