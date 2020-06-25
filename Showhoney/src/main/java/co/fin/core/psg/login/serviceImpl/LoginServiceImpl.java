@@ -48,7 +48,6 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public boolean loginCheckCom(LoginComVo cvo, HttpSession session) {
 //		int result = dao.loginCheckCom(cvo);
-		
 		String pw = loginMapper.getCompanyUserPw(cvo);  //session은 넣을 필요 없음
 		boolean result = passwordEncoder.matches(cvo.getCompany_user_id(), pw);
 		
