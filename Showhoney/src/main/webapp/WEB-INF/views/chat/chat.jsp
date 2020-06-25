@@ -66,7 +66,7 @@
 
 	function wsOpen(){
 		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
-		var uri = "ws://" + location.host + "/core/chating.do/"+$("#roomNumber").val();
+		var uri = "ws://" + location.host + "/core/chating/"+$("#roomNumber").val();
 		alert(uri);
 		ws = new WebSocket(uri);
 //		ws = new WebSocket("ws://" + location.host + "/core/chating/"+$("#roomNumber").val());
@@ -174,7 +174,7 @@
 			<c:otherwise>
 				<h5>[ ${sessionScope.customer_id} ]님 환영합니다.</h5>
 				<a href="logout.do">&nbsp;&nbsp;*로그아웃 하기 &nbsp;&nbsp;</a>
-				<a href="room.do">&nbsp;&nbsp;*방 목록 가기 </a>
+				<a href="room">&nbsp;&nbsp;*방 목록 가기 </a>
 			</c:otherwise>
 		</c:choose>
 
