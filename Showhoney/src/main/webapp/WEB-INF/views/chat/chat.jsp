@@ -14,7 +14,8 @@
 		.container{
 			width: 500px;
 			margin: 0 auto;
-			padding: 25px
+			padding: 25px;
+			height: 750px;  /*추가 */
 		}
 		.container h1{
 			text-align: left;
@@ -38,7 +39,7 @@
 			text-align: left;
 		}
 		input{
-			width: 330px;
+			width: 250px; /* 330px */
 			height: 25px;
 		}
 		#yourMsg{
@@ -170,20 +171,20 @@
 		<div id="yourName">
 			<table class="inputTable">
 				<tr>
-					<th>사용자명</th>
-					<th><input type="text" name="userName" id="userName"></th>
-					<th><button onclick="chatName()" id="startBtn">이름 등록</button></th>
+					<th width="100">사용자명</th>
+					<th width="300"><input type="text" name="userName" id="userName"></th>
+					<th width="100"><button onclick="chatName()" id="startBtn">이름 등록</button></th>
 				</tr>
 			</table>
 		</div>
 		<div id="yourMsg">
-			<table class="inputTable">
+			<table class="inputTable" width="500">
 				<tr>
-					<th>메시지</th>
-					<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
-					<th><button onclick="send()" id="sendBtn">보내기</button></th>
+					<th width="100">메시지</th>
+					<th width="300"><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
+					<th width="100"><button onclick="send()" id="sendBtn">보내기</button></th>
 				</tr>
-				<tr>
+				<tr height="70" valign="middle">
 					<th>파일업로드</th>
 					<th><input type="file" id="fileUpload"></th>
 					<th><button onclick="fileSend()" id="sendFileBtn">파일올리기</button></th>

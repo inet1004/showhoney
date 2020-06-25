@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import co.fin.core.kjh.companyuser.vo.CompanyUserService;
 import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
 
+
 @Service("companyUserService")
 public class CompanyUserServiceImpl implements CompanyUserService {
 	
