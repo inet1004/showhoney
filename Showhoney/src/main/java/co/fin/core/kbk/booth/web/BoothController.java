@@ -1,8 +1,6 @@
 package co.fin.core.kbk.booth.web;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import co.fin.core.kbk.booth.vo.BoothService;
 import co.fin.core.kbk.booth.vo.BoothVo;
-import co.fin.core.kbk.product.vo.ProductVo;
+import co.fin.core.kbk.booth.vo.ProductVo;
 import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
 
 @Controller
@@ -26,7 +24,7 @@ public class BoothController {
 	
 	@RequestMapping(value = "/boothList.do")
 	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav) {
-		List<BoothVo> list = boothService.getSelectBoothList(vo);
+		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
 		mav.addObject("list", list);
 		mav.setViewName("com/booth/boothList");
 		
@@ -47,18 +45,39 @@ public class BoothController {
 	}
 	
 	@RequestMapping("/boothSelect.do")
-	public String boothSelect(BoothVo vo, Model model) {
+	public String boothSelect(BoothVo vo, ProductVo pvo, Model model) {
 		
-		List<BoothVo> list = boothService.getSelectBoothList(vo);
+		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
 		
-		model.addAttribute("product", boothService.getSelect(vo));
+		model.addAttribute("productlist", boothService.getSelectList(pvo));
 		model.addAttribute("list", list);
 		return "com/companyuser/boothSelect";
 	}
 	
 	@RequestMapping("/boothModifyForm.do")
-	public String boothModifyForm(Model model) {
+	public String boothModifyForm(BoothVo vo, ProductVo pvo, Model model ) {
+		
+		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+		
+		model.addAttribute("productlist", boothService.getSelectList(pvo));
+		model.addAttribute("list", list);
 		return "com/companyuser/boothModifyForm";
+	}
+	
+	@RequestMapping("/boothUpdate.do")
+	public ModelAndView boothUpdate(BoothVo bvo, ModelAndView mav) throws IOException {
+			
+		boothService.boothUpdate(bvo);
+		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+bvo.getBooth_no());
+		return mav;
+	}
+	
+	@RequestMapping("/productUpdate.do")
+	public ModelAndView productUpdate(ProductVo pvo, ModelAndView mav) throws IOException {
+			
+		boothService.productUpdate(pvo);
+		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+pvo.getBooth_no());
+		return mav;
 	}
 
 }

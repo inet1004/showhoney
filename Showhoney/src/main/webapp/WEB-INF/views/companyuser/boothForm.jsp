@@ -24,7 +24,7 @@ $(document).ready(function(){
     <form id="frm" name="frm" action="boothInsert.do" method="post" enctype="multipart/form-data">
     <div class="container-fluid video-player">
         <div class="container">
-              <div style="margin-top:5%">
+              <div style="margin-top:10%">
                  <label for="video"> 홍보영상 주소를 입력해 주세요 </label>
                    <input class="w3-input w3-border w3-animate-input" type="text" id="video_path" name="video_path">
                </div>
@@ -65,7 +65,7 @@ $(document).ready(function(){
     </div>
 
 <!-- 상품 -->
-    <div class="container-fluid fh5co-recent-news mt-5 pb-5">
+    <div class="container-fluid fh5co-recent-news mt-5 pb-5" style="margin-top:10%">
         <h2 class="text-uppercase text-center">PRODUCT</h2>
         <hr class="mx-auto" />
         <div class="play-list mt-5 pt-4">

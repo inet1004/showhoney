@@ -1,4 +1,4 @@
-package co.fin.core.kbk.product.vo;
+package co.fin.core.kbk.booth.vo;
 
 import org.springframework.web.multipart.MultipartFile;
 

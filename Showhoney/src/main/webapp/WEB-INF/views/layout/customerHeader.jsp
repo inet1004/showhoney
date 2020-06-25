@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -14,7 +13,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
   height: 100%;
   line-height: 1.8;
-  font-family: "Raleway", sans-serif;
 }
 
 .w3-bar .w3-button {
@@ -30,11 +28,11 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">박람회</a>
-      <a href="#team" class="w3-bar-item w3-button">부스</a>
+      <a href="#team" class="w3-bar-item w3-button"> 부스</a>
       <a href="#work" class="w3-bar-item w3-button">발표회</a>
-      <a href="#pricing" class="w3-bar-item w3-button">티켓구매</a>
-      <a href="#pricing" class="w3-bar-item w3-button">문의사항</a>
-      <a href="#contact" class="w3-bar-item w3-button">고객</a>
+      <a href="#pricing" class="w3-bar-item w3-button"> 티켓구매하기</a>
+      <a href="#contact" class="w3-bar-item w3-button"> 문의하기</a>
+      <a href="#contact" class="w3-bar-item w3-button"> 고객</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -50,21 +48,13 @@ body, html {
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">박람회</a>
   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">부스</a>
   <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">발표회</a>
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">티켓구매</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">문의사항</a>
-   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">고객</a>
+  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">티켓구매하기</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">문의하기</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">고객</a>
 </nav>
 
 
 <script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
 
 // Toggle between showing and hiding the sidebar when clicking the menu icon
 var mySidebar = document.getElementById("mySidebar");
@@ -82,6 +72,7 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 </script>
+
 
 </body>
 </html>
