@@ -37,6 +37,7 @@ df
 <a href="exhibitionList.do">박람회 목록</a><br/>
 <a href="ticketList.do">티켓리스트</a><br/>
 <a href="pay.do">결제하러가기</a>
+<a href="like.do">좋아요</a>
 </body>
 
 <br><p/>

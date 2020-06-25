@@ -21,6 +21,11 @@ public class BoardController {
 		return "no/main/info";
 	}
 	
+	@RequestMapping("/doing.do")
+	public String doing(Model model) {
+		return "no/main/main";
+	}
+	
 	@RequestMapping("/bothLogin.do")
 	public String bothLogin(Model model) {
 		return "no/login/bothLogin";
