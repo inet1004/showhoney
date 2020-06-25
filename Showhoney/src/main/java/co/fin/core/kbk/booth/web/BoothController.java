@@ -1,8 +1,6 @@
 package co.fin.core.kbk.booth.web;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,7 +73,7 @@ public class BoothController {
 	}
 	
 	@RequestMapping("/productUpdate.do")
-	public ModelAndView productUpdate(ProductVo pvo, BoothVo bvo, ModelAndView mav) throws IOException {
+	public ModelAndView productUpdate(ProductVo pvo, ModelAndView mav) throws IOException {
 			
 		boothService.productUpdate(pvo);
 		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+pvo.getBooth_no());

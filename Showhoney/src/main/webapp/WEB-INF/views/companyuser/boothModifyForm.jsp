@@ -6,7 +6,7 @@
     <div class="container-fluid video-player">
         <div class="container">
               <div style="margin-top:10%">
-                 <input type="hidden" id="booth_no" value="${list[0].booth_no }">
+                 <input type="hidden" name="booth_no" id="booth_no" value="${list[0].booth_no }">  
                  <label for="video"> 홍보영상 주소를 입력해 주세요 </label>
                    <textarea class="w3-input w3-border w3-animate-input" rows="5" cols="50" id="video_path" name="video_path">${list[0].video_path }</textarea>
                </div>
@@ -50,14 +50,15 @@
 			<button class="w3-button w3-blue w3-round-xlarge" type="submit"> 부스수정 완료</button>
 		</div>  
     </div>
-  </form>
+ </form>
+ 
 
 <!-- 상품 -->
  <c:forEach var="product" items="${productlist }" varStatus="i">
 	<form id="productfrm" name="productfrm" action="productUpdate.do" method="post" enctype="multipart/form-data">
     <div class="container-fluid fh5co-recent-news mt-5 pb-5" style="margin-top:10%">
-    	<input type="hidden" id="booth_no" value="${product.booth_no }">
-        
+    	<input type="hidden" name="product_no" id="product_no" value="${product.product_no }">
+         <input type="hidden" name="booth_no" id="booth_no" value="${list[0].booth_no }">  
         <h2 class="text-uppercase text-center">PRODUCT</h2>
         <hr class="mx-auto" />
         <div class="play-list mt-5 pt-4">
@@ -86,10 +87,10 @@
 				  <span>${product.product_image_path }</span>
 			</div>
 		</div>
-	</div>
-	</div>
 	 <div class="row" style="margin-top:5%;" align="center">
 	 	<button class="w3-button w3-blue w3-round-xlarge" type="submit" > 상품수정 완료</button>
     </div>
+	</div>
+	</div>
  </form>
 </c:forEach>

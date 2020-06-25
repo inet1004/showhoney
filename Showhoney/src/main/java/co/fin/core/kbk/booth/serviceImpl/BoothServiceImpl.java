@@ -99,11 +99,13 @@ public class BoothServiceImpl implements BoothService {
 	@Override
 	public void productInsert(ProductVo vo, HttpServletRequest request) throws IOException {
 		// TODO Auto-generated method stub
+		dao.productInsert(vo);
 	}
 
 	@Override
 	public void productUpdate(ProductVo vo) {
 		// TODO Auto-generated method stub
+		dao.productUpdate(vo);
 	}
 
 	@Override
