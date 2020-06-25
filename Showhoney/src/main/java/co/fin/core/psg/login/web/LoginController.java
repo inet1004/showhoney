@@ -94,7 +94,7 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		
 		if(result) {
-			mav.setViewName("redirect:main.do");
+			mav.setViewName("/login/loginCom");
 			mav.addObject("msgCom","성공");
 		}else {
 			mav.setViewName("/login/loginCom");
