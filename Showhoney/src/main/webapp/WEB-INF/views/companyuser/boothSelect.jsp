@@ -16,7 +16,7 @@
 					<div class="col-md-12 col-lg-6 light-bg pr-0 pd-md">
 						<!-- 기업이미지 -->
 						<img
-							src="<spring:url value='/resources/FileUpload/booth/${list[0].booth_profile }'/>">
+							src="<spring:url value='/resources/FileUpload/boothProfile/${list[0].booth_profile }'/>">
 					</div>
 					<!-- 소개글 -->
 					<div class="col-md-12 col-lg-6 light-bg ">

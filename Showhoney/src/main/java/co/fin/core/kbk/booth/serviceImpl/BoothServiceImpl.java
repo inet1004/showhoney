@@ -32,7 +32,7 @@ public class BoothServiceImpl implements BoothService {
 	public void boothInsert(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException {
 		MultipartFile booth_uploadFile = bvo.getBooth_uploadfile();
 		MultipartFile brochure_uploadfile = bvo.getBrochure_uploadfile();
-		String booth_path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/booth");
+		String booth_path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/boothProfile");
 		String bro_path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/brochure");
 		
 		if(!booth_uploadFile.isEmpty()) {

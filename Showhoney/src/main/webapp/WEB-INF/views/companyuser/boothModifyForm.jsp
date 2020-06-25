@@ -2,6 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script>
+$(document).ready(function(){
+	
+	$('.remove_btn').click(function(){
+		$(this).parent($('.append:last').remove())
+		extcnt--;
+	})
+	
+
+})
+</script>
+
     <form id="boothfrm" name="boothfrm" action="boothUpdate.do" method="post" enctype="multipart/form-data">
     <div class="container-fluid video-player">
         <div class="container">
@@ -46,7 +58,7 @@
             </div>
 
         </div> 
-        <div class="row" style="margin-top:5%;" align="center">
+        <div style="margin-top:5%;" align="center">
 			<button class="w3-button w3-blue w3-round-xlarge" type="submit"> 부스수정 완료</button>
 		</div>  
     </div>
@@ -87,10 +99,13 @@
 				  <span>${product.product_image_path }</span>
 			</div>
 		</div>
-	 <div class="row" style="margin-top:5%;" align="center">
+	 <div style="margin-top:5%;" align="center">
 	 	<button class="w3-button w3-blue w3-round-xlarge" type="submit" > 상품수정 완료</button>
     </div>
 	</div>
 	</div>
  </form>
+ <div>
+ 
+ </div>
 </c:forEach>
