@@ -44,7 +44,7 @@
 			color: #FFBB00;
 		}
 		.roomList .num{
-			width: 75px;
+			width: 75px;  /* 75px */
 			text-align: center;
 		}
 		.roomList .room{
@@ -53,7 +53,7 @@
 		.roomList .go{
 			width: 71px;
 			text-align: center;
-		}
+		}		
 		button{
 			background-color: #FFBB00;
 			font-size: 14px;
@@ -64,12 +64,13 @@
 			margin: 3px;
 		}
 		.inputTable th{
-			padding: 5px;
+			padding: 3px;
 		}
 		.inputTable input{
-			width: 330px;
+			width: 250px; /* 330px */
 			height: 25px;
-		}
+		}		
+		
 	</style>
 </head>
 
@@ -105,7 +106,7 @@
 
 	function createChatingRoom(res){
 		if(res != null){
-			var tag = "<tr><th class='num'>순서</th><th class='room'>방 이름</th><th class='go'></th></tr>";
+			var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
 			res.forEach(function(d, idx){
 				var rn = d.roomName.trim();
 				var roomNumber = d.roomNumber;
@@ -137,16 +138,18 @@
 </script>
 <body>
 	<div class="container">
+	<br><p/>
+	<br><p/>
 		<h1>채팅방</h1>
 		<div id="roomContainer" class="roomContainer">
 			<table id="roomList" class="roomList"></table>
 		</div>
 		<div>
-			<table class="inputTable">
+			<table class="inputTable" width="500">
 				<tr>
-					<th>방 제목</th>
-					<th><input type="text" name="roomName" id="roomName"></th>
-					<th><button id="createRoom">방 만들기</button></th>
+					<th width="100" align="center">&nbsp;&nbsp;&nbsp;&nbsp;방 제목</th>
+					<th width="300"><input type="text" name="roomName" id="roomName" maxlength=10></th>
+					<th width="100"><button id="createRoom">방 생성</button></th>
 				</tr>
 			</table>
 		</div>
