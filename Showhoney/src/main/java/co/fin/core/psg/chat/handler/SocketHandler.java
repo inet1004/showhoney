@@ -125,7 +125,7 @@ public class SocketHandler extends TextWebSocketHandler {
 		super.afterConnectionEstablished(session);
 		boolean flag = false;
 		String url = session.getUri().toString();
-		String roomNumber = url.split("/chating.do/")[1];   // chating
+		String roomNumber = url.split("/chating/")[1];   // chating
 		int idx = rls.size(); //방의 사이즈를 조사한다.
 		if(rls.size() > 0) {
 			for(int i=0; i<rls.size(); i++) {

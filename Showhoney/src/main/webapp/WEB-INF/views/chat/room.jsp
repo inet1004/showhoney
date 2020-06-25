@@ -85,7 +85,7 @@
 	}
 
 	function getRoom(){
-		commonAjax('/core/getRoom.do', "", 'post', function(result){   // /getRoom
+		commonAjax('/core/getRoom', "", 'post', function(result){   // /getRoom
 			createChatingRoom(result);
 		});
 	}
@@ -94,7 +94,7 @@
 		$("#createRoom").click(function(){
 			var msg = {	roomName : $('#roomName').val()	};
 
-			commonAjax('/core/createRoom.do', msg, 'post', function(result){   // /createRoom
+			commonAjax('/core/createRoom', msg, 'post', function(result){   // /createRoom
 				createChatingRoom(result);
 			});
 
@@ -103,8 +103,8 @@
 	}
 
 	function goRoom(number, name){
-		alert("/moveChating.do?roomName="+name+"&"+"roomNumber="+number);
-		location.href="/core/moveChating.do?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		alert("/moveChating?roomName="+name+"&"+"roomNumber="+number);
+		location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
 	}
 
 	function createChatingRoom(res){
