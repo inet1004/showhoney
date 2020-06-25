@@ -40,7 +40,7 @@
 		}
 		input{
 			width: 250px; /* 330px */
-			height: 25px;
+			height: 35px; /* 25px */
 		}
 		#yourMsg{
 			display: none;
@@ -89,7 +89,7 @@
 					}
 				}else if(d.type == "message"){
 					if(d.sessionId == $("#sessionId").val()){
-						$("#chating").append("<p class='me'>나 :" + d.msg + "</p>");	
+						$("#chating").append("<p class='me'>나 : " + d.msg + "</p>");	
 					}else{
 						$("#chating").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
 					}
@@ -169,9 +169,9 @@
 		</div>
 		
 		<div id="yourName">
-			<table class="inputTable">
-				<tr>
-					<th width="100">사용자명</th>
+			<table class="inputTable" width="500">
+				<tr bgcolor="yellowgreen">
+					<th width="100" height="55" valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;사용자명</th>
 					<th width="300"><input type="text" name="userName" id="userName"></th>
 					<th width="100"><button onclick="chatName()" id="startBtn">이름 등록</button></th>
 				</tr>
@@ -179,15 +179,15 @@
 		</div>
 		<div id="yourMsg">
 			<table class="inputTable" width="500">
-				<tr>
-					<th width="100">메시지</th>
-					<th width="300"><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
+				<tr bgcolor="yellow">
+					<th width="100">&nbsp;&nbsp;메시지</th>
+					<th width="300" height="55" valign="middle"><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
 					<th width="100"><button onclick="send()" id="sendBtn">보내기</button></th>
 				</tr>
-				<tr height="70" valign="middle">
-					<th>파일업로드</th>
+				<tr bgcolor="yellowgreen">
+					<th>&nbsp;&nbsp;파일업로드</th>
 					<th><input type="file" id="fileUpload"></th>
-					<th><button onclick="fileSend()" id="sendFileBtn">파일올리기</button></th>
+					<th height="55" valign="middle"><button onclick="fileSend()" id="sendFileBtn">파일올리기</button></th>
 				</tr>
 			</table>
 		</div>

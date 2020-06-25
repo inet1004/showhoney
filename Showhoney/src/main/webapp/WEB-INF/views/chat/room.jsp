@@ -146,7 +146,7 @@
 		</div>
 		<div>
 			<table class="inputTable" width="500">
-				<tr>
+				<tr bgcolor="yellowgreen">
 					<th width="100" align="center">&nbsp;&nbsp;&nbsp;&nbsp;방 제목</th>
 					<th width="300"><input type="text" name="roomName" id="roomName" maxlength=10></th>
 					<th width="100"><button id="createRoom">방 생성</button></th>
