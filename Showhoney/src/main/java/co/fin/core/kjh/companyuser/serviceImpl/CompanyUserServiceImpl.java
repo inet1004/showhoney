@@ -2,8 +2,9 @@ package co.fin.core.kjh.companyuser.serviceImpl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import co.fin.core.kjh.companyuser.vo.CompanyUserService;
@@ -15,7 +16,7 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 	@Autowired
 	private CompanyUserMapper dao;
 	@Autowired
-	BCryptPasswordEncoder pwdEncoder;
+	PasswordEncoder pwdEncoder;
 	
 	@Override
 	public List<CompanyUserVo> getSelectList() {
