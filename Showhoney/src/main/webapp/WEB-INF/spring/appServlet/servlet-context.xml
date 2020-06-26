@@ -51,6 +51,17 @@
     <beans:property name="maxUploadSize" value="200000000" />
     <beans:property name="maxInMemorySize" value="200000000" />
 	</beans:bean>
+	
+	<!-- 브로슈어download -->
+	<beans:bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <beans:property name="prefix" value="/" />
+      <beans:property name="suffix" value=".jsp" />
+      <beans:property name="order" value="1" />
+   </beans:bean>
+
+   <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+       <beans:property name="order" value="0" />
+   </beans:bean>
 
 	<context:component-scan base-package="co.fin.core" />
 	
