@@ -3,6 +3,7 @@ package co.fin.core.kjh.customer.serviceImpl;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,10 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Autowired
 	private CustomerMapper dao;
+	
+
 	@Autowired
-	PasswordEncoder pwdEncoder;
+	PasswordEncoder passwordEncoder;
 	
 	@Override
 	public List<CustomerVo> getSelectList() {
@@ -32,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void customerInsert(CustomerVo vo) {
-		vo.setCustomer_pw(pwdEncoder.encode(vo.getCustomer_pw()));
+		vo.setCustomer_pw(passwordEncoder.encode(vo.getCustomer_pw()));
 		dao.customerInsert(vo);
 
 	}

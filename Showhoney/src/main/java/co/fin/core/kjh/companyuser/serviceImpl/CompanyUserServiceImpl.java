@@ -2,7 +2,6 @@ package co.fin.core.kjh.companyuser.serviceImpl;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,8 +14,9 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 	
 	@Autowired
 	private CompanyUserMapper dao;
+
 	@Autowired
-	PasswordEncoder pwdEncoder;
+	PasswordEncoder passwordEncoder;
 	
 	@Override
 	public List<CompanyUserVo> getSelectList() {
@@ -50,9 +50,9 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 
 	@Override
 	public void companyInsert(CompanyUserVo vo) {
-		vo.setCompany_user_pw(pwdEncoder.encode(vo.getCompany_user_pw()));
-		vo.setCompany_user_pw2(pwdEncoder.encode(vo.getCompany_user_pw2()));
-		vo.setCompany_user_pw3(pwdEncoder.encode(vo.getCompany_user_pw3()));
+		vo.setCompany_user_pw(passwordEncoder.encode(vo.getCompany_user_pw()));
+		vo.setCompany_user_pw2(passwordEncoder.encode(vo.getCompany_user_pw2()));
+		vo.setCompany_user_pw3(passwordEncoder.encode(vo.getCompany_user_pw3()));
 		
 		dao.companyInsert(vo);
 		dao.companyUserInsert(vo); //여기까지 한 기업+기업회원 처리
