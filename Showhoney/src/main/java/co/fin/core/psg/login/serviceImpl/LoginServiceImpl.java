@@ -2,7 +2,9 @@ package co.fin.core.psg.login.serviceImpl;
 
 import javax.servlet.http.HttpSession;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,7 @@ public class LoginServiceImpl implements LoginService {
 	LoginMapper loginMapper;
 
 	@Autowired
-	PasswordEncoder passwordEncoder;
+	BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
 	public boolean loginCheck(LoginVo vo, HttpSession session) {
@@ -33,7 +35,7 @@ public class LoginServiceImpl implements LoginService {
 		// vo.setCustomer_pw(encPassword);
 
 		String pw = loginMapper.getCustomerPw(vo);  //session은 넣을 필요 없음
-		boolean result = passwordEncoder.matches(vo.getCustomer_pw(), pw);
+		boolean result = bCryptPasswordEncoder.matches(vo.getCustomer_pw(), pw);
 
 		// int result = dao.loginCheck(vo);
 		// if (result == 1) { //true 일경우 세션 등록
@@ -49,7 +51,7 @@ public class LoginServiceImpl implements LoginService {
 	public boolean loginCheckCom(LoginComVo cvo, HttpSession session) {
 //		int result = dao.loginCheckCom(cvo);
 		String pw = loginMapper.getCompanyUserPw(cvo);  //session은 넣을 필요 없음
-		boolean result = passwordEncoder.matches(cvo.getCompany_user_id(), pw);
+		boolean result = bCryptPasswordEncoder.matches(cvo.getCompany_user_id(), pw);
 		
 		if (result) { // true 일경우 세션 등록
 			// 세션 변수 등록
