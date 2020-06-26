@@ -11,6 +11,8 @@
 	<meta charset="UTF-8">
 	<title>기업 로그인</title>
 	<script src="resources/jQuery/jquery-3.4.1.min.js"></script>
+<!-- Custom Fonts -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	
 <style>	
 tr.space {
@@ -89,5 +91,15 @@ tr.space {
 		
 	});
 </script>
+
+	
+<div align="center">
+	<p><strong>항상 ShowHoney를 사랑해주셔서 감사합니다</strong></p>
+	<br><p/>
+	<a href="/core/" alt="홈으로"><i class="fas fa-landmark  fa-3x"></i></a>
+	<br>
+	홈으로 가기
+	
+</div>
 
 </html>

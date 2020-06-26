@@ -25,17 +25,17 @@ body, html {
 
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">SHOWHONEY</a>
+    <a href="/core" class="w3-bar-item w3-button w3-wide">SHOWHONEY</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">회원가입승인</a>
+      <a href="adminManageList.do" class="w3-bar-item w3-button">회원가입승인</a>
       <a href="exhibitionList.do" class="w3-bar-item w3-button"> 박람회</a>
       <a href="#team" class="w3-bar-item w3-button"> 박람회관리</a>
-      <a href="#work" class="w3-bar-item w3-button"> 부스관리</a>
+      <a href="boothList.do" class="w3-bar-item w3-button"> 부스관리</a>
       <a href="#pricing" class="w3-bar-item w3-button"> 발표회</a>
-      <a href="#contact" class="w3-bar-item w3-button"> 티켓관리</a>
-      <a href="#contact" class="w3-bar-item w3-button"> 문의사항</a>
-      <a href="#contact" class="w3-bar-item w3-button"> Admin</a>
+      <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓관리</a>
+      <a href="ask.do" class="w3-bar-item w3-button"> 문의사항</a>
+      <a href="adminManage.do" class="w3-bar-item w3-button"> Admin</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -48,12 +48,14 @@ body, html {
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">박람회</a>
-  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">부스</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">발표회</a>
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">티켓구매하기</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">문의하기</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">고객</a>
+  <a href="adminManageList.do" onclick="w3_close()" class="w3-bar-item w3-button">회원가입승인</a>
+  <a href="exhibitionList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 박람회</a>
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button"> 박람회관리</a>
+  <a href="boothList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 부스관리</a>
+  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button"> 발표회</a>
+  <a href="ticketList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 티켓관리</a>
+  <a href="ask.do" onclick="w3_close()" class="w3-bar-item w3-button"> 문의사항</a>
+  <a href="adminManage.do" onclick="w3_close()" class="w3-bar-item w3-button"> Admin</a>
 </nav>
 
 

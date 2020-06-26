@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Custom Fonts -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <script>
@@ -54,5 +56,18 @@
 	<input type="submit" value="등록하기" class="btn btn-primary"> 
 	</div>
 	</form>
+	
+	
+	<br><br>
+<div align="center">
+	<p><strong>항상 ShowHoney를 사랑해주셔서 감사합니다</strong></p>
+	<br><p/>
+	<a href="/core/" alt="홈으로"><i class="fas fa-landmark  fa-3x"></i></a>
+	<br>
+	홈으로 가기
+	
+</div>
+
+
 </body>
 </html>

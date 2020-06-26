@@ -21,10 +21,7 @@ public class TicketController {
 	public ModelAndView exhibitionList(ModelAndView mav) {
 		List<TicketVo> tlist = ticketService.getSelectTicketList();
 		mav.addObject("tlist", tlist);
-		mav.setViewName("com/price/import");
-		
-		
-		
+		mav.setViewName("com/ticket/ticket_sample");
 		return mav;
 	}
 	

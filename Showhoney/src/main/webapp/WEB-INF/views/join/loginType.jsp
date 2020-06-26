@@ -46,6 +46,10 @@ a{
 
 }
 
+i {
+ color:yellowgreen;
+}
+
 </style>
 </head>
 <body id="page-top">
@@ -57,7 +61,7 @@ a{
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     	<li class="nav-item"><a class="nav-link " href="info.do">HOME</a></li>
                         <li class="nav-item"><a class="nav-link " href="ask.do">문의사항</a></li>
-                        <li class="nav-item"><a class="nav-link " href="loginType.do">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link " href="joinType.do">회원가입</a></li>
                     </ul>
                 </div>
             </div>
@@ -68,12 +72,12 @@ a{
 	    <div class="container text-center my-auto">
 	    	<div class="div">
 	    	<div>
-	    		<i class="fas fa-user fa-7x" style="margin-top:15%"></i>
-	    		<i class="fas fa-user-tie fa-7x" style="margin-left:15%"></i>
+	    		<i class="far fa-address-card fa-7x" style="margin-top:15%"></i>
+	    		<i class="fas fa-address-card fa-7x" style="margin-left:15%"></i>
 	    	</div>
 	    	<div style="margin-top:5%">
-	    		<button type="button" class="btn btn-dark" onclick="location.href='customerJoin.do'" style="margin-bottom:15%">개인 회원가입</button>
-	    		<button type="button" class="btn btn-dark" onclick="location.href='companyuserJoin.do'" style="margin-left:13%; margin-bottom:15%">기업 회원가입</button>
+	    		<button type="button" class="btn btn-dark" onclick="location.href='snslogin.do'" style="margin-bottom:15%">고객 로그인</button>
+	    		<button type="button" class="btn btn-dark" onclick="location.href='loginCom.do'" style="margin-left:13%; margin-bottom:15%">기업 로그인</button>
 	    	</div>
 			</div>
 

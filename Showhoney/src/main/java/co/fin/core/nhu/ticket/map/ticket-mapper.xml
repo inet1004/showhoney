@@ -3,9 +3,7 @@
 <mapper namespace="co.fin.core.nhu.ticket.serviceImpl.TicketMapper">
 	<select id="getSelectTicketList" resultType="co.fin.core.nhu.ticket.vo.TicketVo">
 		SELECT t.ticket_no, e.exhibition_name, e.exhibition_start_date, e.exhibition_end_date,
-				t.ticket_price 
-		FROM ticket t, exhibition e 
-		WHERE e.exhibition_no = t.exhibition_no
+t.ticket_price FROM ticket t, exhibition e WHERE e.exhibition_no = t.exhibition_no
 	</select>
 	
 	<select id="getSelect" parameterType="co.fin.core.nhu.ticket.vo.TicketVo" resultType="co.fin.core.nhu.ticket.vo.TicketVo">

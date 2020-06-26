@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- Custom Fonts -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 <br>
@@ -42,7 +45,12 @@
 </div><br><br>
 <div align="center">
 	<p><strong>항상 ShowHoney를 사랑해주셔서 감사합니다</strong></p>
+	<br><p/>
+	<a href="/core/" alt="홈으로"><i class="fas fa-landmark  fa-3x"></i></a>
+	<br>
+	홈으로 가기
+	
 </div>
-</div><br /><br />
+<br /><br />
 </body>
 </html>
