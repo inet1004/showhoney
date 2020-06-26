@@ -28,6 +28,7 @@ body, html {
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
       <a href="boothList.do" class="w3-bar-item w3-button">MY부스</a>
       <a href="#contact" class="w3-bar-item w3-button">발표회</a>
+      <a href="/core/room" class="w3-bar-item w3-button">채팅상담</a>
       <a href="ask.do" class="w3-bar-item w3-button">문의사항</a>
       <a href="companyInfo.do" class="w3-bar-item w3-button">기업정보</a>
     </div>
@@ -45,6 +46,7 @@ body, html {
   <a href="exhibitionList.do" onclick="w3_close()" class="w3-bar-item w3-button">박람회</a>
   <a href="boothList.do" onclick="w3_close()" class="w3-bar-item w3-button">MY부스</a>
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">발표회</a>
+  <a href="/core/room" onclick="w3_close()" class="w3-bar-item w3-button">채팅상담</a>
   <a href="ask.do" onclick="w3_close()" class="w3-bar-item w3-button">문의사항</a>
   <a href="companyInfo.do" onclick="w3_close()" class="w3-bar-item w3-button">기업정보</a>
 </nav>
