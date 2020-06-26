@@ -41,8 +41,11 @@
 <body>
 
 	<div align="center">
+	
+	<br><p/>
+	<br><p/>
 
-		<h1>고객로그인 페이지</h1>
+		<h1>로그인 페이지</h1>
 		<c:choose>
 			<c:when test="${empty sessionScope.customer_id}">
 				<!-- 로그인이 안되어 있으면 -->

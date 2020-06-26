@@ -73,9 +73,15 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		
 		if(result) {
-//			mav.setViewName("redirect:main.do");
-			mav.setViewName("cus/login/login");
-			mav.addObject("msg","성공");
+			if(vo.getCustomer_id().equals("admin")) {
+//				mav.setViewName("redirect:info.do");
+				mav.setViewName("adm/login/login");
+				mav.addObject("msg","admin 성공");
+			} else {
+//				mav.setViewName("redirect:info.do");
+				mav.setViewName("cus/login/login");
+				mav.addObject("msg","성공");
+			}
 		}else {
 			mav.setViewName("cus/login/login");
 			mav.addObject("msg","실패");
