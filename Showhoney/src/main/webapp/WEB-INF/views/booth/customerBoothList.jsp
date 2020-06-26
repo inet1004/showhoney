@@ -47,7 +47,7 @@
     			 }		
     			},
     			error: function(){
-    			  alert("에러 발생. 관리자에게 문의주세요.");
+    			  alert("에러뜸 ㅅㄱ");
     			}
     		})//end ajax
     	}
