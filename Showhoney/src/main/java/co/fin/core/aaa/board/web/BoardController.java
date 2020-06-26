@@ -35,6 +35,11 @@ public class BoardController {
 	public String joinType(Model model) {
 		return "no/join/joinType";
 	}
+
+	@RequestMapping("/loginType.do")
+	public String loginType(Model model) {
+		return "no/join/loginType";
+	}
 //	
 //	@RequestMapping("/boothInsert.do")
 //	public String boothInsert(Model model) {
