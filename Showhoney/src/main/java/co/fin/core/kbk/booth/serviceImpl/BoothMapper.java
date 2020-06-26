@@ -14,6 +14,9 @@ public interface BoothMapper {
 	void boothUpdate(BoothVo vo);
 	void boothDelete(BoothVo vo);
 	
+	//Customer
+	List<BoothVo> getSelectCustomerBoothList(BoothVo vo);
+	
 	//product mapper
 	List<ProductVo> getSelectList(ProductVo vo);
 	ProductVo getSelect(ProductVo vo);

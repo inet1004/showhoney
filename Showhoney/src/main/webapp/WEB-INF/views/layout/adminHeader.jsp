@@ -29,9 +29,10 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">회원가입승인</a>
+      <a href="exhibitionList.do" class="w3-bar-item w3-button"> 박람회</a>
       <a href="#team" class="w3-bar-item w3-button"> 박람회관리</a>
       <a href="#work" class="w3-bar-item w3-button"> 부스관리</a>
-      <a href="#pricing" class="w3-bar-item w3-button"> 발표회관리</a>
+      <a href="#pricing" class="w3-bar-item w3-button"> 발표회</a>
       <a href="#contact" class="w3-bar-item w3-button"> 티켓관리</a>
       <a href="#contact" class="w3-bar-item w3-button"> 문의사항</a>
       <a href="#contact" class="w3-bar-item w3-button"> Admin</a>

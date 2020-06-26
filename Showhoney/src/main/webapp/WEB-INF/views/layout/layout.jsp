@@ -8,9 +8,6 @@
 <title>test</title>
 <style type="text/css">
 
-#content{
-	margin-top:10%;
-}
 
 </style>
 </head>
