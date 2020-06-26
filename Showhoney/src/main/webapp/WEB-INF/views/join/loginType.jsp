@@ -60,7 +60,7 @@ i {
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     	<li class="nav-item"><a class="nav-link " href="info.do">HOME</a></li>
-                        <li class="nav-item"><a class="nav-link " href="">문의사항</a></li>
+                        <li class="nav-item"><a class="nav-link " href="ask.do">문의사항</a></li>
                         <li class="nav-item"><a class="nav-link " href="joinType.do">회원가입</a></li>
                     </ul>
                 </div>

@@ -56,7 +56,7 @@ a{
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     	<li class="nav-item"><a class="nav-link " href="info.do">HOME</a></li>
-                        <li class="nav-item"><a class="nav-link " href="">문의사항</a></li>
+                        <li class="nav-item"><a class="nav-link " href="ask.do">문의사항</a></li>
                         <li class="nav-item"><a class="nav-link " href="loginType.do">로그인</a></li>
                     </ul>
                 </div>
