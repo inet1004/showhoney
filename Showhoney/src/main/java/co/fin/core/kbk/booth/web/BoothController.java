@@ -16,12 +16,17 @@ import co.fin.core.kbk.booth.vo.BoothService;
 import co.fin.core.kbk.booth.vo.BoothVo;
 import co.fin.core.kbk.booth.vo.ProductVo;
 import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
+import co.fin.core.nhu.exhibition.vo.Exhibition2Vo;
+import co.fin.core.nhu.exhibition.vo.ExhibitionService;
 
 @Controller
 public class BoothController {
 	
 	@Autowired
 	private BoothService boothService;
+	@Autowired
+	private ExhibitionService exhibitionService;
+	
 	
 	@RequestMapping(value = "/boothList.do")
 	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav) {
@@ -35,6 +40,8 @@ public class BoothController {
 	@RequestMapping("/boothForm.do")
 	public String boothForm(Model model) {
 		
+		List<Exhibition2Vo> list = exhibitionService.getSelectExhibitionList();
+		model.addAttribute("exhibitionlist", list);
 		return "com/companyuser/boothForm";
 	}
 	

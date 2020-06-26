@@ -42,7 +42,7 @@
 					</div>
 					<!-- 브로슈어 -->
 					<label><i class="fas fa-cloud-download-alt fa-3x"></i></label>
-					<button class="w3-btn w3-link w3-xlarge">브로슈어 download</button>
+					<button class="w3-btn w3-link w3-xlarge" onclick="location.href='download.do?booth_no=${list[0].booth_no }'">브로슈어 download</button>
 				</div>
 			</div>
 		</div>
@@ -56,7 +56,7 @@
 	<div class="play-list mt-5 pt-4">
 		<div align="center">
 			<label><i class="fas fa-shopping-cart fa-3x"></i></label>
-			<a href="${list[0].product_mall}">구매하러가기</a>
+			<a onclick="${list[0].product_mall}">구매하러가기</a>
 		</div>
 		<div class="w3-row-padding w3-padding-16 w3-center" id="food">
 			<c:forEach var="product" items="${productlist }" varStatus="i">
@@ -71,10 +71,7 @@
 	</div>
 </div>
 <!-- 수정input -->
-<div class="row">
-	<div class="col-lg-6" align="right">
-		<p>
-			<%-- <button class="w3-button w3-blue w3-round-xlarge" type="button" onclick="location.href='boothModifyForm.do?booth_no=${list[0].booth_no}'">수정하기</button> --%>
-		</p>
-	</div>
-</div>
+	<div align="center">
+			<button class="w3-button w3-blue w3-round-xlarge" type="button" onclick="location.href='boothModifyForm.do?booth_no=${list[0].booth_no}'">수정하기</button>
+		<button class="w3-button w3-green w3-round-xlarge" type="button" onclick="location.href='boothList.do'">부스목록가기</button>
+	</div><%-- <button class="w3-button w3-blue w3-round-xlarge" type="button" onclick="location.href='boothModifyForm.do?booth_no=${list[0].booth_no}'">수정하기</button> --%>

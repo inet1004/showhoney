@@ -3,15 +3,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <script>
-$(document).ready(function(){
-	
-	$('.remove_btn').click(function(){
-		$(this).parent($('.append:last').remove())
-		extcnt--;
-	})
-	
-
-})
+<script>
+$("#remove_btn").click(function(){
+    if(confirm("정말 삭제하시겠습니까 ?") == true){
+        alert("삭제되었습니다");
+    }
+    else{
+        return ;
+    }
+});
 </script>
 
     <form id="boothfrm" name="boothfrm" action="boothUpdate.do" method="post" enctype="multipart/form-data">
@@ -80,8 +80,7 @@ $(document).ready(function(){
                    <input class="w3-input w3-border w3-animate-input" type="text" id="product_mall" name="product_mall" value="${product.product_mall }">
                </div>
                <div style="margin-top:5%; align:right;">
-               <button type="button" class="btn btn-primary add_btn">상품추가</button>
-               <button type="button" class="btn btn-danger remove_btn">삭 제</button>
+               <button type="button" class="btn btn-danger remove_btn" id="remove_btn" onclick="location.href='productdelete.do?booth_no=${list[0].booth_no }'">삭 제</button>
                <span style="color: red;"> 총 4개만 등록가능합니다. </span>
                </div>
 				<div class="w3-container w3-card-4 w3-light-grey append" >
@@ -101,10 +100,13 @@ $(document).ready(function(){
 		</div>
 	 <div style="margin-top:5%;" align="center">
 	 	<button class="w3-button w3-blue w3-round-xlarge" type="submit" > 상품수정 완료</button>
+	 	
     </div>
 	</div>
 	</div>
  </form>
+ <button class="w3-button w3-green w3-round-xlarge" type="button" onclick="location.href='boothList.do'">부스목록가기</button>
+ <button class="w3-button w3-danger w3-round-xlarge" type="button" id="remove_btn" onclick="location.href='boothdelete.do?booth_no=${list[0].booth_no }'" > 부스 삭제</button>
  <div>
  
  </div>
