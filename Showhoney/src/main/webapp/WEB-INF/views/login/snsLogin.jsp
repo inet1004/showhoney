@@ -13,7 +13,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-
 <script type="text/javascript">
 	$(document).ready(function(e) {
 		$('#login').click(function() {
@@ -54,7 +53,7 @@
 						<tr>
 							<td>아이디</td>
 							<td><input type="text" name="customer_id" id="customer_id"
-								placeholder="10글자" maxlength="10"></td>
+								placeholder="최대 10글자" maxlength="10"></td>
 						</tr>
 						<tr>
 							<td>패스워드</td>

@@ -11,24 +11,35 @@
 	<meta charset="UTF-8">
 	<title>기업 로그인</title>
 	<script src="resources/jQuery/jquery-3.4.1.min.js"></script>
+	
+<style>	
+tr.space {
+  border-bottom: 10px solid #fff;
+}
+</style>
+	
 </head>
 <body>
 
 	<div align="center">
+	
+	<br><p/>
+	<br><p/>
 	<br><p/>
 
 	<h1>기업로그인 페이지</h1>
+	<br><p/>
 
 		<c:choose>
 			<c:when test="${empty sessionScope.company_user_id}">
 			<!-- 로그인이 안되어 있으면 -->
 				<form id="loginFrmCom" name="loginFrmCom" action="loginCheckCom.do">
 					<table>
-						<tr>
+						<tr class="space" id="space">
 							<td>아이디</td>
-							<td><input type="text" name="company_user_id" id="company_user_id" placeholder="10글자" maxlength="10"></td>
+							<td><input type="text" name="company_user_id" id="company_user_id" placeholder="최대 10글자" maxlength="10"></td>
 						</tr>
-						<tr>
+						<tr  class="space" id="space">
 							<td>패스워드</td>
 							<td><input type="password" name="company_user_pw" id="company_user_pw" maxlength="20"></td>
 						</tr>
