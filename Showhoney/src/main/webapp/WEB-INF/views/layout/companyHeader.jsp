@@ -26,10 +26,10 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
-      <a href="#pricing" class="w3-bar-item w3-button">MY부스</a>
+      <a href="boothList.do" class="w3-bar-item w3-button">MY부스</a>
       <a href="#contact" class="w3-bar-item w3-button">발표회</a>
-      <a href="#contact" class="w3-bar-item w3-button">문의사항</a>
-      <a href="#contact" class="w3-bar-item w3-button">기업정보</a>
+      <a href="ask.do" class="w3-bar-item w3-button">문의사항</a>
+      <a href="companyInfo.do" class="w3-bar-item w3-button">기업정보</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -42,13 +42,11 @@ body, html {
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">박람회</a>
-  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">부스</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">발표회</a>
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">부스관리</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">발표회관리</a>
- <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">문의사항</a>
- <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">기업</a>
+  <a href="exhibitionList.do" onclick="w3_close()" class="w3-bar-item w3-button">박람회</a>
+  <a href="boothList.do" onclick="w3_close()" class="w3-bar-item w3-button">MY부스</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">발표회</a>
+  <a href="ask.do" onclick="w3_close()" class="w3-bar-item w3-button">문의사항</a>
+  <a href="companyInfo.do" onclick="w3_close()" class="w3-bar-item w3-button">기업정보</a>
 </nav>
 
 
