@@ -34,8 +34,8 @@
 <body>
 
 	<div align="center">
-
-	<h1>Login Form</h1>
+	
+	<br><p/>
 	<br>
 
 		<c:choose>
