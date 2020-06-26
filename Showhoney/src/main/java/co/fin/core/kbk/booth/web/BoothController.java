@@ -89,4 +89,14 @@ public class BoothController {
 		
 		return mav;
 	}
+	
+	@RequestMapping("/customerBoothSelect.do")
+	public String customerBoothSelect(BoothVo vo, ProductVo pvo, Model model) {
+		
+		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+		
+		model.addAttribute("productlist", boothService.getSelectList(pvo));
+		model.addAttribute("list", list);
+		return "cus/booth/customerBoothSelect";
+	}
 }

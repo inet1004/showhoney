@@ -64,7 +64,7 @@
                 <h4>${exhibition.exhibition_no}.${exhibition.exhibition_name }</h4>
                 <p>${exhibition.exhibition_start_date } ~ ${exhibition.exhibition_end_date }</p>
                 <p><button type="button" class="btn btn-primary" data-toggle="" 
-      onclick="location.href='boothList.do?exhibition_no=${exhibition.exhibition_no}'">박람회입장</button>
+      onclick="location.href='customerBoothList.do?exhibition_no=${exhibition.exhibition_no}'">박람회입장</button>
                 	</div>
             </div>
           </div>
