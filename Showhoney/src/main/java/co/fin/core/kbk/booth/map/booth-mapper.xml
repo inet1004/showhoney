@@ -71,4 +71,8 @@
 		
 	</delete>
 	
+	
+	<select id="getSelectCustomerBoothList" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
+		select booth_no,brochure_path,video_path,video_call_path,booth_introduction,b.company_no,b.exhibition_no,booth_profile,company_name from booth b, company c where b.company_no = c.company_no and b.exhibition_no = #{exhibition_no}
+	</select>
 </mapper>

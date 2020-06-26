@@ -56,13 +56,13 @@ public class LoginController {
 	//고객로그인
 	@RequestMapping("/login.do")
 	public String login() {
-		return "/login/login";
+		return "cus/login/login";
 	}
 	
 	//기업로그인
 	@RequestMapping("/loginCom.do")
 	public String loginCom() {
-		return "/login/loginCom";
+		return "com/login/loginCom";
 	}
 	
 	//로그인 처리
@@ -73,11 +73,17 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		
 		if(result) {
-//			mav.setViewName("redirect:main.do");
-			mav.setViewName("/login/login");
-			mav.addObject("msg","성공");
+			if(vo.getCustomer_id().equals("admin")) {
+//				mav.setViewName("redirect:info.do");
+				mav.setViewName("adm/login/login");
+				mav.addObject("msg","admin 성공");
+			} else {
+//				mav.setViewName("redirect:info.do");
+				mav.setViewName("cus/login/login");
+				mav.addObject("msg","성공");
+			}
 		}else {
-			mav.setViewName("/login/login");
+			mav.setViewName("cus/login/login");
 			mav.addObject("msg","실패");
 		}
 		
@@ -94,10 +100,10 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		
 		if(result) {
-			mav.setViewName("/login/loginCom");
+			mav.setViewName("com/login/loginCom");
 			mav.addObject("msgCom","성공");
 		}else {
-			mav.setViewName("/login/loginCom");
+			mav.setViewName("com/login/loginCom");
 			mav.addObject("msgCom","실패");
 		}
 		
@@ -111,7 +117,7 @@ public class LoginController {
 		
 		loginService.logout(session);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:main.do");
+		mav.setViewName("redirect:info.do");
 		mav.addObject("msg", "logout");  
 		mav.addObject("msgCom", "logout");  //////추가
 		

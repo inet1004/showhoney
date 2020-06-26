@@ -49,7 +49,7 @@ body, html {
   <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">발표회</a>
   <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">티켓구매하기</a>
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">문의하기</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">고객</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">고객.</a>
 </nav>
 
 

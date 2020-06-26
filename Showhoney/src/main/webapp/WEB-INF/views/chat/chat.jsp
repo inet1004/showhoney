@@ -65,7 +65,7 @@
 	var ws;
 
 	function wsOpen(){
-		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
+		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다. // 서버는 localhost (또는 192.168.0.93 기본포트 일경우)  -- client는 서버의 ip를 쳐야함
 		var uri = "ws://" + location.host + "/core/chating/"+$("#roomNumber").val();
 		alert(uri);
 		ws = new WebSocket(uri);
