@@ -42,6 +42,8 @@
 </div><br><br>
 <div align="center">
 	<p><strong>항상 ShowHoney를 사랑해주셔서 감사합니다</strong></p>
+	<br><p/>
+	<a href="/core/"><h3>[ 홈으로 가기 ]</h3></a>
 </div>
 </div><br /><br />
 </body>

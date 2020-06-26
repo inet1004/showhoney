@@ -24,7 +24,7 @@ public class AskController {
 	public ModelAndView askList(ModelAndView mav) {
 		List<AskVo> alist = askService.getSelectAskList();
 		mav.addObject("alist", alist);
-		mav.setViewName("com/ask/ask");
+		mav.setViewName("no/ask/ask");
 		return mav;
 	}
 	
@@ -32,7 +32,7 @@ public class AskController {
 	@RequestMapping(value = "/GoAskDetail.do")
 	public ModelAndView GoAskDetail(ModelAndView mav, AskVo vo) {
 		mav.addObject("Dalist", askService.getSelect(vo));
-		mav.setViewName("com/ask/askDetail");
+		mav.setViewName("no/ask/askDetail");
 		return mav; 
 	}
 	
@@ -40,7 +40,7 @@ public class AskController {
 	@RequestMapping("/AskWriteForm.do")
 	
 	public ModelAndView AskWriteForm(ModelAndView mav) {
-		mav.setViewName("com/ask/askWriteForm");
+		mav.setViewName("no/ask/askWriteForm");
 		return mav;
 	}
 	
