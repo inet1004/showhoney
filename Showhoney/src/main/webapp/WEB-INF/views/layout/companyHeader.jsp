@@ -29,11 +29,7 @@ body, html {
       <a href="boothList.do" class="w3-bar-item w3-button">MY부스</a>
       <a href="#contact" class="w3-bar-item w3-button">발표회</a>
       <a href="ask.do" class="w3-bar-item w3-button">문의사항</a>
-<<<<<<< HEAD
       <a href="companyInfo.do" class="w3-bar-item w3-button">기업정보</a>
-=======
-      <a href="#contact" class="w3-bar-item w3-button">기업정보</a>
->>>>>>> branch 'master' of https://github.com/inet1004/showhoney.git
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
