@@ -46,6 +46,10 @@ a{
 
 }
 
+i {
+ color:yellowgreen;
+}
+
 </style>
 </head>
 <body id="page-top">
@@ -68,8 +72,8 @@ a{
 	    <div class="container text-center my-auto">
 	    	<div class="div">
 	    	<div>
-	    		<i class="fas fa-user fa-7x" style="margin-top:15%"></i>
-	    		<i class="fas fa-user-tie fa-7x" style="margin-left:15%"></i>
+	    		<i class="far fa-address-card fa-7x" style="margin-top:15%"></i>
+	    		<i class="fas fa-address-card fa-7x" style="margin-left:15%"></i>
 	    	</div>
 	    	<div style="margin-top:5%">
 	    		<button type="button" class="btn btn-dark" onclick="location.href='snslogin.do'" style="margin-bottom:15%">고객 로그인</button>
