@@ -103,7 +103,7 @@
 	}
 
 	function goRoom(number, name){
-		alert("/moveChating?roomName="+name+"&"+"roomNumber="+number);
+		//alert("/moveChating?roomName="+name+"&"+"roomNumber="+number);
 		location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
 	}
 
