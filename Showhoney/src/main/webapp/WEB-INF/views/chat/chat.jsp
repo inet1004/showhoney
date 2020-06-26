@@ -139,9 +139,9 @@
 	}
 
 	function fileSend(){
-		alert("fileSend() 시작함...");
+		//alert("fileSend() 시작함...");
 		var file = document.querySelector("#fileUpload").files[0];
-		alert(file);  // null 올라옴
+		//alert(file);  // null 올라옴
 		var fileReader = new FileReader();
 		fileReader.onload = function() {
 			var param = {
@@ -157,7 +157,7 @@
 			ws.send(JSON.stringify(param)); //파일 보내기전 메시지를 보내서 파일을 보냄을 명시한다.
 		    arrayBuffer = this.result;
 			ws.send(arrayBuffer); //파일 소켓 전송
-			alert("ws.send완료");
+			//alert("ws.send완료");
 		};
 		fileReader.readAsArrayBuffer(file);
 	}
