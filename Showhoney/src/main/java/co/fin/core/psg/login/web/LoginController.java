@@ -56,13 +56,13 @@ public class LoginController {
 	//고객로그인
 	@RequestMapping("/login.do")
 	public String login() {
-		return "cus/login/login";
+		return "no/login/login";
 	}
 	
 	//기업로그인
 	@RequestMapping("/loginCom.do")
 	public String loginCom() {
-		return "com/login/loginCom";
+		return "no/login/loginCom";
 	}
 	
 	//로그인 처리

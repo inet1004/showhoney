@@ -110,6 +110,13 @@
 			</c:otherwise>
 		</c:choose>
 	</center>
+	
+	
+	<div align="center">
+		<br><p/>
+		<br><p/>
+		<h2><a href="/core/">홈으로 가기</a></h2>
+	</div>
 
 </body>
 
