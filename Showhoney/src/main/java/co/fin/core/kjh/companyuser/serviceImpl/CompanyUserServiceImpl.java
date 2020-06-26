@@ -54,7 +54,7 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 		vo.setCompany_user_pw2(bCryptPasswordEncoder.encode(vo.getCompany_user_pw2()));
 		vo.setCompany_user_pw3(bCryptPasswordEncoder.encode(vo.getCompany_user_pw3()));
 		
-		dao.companyInsert(vo);
+		dao.companyInsert(vo); 
 		dao.companyUserInsert(vo); //여기까지 한 기업+기업회원 처리
 		dao.companyUserInsert2(vo);
 		dao.companyUserInsert3(vo);
