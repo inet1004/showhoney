@@ -44,6 +44,7 @@
     			 }else if(data==20){
     				 document.getElementById(booth).style.color = "black";
     				 alert("찜 취소");
+    				 location.href="customerLikeBoothList.do?exhibition_no=${param.exhibition_no}";
     			 }		
     			},
     			error: function(){
@@ -62,16 +63,15 @@
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
             <!-- <span class="subheading">부스</span> -->
-            <h2>${list[0].exhibition_name } 부스 </h2>
+            <h2>${list[0].exhibition_name } 내가 찜한 부스</h2>
             <div>
-            <button id="btn" name="btn" onclick="location.href='customerLikeBoothList.do?exhibition_no=${list[0].exhibition_no}'">찜한 목록</button>
+            <button id="btn" name="btn" onclick="location.href='customerBoothList.do?exhibition_no=${param.exhibition_no}'">부스 목록</button>
             </div>
           </div>
         </div>
         
         <div class="row">
 			<c:forEach var="booth" items="${list }">
-			<input type="hidden" name="exhibition_no" id="exhibition_no" value="${booth.exhibition_no }">
 	          <div class="col-md-4 ftco-animate">
 	            <div class="blog-entry">
 	              <a href="#" class="block-20" style="background-image: url('resources/FileUpload/boothProfile/${booth.booth_profile}');">
@@ -79,7 +79,6 @@
 	              <div class="text p-4 d-block">
 	                <div class="meta mb-3">
 	                  <div><a href="#">${booth.company_name }</a></div>&nbsp;
-	                  <%-- <div><span><i class="far fa-heart" id="${booth.booth_no }" name="${booth.booth_no }" onclick="likeBooth(${booth.booth_no})"></i></span></div> --%>
 	                  <div><a href="javascript:void(0)" onclick="likeBooth(${booth.booth_no})" id="${booth.booth_no}"><i class="far fa-heart"></i></a></div>
 	                </div>
 	                <h3 class="heading"><a href="customerBoothSelect.do?booth_no=${booth.booth_no }">${booth.booth_introduction }</a></h3>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.kjh.likebooth.serviceImpl.LikeBoothMapper">
+	<select id="getSelectLikeBoothList" parameterType="co.fin.core.kjh.likebooth.vo.LikeBoothVo" resultType="co.fin.core.kjh.likebooth.vo.LikeBoothVo">
+		select b.booth_no,brochure_path,video_path,video_call_path,booth_introduction,b.company_no,b.exhibition_no,booth_profile,company_name, customer_id, exhibition_name from booth b, company c, like_booth l, exhibition e where b.company_no = c.company_no and b.exhibition_no = e.exhibition_no and b.booth_no = l.booth_no and b.exhibition_no = #{exhibition_no} and customer_id = #{customer_id}
+	</select>
+	
+	<select id="likeCheck" parameterType="co.fin.core.kjh.likebooth.vo.LikeBoothVo" resultType="int">
+		select count(*) from like_booth where customer_id = #{customer_id} and booth_no = #{booth_no}
+	</select>
+	
+	<insert id="likeBoothInsert" parameterType="co.fin.core.kjh.likebooth.vo.LikeBoothVo">
+		insert into like_booth values(#{customer_id},#{booth_no})
+	</insert>
+	
+
+	<delete id="likeBoothDelete" parameterType="co.fin.core.kjh.likebooth.vo.LikeBoothVo">
+		delete from like_booth where customer_id = #{customer_id} and booth_no = #{booth_no}
+	</delete>
+	
+	
+</mapper>
