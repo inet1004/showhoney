@@ -16,10 +16,16 @@
 	<div align="center">
 		<h3>준비중인 페이지입니다.</h3>
 		<br><p/>
-		<a href="/">홈으로 가기</a>
+		<a href="/core">홈으로 가기</a>
 		<br><p/>
-	
-	<input type="button" class="btn_list" value="이전으로 돌아가기" onclick="goBack()">
+		<a href="/core/snslogin.do">고객로그인 가기</a>
+		<br><p/>
+		<a href="/core/loginCom.do">기업로그인 가기</a>
+		<br><p/>
+		<a href="/core/customerJoin.do">고객 회원가입</a>
+		<br><p/>
+		<a href="/core/companyuserJoin.do">기업 회원가입</a>
+		<br><p/>
 	
 	</div>
 
