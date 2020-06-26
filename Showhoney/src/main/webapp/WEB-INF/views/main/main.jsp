@@ -21,11 +21,11 @@ df
 <p>
 
 <a href="customerList.do">고객목록</a><br/>
-<a href="customerInsertForm.do">고객회원가입</a><br/>
+<a href="customerJoin.do">고객회원가입</a><br/>
 <a href="companyInsertForm.do">기업정보등록</a><br/>
 <a href="companyList.do">기업목록</a><br/>
 <a href="companyUserList.do">기업회원목록</a><br/>
-<a href="companyUserInsertForm.do">기업회원가입</a><br/>
+<a href="companyuserJoin.do">기업회원가입</a><br/>
 <br/><br/><br/>
 <h2>(공사중)관리자 페이지</h2>
 <a href="adminManage.do">관리자 페이지</a><br/>
@@ -54,7 +54,7 @@ df
 		<input type="submit" value="로그아웃" /> <br><p/>고객회원 로그인은 기업 로그아웃하여야 합니다.
 	</form>
 <% } else { %>
-<a href="login.do">고객 로그인</a> <a href="loginCom.do">기업 로그인</a>
+<a href="snslogin.do">고객 로그인</a> <a href="loginCom.do">기업 로그인</a>
 <% } %>	
 </body>
 </html>
