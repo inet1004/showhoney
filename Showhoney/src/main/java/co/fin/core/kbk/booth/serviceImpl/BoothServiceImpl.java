@@ -14,53 +14,51 @@ import co.fin.core.kbk.booth.vo.BoothService;
 import co.fin.core.kbk.booth.vo.BoothVo;
 import co.fin.core.kbk.booth.vo.ProductVo;
 
-
 @Service("boothService")
 public class BoothServiceImpl implements BoothService {
-	
+
 	@Autowired
 	private BoothMapper dao;
-	
 
 	@Override
 	public List<BoothVo> bgetSelectBoothList(BoothVo vo) {
 		return dao.bgetSelectBoothList(vo);
+
 	}
 
-
 	@Override
-	public void boothInsert(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException {
+	public void boothInsert(BoothVo bvo, ProductVo pvo, HttpServletRequest request)
+			throws IllegalStateException, IOException {
 		MultipartFile booth_uploadFile = bvo.getBooth_uploadfile();
 		MultipartFile brochure_uploadfile = bvo.getBrochure_uploadfile();
 		String booth_path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/boothProfile");
 		String bro_path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/brochure");
-		
-		if(!booth_uploadFile.isEmpty()) {
-			 String booth_fileName = booth_uploadFile.getOriginalFilename();
-			 booth_uploadFile.transferTo(new File(booth_path, booth_fileName));
-			 bvo.setBooth_profile(booth_fileName);
-			
-		 }
-		
-		if(!brochure_uploadfile.isEmpty()) {
+
+		if (!booth_uploadFile.isEmpty()) {
+			String booth_fileName = booth_uploadFile.getOriginalFilename();
+			booth_uploadFile.transferTo(new File(booth_path, booth_fileName));
+			bvo.setBooth_profile(booth_fileName);
+
+		}
+
+		if (!brochure_uploadfile.isEmpty()) {
 			String bro_fileName = brochure_uploadfile.getOriginalFilename();
 			brochure_uploadfile.transferTo(new File(bro_path, bro_fileName));
 			bvo.setBrochure_path(bro_fileName);
 		}
-		
+
 		bvo.setExhibition_no(82);
-		bvo.setCompany_no(258); //TODO 수정필요
+		bvo.setCompany_no(258); // TODO 수정필요
 		dao.boothInsert(bvo);
-		
+
 		MultipartFile[] product_uploadfile = bvo.getProduct_uploadfile();
 		String ppath = request.getSession().getServletContext().getRealPath("/resources/FileUpload/product");
 		for (int i = 0; i < product_uploadfile.length; i++) {
-			
-			if(!product_uploadfile[i].isEmpty()) {
+
+			if (!product_uploadfile[i].isEmpty()) {
 				String pfileName = product_uploadfile[i].getOriginalFilename();
 				product_uploadfile[i].transferTo(new File(ppath, pfileName));
-				
-				
+
 				pvo.setProduct_name(bvo.getProduct_name()[i]);
 				pvo.setProduct_desc(bvo.getProduct_desc()[i]);
 				pvo.setProduct_image_path(pfileName);
@@ -73,14 +71,38 @@ public class BoothServiceImpl implements BoothService {
 	}
 
 	@Override
-	public void boothUpdate(BoothVo vo) {
-		dao.boothUpdate(vo);
+	public void boothUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request)
+			throws IllegalStateException, IOException {
 
-	}
+		MultipartFile booth_uploadFile = bvo.getBooth_uploadfile();
+		MultipartFile brochure_uploadfile = bvo.getBrochure_uploadfile();
+		String booth_path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/boothProfile");
+		String bro_path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/brochure");
+
+		if (!booth_uploadFile.isEmpty()) {
+			String booth_fileName = booth_uploadFile.getOriginalFilename();
+			booth_uploadFile.transferTo(new File(booth_path, booth_fileName));
+			bvo.setBooth_profile(booth_fileName);
+
+		}
+
+		if (!brochure_uploadfile.isEmpty()) {
+			String bro_fileName = brochure_uploadfile.getOriginalFilename();
+			brochure_uploadfile.transferTo(new File(bro_path, bro_fileName));
+			bvo.setBrochure_path(bro_fileName);
+		}
+
+		bvo.setExhibition_no(82);
+		bvo.setCompany_no(258); // TODO 수정필요
+		dao.boothUpdate(bvo);
+
+}
 
 	@Override
-	public void boothDelete(BoothVo vo) {
-		dao.boothDelete(vo);
+	public void boothDelete(BoothVo bvo, ProductVo pvo, HttpServletRequest request) {
+		
+		
+		dao.boothDelete(bvo);
 
 	}
 
@@ -103,22 +125,35 @@ public class BoothServiceImpl implements BoothService {
 	}
 
 	@Override
-	public void productUpdate(ProductVo vo) {
-		// TODO Auto-generated method stub
-		dao.productUpdate(vo);
+	public void productUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException {
+		MultipartFile[] product_uploadfile = bvo.getProduct_uploadfile();
+		String ppath = request.getSession().getServletContext().getRealPath("/resources/FileUpload/product");
+		for (int i = 0; i < product_uploadfile.length; i++) {
+
+			if (!product_uploadfile[i].isEmpty()) {
+				String pfileName = product_uploadfile[i].getOriginalFilename();
+				product_uploadfile[i].transferTo(new File(ppath, pfileName));
+
+				pvo.setProduct_name(bvo.getProduct_name()[i]);
+				pvo.setProduct_desc(bvo.getProduct_desc()[i]);
+				pvo.setProduct_image_path(pfileName);
+				pvo.setProduct_mall(bvo.getProduct_mall());
+				pvo.setBooth_no(bvo.getBooth_no());
+				dao.productUpdate(pvo);
+			}
+		}
+		
 	}
 
 	@Override
 	public void productDelete(ProductVo vo) {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 	@Override
 	public List<BoothVo> getSelectCustomerBoothList(BoothVo vo) {
 		return dao.getSelectCustomerBoothList(vo);
 	}
-
 
 }

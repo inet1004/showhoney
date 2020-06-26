@@ -1,5 +1,6 @@
 package co.fin.core.kbk.booth.web;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -66,20 +67,37 @@ public class BoothController {
 	}
 	
 	@RequestMapping("/boothUpdate.do")
-	public ModelAndView boothUpdate(BoothVo bvo, ModelAndView mav) throws IOException {
+	public ModelAndView boothUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request, ModelAndView mav) throws IOException {
 			
-		boothService.boothUpdate(bvo);
+		boothService.boothUpdate(bvo, pvo, request);
 		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+bvo.getBooth_no());
 		return mav;
 	}
 	
 	@RequestMapping("/productUpdate.do")
-	public ModelAndView productUpdate(ProductVo pvo, ModelAndView mav) throws IOException {
+	public ModelAndView productUpdate(HttpServletRequest request, BoothVo bvo, ProductVo pvo,  ModelAndView mav) throws IOException {
 			
-		boothService.productUpdate(pvo);
+		boothService.productUpdate(bvo, pvo, request);
 		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+pvo.getBooth_no());
 		return mav;
 	}
+	
+	@RequestMapping("/productdelete.do")
+	public ModelAndView productDelete(ProductVo vo, ModelAndView mav){
+			
+		boothService.productDelete (vo);
+		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+vo.getBooth_no());
+		return mav;
+	}
+	
+	@RequestMapping("/boothdelete.do")
+	public ModelAndView boothDelete(BoothVo bvo, ProductVo pvo, HttpServletRequest request, ModelAndView mav) throws IOException {
+			
+		boothService.boothDelete(bvo, pvo, request);
+		mav.setViewName("redirect:/boothList.do");
+		return mav;
+	}
+	
 	
 	@RequestMapping("/customerBoothList.do")
 	public ModelAndView customerBoothList(BoothVo vo, ModelAndView mav) {
@@ -89,6 +107,18 @@ public class BoothController {
 		
 		return mav;
 	}
+	
+	@RequestMapping("/download.do")
+	public ModelAndView download(HttpServletRequest request, BoothVo vo, Model model)throws Exception{
+		
+		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+		String bro_path = list.get(0).getBrochure_path();
+		
+		String downpath = request.getSession().getServletContext().getRealPath("/resources/FileUpload/brochure/" );
+		File down = new File(downpath, bro_path);
+		return new ModelAndView("download","downloadFile",down);
+	}
+
 	
 	@RequestMapping("/customerBoothSelect.do")
 	public String customerBoothSelect(BoothVo vo, ProductVo pvo, Model model) {
