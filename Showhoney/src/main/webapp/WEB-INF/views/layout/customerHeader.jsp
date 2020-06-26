@@ -29,8 +29,8 @@ body, html {
     <div class="w3-right w3-hide-small">
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
       <a href="#work" class="w3-bar-item w3-button">발표회</a>
-      <a href="#pricing" class="w3-bar-item w3-button"> 티켓구매하기</a>
-      <a href="#contact" class="w3-bar-item w3-button"> 문의하기</a>
+      <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓구매하기</a>
+      <a href="ask.do" class="w3-bar-item w3-button"> 문의하기</a>
       <a href="#contact" class="w3-bar-item w3-button"> 내정보</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->

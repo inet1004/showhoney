@@ -28,7 +28,7 @@ body, html {
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
       <a href="#pricing" class="w3-bar-item w3-button">MY부스</a>
       <a href="#contact" class="w3-bar-item w3-button">발표회</a>
-      <a href="#contact" class="w3-bar-item w3-button">문의사항</a>
+      <a href="ask.do" class="w3-bar-item w3-button">문의사항</a>
       <a href="#contact" class="w3-bar-item w3-button">기업정보</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
