@@ -11,6 +11,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Custom Fonts -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
 
 <script type="text/javascript">
@@ -110,6 +112,16 @@
 			</c:otherwise>
 		</c:choose>
 	</center>
+	
+	
+<div align="center">
+	<p><strong>항상 ShowHoney를 사랑해주셔서 감사합니다</strong></p>
+	<br><p/>
+	<a href="/core/" alt="홈으로"><i class="fas fa-landmark  fa-3x"></i></a>
+	<br>
+	홈으로 가기
+	
+</div>
 
 </body>
 

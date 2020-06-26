@@ -5,6 +5,8 @@
 <html>
 <head>
 <title>NAVER LOGIN TEST</title>
+<!-- Custom Fonts -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
 
 <script type="text/javascript">
@@ -34,8 +36,8 @@
 <body>
 
 	<div align="center">
-
-	<h1>Login Form</h1>
+	
+	<br><p/>
 	<br>
 
 		<c:choose>
@@ -67,6 +69,16 @@
 		</c:choose>
 		
 	</div>
+	
+	
+<div align="center">
+	<p><strong>항상 ShowHoney를 사랑해주셔서 감사합니다</strong></p>
+	<br><p/>
+	<a href="/core/" alt="홈으로"><i class="fas fa-landmark  fa-3x"></i></a>
+	<br>
+	홈으로 가기
+	
+</div>
 
 </body>
 

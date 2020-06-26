@@ -67,7 +67,7 @@
 	function wsOpen(){
 		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다. // 서버는 localhost (또는 192.168.0.93 기본포트 일경우)  -- client는 서버의 ip를 쳐야함
 		var uri = "ws://" + location.host + "/core/chating/"+$("#roomNumber").val();
-		alert(uri);
+		//alert(uri);
 		ws = new WebSocket(uri);
 //		ws = new WebSocket("ws://" + location.host + "/core/chating/"+$("#roomNumber").val());
 //		ws = new WebSocket("ws://localhost:89/core/Chating?roomName=rrr&roomNumber=4");
@@ -139,9 +139,9 @@
 	}
 
 	function fileSend(){
-		alert("fileSend() 시작함...");
+		//alert("fileSend() 시작함...");
 		var file = document.querySelector("#fileUpload").files[0];
-		alert(file);  // null 올라옴
+		//alert(file);  // null 올라옴
 		var fileReader = new FileReader();
 		fileReader.onload = function() {
 			var param = {
@@ -157,7 +157,7 @@
 			ws.send(JSON.stringify(param)); //파일 보내기전 메시지를 보내서 파일을 보냄을 명시한다.
 		    arrayBuffer = this.result;
 			ws.send(arrayBuffer); //파일 소켓 전송
-			alert("ws.send완료");
+			//alert("ws.send완료");
 		};
 		fileReader.readAsArrayBuffer(file);
 	}
@@ -165,16 +165,20 @@
 <body>
 	<div id="container" class="container">
 		<h1>${roomName}의 채팅방</h1>
-
+	
 		<c:choose>
-			<c:when test="${empty sessionScope.customer_id}">
-				<h5>!! 로그인이 필요합니다. !!</h5>
-				<a href="login.do">&nbsp;&nbsp; *로그인 하기 </a>			
+			<c:when test="${not empty sessionScope.customer_id}">
+				<h5>고객회원: [ ${sessionScope.customer_id} ]님 환영합니다.</h5>
+				<a href="logout.do">&nbsp;&nbsp;*로그아웃 하기 &nbsp;&nbsp;</a>
+			</c:when>
+			<c:when test="${not empty sessionScope.company_user_id}">
+				<h5>기업회원: [ ${sessionScope.company_user_id} ]님 환영합니다.</h5>
+				<a href="logout.do">&nbsp;&nbsp;*로그아웃 하기 &nbsp;&nbsp;</a>
 			</c:when>
 			<c:otherwise>
-				<h5>[ ${sessionScope.customer_id} ]님 환영합니다.</h5>
-				<a href="logout.do">&nbsp;&nbsp;*로그아웃 하기 &nbsp;&nbsp;</a>
-				<a href="room">&nbsp;&nbsp;*방 목록 가기 </a>
+				<h5>로그인이 필요한 서비스입니다.</h5>
+				<a href="snslogin.do">&nbsp;&nbsp;*고객 로그인 &nbsp;&nbsp;</a>
+				<a href="loginCom.do">&nbsp;&nbsp;*기업로그인 </a>
 			</c:otherwise>
 		</c:choose>
 
