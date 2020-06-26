@@ -32,6 +32,8 @@
     <script>
     	function likeBooth(booth_no){
     		var booth = booth_no;
+    		var myDiv = document.getElementById(booth);
+    		var parent = myDiv.parentElement;
     		$.ajax({
     			type:"get",
     			url:"likeBooth.do",
@@ -44,11 +46,15 @@
     			 }else if(data==20){
     				 document.getElementById(booth).style.color = "black";
     				 alert("찜 취소");
-    				 location.href="customerLikeBoothList.do?exhibition_no=${param.exhibition_no}";
+    				 //location.href="customerLikeBoothList.do?exhibition_no=${param.exhibition_no}";
+    				 //document.getElementById('freddie').append().html("");
+    				 parent.removeChild(myDiv);
+    				 
+    				 
     			 }		
     			},
     			error: function(){
-    			  alert("에러 발생. 관리자에게 문의주세요.");
+    			  alert("에러뜸 ㅅㄱ");
     			}
     		})//end ajax
     	}
@@ -72,7 +78,7 @@
         
         <div class="row">
 			<c:forEach var="booth" items="${list }">
-	          <div class="col-md-4 ftco-animate">
+	          <div id="${booth.booth_no }" class="col-md-4 ftco-animate">
 	            <div class="blog-entry">
 	              <a href="#" class="block-20" style="background-image: url('resources/FileUpload/boothProfile/${booth.booth_profile}');">
 	              </a>
