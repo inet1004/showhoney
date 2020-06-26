@@ -51,7 +51,7 @@ public class LoginServiceImpl implements LoginService {
 	public boolean loginCheckCom(LoginComVo cvo, HttpSession session) {
 //		int result = dao.loginCheckCom(cvo);
 		String pw = loginMapper.getCompanyUserPw(cvo);  //session은 넣을 필요 없음
-		boolean result = bCryptPasswordEncoder.matches(cvo.getCompany_user_id(), pw);
+		boolean result = bCryptPasswordEncoder.matches(cvo.getCompany_user_pw(), pw);
 		
 		if (result) { // true 일경우 세션 등록
 			// 세션 변수 등록
