@@ -51,6 +51,6 @@
 	홈으로 가기
 	
 </div>
-</div><br /><br />
+<br /><br />
 </body>
 </html>
