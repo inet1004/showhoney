@@ -38,6 +38,6 @@ public class PayController {
 	
 	@RequestMapping("success.do")
 	public String success () {		
-		return "com/main/main";
+		return "redirect:exhibitionList.do";
 	}
 }
