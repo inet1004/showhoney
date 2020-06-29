@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import co.fin.core.kbk.booth.vo.BoothService;
 import co.fin.core.kbk.booth.vo.BoothVo;
 import co.fin.core.kbk.booth.vo.ProductVo;
+import co.fin.core.kbk.booth.vo.TicketCheckVo;
 
 
 @Service("boothService")
@@ -24,6 +25,7 @@ public class BoothServiceImpl implements BoothService {
 
 	@Override
 	public List<BoothVo> bgetSelectBoothList(BoothVo vo) {
+		
 		return dao.bgetSelectBoothList(vo);
 	}
 
@@ -118,6 +120,13 @@ public class BoothServiceImpl implements BoothService {
 	@Override
 	public List<BoothVo> getSelectCustomerBoothList(BoothVo vo) {
 		return dao.getSelectCustomerBoothList(vo);
+		
+	}
+
+
+	@Override
+	public int ticketCheck(BoothVo vo) {		
+		return dao.ticketCheck(vo);
 	}
 
 

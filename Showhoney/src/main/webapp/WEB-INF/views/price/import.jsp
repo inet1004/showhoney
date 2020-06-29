@@ -1,39 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <script>
 	var IMP=window.IMP;
 	IMP.init("imp53970198");
-<<<<<<< HEAD
+
 	 function requestPay(exhibition_name, ticket_price, ticket_no) {
-=======
-	 function requestPay() {
->>>>>>> branch 'master' of https://github.com/inet1004/showhoney
 	      // IMP.request_pay(param, callback) 호출
 	      IMP.request_pay({ // param
 	          pg: "inicis",
 	          pay_method: "card",
 	          merchant_uid: "SHOW" + new Date().getTime(), //결제내역 DB에서 Primary Key 가져오기	       
-<<<<<<< HEAD
+
 	          name: exhibition_name,	//DB에서 결제내역과 티켓 테이블을 조인해서 가져오는 티켓이름(TICKET_NO)
 	          amount: ticket_price,	//DB에서 결제내역의 PAYMENT_SUM 불러오기
 	          buyer_name: "${sessionScope.customer_id }",
 	          buyer_tel : ticket_no
-=======
-	          name: "노르웨이 회전 의자",	//DB에서 결제내역과 티켓 테이블을 조인해서 가져오는 티켓이름(TICKET_NO)
-	          amount: 1000,	//DB에서 결제내역의 PAYMENT_SUM 불러오기
-	          buyer_email: "pos3512@naver.com",	//DB에서 결제내역과 CUSTOMER조인해서 가져오는 정보(CUSTOMER_ID)
-	          buyer_name: "bobo",
-	          buyer_tel: "010-4242-4242",
-	          buyer_addr: "서울특별시 강남구 신사동"
->>>>>>> branch 'master' of https://github.com/inet1004/showhoney
+
 	      }, 
 	      function (rsp) {
 	          if (rsp.success) {
@@ -67,7 +67,6 @@
 	  </script>
 
 <body>
-<<<<<<< HEAD
 
 	<h1 align="center">쿠폰내역 LIST</h1>
 	<br>
@@ -86,9 +85,6 @@
 		</div>
 		</c:forEach>
 		</div>
-=======
-	<h1 align="center">아임포트 구현하기</h1>
-	<button type="button" onclick="requestPay()" value="결제하기">결제하기</button>
->>>>>>> branch 'master' of https://github.com/inet1004/showhoney
+
 </body>
 </html>

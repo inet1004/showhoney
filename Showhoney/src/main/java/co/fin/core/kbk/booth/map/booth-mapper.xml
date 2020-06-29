@@ -75,4 +75,10 @@
 	<select id="getSelectCustomerBoothList" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
 		select booth_no,brochure_path,video_path,video_call_path,booth_introduction,b.company_no,b.exhibition_no,booth_profile,company_name,exhibition_name from booth b, company c, exhibition e where b.company_no = c.company_no and b.exhibition_no = e.exhibition_no and b.exhibition_no = #{exhibition_no}
 	</select>
+	
+	<select id="ticketCheck" parameterType= "co.fin.core.kbk.booth.vo.BoothVo" resultType="int">
+		SELECT count(*)
+		FROM ticket t, payment_details p
+		WHERE t.ticket_no = p.ticket_no AND t.exhibition_no = #{exhibition_no} AND customer_id = #{customer_id}
+	</select>
 </mapper>

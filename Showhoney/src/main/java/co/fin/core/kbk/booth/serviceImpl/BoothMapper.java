@@ -6,6 +6,7 @@ import org.mybatis.spring.annotation.MapperScan;
 
 import co.fin.core.kbk.booth.vo.BoothVo;
 import co.fin.core.kbk.booth.vo.ProductVo;
+import co.fin.core.kbk.booth.vo.TicketCheckVo;
 
 @MapperScan("boothMap")
 public interface BoothMapper {
@@ -16,6 +17,10 @@ public interface BoothMapper {
 	
 	//Customer
 	List<BoothVo> getSelectCustomerBoothList(BoothVo vo);
+	
+	//Ticket
+	int ticketCheck(BoothVo vo);
+
 	
 	//product mapper
 	List<ProductVo> getSelectList(ProductVo vo);
