@@ -134,15 +134,16 @@ public class BoothController {
 			PrintWriter writer = response.getWriter();
 			response.setContentType("text/html;charset=UTF-8");
 			writer.println("<script>alert('티켓 구매 후 입장 가능합니다!! 구매 페이지로 이동합니다.'); location.href='ticketList.do';</script>");
+			return null;
 			
 		}else {
 			List<BoothVo> list = boothService.getSelectCustomerBoothList(vo);
 			mav.addObject("list", list);
 			mav.setViewName("cus/booth/customerBoothList");
+			return mav;
 			
 		}		
 		
-		return mav;
 	}
 	
 	@RequestMapping("/download.do")  

@@ -11,13 +11,13 @@
 		<property name="password" value="hyun" />
 	</bean> 
 	
-			<!-- Database Connection Pull 
-	<bean id="dataSourceSpied" class="org.apache.commons.dbcp2.BasicDataSource">
+			<!-- Database Connection Pull -->
+	<!-- <bean id="dataSourceSpied" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
 		<property name="username" value="bobo" />
 		<property name="password" value="bobo" /> 
-	</bean> -->
+	</bean>  -->
 	
 	
 	

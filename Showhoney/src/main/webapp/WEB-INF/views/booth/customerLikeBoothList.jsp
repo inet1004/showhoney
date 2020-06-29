@@ -4,6 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<style>
+	button {
+		width:250px;
+		height: 35px;
+	}
+</style>
+
     <title>Racks - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -71,7 +79,7 @@
             <!-- <span class="subheading">부스</span> -->
             <h2>${list[0].exhibition_name } 내가 찜한 부스</h2>
             <div>
-            <button id="btn" name="btn" onclick="location.href='customerBoothList.do?exhibition_no=${param.exhibition_no}'">부스 목록</button>
+            <button id="btn" name="btn" class="btn btn-primary" onclick="location.href='customerBoothList.do?exhibition_no=${param.exhibition_no}'">부스 목록</button>
             </div>
           </div>
         </div>
