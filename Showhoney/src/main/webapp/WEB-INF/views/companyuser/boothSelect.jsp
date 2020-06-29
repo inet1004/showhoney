@@ -2,6 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+<script type="text/javascript">
+
+	function chatSangdam(){
+		location.href="/core/room?booth_no=" + ${list[0].booth_no };  // 채팅방에 부스번호 넘김
+	}
+	
+</script>	
+	
 <div class="container-fluid video-player">
 	<div class="container">
 		<div style="margin-top: 5%">
@@ -42,7 +52,7 @@
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->
 						<label><i class="fas fa-phone-alt fa-3x"></i></label>
-						<button class="w3-btn w3-link w3-xlarge">채팅상담</button>
+						<button class="w3-btn w3-link w3-xlarge" id="chatSangdam" onclick="chatSangdam();">채팅상담</button>
 					</div>
 					<!-- 브로슈어 -->
 					<label><i class="fas fa-cloud-download-alt fa-3x"></i></label>
