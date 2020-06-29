@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.fin.core.kbk.booth.vo.BoothService;
 import co.fin.core.kbk.booth.vo.BoothVo;
 import co.fin.core.kbk.booth.vo.ProductVo;
+import co.fin.core.kjh.companyuser.vo.CompanyUserService;
 import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
 import co.fin.core.nhu.exhibition.vo.Exhibition2Vo;
 import co.fin.core.nhu.exhibition.vo.ExhibitionService;
@@ -26,7 +28,8 @@ public class BoothController {
 	private BoothService boothService;
 	@Autowired
 	private ExhibitionService exhibitionService;
-	
+	@Autowired
+	private CompanyUserService companyUserService;
 	
 	@RequestMapping(value = "/boothList.do")
 	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav) {
@@ -40,11 +43,15 @@ public class BoothController {
 	@RequestMapping("/boothForm.do")
 	public String boothForm(Model model) {
 		
+		
+		
 		List<Exhibition2Vo> list = exhibitionService.getSelectExhibitionList();
 		model.addAttribute("exhibitionlist", list);
+		
 		return "com/companyuser/boothForm";
 	}
-	
+
+
 	@RequestMapping("/boothInsert.do")
 	public ModelAndView boothInsert(HttpServletRequest request, BoothVo bvo, ProductVo pvo,  ModelAndView mav, CompanyUserVo cvo) throws IOException {
 			
@@ -55,6 +62,9 @@ public class BoothController {
 	
 	@RequestMapping("/boothSelect.do")
 	public String boothSelect(BoothVo vo, ProductVo pvo, Model model) {
+		
+		List<CompanyUserVo> clist = companyUserService.getSelectList();
+		model.addAttribute("companyuserlist", clist);
 		
 		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
 		
@@ -73,6 +83,7 @@ public class BoothController {
 		return "com/companyuser/boothModifyForm";
 	}
 	
+	
 	@RequestMapping("/boothUpdate.do")
 	public ModelAndView boothUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request, ModelAndView mav) throws IOException {
 			
@@ -82,7 +93,7 @@ public class BoothController {
 	}
 	
 	@RequestMapping("/productUpdate.do")
-	public ModelAndView productUpdate(HttpServletRequest request, BoothVo bvo, ProductVo pvo,  ModelAndView mav) throws IOException {
+	public ModelAndView productUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request, ModelAndView mav) throws IOException {
 			
 		boothService.productUpdate(bvo, pvo, request);
 		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+pvo.getBooth_no());
@@ -90,10 +101,10 @@ public class BoothController {
 	}
 	
 	@RequestMapping("/productdelete.do")
-	public ModelAndView productDelete(ProductVo vo, ModelAndView mav){
+	public ModelAndView productDelete(ProductVo pvo, BoothVo bvo, HttpServletRequest request, ModelAndView mav) throws IOException{
 			
-		boothService.productDelete (vo);
-		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+vo.getBooth_no());
+		boothService.productDelete (pvo, bvo, request);
+		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+pvo.getBooth_no());
 		return mav;
 	}
 	
@@ -115,7 +126,7 @@ public class BoothController {
 		return mav;
 	}
 	
-	@RequestMapping("/download.do")
+	@RequestMapping("/download.do")  
 	public ModelAndView download(HttpServletRequest request, BoothVo vo, Model model)throws Exception{
 		
 		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
@@ -135,5 +146,15 @@ public class BoothController {
 		model.addAttribute("productlist", boothService.getSelectList(pvo));
 		model.addAttribute("list", list);
 		return "cus/booth/customerBoothSelect";
+	}
+	
+	@RequestMapping("/companyUserInfo.do")
+	public String companyUserInfo(BoothVo vo, ProductVo pvo, Model model) {
+		
+		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+		
+		model.addAttribute("productlist", boothService.getSelectList(pvo));
+		model.addAttribute("list", list);
+		return "cus/companyuser/companyUserInfo";
 	}
 }

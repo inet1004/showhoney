@@ -1,13 +1,17 @@
 package co.fin.core.kjh.customer.serviceImpl;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
-
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import co.fin.core.kjh.customer.vo.CustomerFileRenamePolicy;
 import co.fin.core.kjh.customer.vo.CustomerService;
 import co.fin.core.kjh.customer.vo.CustomerVo;
 
@@ -30,11 +34,27 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public CustomerVo getSelect(CustomerVo vo) {
 		// TODO Auto-generated method stub
+		
 		return dao.getSelect(vo);
 	}
 
 	@Override
-	public void customerInsert(CustomerVo vo) {
+	public void customerInsert(CustomerVo vo, HttpServletRequest request) throws IllegalStateException, IOException {
+		
+		  MultipartFile uploadFile = vo.getUploadFile();
+	      String path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/customerProfile");
+	      System.out.println(path);
+	      
+	      if(!uploadFile.isEmpty()) {
+	         String fileName = uploadFile.getOriginalFilename();
+	         File file = new File(path, fileName); 
+	         file = new CustomerFileRenamePolicy().rename(file);
+	         uploadFile.transferTo(file);
+	         vo.setCustomer_profile(file.getName());
+	      }else {
+	         vo.setCustomer_profile("");
+	      }
+	     
 		vo.setCustomer_pw(bCryptPasswordEncoder.encode(vo.getCustomer_pw()));
 		dao.customerInsert(vo);
 
