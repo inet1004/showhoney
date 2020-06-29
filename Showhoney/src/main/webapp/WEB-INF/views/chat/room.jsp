@@ -108,18 +108,35 @@
 	}
 
 	function createChatingRoom(res){
-		if(res != null){
-			var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
-			res.forEach(function(d, idx){
-				var rn = d.roomName.trim();
-				var roomNumber = d.roomNumber;
-				tag += "<tr>"+
-							"<td class='num'>"+(idx+1)+"</td>"+
-							"<td class='room'>"+ rn +"</td>"+
-							"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
-						"</tr>";	
-			});
-			$("#roomList").empty().append(tag);
+		var b = ${not empty sessionScope.customer_id};
+		if(b == "true"){
+			if(res != null){
+				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
+				res.forEach(function(d, idx){
+					var rn = d.roomName.trim();
+					var roomNumber = d.roomNumber;
+					tag += "<tr class='" + ${param.booth_no} +"'>"+
+								"<td class='num'>"+(idx+1)+"</td>"+
+								"<td class='room'>"+ rn +"</td>"+
+								"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+							"</tr>";	
+				});
+				$("#roomList").empty().append(tag);
+			}
+		}else {
+			if(res != null){
+				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
+				res.forEach(function(d, idx){
+					var rn = d.roomName.trim();
+					var roomNumber = d.roomNumber;
+					tag += "<tr class='" + ${param.booth_no} +"'>"+
+								"<td class='num'>"+(idx+1)+"</td>"+
+								"<td class='room'>"+ rn +"</td>"+
+								"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+							"</tr>";	
+				});
+				$("#roomList").empty().append(tag);
+			}
 		}
 	}
 
