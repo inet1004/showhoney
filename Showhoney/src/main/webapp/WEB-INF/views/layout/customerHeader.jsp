@@ -28,8 +28,16 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
+<<<<<<< HEAD
       <a href="https://192.168.0.109:9001/demos/dashboard/" target="_blank" class="w3-bar-item w3-button">발표회</a>
+=======
+      <a href="#work" class="w3-bar-item w3-button">발표회</a>
+<<<<<<< HEAD
+      <a href="pay.do" class="w3-bar-item w3-button"> 티켓구매하기</a>
+=======
+>>>>>>> branch 'master' of https://github.com/inet1004/showhoney
       <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓구매하기</a>
+>>>>>>> branch 'master' of https://github.com/inet1004/showhoney
       <a href="/core/room" class="w3-bar-item w3-button"> 채팅문의</a>
       <a href="ask.do" class="w3-bar-item w3-button"> 문의하기</a>
       <a href="myPage.do" class="w3-bar-item w3-button"> 내정보</a>

@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.servlet.view.AbstractView;
 
+@Component("download")
 public class DownloadView extends AbstractView {
 
 	public DownloadView() {
@@ -32,16 +34,6 @@ public class DownloadView extends AbstractView {
 		response.setHeader("Content-Transfer-Encoding", "binary");
 		OutputStream out = response.getOutputStream();
 		FileInputStream fis = null;
-		
-//		 if(request.getHeader("User-Agent").indexOf("MSIE") > -1){
-//             
-//	            fileName = URLEncoder.encode(file.getName(), "utf-8");
-//	                         
-//	        } else {
-//	             
-//	            fileName = new String(file.getName().getBytes("utf-8"));
-//	        }
-
 
 		try {
 			fis = new FileInputStream(file);

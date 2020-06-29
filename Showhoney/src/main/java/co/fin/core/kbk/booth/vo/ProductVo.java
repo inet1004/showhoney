@@ -9,8 +9,8 @@ public class ProductVo {
 	private String product_desc;
 	private String product_image_path;
 	private MultipartFile product_uploadfile;
-	private String product_mall;
 	private int booth_no;
+//	private String product_mall;
 
 	public int getBooth_no() {
 		return booth_no;
@@ -60,12 +60,12 @@ public class ProductVo {
 		this.product_uploadfile = product_uploadfile;
 	}
 
-	public String getProduct_mall() {
-		return product_mall;
-	}
-
-	public void setProduct_mall(String product_mall) {
-		this.product_mall = product_mall;
-	}
+//	public String getProduct_mall() {
+//		return product_mall;
+//	}
+//
+//	public void setProduct_mall(String product_mall) {
+//		this.product_mall = product_mall;
+//	}
 
 }

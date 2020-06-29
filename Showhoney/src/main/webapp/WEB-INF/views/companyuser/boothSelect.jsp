@@ -19,9 +19,13 @@
 							src="<spring:url value='/resources/FileUpload/boothProfile/${list[0].booth_profile }'/>">
 					</div>
 					<!-- 소개글 -->
-					<div class="col-md-12 col-lg-6 light-bg ">
-						<p>${list[0].booth_introduction }</p>
-					</div>
+					 <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
+                            <p><small></small></p>
+                            <c:forEach var="companyuser" items="${companyuserlist }">
+                            <h3>${companyuser.company_name }</h3>
+                            </c:forEach>
+                            <h4> ${list[0].booth_introduction } </h4>
+                        </div>
 				</div>
 			</div>
 
@@ -38,11 +42,12 @@
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->
 						<label><i class="fas fa-phone-alt fa-3x"></i></label>
-						<button class="w3-btn w3-link w3-xlarge">전화번호</button>
+						<button class="w3-btn w3-link w3-xlarge">채팅상담</button>
 					</div>
 					<!-- 브로슈어 -->
 					<label><i class="fas fa-cloud-download-alt fa-3x"></i></label>
 					<button class="w3-btn w3-link w3-xlarge" onclick="location.href='download.do?booth_no=${list[0].booth_no }'">브로슈어 download</button>
+				
 				</div>
 			</div>
 		</div>
@@ -58,11 +63,11 @@
 			<label><i class="fas fa-shopping-cart fa-3x"></i></label>
 			<a onclick="${list[0].product_mall}">구매하러가기</a>
 		</div>
-		<div class="w3-row-padding w3-padding-16 w3-center" id="food">
+		<div class="w3-row-padding w3-padding-16 w3-center" id="food" style="margin-top:5%">
 			<c:forEach var="product" items="${productlist }" varStatus="i">
-				<div class="w3-quarter">
+				<div class="w3-quarter" style="margin-left:5%">
 					<img src="<spring:url value='/resources/FileUpload/product/${product.product_image_path }'/>"
-						alt="상품" style="width: 100%">
+						alt="상품" style="width:100%;">
 					<h3>${product.product_name}</h3>
 					<p>${product.product_desc}</p>
 				</div>
@@ -71,7 +76,7 @@
 	</div>
 </div>
 <!-- 수정input -->
-	<div align="center">
+	<div align="center" style="margin-top:15%">
 			<button class="w3-button w3-blue w3-round-xlarge" type="button" onclick="location.href='boothModifyForm.do?booth_no=${list[0].booth_no}'">수정하기</button>
 		<button class="w3-button w3-green w3-round-xlarge" type="button" onclick="location.href='boothList.do'">부스목록가기</button>
 	</div><%-- <button class="w3-button w3-blue w3-round-xlarge" type="button" onclick="location.href='boothModifyForm.do?booth_no=${list[0].booth_no}'">수정하기</button> --%>

@@ -15,12 +15,15 @@ public interface BoothService {
 	//Customer
 	List<BoothVo> getSelectCustomerBoothList(BoothVo vo);
 	
+	//Ticket
+	int ticketCheck(BoothVo vo);
+	
 	//product
 	List<ProductVo> getSelectList(ProductVo vo);
 	ProductVo getSelect(ProductVo vo);
 	void productInsert(ProductVo vo, HttpServletRequest request) throws IOException;
 	void productUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
-	void productDelete(ProductVo vo);
+	void productDelete(ProductVo vo, BoothVo bvo, HttpServletRequest request) throws IllegalStateException, IOException;
 	
 
 }
