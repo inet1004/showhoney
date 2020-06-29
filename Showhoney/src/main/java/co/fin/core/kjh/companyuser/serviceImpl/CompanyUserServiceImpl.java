@@ -74,4 +74,10 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 		
 	}
 
+	@Override
+	public void companyUpdate(CompanyUserVo vo) {
+		dao.companyUpdate(vo);
+		
+	}
+
 }

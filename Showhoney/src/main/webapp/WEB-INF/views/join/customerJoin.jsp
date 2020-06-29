@@ -60,8 +60,8 @@ a{
                 <a class="navbar-brand js-scroll-trigger" href="info.do">SHOWHONEY</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">문의사항</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="ask.do">문의사항</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="loginType.do">로그인</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="joinType.do">회원가입</a></li>
                     </ul>
                 </div>

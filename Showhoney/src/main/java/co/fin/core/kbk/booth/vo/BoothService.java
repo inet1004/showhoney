@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 public interface BoothService {
 	List<BoothVo> bgetSelectBoothList(BoothVo vo);
 	void boothInsert(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
-	void boothUpdate(BoothVo vo);
-	void boothDelete(BoothVo vo);
+	void boothUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
+	void boothDelete(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
 	
 	//Customer
 	List<BoothVo> getSelectCustomerBoothList(BoothVo vo);
@@ -22,8 +22,8 @@ public interface BoothService {
 	List<ProductVo> getSelectList(ProductVo vo);
 	ProductVo getSelect(ProductVo vo);
 	void productInsert(ProductVo vo, HttpServletRequest request) throws IOException;
-	void productUpdate(ProductVo vo);
-	void productDelete(ProductVo vo);
+	void productUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
+	void productDelete(ProductVo vo, BoothVo bvo, HttpServletRequest request) throws IllegalStateException, IOException;
 	
 
 }

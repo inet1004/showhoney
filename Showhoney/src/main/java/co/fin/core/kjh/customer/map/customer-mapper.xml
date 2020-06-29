@@ -7,7 +7,8 @@
 	</select>
 	
 	<select id="getSelect" parameterType="co.fin.core.kjh.customer.vo.CustomerVo" resultType="co.fin.core.kjh.customer.vo.CustomerVo">
-		SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = #{customer_id}
+		SELECT 
+		customer_id, customer_pw, customer_addr, customer_email, customer_name, customer_company_name, customer_phone, customer_profile FROM CUSTOMER WHERE CUSTOMER_ID = #{customer_id}
 	</select>
 	
 	<insert id="customerInsert" parameterType="co.fin.core.kjh.customer.vo.CustomerVo">
@@ -15,7 +16,14 @@
 	</insert>
 	
 	<update id="customerUpdate" parameterType="co.fin.core.kjh.customer.vo.CustomerVo">
-	
+		UPDATE CUSTOMER
+		<set>
+			customer_pw = #{customer_pw}, customer_addr = #{customer_addr}, customer_email = #{customer_email}, customer_name = #{customer_name}, customer_company_name = #{customer_company_name}, customer_phone = #{customer_phone}
+			<if test="customer_profile != null and customer_profile != ''">
+				customer_profile = #{customer_profile}
+			</if>
+			WHERE customer_id = #{customer_id}
+		</set>
 	</update>
 	
 	<delete id="customerDelete" parameterType="co.fin.core.kjh.customer.vo.CustomerVo">
