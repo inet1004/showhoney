@@ -136,4 +136,5 @@ public class BoothController {
 		model.addAttribute("list", list);
 		return "cus/booth/customerBoothSelect";
 	}
+	
 }
