@@ -70,7 +70,7 @@
 						</p>
 
 						<p>
-							<label>고객상담 전화번호 입력란</label> <input class="w3-input w3-border"
+							<label>채팅상담 입력란</label> <input class="w3-input w3-border"
 								name="company_tel" id="company_tel" type="text">
 						</p>
 
