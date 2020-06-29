@@ -8,12 +8,15 @@ public class Room {
 	public int getRoomNumber() {
 		return roomNumber;
 	}
+	
 	public void setRoomNumber(int roomNumber) {
 		this.roomNumber = roomNumber;
 	}
+	
 	public String getRoomName() {
 		return roomName;
 	}
+	
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
@@ -25,6 +28,7 @@ public class Room {
 	public void setBooth_no(int booth_no) {
 		this.booth_no = booth_no;
 	}
+	
 	@Override
 	public String toString() {
 		return "Room [roomNumber=" + roomNumber + ", roomName=" + roomName + "]";

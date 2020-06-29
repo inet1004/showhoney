@@ -40,7 +40,7 @@ public class ChatController {
 	
 	/**
 	 * 방 생성하기
-	 * @param params
+	 * @param params 
 	 * @return
 	 */
 	@RequestMapping("/createRoom")  // /createRoom

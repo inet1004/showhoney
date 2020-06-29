@@ -125,7 +125,7 @@
 								"</tr>";	
 					}		
 							
-				});
+				}); 
 				$("#roomList").empty().append(tag);
 			}
 		}else {
