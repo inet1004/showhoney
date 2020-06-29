@@ -16,6 +16,7 @@ public class BoothVo {
 	private String booth_profile;
 	private MultipartFile booth_uploadfile;
 	private MultipartFile brochure_uploadfile;
+	private String product_mall;
 
 	private String company_name;
 	private String exhibition_name;
@@ -24,7 +25,7 @@ public class BoothVo {
 	private String[] product_name;
 	private String[] product_desc;
 	private MultipartFile[] product_uploadfile;
-	private String product_mall;
+
 	
 	
 

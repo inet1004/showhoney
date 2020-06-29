@@ -4,6 +4,7 @@
 	<select id="getSelectList" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		SELECT * FROM COMPANY_USER
 	</select>
+	
  	<select id="getSelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		SELECT * FROM COMPANY_USER WHERE 
 		 <choose>
@@ -37,11 +38,25 @@
 	<insert id="companyUserInsert3" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		INSERT INTO COMPANY_USER (COMPANY_USER_ID,COMPANY_USER_PW,COMPANY_NO,COMPANY_PROFILE) VALUES(#{company_user_id3},#{company_user_pw3},#{company_no},#{company_profile})
 	</insert>
-	
-	
-	
+
 	<update id="companyUserUpdate" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		UPDATE COMPANY_USER
+		<set>
+			company_user_pw = #{company_user_pw}
+			<if test="company_profile != null and company_profile = ''">
+				,company_profile = #{company_profile}	
+			</if>
+		</set>
+		WHERE company_no = #{company_no}
+	</update>
 	
+	
+	<update id="companyUpdate" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		UPDATE COMPANY
+		<set>
+			company_name = #{company_name}, company_phone = #{company_phone}, company_addr = #{company_addr}, company_email = #{company_email}, ceo_name = #{ceo_name}, ceo_phone = #{ceo_phone}
+		</set>
+		WHERE company_no = #{company_no } 
 	</update>
 	
 	<delete id="companyUserDelete" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
