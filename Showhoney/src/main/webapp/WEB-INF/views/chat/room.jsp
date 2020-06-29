@@ -110,6 +110,7 @@
 	}
 
 	function createChatingRoom(res){
+		alert(b);
 		if(b == "true"){
 			if(res != null){
 				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
@@ -163,7 +164,7 @@
 	<br><p/>
 	<br><p/>
 		<h1>채팅방</h1>
-
+		<h4>( Booth: ${param.booth_no })</h4>
 
 		<c:choose>
 			<c:when test="${not empty sessionScope.customer_id}">
@@ -181,30 +182,11 @@
 			</c:otherwise>
 		</c:choose>
 
-
-<%-- 		<c:choose>
-			<c:when test="${empty sessionScope.customer_id}">
-				<h5>!! 고객 로그아웃 상태입니다 !!</h5>
-				<a href="login.do">&nbsp;&nbsp; *로그인 하기 </a>			
-			</c:when>
-			<c:when test="${empty sessionScope.customer_id}">
-				<h5>!! 기업 로그아웃 상태입니다 !!</h5>
-				<a href="login.do">&nbsp;&nbsp; *로그인 하기 </a>			
-			</c:when>
-			<c:otherwise>
-				<h5>[ ${sessionScope.customer_id} ${sessionScope.company_user_id} ]님 환영합니다. &nbsp;&nbsp;</h5>
-				<a href="logout.do">&nbsp;&nbsp; *로그아웃 하기 </a>
-			</c:otherwise>
-		</c:choose>
- --%>
-		
-		
 		<div id="roomContainer" class="roomContainer">
 			<table id="roomList" class="roomList"></table>
 		</div>
 		<div>
 			<table class="inputTable" width="500">
-			
 			
 		<c:choose>
 			<c:when test="${not empty sessionScope.customer_id}">
@@ -220,10 +202,6 @@
 				</tr>
 			</c:otherwise>
 		</c:choose>
-			
-			
-			
-			
 			
 			</table>
 		</div>
