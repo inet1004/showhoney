@@ -2,9 +2,11 @@ package co.fin.core.kbk.booth.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -118,10 +120,27 @@ public class BoothController {
 	
 	
 	@RequestMapping("/customerBoothList.do")
-	public ModelAndView customerBoothList(BoothVo vo, ModelAndView mav) {
-		List<BoothVo> list = boothService.getSelectCustomerBoothList(vo);
-		mav.addObject("list", list);
-		mav.setViewName("cus/booth/customerBoothList");
+	public ModelAndView customerBoothList(BoothVo vo, HttpServletRequest request, HttpServletResponse response, ModelAndView mav) throws Exception {
+		
+		int n = 0;
+		
+		String customerid = (String) request.getSession().getAttribute("customer_id");
+		int exhibitionno = Integer.parseInt(request.getParameter("exhibition_no"));
+		vo.setCustomer_id(customerid);
+		vo.setExhibition_no(exhibitionno);
+		
+		n = boothService.ticketCheck(vo);
+		if(n==0) {
+			PrintWriter writer = response.getWriter();
+			response.setContentType("text/html;charset=UTF-8");
+			writer.println("<script>alert('티켓 구매 후 입장 가능합니다!! 구매 페이지로 이동합니다.'); location.href='ticketList.do';</script>");
+			
+		}else {
+			List<BoothVo> list = boothService.getSelectCustomerBoothList(vo);
+			mav.addObject("list", list);
+			mav.setViewName("cus/booth/customerBoothList");
+			
+		}		
 		
 		return mav;
 	}
@@ -140,7 +159,6 @@ public class BoothController {
 	
 	@RequestMapping("/customerBoothSelect.do")
 	public String customerBoothSelect(BoothVo vo, ProductVo pvo, Model model) {
-		
 		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
 		
 		model.addAttribute("productlist", boothService.getSelectList(pvo));

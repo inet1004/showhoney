@@ -54,10 +54,8 @@ $(".remove_btn").click(function(){
 						</div>
 						<div class="w3-container w3-card-4 w3-light-grey"
 							style="margin-top: 5%;">
-							<p>
-								<label>1:1 영상상담 주소 입력란</label>
-								<textarea class="w3-input w3-border" name="video_call_path"
-									id="video_call_path" rows="5" cols="50">${list[0].video_call_path }</textarea>
+							<p><label>1:1 영상상담 주소 입력란</label>&nbsp;&nbsp;<button type="button" class="btn btn-primary add_btn" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html')">방만들기</button>
+						  <textarea class="w3-input w3-border" name="video_call_path" id="video_call_path" rows="5" cols="50" placeholder="사용하지 않으실 때에는  비워두세요.">${list[0].video_call_path }</textarea></p>
 							<p>
 								<label>고객상담 전화번호 입력란</label> <input class="w3-input w3-border"
 									name="company_tel" id="company_tel" type="text"

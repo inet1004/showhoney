@@ -65,8 +65,8 @@
 					<div class="w3-container w3-card-4 w3-light-grey"
 						style="margin-top: 5%;">
 						<p>
-							<label>1:1 영상상담 주소 입력란</label> <input class="w3-input w3-border"
-								name="video_call_path" id="video_call_path" type="text">
+							<label>1:1 영상상담 주소 입력란 (방 이름)</label><button type="button" class="btn btn-primary add_btn" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html')">방만들기</button><input class="w3-input w3-border"
+								name="video_call_path" id="video_call_path" type="text" placeholder="사용하지 않으실 때에는  비워두세요.">
 						</p>
 
 						<p>

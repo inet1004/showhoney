@@ -15,6 +15,9 @@ public interface BoothService {
 	//Customer
 	List<BoothVo> getSelectCustomerBoothList(BoothVo vo);
 	
+	//Ticket
+	int ticketCheck(BoothVo vo);
+	
 	//product
 	List<ProductVo> getSelectList(ProductVo vo);
 	ProductVo getSelect(ProductVo vo);

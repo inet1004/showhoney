@@ -134,10 +134,11 @@ public class BoothServiceImpl implements BoothService {
 				String pfileName = product_uploadfile[i].getOriginalFilename();
 				product_uploadfile[i].transferTo(new File(ppath, pfileName));
 
-				
+				pvo.setProduct_name(bvo.getProduct_name()[i]);
+				pvo.setProduct_desc(bvo.getProduct_desc()[i]);
 				pvo.setProduct_image_path(pfileName);
 				pvo.setBooth_no(bvo.getBooth_no());
-			//	dao.productUpdate(pvo);
+				dao.productUpdate(pvo);
 			}
 			
 		}
@@ -154,6 +155,13 @@ public class BoothServiceImpl implements BoothService {
 	@Override
 	public List<BoothVo> getSelectCustomerBoothList(BoothVo vo) {
 		return dao.getSelectCustomerBoothList(vo);
+		
+	}
+
+
+	@Override
+	public int ticketCheck(BoothVo vo) {		
+		return dao.ticketCheck(vo);
 	}
 
 }

@@ -17,6 +17,10 @@ public interface BoothMapper {
 	//Customer
 	List<BoothVo> getSelectCustomerBoothList(BoothVo vo);
 	
+	//Ticket
+	int ticketCheck(BoothVo vo);
+
+	
 	//product mapper
 	List<ProductVo> getSelectList(ProductVo vo);
 	ProductVo getSelect(ProductVo vo);

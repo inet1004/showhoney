@@ -1,5 +1,6 @@
 package co.fin.core.kbk.booth.vo;
 
+import java.sql.Date;
 import java.util.Arrays;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +27,102 @@ public class BoothVo {
 	private String[] product_desc;
 	private MultipartFile[] product_uploadfile;
 
+	
+	public int getTicket_no() {
+		return ticket_no;
+	}
+
+	public void setTicket_no(int ticket_no) {
+		this.ticket_no = ticket_no;
+	}
+
+	public int getTicket_price() {
+		return ticket_price;
+	}
+
+	public void setTicket_price(int ticket_price) {
+		this.ticket_price = ticket_price;
+	}
+
+	public String getTicket_status() {
+		return ticket_status;
+	}
+
+	public void setTicket_status(String ticket_status) {
+		this.ticket_status = ticket_status;
+	}
+
+	public String getTicket_name() {
+		return ticket_name;
+	}
+
+	public void setTicket_name(String ticket_name) {
+		this.ticket_name = ticket_name;
+	}
+
+	public int getPayment_no() {
+		return payment_no;
+	}
+
+	public void setPayment_no(int payment_no) {
+		this.payment_no = payment_no;
+	}
+
+	public Date getPayment_date() {
+		return payment_date;
+	}
+
+	public void setPayment_date(Date payment_date) {
+		this.payment_date = payment_date;
+	}
+
+	public int getPayment_approval_number() {
+		return payment_approval_number;
+	}
+
+	public void setPayment_approval_number(int payment_approval_number) {
+		this.payment_approval_number = payment_approval_number;
+	}
+
+	public String getPayment_type() {
+		return payment_type;
+	}
+
+	public void setPayment_type(String payment_type) {
+		this.payment_type = payment_type;
+	}
+
+	public int getPayment_sum() {
+		return payment_sum;
+	}
+
+	public void setPayment_sum(int payment_sum) {
+		this.payment_sum = payment_sum;
+	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	private int ticket_no;
+	private int ticket_price;
+	private String ticket_status;
+
+	private String ticket_name;
+	private int payment_no;
+	private Date payment_date;
+	private int payment_approval_number;
+	private String payment_type;
+	private int payment_sum;
+	private String customer_id;
+	
+	
+	
+	
 	
 	
 
