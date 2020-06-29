@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-		
-	<meta charset="utf-8">
+
+<!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Lumia - v2.0.0
+  * Template URL: https://bootstrapmade.com/lumia-bootstrap-business-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->	
+
+<meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <title>Lumia Bootstrap Template - Index</title>
@@ -26,20 +33,6 @@
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Lumia - v2.0.0
-  * Template URL: https://bootstrapmade.com/lumia-bootstrap-business-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->	
-	    
-</head>
-  
-<body>
 
 	<!-- ======= Portfolio Section ======= -->
    	<section id="portfolio" class="portfolio">
@@ -106,7 +99,7 @@
         </div>
 
       </div>
-    </section>End Portfolio Section
+    </section>
  
     
 
@@ -124,5 +117,3 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
-</html>

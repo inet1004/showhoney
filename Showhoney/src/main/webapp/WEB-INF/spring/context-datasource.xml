@@ -3,21 +3,21 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-		<!-- Database Connection Pull 
+		<!-- Database Connection Pull -->
 	<bean id="dataSourceSpied" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@192.168.0.93:1521:xe" />
 		<property name="username" value="HYUN" />
 		<property name="password" value="hyun" />
-	</bean> -->
+	</bean> 
 	
 			<!-- Database Connection Pull -->
-	<bean id="dataSourceSpied" class="org.apache.commons.dbcp2.BasicDataSource">
+	<!-- <bean id="dataSourceSpied" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
 		<property name="username" value="bobo" />
 		<property name="password" value="bobo" /> 
-	</bean> 
+	</bean>  -->
 	
 	
 	

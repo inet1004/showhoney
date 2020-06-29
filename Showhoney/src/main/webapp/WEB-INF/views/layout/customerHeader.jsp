@@ -1,25 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
-body, html {
-  height: 100%;
-  line-height: 1.8;
-}
-
-.w3-bar .w3-button {
-  padding: 16px;
-}
-</style>
-<body>
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -29,11 +10,7 @@ body, html {
     <div class="w3-right w3-hide-small">
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
       <a href="#work" class="w3-bar-item w3-button">발표회</a>
-<<<<<<< HEAD
-      <a href="pay.do" class="w3-bar-item w3-button"> 티켓구매하기</a>
-=======
       <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓구매하기</a>
->>>>>>> branch 'master' of https://github.com/inet1004/showhoney
       <a href="/core/room" class="w3-bar-item w3-button"> 채팅문의</a>
       <a href="ask.do" class="w3-bar-item w3-button"> 문의하기</a>
       <a href="myPage.do" class="w3-bar-item w3-button"> 내정보</a>
@@ -76,7 +53,3 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 </script>
-
-
-</body>
-</html>
