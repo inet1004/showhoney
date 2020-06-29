@@ -79,6 +79,8 @@
 
 <script type="text/javascript">
 	var ws;
+	var b = "${not empty sessionScope.customer_id}";
+	
 	window.onload = function(){
 		getRoom();
 		createRoom();
@@ -108,7 +110,6 @@
 	}
 
 	function createChatingRoom(res){
-		var b = ${not empty sessionScope.customer_id};
 		if(b == "true"){
 			if(res != null){
 				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
@@ -203,11 +204,27 @@
 		</div>
 		<div>
 			<table class="inputTable" width="500">
+			
+			
+		<c:choose>
+			<c:when test="${not empty sessionScope.customer_id}">
+				<tr bgcolor="yellowgreen" colspan="3">
+					<th width="500" align="center"><h5> - 채팅방에 입장하셔서 문의 바랍니다 - </h5></th>
+				</tr>
+			</c:when>
+			<c:otherwise>
 				<tr bgcolor="yellowgreen">
 					<th width="100" align="center">&nbsp;&nbsp;&nbsp;&nbsp;방 제목</th>
 					<th width="300"><input type="text" name="roomName" id="roomName" maxlength=10></th>
 					<th width="100"><button id="createRoom">방 생성</button></th>
 				</tr>
+			</c:otherwise>
+		</c:choose>
+			
+			
+			
+			
+			
 			</table>
 		</div>
 	</div>
