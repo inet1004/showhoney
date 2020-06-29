@@ -75,6 +75,7 @@
 		</div>
 	</div>
 </div>
+
 <!-- 수정input -->
 	<div align="center" style="margin-top:15%">
 			<button class="w3-button w3-blue w3-round-xlarge" type="button" onclick="location.href='boothModifyForm.do?booth_no=${list[0].booth_no}'">수정하기</button>
