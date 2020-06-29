@@ -21,7 +21,7 @@ public class TicketController {
 	public ModelAndView exhibitionList(ModelAndView mav) {
 		List<TicketVo> tlist = ticketService.getSelectTicketList();
 		mav.addObject("tlist", tlist);
-		mav.setViewName("/ticket/ticket_sample");
+		mav.setViewName("cus/ticket/ticket_sample");
 		return mav;
 	}
 	
