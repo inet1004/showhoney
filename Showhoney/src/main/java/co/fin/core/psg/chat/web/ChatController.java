@@ -50,6 +50,7 @@ public class ChatController {
 			Room room = new Room();
 			room.setRoomNumber(++roomNumber);
 			room.setRoomName(roomName);
+			room.setBooth_no((Integer) params.get("booth_no"));
 			roomList.add(room);
 		}
 		return roomList;

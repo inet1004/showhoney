@@ -88,18 +88,16 @@
 
 	function getRoom(){
 		commonAjax('/core/getRoom', "", 'post', function(result){   // /getRoom
-			createChatingRoom(result);
+			createChatingRoom(result, 1);
 		});
 	}
 	
-	function createRoom(){
+	function createRoom(){  
 		$("#createRoom").click(function(){
-			var msg = {	roomName : $('#roomName').val()	};
-
+			var msg = {	roomName : $('#roomName').val(), booth_no: ${param.booth_no}	};
 			commonAjax('/core/createRoom', msg, 'post', function(result){   // /createRoom
-				createChatingRoom(result);
+				createChatingRoom(result, 2);
 			});
-
 			$("#roomName").val("");
 		});
 	}
@@ -109,19 +107,24 @@
 		location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
 	}
 
-	function createChatingRoom(res){
-		alert(b);
-		if(b == "true"){
+	function createChatingRoom(res, a){
+		alert("고객:" + b);
+		alert(a + "<== 1은 테이블 그냥 불러오는 경우, 2는 방만드는 경우");
+		if(a == 1){  
 			if(res != null){
 				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
 				res.forEach(function(d, idx){
 					var rn = d.roomName.trim();
 					var roomNumber = d.roomNumber;
-					tag += "<tr class='" + ${param.booth_no} +"'>"+
-								"<td class='num'>"+(idx+1)+"</td>"+
-								"<td class='room'>"+ rn +"</td>"+
-								"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
-							"</tr>";	
+					
+					if( ${param.booth_no} == (jQuery("#object_id").attr("class")) ){
+						tag += "<tr>"+
+									"<td class='num'>"+(idx+1)+"</td>"+
+									"<td class='room'>"+ rn +"</td>"+
+									"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+								"</tr>";	
+					}		
+							
 				});
 				$("#roomList").empty().append(tag);
 			}

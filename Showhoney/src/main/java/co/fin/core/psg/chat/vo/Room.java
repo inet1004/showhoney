@@ -1,7 +1,7 @@
 package co.fin.core.psg.chat.vo;
 
 public class Room {
-	
+	int booth_no;
 	int roomNumber;
 	String roomName;
 	
@@ -18,6 +18,13 @@ public class Room {
 		this.roomName = roomName;
 	}
 	
+	public int getBooth_no() {
+		return booth_no;
+	}
+	
+	public void setBooth_no(int booth_no) {
+		this.booth_no = booth_no;
+	}
 	@Override
 	public String toString() {
 		return "Room [roomNumber=" + roomNumber + ", roomName=" + roomName + "]";
