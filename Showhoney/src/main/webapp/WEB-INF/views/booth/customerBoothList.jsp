@@ -82,11 +82,11 @@
 			<input type="hidden" name="exhibition_no" id="exhibition_no" value="${booth.exhibition_no }">
 	          <div class="col-md-4 ftco-animate">
 	            <div class="blog-entry">
-	              <a href="#" class="block-20" style="background-image: url('resources/FileUpload/boothProfile/${booth.booth_profile}');">
+	              <a href="customerBoothSelect.do?booth_no=${booth.booth_no }" class="block-20" style="background-image: url('resources/FileUpload/boothProfile/${booth.booth_profile}');">
 	              </a>
 	              <div class="text p-4 d-block">
 	                <div class="meta mb-3">
-	                  <div><a href="#">${booth.company_name }</a></div>&nbsp;
+	                  <div><a href="customerBoothSelect.do?booth_no=${booth.booth_no }">${booth.company_name }</a></div>&nbsp;
 	                  <%-- <div><span><i class="far fa-heart" id="${booth.booth_no }" name="${booth.booth_no }" onclick="likeBooth(${booth.booth_no})"></i></span></div> --%>
 	                  <div><a href="javascript:void(0)" onclick="likeBooth(${booth.booth_no})" id="${booth.booth_no}"><i class="far fa-heart"></i></a></div>
 	                </div>

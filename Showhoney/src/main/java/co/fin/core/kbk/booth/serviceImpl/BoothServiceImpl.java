@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import co.fin.core.kbk.booth.vo.BoothService;
 import co.fin.core.kbk.booth.vo.BoothVo;
 import co.fin.core.kbk.booth.vo.ProductVo;
-import co.fin.core.kbk.booth.vo.TicketCheckVo;
 
 @Service("boothService")
 public class BoothServiceImpl implements BoothService {
@@ -23,7 +22,6 @@ public class BoothServiceImpl implements BoothService {
 
 	@Override
 	public List<BoothVo> bgetSelectBoothList(BoothVo vo) {
-		
 		return dao.bgetSelectBoothList(vo);
 
 	}
@@ -136,10 +134,11 @@ public class BoothServiceImpl implements BoothService {
 				String pfileName = product_uploadfile[i].getOriginalFilename();
 				product_uploadfile[i].transferTo(new File(ppath, pfileName));
 
-				
+				pvo.setProduct_name(bvo.getProduct_name()[i]);
+				pvo.setProduct_desc(bvo.getProduct_desc()[i]);
 				pvo.setProduct_image_path(pfileName);
 				pvo.setBooth_no(bvo.getBooth_no());
-			//	dao.productUpdate(pvo);
+				dao.productUpdate(pvo);
 			}
 			
 		}

@@ -66,7 +66,19 @@ body, html {
 					<div>
 						<!-- 영상 <a href="${list[0].video_call_path }"> -->
 						<label><i class="fas fa-video fa-3x"></i></label>
-						<button class="w3-btn w3-link w3-xlarge" onclick="">1:1 영상상담</button>
+						
+						<c:choose>
+						<c:when test="${not empty list[0].video_call_path}">
+							<button class="w3-btn w3-link w3-xlarge" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html#${list[0].video_call_path }')">1:1 영상상담</button>
+							상담원대기중
+						</c:when>
+						<c:otherwise>
+							<button class="w3-btn w3-link w3-xlarge" onclick="">1:1 영상상담</button>
+							상담원준비중
+						</c:otherwise>
+						</c:choose>
+						
+						
 					</div>
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->

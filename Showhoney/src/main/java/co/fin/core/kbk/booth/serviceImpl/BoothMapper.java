@@ -6,7 +6,6 @@ import org.mybatis.spring.annotation.MapperScan;
 
 import co.fin.core.kbk.booth.vo.BoothVo;
 import co.fin.core.kbk.booth.vo.ProductVo;
-import co.fin.core.kbk.booth.vo.TicketCheckVo;
 
 @MapperScan("boothMap")
 public interface BoothMapper {
