@@ -94,7 +94,7 @@
 	
 	function createRoom(){  
 		$("#createRoom").click(function(){
-			var msg = {	roomName : $('#roomName').val(), booth_no: ${param.booth_no}	};
+			var msg = {	roomName : $('#roomName').val(), booth_no: ${param.booth_no} };
 			commonAjax('/core/createRoom', msg, 'post', function(result){   // /createRoom
 				createChatingRoom(result, 2);
 			});
@@ -116,15 +116,14 @@
 				res.forEach(function(d, idx){
 					var rn = d.roomName.trim();
 					var roomNumber = d.roomNumber;
-					
-					if( ${param.booth_no} == (jQuery("#object_id").attr("class")) ){
+					var b_no = ${param.booth_no};
+					if( b_no == d.booth_no ) {
 						tag += "<tr>"+
 									"<td class='num'>"+(idx+1)+"</td>"+
 									"<td class='room'>"+ rn +"</td>"+
 									"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
 								"</tr>";	
 					}		
-							
 				}); 
 				$("#roomList").empty().append(tag);
 			}
