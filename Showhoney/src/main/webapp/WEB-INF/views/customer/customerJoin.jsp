@@ -59,6 +59,8 @@ a {
 }
 </style>
 <script>
+var checkval = true;
+
 function check(re, what, message) {
 	   if(re.test(what.value)) {
 	       return true;
@@ -87,6 +89,7 @@ $(function(){
 					
 						if(!check(re,id,"아이디는 4~12자의 영문 대소문자와 숫자로만 입력")) {
 					    	 return false;
+							//checkval = false
 					       }
 					
 						var customer_id = $('#customer_id').val();
@@ -101,7 +104,7 @@ $(function(){
 									$("#id_check").text("사용중인 아이디입니다 :(");
 									$("#id_check").css("color", "red");
 									//$("#reg_submit").attr("disabled", true);
-
+									
 								} else if(customer_id == "") {
 									$('#id_check').text('아이디를 입력해주세요 :)');
 									$('#id_check').css('color', 'red');
@@ -131,9 +134,11 @@ $(function(){
 		if(pw == '' || !pwtype.test(pw)) {
 			$('#pwblur').html("6~20자 영문자 또는 숫자 입력.");
 			$('#pwblur').css("color", "red");
+			checkval = false
 		} else {
 			$('#pwblur').html("좋아요 :)");
 			$('#pwblur').css("color", "green");
+			checkval = true
 		}
 			
 	}
@@ -145,9 +150,11 @@ $(function(){
 		if(pw != '' && pwck == pw){
 			$('#pwblurck').html("비밀번호 일치");
 			$('#pwblurck').css("color", "green");
+			checkval = true
 		}else{
 			$('#pwblurck').html("비밀번호 불일치");
 			$('#pwblurck').css("color", "red");
+			checkval = false
 		}
 	}
 	
@@ -160,14 +167,26 @@ $(function(){
 		if(!emailRule.test(email)){
 			$("#emailblur").html("ex) abcd1234@naver.com")
 			$('#emailblur').css("color", "red");
-			return false;
+			checkval = false
 		}else{
 			$("#emailblur").html("사용 가능한 이메일입니다.")
 			$('#emailblur').css("color", "green");
-			return true;
+			checkval = true
 		}
 	}
 }
+	
+	function infocheck() {
+
+		if (checkval == false) {
+			alert("조건을 정확히 입력해주세요");
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	
 </script>
 </head>
 <body id="page-top">
@@ -196,7 +215,7 @@ $(function(){
 	<header class="d-flex">
 		<div class="container text-center my-auto">
 			<form id="frm" name="frm" method="post" action="customerInsert.do"
-				enctype="multipart/form-data">
+				enctype="multipart/form-data" onsubmit="return infocheck()">
 				<div class="frm">
 
 					<div class="row">

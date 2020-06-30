@@ -15,7 +15,15 @@
       	COMPANY_NO = #{company_no}
     </otherwise>
   </choose>
+	</select>
 	
+<!-- 수정필요 -->
+	<select id="companyUserSelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		SELECT c.company_no, c.company_name, c.company_phone, c.company_addr, c.company_email, c.ceo_name, c.ceo_phone, u.company_user_id, c.business_license_number, u.company_user_pw, u.company_profile FROM company c, company_user u WHERE c.company_no = u.company_no and u.company_user_id = 'coco'
+	</select>
+	
+	<select id="companySelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		SELECT company_no, company_name, company_phone, company_addr, company_email, ceo_name, ceo_phone, BUSINESS_LICENSE_NUMBER FROM company WHERE company_no = #{company_no }
 	</select>
 	
 	
@@ -38,19 +46,24 @@
 	<insert id="companyUserInsert3" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		INSERT INTO COMPANY_USER (COMPANY_USER_ID,COMPANY_USER_PW,COMPANY_NO,COMPANY_PROFILE) VALUES(#{company_user_id3},#{company_user_pw3},#{company_no},#{company_profile})
 	</insert>
-
+	
+<!-- 기업 update  -->
 	<update id="companyUserUpdate" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		UPDATE COMPANY_USER
 		<set>
-			company_user_pw = #{company_user_pw}
-			<if test="company_profile != null and company_profile = ''">
-				,company_profile = #{company_profile}	
-			</if>
+			company_profile = #{company_profile}	
 		</set>
-		WHERE company_no = #{company_no}
+		WHERE company_user_id = #{company_user_id}
 	</update>
 	
-	
+	<update id="companyUserPwUpdate" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
+		UPDATE company_user
+		<set>
+			company_user_pw = #{company_user_pw}	
+		</set>
+		WHERE company_user_id = #{company_user_id}
+	</update>
+
 	<update id="companyUpdate" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
 		UPDATE COMPANY
 		<set>

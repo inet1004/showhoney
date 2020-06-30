@@ -166,14 +166,4 @@ public class BoothController {
 		model.addAttribute("list", list);
 		return "cus/booth/customerBoothSelect";
 	}
-	
-	@RequestMapping("/companyUserInfo.do")
-	public String companyUserInfo(BoothVo vo, ProductVo pvo, Model model) {
-		
-		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
-		
-		model.addAttribute("productlist", boothService.getSelectList(pvo));
-		model.addAttribute("list", list);
-		return "cus/companyuser/companyUserInfo";
-	}
 }
