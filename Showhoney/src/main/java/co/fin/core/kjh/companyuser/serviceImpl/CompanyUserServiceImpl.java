@@ -1,11 +1,17 @@
 package co.fin.core.kjh.companyuser.serviceImpl;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import co.fin.core.kjh.companyuser.vo.CompanyUserFileRenamePolicy;
 import co.fin.core.kjh.companyuser.vo.CompanyUserService;
 import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
 
@@ -36,11 +42,6 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 
 	}
 
-	@Override
-	public void companyUserUpdate(CompanyUserVo vo) {
-		dao.companyUserUpdate(vo);
-
-	}
 
 	@Override
 	public void companyUserDelete(CompanyUserVo vo) {
@@ -75,9 +76,54 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 	}
 
 	@Override
+	public void companyUserUpdate(CompanyUserVo vo, HttpServletRequest request) throws IllegalStateException, IOException {
+		//프로필 update
+		
+		MultipartFile uploadFile = vo.getUploadFile();
+	      String path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/companyUserProfile");
+	      System.out.println(path);
+	      
+	      if( uploadFile!=null && !uploadFile.isEmpty()) {
+	         String fileName = uploadFile.getOriginalFilename();
+	         File file = new File(path, fileName); 
+	         file = new CompanyUserFileRenamePolicy().rename(file);
+	         uploadFile.transferTo(file);
+	         vo.setCompany_profile(file.getName());
+	      }
+	      
+//	      else {
+//	         vo.setCompany_profile("");
+//	      }
+		
+		dao.companyUserUpdate(vo);
+		
+	}
+
+	@Override
+	public void companyUserPwUpdate(CompanyUserVo vo) {
+		
+		vo.setCompany_user_pw(bCryptPasswordEncoder.encode(vo.getCompany_user_pw()));
+		dao.companyUserPwUpdate(vo);
+		
+	}
+
+	@Override
 	public void companyUpdate(CompanyUserVo vo) {
 		dao.companyUpdate(vo);
 		
 	}
 
+	@Override
+	public CompanyUserVo companyUserSelect(CompanyUserVo vo) {
+		
+		return dao.companyUserSelect(vo);
+		
+	}
+
+	@Override
+	public CompanyUserVo companySelect(CompanyUserVo vo) {
+
+		return dao.companySelect(vo);
+		
+	}
 }
