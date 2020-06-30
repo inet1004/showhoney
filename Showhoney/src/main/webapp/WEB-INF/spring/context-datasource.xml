@@ -9,7 +9,7 @@
 		<property name="url" value="jdbc:oracle:thin:@192.168.0.93:1521:xe" />
 		<property name="username" value="HYUN" />
 		<property name="password" value="hyun" />
-	</bean> 
+	</bean>
 	
 			<!-- Database Connection Pull -->
 	<!-- <bean id="dataSourceSpied" class="org.apache.commons.dbcp2.BasicDataSource">
