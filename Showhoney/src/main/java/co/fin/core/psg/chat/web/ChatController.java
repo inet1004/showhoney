@@ -40,7 +40,7 @@ public class ChatController {
 	
 	/**
 	 * 방 생성하기
-	 * @param params
+	 * @param params 
 	 * @return
 	 */
 	@RequestMapping("/createRoom")  // /createRoom
@@ -50,6 +50,7 @@ public class ChatController {
 			Room room = new Room();
 			room.setRoomNumber(++roomNumber);
 			room.setRoomName(roomName);
+			room.setBooth_no(Integer.parseInt((String) params.get("booth_no")));  // 추가 // 스트링 - ㅇ니테저
 			roomList.add(room);
 		}
 		return roomList;
@@ -78,6 +79,7 @@ public class ChatController {
 		if(new_list != null && new_list.size() > 0) {
 			mv.addObject("roomName", params.get("roomName"));
 			mv.addObject("roomNumber", params.get("roomNumber"));
+			mv.addObject("booth_no", params.get("booth_no")); // 추가
 			mv.setViewName("com/chat/chat");
 		}else {
 			mv.setViewName("com/chat/room");

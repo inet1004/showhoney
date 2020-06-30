@@ -9,7 +9,8 @@ public interface CustomerService {
 	List<CustomerVo> getSelectList();
 	CustomerVo getSelect(CustomerVo vo);
 	void customerInsert(CustomerVo vo, HttpServletRequest request) throws IllegalStateException, IOException;
-	void customerUpdate(CustomerVo vo);
+	void customerUpdate(CustomerVo vo, HttpServletRequest request) throws IllegalStateException, IOException;
 	void customerDelete(CustomerVo vo);
+	void customerPwUpdate(CustomerVo vo);
 
 }

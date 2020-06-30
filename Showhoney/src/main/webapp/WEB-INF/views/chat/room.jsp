@@ -79,6 +79,8 @@
 
 <script type="text/javascript">
 	var ws;
+	var b = "${not empty sessionScope.customer_id}";
+	
 	window.onload = function(){
 		getRoom();
 		createRoom();
@@ -86,40 +88,61 @@
 
 	function getRoom(){
 		commonAjax('/core/getRoom', "", 'post', function(result){   // /getRoom
-			createChatingRoom(result);
+			createChatingRoom(result, 1);
 		});
 	}
 	
-	function createRoom(){
+	function createRoom(){  
 		$("#createRoom").click(function(){
-			var msg = {	roomName : $('#roomName').val()	};
-
+			var msg = {	roomName : $('#roomName').val(), booth_no: ${param.booth_no} };
 			commonAjax('/core/createRoom', msg, 'post', function(result){   // /createRoom
-				createChatingRoom(result);
+				createChatingRoom(result, 2);
 			});
-
 			$("#roomName").val("");
 		});
 	}
+	
 
 	function goRoom(number, name){
 		//alert("/moveChating?roomName="+name+"&"+"roomNumber="+number);
-		location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		//location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		location.href="/core/moveChating?booth_no="+${param.booth_no}+"&"+"roomName="+name+"&"+"roomNumber="+number;  // /moveChating
 	}
 
-	function createChatingRoom(res){
-		if(res != null){
-			var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
-			res.forEach(function(d, idx){
-				var rn = d.roomName.trim();
-				var roomNumber = d.roomNumber;
-				tag += "<tr>"+
-							"<td class='num'>"+(idx+1)+"</td>"+
-							"<td class='room'>"+ rn +"</td>"+
-							"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
-						"</tr>";	
-			});
-			$("#roomList").empty().append(tag);
+	function createChatingRoom(res, a){
+		//alert("고객:" + b);
+		//alert(a + "<== 1은 테이블 그냥 불러오는 경우, 2는 방만드는 경우");
+		if(a == 1){  
+			if(res != null){
+				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
+				res.forEach(function(d, idx){
+					var rn = d.roomName.trim();
+					var roomNumber = d.roomNumber;
+					var b_no = ${param.booth_no};
+					if( b_no == d.booth_no ) {
+						tag += "<tr>"+
+									"<td class='num'>"+(idx+1)+"</td>"+
+									"<td class='room'>"+ rn +"</td>"+
+									"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+								"</tr>";	
+					}		
+				}); 
+				$("#roomList").empty().append(tag);
+			}
+		}else {
+			if(res != null){
+				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
+				res.forEach(function(d, idx){
+					var rn = d.roomName.trim();
+					var roomNumber = d.roomNumber;
+					tag += "<tr class='" + ${param.booth_no} +"'>"+
+								"<td class='num'>"+(idx+1)+"</td>"+
+								"<td class='room'>"+ rn +"</td>"+
+								"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+							"</tr>";	
+				});
+				$("#roomList").empty().append(tag);
+			}
 		}
 	}
 
@@ -139,12 +162,13 @@
 		});
 	}
 </script>
+
 <body>
 	<div class="container">
 	<br><p/>
 	<br><p/>
 		<h1>채팅방</h1>
-
+		<h4>( Booth: ${param.booth_no })</h4>
 
 		<c:choose>
 			<c:when test="${not empty sessionScope.customer_id}">
@@ -162,34 +186,27 @@
 			</c:otherwise>
 		</c:choose>
 
-
-<%-- 		<c:choose>
-			<c:when test="${empty sessionScope.customer_id}">
-				<h5>!! 고객 로그아웃 상태입니다 !!</h5>
-				<a href="login.do">&nbsp;&nbsp; *로그인 하기 </a>			
-			</c:when>
-			<c:when test="${empty sessionScope.customer_id}">
-				<h5>!! 기업 로그아웃 상태입니다 !!</h5>
-				<a href="login.do">&nbsp;&nbsp; *로그인 하기 </a>			
-			</c:when>
-			<c:otherwise>
-				<h5>[ ${sessionScope.customer_id} ${sessionScope.company_user_id} ]님 환영합니다. &nbsp;&nbsp;</h5>
-				<a href="logout.do">&nbsp;&nbsp; *로그아웃 하기 </a>
-			</c:otherwise>
-		</c:choose>
- --%>
-		
-		
 		<div id="roomContainer" class="roomContainer">
 			<table id="roomList" class="roomList"></table>
 		</div>
 		<div>
 			<table class="inputTable" width="500">
+			
+		<c:choose>
+			<c:when test="${not empty sessionScope.customer_id}">
+				<tr bgcolor="yellowgreen" colspan="3">
+					<th width="500" align="center"><h5> - 채팅방에 입장하셔서 문의 바랍니다 - </h5></th>
+				</tr>
+			</c:when>
+			<c:otherwise>
 				<tr bgcolor="yellowgreen">
 					<th width="100" align="center">&nbsp;&nbsp;&nbsp;&nbsp;방 제목</th>
 					<th width="300"><input type="text" name="roomName" id="roomName" maxlength=10></th>
 					<th width="100"><button id="createRoom">방 생성</button></th>
 				</tr>
+			</c:otherwise>
+		</c:choose>
+			
 			</table>
 		</div>
 	</div>

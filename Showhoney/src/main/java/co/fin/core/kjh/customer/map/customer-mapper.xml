@@ -18,12 +18,20 @@
 	<update id="customerUpdate" parameterType="co.fin.core.kjh.customer.vo.CustomerVo">
 		UPDATE CUSTOMER
 		<set>
-			customer_pw = #{customer_pw}, customer_addr = #{customer_addr}, customer_email = #{customer_email}, customer_name = #{customer_name}, customer_company_name = #{customer_company_name}, customer_phone = #{customer_phone}
+			customer_addr = #{customer_addr}, customer_email = #{customer_email}, customer_name = #{customer_name}, customer_company_name = #{customer_company_name}, customer_phone = #{customer_phone}
 			<if test="customer_profile != null and customer_profile != ''">
-				customer_profile = #{customer_profile}
+				,customer_profile = #{customer_profile}
 			</if>
 			WHERE customer_id = #{customer_id}
 		</set>
+	</update>
+	
+	<update id="customerPwUpdate" parameterType="co.fin.core.kjh.customer.vo.CustomerVo">
+		UPDATE CUSTOMER
+		<set>
+			customer_pw = #{customer_pw}
+		</set>
+			WHERE customer_id = #{customer_id}
 	</update>
 	
 	<delete id="customerDelete" parameterType="co.fin.core.kjh.customer.vo.CustomerVo">

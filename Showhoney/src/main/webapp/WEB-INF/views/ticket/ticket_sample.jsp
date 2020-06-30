@@ -1,22 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>ticketList</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+
+
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
 <script>
 	var IMP=window.IMP;
 	IMP.init("imp53970198");
@@ -72,18 +59,21 @@
 	background-repeat: no-repeat;
 	padding: 10px;
 	margin: 10px;
+	margin-left: 50px;
 	float: left;
 }
-body{
-	margin-top:100px;
-}
+
+	#btn1 {
+		width:250px;
+		height: 35px;
+	}
 
 </style>
 
-<body>
 
-	<h1 align="center">쿠폰내역 LIST</h1>
+	<h1 align="center">티켓내역 LIST</h1>
 	<br>
+	<div align="center">
 	<div> 
 	<c:forEach var="ticket" items="${tlist }">
 		<div align="center" class="div1">
@@ -97,8 +87,9 @@ body{
 			<p align="center">${ticket.exhibition_start_date }~${ticket.exhibition_end_date }</p>
 			<p align="center">${ticket.ticket_price }원</p>
 		</div>
-		</c:forEach>
+	</c:forEach>
 		</div>
-
-</body>
-</html>
+      <div align="center">
+      	<button type="button" id="btn1" class="btn btn-info" onclick="location.href='exhibitionList.do'">박람회 목록 가기</button>
+      </div>
+		</div>

@@ -61,9 +61,36 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void customerUpdate(CustomerVo vo) {
+	public void customerUpdate(CustomerVo vo, HttpServletRequest request) throws IllegalStateException, IOException {
+		
+		  MultipartFile uploadFile = vo.getUploadFile();
+	      String path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/customerProfile");
+	      System.out.println(path);
+	      
+	      if( uploadFile!=null && !uploadFile.isEmpty()) {
+	         String fileName = uploadFile.getOriginalFilename();
+	         uploadFile.transferTo(new File(path, fileName));
+	         vo.setCustomer_profile(fileName);
+//	         File file = new File(path, fileName); 
+//	         file = new CustomerFileRenamePolicy().rename(file);
+//	         uploadFile.transferTo(file);
+//	         vo.setCustomer_profile(file.getName());
+	      }
+	      
+//	      else {
+//	         vo.setCustomer_profile("");
+//	      }
 		dao.customerUpdate(vo);
 
+	}
+	
+
+	@Override
+	public void customerPwUpdate(CustomerVo vo) {
+		
+		vo.setCustomer_pw(bCryptPasswordEncoder.encode(vo.getCustomer_pw()));
+		dao.customerPwUpdate(vo);
+		
 	}
 
 	@Override
@@ -71,5 +98,6 @@ public class CustomerServiceImpl implements CustomerService {
 		dao.customerDelete(vo);
 
 	}
+
 
 }

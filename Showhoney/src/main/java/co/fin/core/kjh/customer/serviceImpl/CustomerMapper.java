@@ -21,4 +21,5 @@ public interface CustomerMapper {
 	void customerInsert(CustomerVo vo);
 	void customerUpdate(CustomerVo vo);
 	void customerDelete(CustomerVo vo);
+	void customerPwUpdate(CustomerVo vo);
 }
