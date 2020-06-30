@@ -55,10 +55,10 @@ public class CustomerController {
 	}
 	
 	@RequestMapping("/customerUserInfo.do")
-	public String customerUserInfo(CustomerVo vo, Model model) {
+	public String customerUserInfo(CustomerVo vo, Model model, HttpServletRequest request) {
 		
-		
-		vo.setCustomer_id(vo.getCustomer_id());
+		String customer_id = (String) request.getSession().getAttribute("customer_id");
+		vo.setCustomer_id(customer_id);
 		
 		CustomerVo cvo = customerService.getSelect(vo);
 		model.addAttribute("vo", cvo);

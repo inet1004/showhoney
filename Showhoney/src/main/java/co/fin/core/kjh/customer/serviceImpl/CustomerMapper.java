@@ -22,4 +22,5 @@ public interface CustomerMapper {
 	void customerUpdate(CustomerVo vo);
 	void customerDelete(CustomerVo vo);
 	void customerPwUpdate(CustomerVo vo);
+	
 }

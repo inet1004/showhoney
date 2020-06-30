@@ -31,7 +31,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Raleway">
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous"></script>
 <style>
 body, h1 {
 	font-family: "Raleway", sans-serif;
@@ -89,7 +91,6 @@ $(function(){
 					
 						if(!check(re,id,"아이디는 4~12자의 영문 대소문자와 숫자로만 입력")) {
 					    	 return false;
-							//checkval = false
 					       }
 					
 						var customer_id = $('#customer_id').val();
@@ -103,17 +104,17 @@ $(function(){
 								if (data == 1) {
 									$("#id_check").text("사용중인 아이디입니다 :(");
 									$("#id_check").css("color", "red");
-									//$("#reg_submit").attr("disabled", true);
-									
+									checkval = false
+
 								} else if(customer_id == "") {
 									$('#id_check').text('아이디를 입력해주세요 :)');
 									$('#id_check').css('color', 'red');
-									
+									checkval = false
 									
 								} else {
 									$("#id_check").text("멋진 아이디네요! :)");
 									$("#id_check").css("color", "green");
-									
+									checkval = true
 								
 								} 
 
@@ -124,6 +125,18 @@ $(function(){
 							}
 						})
 					})
+					
+					function infocheck() {
+
+		if (checkval == false) {
+			alert("조건을 정확히 입력해주세요");
+			return false;
+		} else {
+			return true;
+		}
+	}
+					
+					
 })
 
 //고객 비밀번호 체크
@@ -174,8 +187,8 @@ $(function(){
 			checkval = true
 		}
 	}
-}
 	
+}
 	function infocheck() {
 
 		if (checkval == false) {
@@ -186,7 +199,6 @@ $(function(){
 		}
 	}
 
-	
 </script>
 </head>
 <body id="page-top">
@@ -227,36 +239,45 @@ $(function(){
 						</div>
 					</div>
 
-					<div class="row text-center"style="margin-left: 20%; margin-top: 10%">
+					<div class="row text-center"
+						style="margin-left: 20%; margin-top: 10%">
 						<div class="col-md-2">
 							<label for="customer_id">ID</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_id" name="customer_id" type="text" placeholder="ID" required>
+							<input class="w3-input w3-border w3-round-large" id="customer_id"
+								name="customer_id" type="text" placeholder="ID" required
+								onblur="idcheck()">
 						</div>
 					</div>
-					
-					<div class="row text-center">
-							<div class="check_font" style="margin-left:40%" id="id_check"></div>
-						</div>
 
-					<div class="row text-center" style="margin-left: 20%; margin-top: 2%">
+					<div class="row text-center">
+						<div class="check_font" style="margin-left: 40%" id="id_check"></div>
+					</div>
+
+					<div class="row text-center"
+						style="margin-left: 20%; margin-top: 2%">
 						<div class="col-md-2">
 							<label for="customer_pw">PW</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_pw" name="customer_pw" type="password" placeholder=" 비밀번호" required required onblur="pwtypecheck()">
-							<span class="help-block" id="pwblur"></span> 
+							<input class="w3-input w3-border w3-round-large" id="customer_pw"
+								name="customer_pw" type="password" placeholder=" 비밀번호" required
+								required onblur="pwtypecheck()"> <span
+								class="help-block" id="pwblur"></span>
 						</div>
 					</div>
 
-					<div class="row text-center" style="margin-left: 20%; margin-top: 2%">
+					<div class="row text-center"
+						style="margin-left: 20%; margin-top: 2%">
 						<div class="col-md-2">
 							<label for="customer_pwcheck">PW확인</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_pwcheck" name="customer_pwcheck" type="password" placeholder="비밀번호를 확인하세요" required onblur="pwcheck()">
-							<span class="help-block" id="pwblurck"></span>
+							<input class="w3-input w3-border w3-round-large"
+								id="customer_pwcheck" name="customer_pwcheck" type="password"
+								placeholder="비밀번호를 확인하세요" required onblur="pwcheck()"> <span
+								class="help-block" id="pwblurck"></span>
 						</div>
 					</div>
 
@@ -266,7 +287,9 @@ $(function(){
 							<label for="customer_name">이 름</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_name" name="customer_name" type="text" placeholder="이름">
+							<input class="w3-input w3-border w3-round-large"
+								id="customer_name" name="customer_name" type="text"
+								placeholder="이름">
 						</div>
 					</div>
 
@@ -276,26 +299,34 @@ $(function(){
 							<label for="customer_email">이메일</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_email" name="customer_email" type="text" placeholder="E-mail" onblur="emailcheck()">
-							<span class="help-block" id="emailblur"></span>
+							<input class="w3-input w3-border w3-round-large"
+								id="customer_email" name="customer_email" type="text"
+								placeholder="E-mail" onblur="emailcheck()"> <span
+								class="help-block" id="emailblur"></span>
 						</div>
 					</div>
 
-					<div class="row text-center" style="margin-left: 20%; margin-top: 2%">
+					<div class="row text-center"
+						style="margin-left: 20%; margin-top: 2%">
 						<div class="col-md-2">
 							<label for="customer_phone">전화번호</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_phone" name="customer_phone" type="text" placeholder="전화번호">
+							<input class="w3-input w3-border w3-round-large"
+								id="customer_phone" name="customer_phone" type="text"
+								placeholder="전화번호">
 						</div>
 					</div>
 
-					<div class="row text-center" style="margin-left: 20%; margin-top: 2%">
+					<div class="row text-center"
+						style="margin-left: 20%; margin-top: 2%">
 						<div class="col-md-2">
 							<label for="customer_addr">주 소</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_addr" name="customer_addr" type="text" placeholder="주소">
+							<input class="w3-input w3-border w3-round-large"
+								id="customer_addr" name="customer_addr" type="text"
+								placeholder="주소">
 						</div>
 					</div>
 
@@ -305,17 +336,20 @@ $(function(){
 							<label for="customer_company_name">직 장</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_company_name" name="customer_company_name"
+							<input class="w3-input w3-border w3-round-large"
+								id="customer_company_name" name="customer_company_name"
 								type="text" placeholder="직장">
 						</div>
 					</div>
 
-					<div class="row text-center" style="margin-left: 20%; margin-top: 2%">
+					<div class="row text-center"
+						style="margin-left: 20%; margin-top: 2%">
 						<div class="col-md-2">
 							<label for="customer_profile">프로필 사진</label>
 						</div>
 						<div class="col-md-5">
-							<input class="w3-input w3-border w3-round-large" id="customer_profile" name="uploadFile" type="file">
+							<input class="w3-input w3-border w3-round-large"
+								id="customer_profile" name="uploadFile" type="file">
 						</div>
 					</div>
 
@@ -324,7 +358,8 @@ $(function(){
 						<div class="col text-center"
 							style="margin-top: 10%; margin-bottom: 35%">
 							<button class="btn btn-outline-danger button" type="reset">다시작성</button>
-							<button class="btn btn-outline-info button" type="submit">완 료</button>
+							<button class="btn btn-outline-info button" type="submit">완
+								료</button>
 						</div>
 					</div>
 

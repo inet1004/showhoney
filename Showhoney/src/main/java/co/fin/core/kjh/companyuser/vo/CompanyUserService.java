@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 public interface CompanyUserService {
 	List<CompanyUserVo> getSelectList();
 	CompanyUserVo getSelect(CompanyUserVo vo);
-	CompanyUserVo companyUserSelect(CompanyUserVo vo);
 	void companyInsert(CompanyUserVo vo);
 	void companyUserInsert(CompanyUserVo vo);
 	void companyUserInsert2(CompanyUserVo vo);
@@ -18,5 +17,6 @@ public interface CompanyUserService {
 	void companyUserPwUpdate(CompanyUserVo vo);
 	void companyUpdate(CompanyUserVo vo);
 	CompanyUserVo companySelect(CompanyUserVo vo);
+	CompanyUserVo companyUserSelect(CompanyUserVo vo);
 
 }

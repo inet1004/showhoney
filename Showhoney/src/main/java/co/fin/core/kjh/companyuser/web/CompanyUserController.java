@@ -74,10 +74,13 @@ public class CompanyUserController {
 	}
 	
 	@RequestMapping("/companyUserInfo.do")
-	public String companyUserInfo(CompanyUserVo vo, Model model) {
+	public String companyUserInfo(CompanyUserVo vo, Model model, HttpServletRequest request) {
 		
-		vo.setCompany_user_id(vo.getCompany_user_id());
-		vo.setCompany_no(vo.getCompany_no());
+		String company_user_id = (String) request.getSession().getAttribute("company_user_id");
+		int company_no = (int) request.getSession().getAttribute("company_no");
+		
+		vo.setCompany_user_id(company_user_id);
+		vo.setCompany_no(company_no);
 		
 		CompanyUserVo comuservo = companyUserService.companyUserSelect(vo);
 		model.addAttribute("vo", comuservo);

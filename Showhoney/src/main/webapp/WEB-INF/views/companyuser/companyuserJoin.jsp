@@ -31,6 +31,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script>
+	var checkval = true;
+	
 	function check(re, what, message) {
 		   if(re.test(what.value)) {
 		       return true;
@@ -93,15 +95,15 @@
 									if (data == 1) {
 										check.text("사용중인 아이디입니다 :(");
 										check.css("color", "red");
-
+										checkval = false
 									} else if(compny_user_id == "") {
 										check.text('아이디를 입력해주세요 :)');
 										check.css('color', 'red');
-										
+										checkval = false
 									} else {
 										check.text("멋진 아이디네요! :)");
 										check.css("color", "green");
-									
+										checkval = true
 									} 
 
 								},
@@ -121,9 +123,11 @@
 		if(pw == '' || !pwtype.test(pw)) {
 			$('#pwblur').html("6~20자 영문자 또는 숫자 입력.");
 			$('#pwblur').css("color", "red");
+			checkval = false
 		} else {
 			$('#pwblur').html("좋아요 :)");
 			$('#pwblur').css("color", "green");
+			checkval = true
 		}
 			
 	}
@@ -135,9 +139,11 @@
 		if(pw != '' && pwck == pw){
 			$('#pwblurck').html("비밀번호 일치");
 			$('#pwblurck').css("color", "green");
+			checkval = true
 		}else{
 			$('#pwblurck').html("비밀번호 불일치");
 			$('#pwblurck').css("color", "red");
+			checkval = false
 		}
 	}
 	
@@ -148,10 +154,12 @@
 		
 		if(pw2 == '' || !pwtype.test(pw2)) {
 			$('#pwblur2').html("6~20자 영문자 또는 숫자 입력.");
-			$('#pwblur2').css("color", "black");
+			$('#pwblur2').css("color", "red");
+			checkval = false
 		} else {
 			$('#pwblur2').html("좋아요 :)");
 			$('#pwblur2').css("color", "green");
+			checkval = true
 		}
 			
 	}
@@ -163,9 +171,11 @@
 		if(pw2 != '' && pwck2 == pw2){
 			$('#pwblurck2').html("비밀번호 일치");
 			$('#pwblurck2').css("color", "green");
+			checkval = true
 		}else{
 			$('#pwblurck2').html("비밀번호 불일치");
 			$('#pwblurck2').css("color", "red");
+			checkval = false
 		}
 	}
 	
@@ -176,10 +186,12 @@
 		
 		if(pw3 == '' || !pwtype.test(pw3)) {
 			$('#pwblur3').html("6~20자 영문자 또는 숫자 입력.");
-			$('#pwblur3').css("color", "black");
+			$('#pwblur3').css("color", "red");
+			checkval = false
 		} else {
 			$('#pwblur3').html("좋아요 :)");
 			$('#pwblur3').css("color", "green");
+			checkval = true
 		}
 			
 	}
@@ -191,11 +203,22 @@
 		if(pw3 != '' && pwck3 == pw3){
 			$('#pwblurck3').html("비밀번호 일치");
 			$('#pwblurck3').css("color", "green");
+			checkval = true
 		}else{
 			$('#pwblurck3').html("비밀번호 불일치");
 			$('#pwblurck3').css("color", "red");
+			checkval = false
 		} 
 		
+	}
+	function infocheck() {
+
+		if (checkval == false) {
+			alert("조건을 정확히 입력해주세요");
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 		
@@ -261,7 +284,7 @@ a{
 <header class="d-flex">
  
   	<div class="container text-center my-auto">
-  <form id="frm" name="frm" method="post" action="companyUserInsert.do" enctype="multipart/form-data" onsubmit="return good()">
+  <form id="frm" name="frm" method="post" action="companyUserInsert.do" enctype="multipart/form-data" onsubmit="return infocheck()">
 
 			<div class="frm content1" >
 			
