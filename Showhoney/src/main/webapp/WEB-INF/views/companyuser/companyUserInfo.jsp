@@ -21,8 +21,8 @@ html, body, h1, h2, h3, h4, h5 {
 }
 </style>
 <script>
-	var checkval = true;
-	var checkpw = true;
+	var checkval = true; //정보체크
+	var checkpw = true;  //비밀번호 체크
 	//고객 비밀번호 체크
 	function pwtypecheck() {
 		var pw = $("#company_user_pw").val();
@@ -65,7 +65,7 @@ html, body, h1, h2, h3, h4, h5 {
 		}
 	}
 
-	//고객 이메일 체크
+	//기업이메일 체크
 	function emailcheck() {
 		var email = $("#company_email").val();
 		var emailRule = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -74,7 +74,6 @@ html, body, h1, h2, h3, h4, h5 {
 			if (!emailRule.test(email)) {
 				$("#emailblur").html("ex) abcd1234@naver.com")
 				$('#emailblur').css("color", "red");
-				document.PageForm.email.focus();
 				checkval = false
 			} else {
 				$("#emailblur").html("사용 가능한 이메일입니다.")
@@ -83,6 +82,7 @@ html, body, h1, h2, h3, h4, h5 {
 			}
 		}
 	}
+
 	function infocheck() {
 
 		if (checkval == false) {
@@ -254,7 +254,7 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-col m12">
 						<form id="pwModify" name="pwModify" method="post"
 							action="companyPwUpdate.do"
-							class="w3-container w3-card-4 w3-light-grey w3-text-gray w3-margin" onsubmit="pwpw()">
+							class="w3-container w3-card-4 w3-light-grey w3-text-gray w3-margin" onsubmit="return pwpw()">
 							<h2 class="w3-center">비밀번호 수정</h2>
 							<input class="w3-input w3-border" name="company_user_id"
 								id="company_user_id" type="hidden"
