@@ -101,15 +101,17 @@
 			$("#roomName").val("");
 		});
 	}
+	
 
 	function goRoom(number, name){
 		//alert("/moveChating?roomName="+name+"&"+"roomNumber="+number);
-		location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		//location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		location.href="/core/moveChating?booth_no="+${param.booth_no}+"&"+"roomName="+name+"&"+"roomNumber="+number;  // /moveChating
 	}
 
 	function createChatingRoom(res, a){
-		alert("고객:" + b);
-		alert(a + "<== 1은 테이블 그냥 불러오는 경우, 2는 방만드는 경우");
+		//alert("고객:" + b);
+		//alert(a + "<== 1은 테이블 그냥 불러오는 경우, 2는 방만드는 경우");
 		if(a == 1){  
 			if(res != null){
 				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
