@@ -94,7 +94,7 @@
 	
 	function createRoom(){  
 		$("#createRoom").click(function(){
-			var msg = {	roomName : $('#roomName').val(), booth_no: ${param.booth_no} };
+			var msg = {	roomName : ${param.booth_no} + ":" + $('#roomName').val(), booth_no: ${param.booth_no} }; //방이름 앞에 부스번호를 붙임 
 			commonAjax('/core/createRoom', msg, 'post', function(result){   // /createRoom
 				createChatingRoom(result, 2);
 			});
@@ -110,7 +110,7 @@
 	}
 
 	function createChatingRoom(res, a){
-		//alert("고객:" + b);
+		//alert("res[1].status :" + res[1].status);
 		//alert(a + "<== 1은 테이블 그냥 불러오는 경우, 2는 방만드는 경우");
 		if(a == 1){  
 			if(res != null){
@@ -119,7 +119,7 @@
 					var rn = d.roomName.trim();
 					var roomNumber = d.roomNumber;
 					var b_no = ${param.booth_no};
-					if( b_no == d.booth_no ) {
+					if( b_no == d.booth_no) {
 						tag += "<tr>"+
 									"<td class='num'>"+(idx+1)+"</td>"+
 									"<td class='room'>"+ rn +"</td>"+

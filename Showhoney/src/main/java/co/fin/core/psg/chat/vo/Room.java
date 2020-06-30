@@ -4,6 +4,7 @@ public class Room {
 	int booth_no;
 	int roomNumber;
 	String roomName;
+	String status;
 	
 	public int getRoomNumber() {
 		return roomNumber;
@@ -28,9 +29,19 @@ public class Room {
 	public void setBooth_no(int booth_no) {
 		this.booth_no = booth_no;
 	}
-	
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
-		return "Room [roomNumber=" + roomNumber + ", roomName=" + roomName + "]";
-	}	
+		return "Room [booth_no=" + booth_no + ", roomNumber=" + roomNumber + ", roomName=" + roomName + ", status="
+				+ status + "]";
+	}
+
 }
