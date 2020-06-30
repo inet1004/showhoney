@@ -29,7 +29,7 @@ body, html {
     <div class="w3-right w3-hide-small">
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
 
-      <a href="https://192.168.0.109:9001/demos/dashboard/" target="_blank" class="w3-bar-item w3-button">발표회</a>
+      <a href="pboardList.do" class="w3-bar-item w3-button">발표회</a>
 
 
 
@@ -52,7 +52,7 @@ body, html {
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
   <a href="exhibitionList.do" onclick="w3_close()" class="w3-bar-item w3-button">박람회</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button"> 발표회</a>
+  <a href="pboardList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 발표회</a>
   <a href="ticketList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 티켓구매하기</a>
   <a href="/core/room" onclick="w3_close()" class="w3-bar-item w3-button"> 채팅문의</a>
   <a href="ask.do" onclick="w3_close()" class="w3-bar-item w3-button"> 문의하기</a>

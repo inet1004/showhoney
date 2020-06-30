@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="co.fin.core.kjh.pboard.serviceImpl.PboardMapper">
+	<select id="getSelectPboardList" resultType="co.fin.core.kjh.pboard.vo.PboardVo">
+		select p_no,p_title,p_contents,p_date,p.company_user_id,cu.company_no,c.company_name,p_start_hour,p_start_day,p_start_minute,p.booth_no,b.exhibition_no,e.exhibition_name from pboard p, company_user cu, company c, booth b, exhibition e where p.company_user_id = cu.company_user_id and cu.company_no = c.company_no and p.booth_no = b.booth_no and b.exhibition_no = e.exhibition_no order by 1 DESC
+	</select>
+	
+	<select id="getSelectPboard" parameterType="co.fin.core.kjh.pboard.vo.PboardVo" resultType="co.fin.core.kjh.pboard.vo.PboardVo">
+		select p_no,p_title,p_contents,p_date,p.company_user_id,cu.company_no,c.company_name,p_start_day,p_start_hour,p_start_minute,p.booth_no,b.exhibition_no,e.exhibition_name from pboard p, company_user cu, company c, booth b, exhibition e where p.company_user_id = cu.company_user_id and cu.company_no = c.company_no and p.booth_no = b.booth_no and b.exhibition_no = e.exhibition_no and p_no = #{p_no}
+	</select>
+	
+	<insert id="pboardInsert" parameterType="co.fin.core.kjh.pboard.vo.PboardVo">
+		<selectKey resultType="int" keyProperty="p_no" order="BEFORE">
+			SELECT SEQ_PBOARD_NO.nextval FROM dual
+		</selectKey>
+		insert into pboard values(seq_pboard_no.nextval,#{p_title},#{p_contents},#{company_user_id},#{p_start_hour},#{p_start_minute},#{booth_no},SYSDATE,#{p_start_day})
+	</insert>
+	
+	<update id="pboardUpdate" parameterType="co.fin.core.kjh.pboard.vo.PboardVo">
+		update pboard set p_title=#{p_title},p_contents=#{p_contents},p_start_day=#{p_start_day},p_start_hour=#{p_start_hour},p_start_minute=#{p_start_minute} where p_no = #{p_no}
+	</update>
+	
+	<delete id="pboardDelete" parameterType="co.fin.core.kjh.pboard.vo.PboardVo">
+		delete from pboard where p_no = #{p_no}
+	</delete>
+	
+	<select id="getSelectBooth" parameterType="co.fin.core.kjh.pboard.vo.PboardVo" resultType="co.fin.core.kjh.pboard.vo.PboardVo">
+		select company_user_id,cu.company_no,b.exhibition_no, exhibition_name, booth_no, company_name from company_user cu, exhibition e, booth b, company c where cu.company_no = c.company_no and e.exhibition_no = b.exhibition_no and b.company_no = c.company_no and company_user_id = #{company_user_id}
+	</select>
+	
+	<select id="getSelectCompany" parameterType="co.fin.core.kjh.pboard.vo.PboardVo" resultType="co.fin.core.kjh.pboard.vo.PboardVo">
+		select * from company_user where company_user_id = #{company_user_id}
+	</select>
+	
+	
+</mapper>
