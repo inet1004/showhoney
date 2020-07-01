@@ -106,6 +106,7 @@
 	function goRoom(number, name){
 		//alert("/moveChating?roomName="+name+"&"+"roomNumber="+number);
 		//location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		// "" 안에 모두 넣어 주어야 함, + 사용시 받는 쪽에서 변수로 봄
 		location.href="/core/moveChating?booth_no="+${param.booth_no}+"&"+"roomName="+name+"&"+"roomNumber="+number;  // /moveChating
 	}
 

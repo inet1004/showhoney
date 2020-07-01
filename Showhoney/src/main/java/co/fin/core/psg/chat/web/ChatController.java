@@ -76,12 +76,20 @@ public class ChatController {
 		ModelAndView mv = new ModelAndView();
 		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));  //String으로 얻은 후 int 로 타입 변경함
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
-		System.out.print("new_list:==> " + new_list);
+		//맵은 바로 접근이 가능하지만 , list는 for문으로 조건에 맞는 값을 찾아서 넣어야함.
+		// 고객만 state를 변경하도록
+		for(int i=0; i < roomList.size(); i++) {
+			if (roomList.get(i).getRoomNumber() == roomNumber ) {
+				System.out.print("Before:" + roomList.get(i).getStatus());
+				roomList.get(i).setStatus("no");
+				System.out.print("After:" + roomList.get(i).getStatus());
+			}
+		}
+		
 		if(new_list != null && new_list.size() > 0) {
 			mv.addObject("roomName", params.get("roomName"));
 			mv.addObject("roomNumber", params.get("roomNumber"));
 			mv.addObject("booth_no", params.get("booth_no")); // 추가
-			mv.addObject("status", "no");
 			mv.setViewName("com/chat/chat");
 			System.out.print("mv:==> " + mv);
 		}else {
@@ -93,13 +101,16 @@ public class ChatController {
 	@RequestMapping("/leaveChating")  // /moveChating
 	public ModelAndView leaveChating(@RequestParam HashMap<Object, Object> params) {
 		ModelAndView mv = new ModelAndView();
-//		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));  //String으로 얻은 후 int 로 타입 변경함
+		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));  //String으로 얻은 후 int 로 타입 변경함
+		// 고객만 state를 변경하도록
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
+		for(int i=0; i < roomList.size(); i++) {
+			if (roomList.get(i).getRoomNumber() == roomNumber ) {
+				roomList.get(i).setStatus("yes");
+			}
+		}
 		if(new_list != null && new_list.size() > 0) {
-//			String r_name = (String) params.get("roomName");
-//			Number r_number = Integer.parseInt((String) params.get("roomNumber"));
 			Number b_number = Integer.parseInt((String) params.get("booth_no"));
-			mv.addObject("status", "yes");  //get방식으로 붙어서 날아감
 			mv.setViewName("redirect:/room?booth_no=" + b_number);  // room.do?room_no=1 의 형태로 .do 처럼 mapping 주소로 보내야함!!!
 									// 여기에서 /room은 urldl아닌 room.do 와 같은 맵vld주소임.
 									// com/chat/chat 처럼 타일즈 주소가 필요없음..
