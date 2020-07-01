@@ -8,7 +8,16 @@ public class AskVo {
 	private String ask_contents;
 	private Date ask_date;
 	private String ask_name;
+	private String ask_email;
 	
+	public String getAsk_email() {
+		return ask_email;
+	}
+
+	public void setAsk_email(String ask_email) {
+		this.ask_email = ask_email;
+	}
+
 	public AskVo() {
 		// TODO Auto-generated constructor stub
 	}

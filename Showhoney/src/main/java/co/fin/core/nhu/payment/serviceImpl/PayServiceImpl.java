@@ -19,8 +19,8 @@ public class PayServiceImpl implements PayService {
 	private PayMapper dao;
 
 	@Override
-	public List<PayVo> getSelectPayList() {
-		return dao.getSelectPayList();
+	public List<PayVo> getSelectPayList(PayVo vo) {
+		return dao.getSelectPayList(vo);
 	}	
 
 	@Override
@@ -42,10 +42,4 @@ public class PayServiceImpl implements PayService {
 	public void payDelete(PayVo vo) {
 		dao.payDelete(vo);
 	}
-
-
-	
-
-	
-
 }

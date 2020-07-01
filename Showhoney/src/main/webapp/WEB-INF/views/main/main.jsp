@@ -38,6 +38,7 @@ df
 <a href="ticketList.do">티켓리스트</a><br/>
 <a href="pay.do">결제하러가기</a>
 <a href="like.do">좋아요</a>
+<a href="customerPaymentDetails.do">결제내역</a>
 </body>
 
 <br><p/>
