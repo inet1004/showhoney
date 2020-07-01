@@ -7,23 +7,23 @@ import javax.servlet.http.HttpServletRequest;
 
 
 public interface BoothService {
-	List<BoothVo> bgetSelectBoothList(BoothVo vo);
+	List<BoothVo> bgetSelectBoothList(BoothVo bvo);
 	void boothInsert(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
 	void boothUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
 	void boothDelete(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
-	
+	BoothVo getSelectCompanyNo(BoothVo bvo);
 	//Customer
-	List<BoothVo> getSelectCustomerBoothList(BoothVo vo);
+	List<BoothVo> getSelectCustomerBoothList(BoothVo bvo);
 	
 	//Ticket
-	int ticketCheck(BoothVo vo);
+	int ticketCheck(BoothVo bvo);
 	
 	//product
-	List<ProductVo> getSelectList(ProductVo vo);
-	ProductVo getSelect(ProductVo vo);
-	void productInsert(ProductVo vo, HttpServletRequest request) throws IOException;
+	List<ProductVo> getSelectList(ProductVo pvo);
+	ProductVo getSelect(ProductVo pvo);
+	void productInsert(ProductVo pvo, HttpServletRequest request) throws IOException;
 	void productUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
-	void productDelete(ProductVo vo, BoothVo bvo, HttpServletRequest request) throws IllegalStateException, IOException;
+	void productDelete(ProductVo pvo, BoothVo bvo, HttpServletRequest request) throws IllegalStateException, IOException;
 	
 
 }

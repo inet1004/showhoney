@@ -1,6 +1,9 @@
 package co.fin.core.kbk.booth.serviceImpl;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.mybatis.spring.annotation.MapperScan;
 
@@ -9,22 +12,22 @@ import co.fin.core.kbk.booth.vo.ProductVo;
 
 @MapperScan("boothMap")
 public interface BoothMapper {
-	List<BoothVo> bgetSelectBoothList(BoothVo vo);
-	void boothInsert(BoothVo vo);
-	void boothUpdate(BoothVo vo);
-	void boothDelete(BoothVo vo);
-	
+	List<BoothVo> bgetSelectBoothList(BoothVo bvo);
+	void boothInsert(BoothVo bvo) throws IllegalStateException, IOException;
+	void boothUpdate(BoothVo bvo) throws IllegalStateException, IOException;
+	void boothDelete(BoothVo bvo) throws IllegalStateException, IOException;
+	BoothVo getSelectCompanyNo(BoothVo bvo);
 	//Customer
-	List<BoothVo> getSelectCustomerBoothList(BoothVo vo);
+	List<BoothVo> getSelectCustomerBoothList(BoothVo bvo);
 	
 	//Ticket
-	int ticketCheck(BoothVo vo);
-
+	int ticketCheck(BoothVo bvo);
 	
-	//product mapper
-	List<ProductVo> getSelectList(ProductVo vo);
-	ProductVo getSelect(ProductVo vo);
-	void productInsert(ProductVo vo);
-	void productUpdate(ProductVo vo);
-	void productDelete(ProductVo vo);
+	//product
+	List<ProductVo> getSelectList(ProductVo pvo);
+	ProductVo getSelect(ProductVo pvo);
+	void productInsert(ProductVo pvo) throws IOException;
+	void productUpdate(ProductVo pvo) throws IllegalStateException, IOException;
+	void productDelete(ProductVo pvo) throws IllegalStateException, IOException;
+
 }
