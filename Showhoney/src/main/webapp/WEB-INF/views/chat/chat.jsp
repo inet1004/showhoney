@@ -170,7 +170,7 @@
 			<c:when test="${not empty sessionScope.customer_id}">
 				<h5>고객회원: [ ${sessionScope.customer_id} ]님 환영합니다.</h5>
 				<a href="logout.do">&nbsp;&nbsp;*로그아웃 하기 &nbsp;&nbsp;</a>
-				<a href="leaveChating?booth_no=${param.booth_no }">&nbsp;&nbsp;*채팅방 나가기 &nbsp;&nbsp;</a>
+				<a href="leaveChating?booth_no=${param.booth_no}">&nbsp;&nbsp;*채팅방 나가기 &nbsp;&nbsp;</a>
 			</c:when>
 			<c:when test="${not empty sessionScope.company_user_id}">
 				<h5>기업회원: [ ${sessionScope.company_user_id} ]님 환영합니다.</h5>

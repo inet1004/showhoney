@@ -50,7 +50,7 @@
 		<c:choose>
 			<c:when test="${empty sessionScope.customer_id}">
 				<!-- 로그인이 안되어 있으면 -->
-				<form id="loginFrm" name="loginFrm" action="loginCheck.do">
+				<form id="loginFrm" name="loginFrm" action="loginCheck.do" method="post">
 					<table>
 						<tr>
 							<td>아이디</td>
