@@ -35,7 +35,7 @@ tr.space {
 		<c:choose>
 			<c:when test="${empty sessionScope.company_user_id}">
 			<!-- 로그인이 안되어 있으면 -->
-				<form id="loginFrmCom" name="loginFrmCom" action="loginCheckCom.do">
+				<form id="loginFrmCom" name="loginFrmCom" action="loginCheckCom.do"  method="post" >
 					<table>
 						<tr class="space" id="space">
 							<td>아이디</td>
