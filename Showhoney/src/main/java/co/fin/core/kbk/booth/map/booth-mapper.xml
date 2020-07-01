@@ -14,6 +14,10 @@
 		</where>
 	</select>
 	
+	<select id="getSelectCompanyNo" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
+		select company_no from company_user where company_user_id = #{company_user_id}
+	</select>
+	
 	<select id="getSelectList" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.ProductVo">
 			SELECT product_no, product_name, product_desc, product_image_path FROM PRODUCT
 		<where>

@@ -88,19 +88,18 @@ $(".remove_btn").click(function(){
 
 	<!-- 상품 -->
 
+				<h2 class="text-uppercase text-center">PRODUCT</h2>
+				<hr class="mx-auto" />
 	<c:forEach var="product" items="${productlist }" varStatus="i">
 		<form id="productfrm" name="productfrm" action="productUpdate.do"
 			method="post" enctype="multipart/form-data">
 			<div class="container-fluid fh5co-recent-news mt-5 pb-5"
 				style="margin-top: 10%">
-				<h2 class="text-uppercase text-center">PRODUCT</h2>
-				<hr class="mx-auto" />
 				<div class="play-list mt-5 pt-4">
 					<div class="container" id="productlist">
 						<div style="margin-top: 5%;">
 							<button type="button" class="w3-button w3-lime w3-round-large"
-								onclick="location.href='productdelete.do?booth_no=${list[0].booth_no }'">추
-								가</button>
+								onclick="location.href='productdelete.do?booth_no=${list[0].booth_no }'">추가</button>
 						</div>
 						<table class="w3-table" style="text-align: center;">
 							<thead>
@@ -108,7 +107,6 @@ $(".remove_btn").click(function(){
 									<th style="background-color: #fafafa; text-align: center;">상품이름</th>
 									<th style="background-color: #fafafa; text-align: center;">상품소개</th>
 									<th style="background-color: #fafafa; text-align: center;">상품이미지</th>
-									</th>
 								</tr>
 							</thead>
 							<tbody>

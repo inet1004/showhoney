@@ -27,7 +27,16 @@ public class BoothVo {
 	private String[] product_desc;
 	private MultipartFile[] product_uploadfile;
 
+	private String company_user_id;
 	
+	public String getCompany_user_id() {
+		return company_user_id;
+	}
+
+	public void setCompany_user_id(String company_user_id) {
+		this.company_user_id = company_user_id;
+	}
+
 	public int getTicket_no() {
 		return ticket_no;
 	}

@@ -26,8 +26,9 @@
 	<div class="container-fluid video-player">
 		<div class="container">
 			<div style="margin-top: 10%">
+				<input type="hidden" name="company_no" id="company_no" value="${cno.company_no }">
 				<label for="video"> 박람회를 선택해주세요 </label> <select class="w3-select"
-					name="option">
+					name="exhibition_no">
 					<option value="" disabled selected>박람회를 선택해주세요</option>
 					<c:forEach var="exhibition" items="${exhibitionlist }"
 						varStatus="i">

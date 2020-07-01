@@ -43,26 +43,29 @@ public class BoothController {
 	}
 	
 	@RequestMapping("/boothForm.do")
-	public String boothForm(Model model) {
+	public ModelAndView boothForm(BoothVo bvo, ModelAndView mav, HttpServletRequest request) {
 		
-		
-		
+		String companyuserid = (String) request.getSession().getAttribute("company_user_id");
+		bvo.setCompany_user_id(companyuserid);	
+		mav.addObject("cno",boothService.getSelectCompanyNo(bvo));
+				
 		List<Exhibition2Vo> list = exhibitionService.getSelectExhibitionList();
-		model.addAttribute("exhibitionlist", list);
-		
-		return "com/companyuser/boothForm";
+		mav.addObject("exhibitionlist", list);
+		mav.setViewName("com/companyuser/boothForm");
+		return mav;
 	}
 
 
 	@RequestMapping("/boothInsert.do")
-	public ModelAndView boothInsert(HttpServletRequest request, BoothVo bvo, ProductVo pvo,  ModelAndView mav, CompanyUserVo cvo) throws IOException {
+	public ModelAndView boothInsert(HttpServletRequest request, BoothVo bvo, ProductVo pvo, ModelAndView mav, CompanyUserVo cvo) throws IOException {
 			
-		int exhibition_no = (int) request.getSession().getAttribute("exhibition_no");
-		int company_no = (int) request.getSession().getAttribute("company_no");
-		bvo.setExhibition_no(exhibition_no);
-		bvo.setCompany_no(company_no);
-		
-		
+		/*
+		 * int exhibition_no = (int) request.getSession().getAttribute("exhibition_no");
+		 */
+		/* int company_no = (int) request.getSession().getAttribute("company_no"); */
+		/* bvo.setExhibition_no(exhibition_no); */
+		/* bvo.setCompany_no(company_no); */
+				
 		boothService.boothInsert(bvo, pvo, request);
 		mav.setViewName("redirect:/boothSelect.do?booth_no="+bvo.getBooth_no());
 		return mav;
@@ -95,11 +98,6 @@ public class BoothController {
 	
 	@RequestMapping("/boothUpdate.do")
 	public ModelAndView boothUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request, ModelAndView mav) throws IOException {
-			
-		int exhibition_no = (int) request.getSession().getAttribute("exhibition_no");
-		int company_no = (int) request.getSession().getAttribute("company_no");
-		bvo.setExhibition_no(exhibition_no);
-		bvo.setCompany_no(company_no);
 		
 		boothService.boothUpdate(bvo, pvo, request);
 		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+bvo.getBooth_no());

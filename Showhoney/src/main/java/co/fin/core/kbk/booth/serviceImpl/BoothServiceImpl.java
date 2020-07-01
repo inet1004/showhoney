@@ -21,8 +21,8 @@ public class BoothServiceImpl implements BoothService {
 	private BoothMapper dao;
 
 	@Override
-	public List<BoothVo> bgetSelectBoothList(BoothVo vo) {
-		return dao.bgetSelectBoothList(vo);
+	public List<BoothVo> bgetSelectBoothList(BoothVo bvo) {
+		return dao.bgetSelectBoothList(bvo);
 
 	}
 
@@ -99,29 +99,28 @@ public class BoothServiceImpl implements BoothService {
 }
 
 	@Override
-	public void boothDelete(BoothVo bvo, ProductVo pvo, HttpServletRequest request) {
-		
-		
+	public void boothDelete(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException {
+				
 		dao.boothDelete(bvo);
 
 	}
 
 	@Override
-	public List<ProductVo> getSelectList(ProductVo vo) {
+	public List<ProductVo> getSelectList(ProductVo pvo) {
 		// TODO Auto-generated method stub
-		return dao.getSelectList(vo);
+		return dao.getSelectList(pvo);
 	}
 
 	@Override
-	public ProductVo getSelect(ProductVo vo) {
+	public ProductVo getSelect(ProductVo pvo) {
 		// TODO Auto-generated method stub
-		return dao.getSelect(vo);
+		return dao.getSelect(pvo);
 	}
 
 	@Override
-	public void productInsert(ProductVo vo, HttpServletRequest request) throws IOException {
+	public void productInsert(ProductVo pvo, HttpServletRequest request) throws IOException {
 		// TODO Auto-generated method stub
-		dao.productInsert(vo);
+		dao.productInsert(pvo);
 	}
 
 	@Override
@@ -149,19 +148,26 @@ public class BoothServiceImpl implements BoothService {
 	public void productDelete(ProductVo pvo, BoothVo bvo, HttpServletRequest request) throws IllegalStateException, IOException {
 		// TODO Auto-generated method stub
 		dao.productDelete(pvo);
+		
 	
 	}
 	
 	@Override
-	public List<BoothVo> getSelectCustomerBoothList(BoothVo vo) {
-		return dao.getSelectCustomerBoothList(vo);
+	public List<BoothVo> getSelectCustomerBoothList(BoothVo bvo) {
+		return dao.getSelectCustomerBoothList(bvo);
 		
 	}
 
 
 	@Override
-	public int ticketCheck(BoothVo vo) {		
-		return dao.ticketCheck(vo);
+	public int ticketCheck(BoothVo bvo) {		
+		return dao.ticketCheck(bvo);
+	}
+
+	@Override
+	public BoothVo getSelectCompanyNo(BoothVo bvo) {
+		return dao.getSelectCompanyNo(bvo);
+		
 	}
 
 }
