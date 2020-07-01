@@ -39,6 +39,9 @@ df
 <a href="pay.do">결제하러가기</a>
 <a href="like.do">좋아요</a>
 <a href="customerPaymentDetails.do">결제내역</a>
+
+<a href="companyUserInfo.do">기업고객정보보기</a>
+<a href="customerUserInfo.do">고객정보보기</a>
 </body>
 
 <br><p/>

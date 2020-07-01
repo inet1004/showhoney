@@ -15,7 +15,7 @@
       <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓구매하기</a>
       <a href="/core/room" class="w3-bar-item w3-button"> 채팅문의</a>
       <a href="ask.do" class="w3-bar-item w3-button"> 문의하기</a>
-      <a href="myPage.do" class="w3-bar-item w3-button"> 내정보</a>
+      <a href="customerUserInfo.do" class="w3-bar-item w3-button"> 내정보</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 

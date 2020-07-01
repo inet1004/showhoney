@@ -104,6 +104,14 @@ public class BoothController {
 		return mav;
 	}
 	
+	@RequestMapping("/productInsert.do")
+	public ModelAndView productInsert(ProductVo pvo, HttpServletRequest request, ModelAndView mav) throws IOException {
+		
+		boothService.productInsert(pvo, request);
+		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+pvo.getBooth_no());
+		return mav;
+	}
+	
 	@RequestMapping("/productUpdate.do")
 	public ModelAndView productUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request, ModelAndView mav) throws IOException {
 			

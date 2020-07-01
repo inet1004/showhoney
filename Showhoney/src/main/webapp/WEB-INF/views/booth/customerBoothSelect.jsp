@@ -87,7 +87,7 @@ body, html {
 					</div>
 					<!-- 브로슈어 -->
 					<label><i class="fas fa-cloud-download-alt fa-3x"></i></label>
-					<button class="w3-btn w3-link w3-xlarge">브로슈어 download</button>
+					<button class="w3-btn w3-link w3-xlarge" onclick="location.href='download.do?booth_no=${list[0].booth_no }'">브로슈어 download</button>
 				</div>
 			</div>
 		</div>
@@ -101,13 +101,13 @@ body, html {
 	<div class="play-list mt-5 pt-4">
 		<div align="center">
 			<label><i class="fas fa-shopping-cart fa-3x"></i></label>
-			<a href="${list[0].product_mall}">구매하러가기</a>
+			<a onclick="${list[0].product_mall}">구매하러가기</a>
 		</div>
-		<div class="w3-row-padding w3-padding-16 w3-center" id="food">
+		<div class="w3-row-padding w3-padding-16 w3-center" id="food" style="margin-top:5%">
 			<c:forEach var="product" items="${productlist }" varStatus="i">
-				<div class="w3-quarter">
+				<div class="w3-quarter" style="margin-left:5%">
 					<img src="<spring:url value='/resources/FileUpload/product/${product.product_image_path }'/>"
-						alt="상품" style="width: 100%">
+						alt="상품" style="width:100%;">
 					<h3>${product.product_name}</h3>
 					<p>${product.product_desc}</p>
 				</div>

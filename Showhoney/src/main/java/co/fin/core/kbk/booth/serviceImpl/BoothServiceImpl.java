@@ -69,7 +69,7 @@ public class BoothServiceImpl implements BoothService {
 		}
 
 	}
-
+	
 	@Override
 	public void boothUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request)
 			throws IllegalStateException, IOException {
@@ -119,29 +119,35 @@ public class BoothServiceImpl implements BoothService {
 
 	@Override
 	public void productInsert(ProductVo pvo, HttpServletRequest request) throws IOException {
-		// TODO Auto-generated method stub
+		
+		MultipartFile product_uploadfile = pvo.getProduct_uploadfile();
+		String ppath = request.getSession().getServletContext().getRealPath("/resources/FileUpload/product");
+
+			if (product_uploadfile != null && !product_uploadfile.isEmpty()) {
+				String pfileName = product_uploadfile.getOriginalFilename();
+				product_uploadfile.transferTo(new File(ppath, pfileName));
+				pvo.setProduct_image_path(pfileName);
+			}
+			
 		dao.productInsert(pvo);
 	}
 
 	@Override
 	public void productUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException {
-		MultipartFile[] product_uploadfile = bvo.getProduct_uploadfile();
+		MultipartFile product_uploadfile = pvo.getProduct_uploadfile();
 		String ppath = request.getSession().getServletContext().getRealPath("/resources/FileUpload/product");
-		for (int i = 0; i < product_uploadfile.length; i++) {
 
-			if (!product_uploadfile[i].isEmpty()) {
-				String pfileName = product_uploadfile[i].getOriginalFilename();
-				product_uploadfile[i].transferTo(new File(ppath, pfileName));
-
-				pvo.setProduct_name(bvo.getProduct_name()[i]);
-				pvo.setProduct_desc(bvo.getProduct_desc()[i]);
+			if (product_uploadfile != null && !product_uploadfile.isEmpty()) {
+				String pfileName = product_uploadfile.getOriginalFilename();
+				product_uploadfile.transferTo(new File(ppath, pfileName));
 				pvo.setProduct_image_path(pfileName);
-				pvo.setBooth_no(bvo.getBooth_no());
-				dao.productUpdate(pvo);
 			}
 			
-		}
-		dao.productUpdate(pvo);
+			//pvo.setProduct_name(bvo.getProduct_name()[i]);
+			//pvo.setProduct_desc(bvo.getProduct_desc()[i]);
+			//pvo.setBooth_no(bvo.getBooth_no());
+			dao.productUpdate(pvo);
+		
 	}
 
 	@Override
