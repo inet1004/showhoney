@@ -63,10 +63,14 @@
 
 <script type="text/javascript">
 	var ws;
-
+	
+	function leaveChating(){  
+			location.href="/core/leaveChating?booth_no=${param.booth_no}&roomName=${param.roomName}&roomNumber=${param.roomNumber}";  // /leaveChating
+	}
+	
 	function wsOpen(){
 		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다. // 서버는 localhost (또는 192.168.0.93 기본포트 일경우)  -- client는 서버의 ip를 쳐야함
-		var uri = "ws://" + location.host + "/core/chating/"+$("#roomNumber").val();
+		var uri = "ws://" + location.host + "/core/chating/"+ $("#roomNumber").val();
 		//alert(uri);
 		ws = new WebSocket(uri);
 //		ws = new WebSocket("ws://" + location.host + "/core/chating/"+$("#roomNumber").val());
@@ -170,7 +174,7 @@
 			<c:when test="${not empty sessionScope.customer_id}">
 				<h5>고객회원: [ ${sessionScope.customer_id} ]님 환영합니다.</h5>
 				<a href="logout.do">&nbsp;&nbsp;*로그아웃 하기 &nbsp;&nbsp;</a>
-				<a href="leaveChating?booth_no=${param.booth_no}">&nbsp;&nbsp;*채팅방 나가기 &nbsp;&nbsp;</a>
+				<button type="button" onclick="leaveChating()" id="leaveChating">채팅방 나가기</button>
 			</c:when>
 			<c:when test="${not empty sessionScope.company_user_id}">
 				<h5>기업회원: [ ${sessionScope.company_user_id} ]님 환영합니다.</h5>
@@ -195,7 +199,7 @@
 				<tr bgcolor="yellowgreen">
 					<th width="100" height="55" valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;사용자명</th>
 					<th width="300"><input type="text" name="userName" id="userName"></th>
-					<th width="100"><button onclick="chatName()" id="startBtn">이름 등록</button></th>
+					<th width="100"><button  type="button"  onclick="chatName()" id="startBtn">이름 등록</button></th>
 				</tr>
 			</table>
 		</div>

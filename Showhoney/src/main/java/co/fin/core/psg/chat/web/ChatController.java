@@ -77,6 +77,7 @@ public class ChatController {
 		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));  //String으로 얻은 후 int 로 타입 변경함
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
 		//맵은 바로 접근이 가능하지만 , list는 for문으로 조건에 맞는 값을 찾아서 넣어야함.
+		// 고객만 state를 변경하도록
 		for(int i=0; i < roomList.size(); i++) {
 			if (roomList.get(i).getRoomNumber() == roomNumber ) {
 				System.out.print("Before:" + roomList.get(i).getStatus());
@@ -100,7 +101,8 @@ public class ChatController {
 	@RequestMapping("/leaveChating")  // /moveChating
 	public ModelAndView leaveChating(@RequestParam HashMap<Object, Object> params) {
 		ModelAndView mv = new ModelAndView();
-		//int roomNumber = Integer.parseInt((String) params.get("roomNumber"));  //String으로 얻은 후 int 로 타입 변경함
+		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));  //String으로 얻은 후 int 로 타입 변경함
+		// 고객만 state를 변경하도록
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
 		for(int i=0; i < roomList.size(); i++) {
 			if (roomList.get(i).getRoomNumber() == roomNumber ) {
@@ -108,7 +110,6 @@ public class ChatController {
 			}
 		}
 		if(new_list != null && new_list.size() > 0) {
-			//Number b_number = Integer.parseInt((String) params.get("booth_no"));
 			Number b_number = Integer.parseInt((String) params.get("booth_no"));
 			mv.setViewName("redirect:/room?booth_no=" + b_number);  // room.do?room_no=1 의 형태로 .do 처럼 mapping 주소로 보내야함!!!
 									// 여기에서 /room은 urldl아닌 room.do 와 같은 맵vld주소임.
