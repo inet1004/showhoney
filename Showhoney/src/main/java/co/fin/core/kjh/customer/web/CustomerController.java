@@ -55,10 +55,10 @@ public class CustomerController {
 	}
 	
 	@RequestMapping("/customerUserInfo.do")
-	public String customerUserInfo(CustomerVo vo, Model model) {
+	public String customerUserInfo(CustomerVo vo, Model model, HttpServletRequest request) {
 		
-		
-		vo.setCustomer_id("bobo"); //TODO 수정필요
+		String customer_id = (String) request.getSession().getAttribute("customer_id");
+		vo.setCustomer_id(customer_id);
 		
 		CustomerVo cvo = customerService.getSelect(vo);
 		model.addAttribute("vo", cvo);
@@ -70,7 +70,7 @@ public class CustomerController {
 	public ModelAndView customerUpdate(CustomerVo vo, HttpServletRequest request, ModelAndView mav) throws IllegalStateException, IOException {
 		
 		customerService.customerUpdate(vo, request);
-		mav.setViewName("redirect:/customerUserInfo?customer_id="+vo.getCustomer_id());
+		mav.setViewName("redirect:/customerUserInfo.do?customer_id="+vo.getCustomer_id());
 		return mav;
 		
 	}
@@ -79,7 +79,7 @@ public class CustomerController {
 	public ModelAndView customerPwUpdate(CustomerVo vo, ModelAndView mav) throws IllegalStateException, IOException {
 		
 		customerService.customerPwUpdate(vo);
-		mav.setViewName("redirect:/customerUserInfo?customer_id="+vo.getCustomer_id());
+		mav.setViewName("redirect:/customerUserInfo.do?customer_id="+vo.getCustomer_id());
 		return mav;
 		
 	}

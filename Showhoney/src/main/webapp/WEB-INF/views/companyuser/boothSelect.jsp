@@ -51,7 +51,7 @@
 					</div>
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->
-						<label><i class="fas fa-phone-alt fa-3x"></i></label>
+						<label><i class="fas fa-comments fa-3x"></i></label>
 						<button class="w3-btn w3-link w3-xlarge" id="chatSangdam" onclick="chatSangdam();">채팅상담</button>
 					</div>
 					<!-- 브로슈어 -->

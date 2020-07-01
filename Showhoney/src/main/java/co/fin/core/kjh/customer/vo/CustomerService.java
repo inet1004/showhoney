@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 public interface CustomerService {
 	List<CustomerVo> getSelectList();
 	CustomerVo getSelect(CustomerVo vo);
+	CustomerVo customerSelect(CustomerVo vo);
 	void customerInsert(CustomerVo vo, HttpServletRequest request) throws IllegalStateException, IOException;
 	void customerUpdate(CustomerVo vo, HttpServletRequest request) throws IllegalStateException, IOException;
 	void customerDelete(CustomerVo vo);

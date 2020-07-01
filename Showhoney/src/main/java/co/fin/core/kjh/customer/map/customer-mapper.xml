@@ -6,9 +6,13 @@
 		SELECT * FROM CUSTOMER
 	</select>
 	
+	<select id="customerSelect" parameterType="co.fin.core.kjh.customer.vo.CustomerVo" resultType="co.fin.core.kjh.customer.vo.CustomerVo">
+		SELECT * FROM CUSTOMER 
+	</select>
+	
+	<!-- TODO : 수정필요 -->
 	<select id="getSelect" parameterType="co.fin.core.kjh.customer.vo.CustomerVo" resultType="co.fin.core.kjh.customer.vo.CustomerVo">
-		SELECT 
-		customer_id, customer_pw, customer_addr, customer_email, customer_name, customer_company_name, customer_phone, customer_profile FROM CUSTOMER WHERE CUSTOMER_ID = #{customer_id}
+		SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = #{customer_id }
 	</select>
 	
 	<insert id="customerInsert" parameterType="co.fin.core.kjh.customer.vo.CustomerVo">

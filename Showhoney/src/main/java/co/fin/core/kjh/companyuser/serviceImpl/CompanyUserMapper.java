@@ -11,12 +11,15 @@ public interface CompanyUserMapper {
 	List<CompanyUserVo> getSelectList();
 	CompanyUserVo getSelect(CompanyUserVo vo);
 	void companyInsert(CompanyUserVo vo);
-	void companyUpdate(CompanyUserVo vo);
 	void companyUserInsert(CompanyUserVo vo);
 	void companyUserInsert2(CompanyUserVo vo);
 	void companyUserInsert3(CompanyUserVo vo);
-	void companyUserUpdate(CompanyUserVo vo);
-	void companyUserDelete(CompanyUserVo vo);
+	void companyUserDelete(CompanyUserVo vo); 
+	void companyUserUpdate(CompanyUserVo vo); //프로필 update
+	void companyUserPwUpdate(CompanyUserVo vo);
+	void companyUpdate(CompanyUserVo vo);
+	CompanyUserVo companyUserSelect(CompanyUserVo vo);
+	CompanyUserVo companySelect(CompanyUserVo vo);
 
 
 }

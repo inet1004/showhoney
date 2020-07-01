@@ -99,5 +99,11 @@ public class CustomerServiceImpl implements CustomerService {
 
 	}
 
+	@Override
+	public CustomerVo customerSelect(CustomerVo vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

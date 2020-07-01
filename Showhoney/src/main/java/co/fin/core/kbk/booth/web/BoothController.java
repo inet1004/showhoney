@@ -57,6 +57,12 @@ public class BoothController {
 	@RequestMapping("/boothInsert.do")
 	public ModelAndView boothInsert(HttpServletRequest request, BoothVo bvo, ProductVo pvo,  ModelAndView mav, CompanyUserVo cvo) throws IOException {
 			
+		int exhibition_no = (int) request.getSession().getAttribute("exhibition_no");
+		int company_no = (int) request.getSession().getAttribute("company_no");
+		bvo.setExhibition_no(exhibition_no);
+		bvo.setCompany_no(company_no);
+		
+		
 		boothService.boothInsert(bvo, pvo, request);
 		mav.setViewName("redirect:/boothSelect.do?booth_no="+bvo.getBooth_no());
 		return mav;
@@ -75,6 +81,7 @@ public class BoothController {
 		return "com/companyuser/boothSelect";
 	}
 	
+	
 	@RequestMapping("/boothModifyForm.do")
 	public String boothModifyForm(BoothVo vo, ProductVo pvo, Model model ) {
 		
@@ -89,6 +96,11 @@ public class BoothController {
 	@RequestMapping("/boothUpdate.do")
 	public ModelAndView boothUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request, ModelAndView mav) throws IOException {
 			
+		int exhibition_no = (int) request.getSession().getAttribute("exhibition_no");
+		int company_no = (int) request.getSession().getAttribute("company_no");
+		bvo.setExhibition_no(exhibition_no);
+		bvo.setCompany_no(company_no);
+		
 		boothService.boothUpdate(bvo, pvo, request);
 		mav.setViewName("redirect:/boothModifyForm.do?booth_no="+bvo.getBooth_no());
 		return mav;
@@ -165,15 +177,5 @@ public class BoothController {
 		model.addAttribute("productlist", boothService.getSelectList(pvo));
 		model.addAttribute("list", list);
 		return "cus/booth/customerBoothSelect";
-	}
-	
-	@RequestMapping("/companyUserInfo.do")
-	public String companyUserInfo(BoothVo vo, ProductVo pvo, Model model) {
-		
-		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
-		
-		model.addAttribute("productlist", boothService.getSelectList(pvo));
-		model.addAttribute("list", list);
-		return "cus/companyuser/companyUserInfo";
 	}
 }

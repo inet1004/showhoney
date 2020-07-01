@@ -33,7 +33,7 @@ public class BoothServiceImpl implements BoothService {
 		MultipartFile brochure_uploadfile = bvo.getBrochure_uploadfile();
 		String booth_path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/boothProfile");
 		String bro_path = request.getSession().getServletContext().getRealPath("/resources/FileUpload/brochure");
-
+		
 		if (!booth_uploadFile.isEmpty()) {
 			String booth_fileName = booth_uploadFile.getOriginalFilename();
 			booth_uploadFile.transferTo(new File(booth_path, booth_fileName));
@@ -46,9 +46,9 @@ public class BoothServiceImpl implements BoothService {
 			brochure_uploadfile.transferTo(new File(bro_path, bro_fileName));
 			bvo.setBrochure_path(bro_fileName);
 		}
-
-		bvo.setExhibition_no(82);
-		bvo.setCompany_no(258); // TODO 수정필요
+		
+//		bvo.setExhibition_no(82);
+//		bvo.setCompany_no(258); // TODO 수정필요
 		dao.boothInsert(bvo);
 
 		MultipartFile[] product_uploadfile = bvo.getProduct_uploadfile();
@@ -92,8 +92,8 @@ public class BoothServiceImpl implements BoothService {
 			bvo.setBrochure_path(bro_fileName);
 		}
 
-		bvo.setExhibition_no(82);
-		bvo.setCompany_no(258); // TODO 수정필요
+//		bvo.setExhibition_no(82);
+//		bvo.setCompany_no(258); // TODO 수정필요
 		dao.boothUpdate(bvo);
 
 }

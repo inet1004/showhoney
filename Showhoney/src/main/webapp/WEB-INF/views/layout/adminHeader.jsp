@@ -52,7 +52,7 @@ body, html {
   <a href="exhibitionList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 박람회</a>
   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button"> 박람회관리</a>
   <a href="boothList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 부스관리</a>
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button"> 발표회</a>
+  <a href="pboardList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 발표회</a>
   <a href="ticketList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 티켓관리</a>
   <a href="ask.do" onclick="w3_close()" class="w3-bar-item w3-button"> 문의사항</a>
   <a href="adminManage.do" onclick="w3_close()" class="w3-bar-item w3-button"> Admin</a>

@@ -88,41 +88,45 @@
 
 	function getRoom(){
 		commonAjax('/core/getRoom', "", 'post', function(result){   // /getRoom
-			createChatingRoom(result);
+			createChatingRoom(result, 1);
 		});
 	}
 	
-	function createRoom(){
+	function createRoom(){  
 		$("#createRoom").click(function(){
-			var msg = {	roomName : $('#roomName').val()	};
-
+			var msg = {	roomName : ${param.booth_no} + ":" + $('#roomName').val(), booth_no: ${param.booth_no} }; //방이름 앞에 부스번호를 붙임 
 			commonAjax('/core/createRoom', msg, 'post', function(result){   // /createRoom
-				createChatingRoom(result);
+				createChatingRoom(result, 2);
 			});
-
 			$("#roomName").val("");
 		});
 	}
+	
 
 	function goRoom(number, name){
 		//alert("/moveChating?roomName="+name+"&"+"roomNumber="+number);
-		location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		//location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		location.href="/core/moveChating?booth_no="+${param.booth_no}+"&"+"roomName="+name+"&"+"roomNumber="+number;  // /moveChating
 	}
 
-	function createChatingRoom(res){
-		alert(b);
-		if(b == "true"){
+	function createChatingRoom(res, a){
+		//alert("res[1].status :" + res[1].status);
+		//alert(a + "<== 1은 테이블 그냥 불러오는 경우, 2는 방만드는 경우");
+		if(a == 1){  
 			if(res != null){
 				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
 				res.forEach(function(d, idx){
 					var rn = d.roomName.trim();
 					var roomNumber = d.roomNumber;
-					tag += "<tr class='" + ${param.booth_no} +"'>"+
-								"<td class='num'>"+(idx+1)+"</td>"+
-								"<td class='room'>"+ rn +"</td>"+
-								"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
-							"</tr>";	
-				});
+					var b_no = ${param.booth_no};
+					if( b_no == d.booth_no) {
+						tag += "<tr>"+
+									"<td class='num'>"+(idx+1)+"</td>"+
+									"<td class='room'>"+ rn +"</td>"+
+									"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+								"</tr>";	
+					}		
+				}); 
 				$("#roomList").empty().append(tag);
 			}
 		}else {
