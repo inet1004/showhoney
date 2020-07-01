@@ -82,8 +82,8 @@ body, html {
 					</div>
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->
-						<label><i class="fas fa-phone-alt fa-3x"></i></label>
-						<button class="w3-btn w3-link w3-xlarge">전화번호</button>
+						<label><i class="fas fa-comments fa-3x"></i></label>
+						<button class="w3-btn w3-link w3-xlarge">채팅상담</button>
 					</div>
 					<!-- 브로슈어 -->
 					<label><i class="fas fa-cloud-download-alt fa-3x"></i></label>
