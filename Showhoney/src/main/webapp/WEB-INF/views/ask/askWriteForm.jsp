@@ -52,7 +52,15 @@
 		<td>닉네임</td>
 		<td><input type="text" id="ask_name" name="ask_name" size="50"></td>
 	</tr>
-</table><br>
+	
+	<tr height="50">
+		<td>E-mail</td>
+		<td><input type="text" id="ask_email" name="ask_email" size="50"></td>
+	</tr>
+</table>
+
+	<br>
+	
 	<input type="submit" value="등록하기" class="btn btn-primary"> 
 	</div>
 	</form>

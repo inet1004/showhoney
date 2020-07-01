@@ -38,6 +38,11 @@
 		<td>닉네임</td>
 		<td><input type="text" id="ask_name" name="ask_name" value="${Dalist.ask_name }" readonly></td>
 	</tr>
+	
+	<tr>
+		<td>E-mail</td>
+		<td><input type="text" id="ask_email" name="ask_email" value="${Dalist.ask_email }" readonly></td>
+	</tr>
 </table>
 </div>	
 </form>
