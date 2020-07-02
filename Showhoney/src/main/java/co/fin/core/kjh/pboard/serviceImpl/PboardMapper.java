@@ -16,4 +16,5 @@ public interface PboardMapper {
 	
 	List<PboardVo> getSelectBooth(PboardVo vo);
 	PboardVo getSelectCompany(PboardVo vo);
+	int pboardTicketCheck(PboardVo vo);
 }

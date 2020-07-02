@@ -11,12 +11,25 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+ 
+ 
+  
 <!-- Custom Fonts -->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
+<script>
+	function ticketCheck(customer_id){
+		var del;
+		del = confirm("발표회는 티켓을 1장이상 구매하셔야 이용 가능합니다. 지금 구매하시겠습니까 ?");
+		if(del){
+			location.href="ticketList.do";
+		}else{
+		}
+	} 
+</script>
 </head>
 <body>
-<br>
+<br/><br>
 <div>
 <h1 align="center">발 표 회</h1><br>
 </div>
@@ -48,19 +61,45 @@
 </div>
 <br/><br/>
 <div align="center">
-	<c:if test="${not empty sessionScope.company_user_id }">
-	<button type="button" class="btn btn-primary" onclick="location.href='pboardInsertForm.do'">글쓰기</button>
-	</c:if>
-	<button type="button" class="btn btn-success" onclick="window.open('https://192.168.0.109:9001/demos/dashboard/')">발표회가기</button>
+	<c:choose>
+		<c:when test="${not empty sessionScope.company_user_id }">
+			<button type="button" class="btn btn-primary" onclick="location.href='pboardInsertForm.do'">글쓰기</button>
+			<button type="button" class="btn btn-success" onclick="window.open('https://192.168.0.109:9001/demos/dashboard/')">발표회가기</button>
+		</c:when>
+		<c:otherwise>
+			<%-- <c:when test="${not empty sessionScope.customer_id}">
+				<button type="button" class="btn btn-success" onclick="ticketCheck();">발표회가기</button>
+				<input type="hidden" id ="customer_id" name="customer_id" value="${sessionScope.customer_id }">
+				<button type="button" class="btn btn-success" onclick="window.open('https://192.168.0.109:9001/demos/dashboard/')">발표회가기</button>
+			</c:when> --%>
+		</c:otherwise>
+	</c:choose>
+	<c:choose>
+		<c:when test="${not empty sessionScope.customer_id and check==0}">
+			<button type="button" class="btn btn-success" onclick="ticketCheck();">발표회가기</button>			
+		</c:when>
+		<c:when test="${not empty sessionScope.customer_id and check>0}">
+			<button type="button" class="btn btn-success" onclick="window.open('https://192.168.0.109:9001/demos/dashboard/')">발표회가기</button>
+		</c:when>
+		<c:otherwise>
+		</c:otherwise>
+	</c:choose>
+	
 </div><br><br>
 <div align="center">
 	<p><strong>항상 ShowHoney를 사랑해주셔서 감사합니다</strong></p>
 	<br><p/>
-	<a href="/core/" alt="홈으로"><i class="fas fa-landmark  fa-3x"></i></a>
+	<a href="exhibitionList.do" alt="홈으로"><i class="fas fa-landmark  fa-3x"></i></a>
 	<br>
 	홈으로 가기
 	
 </div>
 <br /><br />
+
+
+
+
+
+
 </body>
 </html>
