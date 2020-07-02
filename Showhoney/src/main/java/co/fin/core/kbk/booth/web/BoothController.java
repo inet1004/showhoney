@@ -37,7 +37,8 @@ public class BoothController {
 	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav, HttpServletRequest request) {
 		
 		String companyUserId = (String) request.getSession().getAttribute("comapny_user_id");
-		int companyNo = Integer.parseInt(request.getParameter("company_no"));
+		
+		int companyNo = (int) request.getSession().getAttribute("company_no");
 		vo.setCompany_user_id(companyUserId);
 		vo.setCompany_no(companyNo);
 		
