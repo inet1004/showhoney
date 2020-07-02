@@ -104,17 +104,17 @@ $(function(){
 								if (data == 1) {
 									$("#id_check").text("사용중인 아이디입니다 :(");
 									$("#id_check").css("color", "red");
-									checkval = false
+									return false
 
 								} else if(customer_id == "") {
 									$('#id_check').text('아이디를 입력해주세요 :)');
 									$('#id_check').css('color', 'red');
-									checkval = false
+									return false
 									
 								} else {
 									$("#id_check").text("멋진 아이디네요! :)");
 									$("#id_check").css("color", "green");
-									checkval = true
+									return true
 								
 								} 
 
@@ -125,17 +125,6 @@ $(function(){
 							}
 						})
 					})
-					
-					function infocheck() {
-
-		if (checkval == false) {
-			alert("조건을 정확히 입력해주세요");
-			return false;
-		} else {
-			return true;
-		}
-	}
-					
 					
 })
 
@@ -195,6 +184,7 @@ $(function(){
 			alert("조건을 정확히 입력해주세요");
 			return false;
 		} else {
+			alert("회원가입 완료! 로그인 해주세요 :-) ") ;
 			return true;
 		}
 	}
@@ -289,7 +279,7 @@ $(function(){
 						<div class="col-md-5">
 							<input class="w3-input w3-border w3-round-large"
 								id="customer_name" name="customer_name" type="text"
-								placeholder="이름">
+								placeholder="이름" required>
 						</div>
 					</div>
 
@@ -301,7 +291,7 @@ $(function(){
 						<div class="col-md-5">
 							<input class="w3-input w3-border w3-round-large"
 								id="customer_email" name="customer_email" type="text"
-								placeholder="E-mail" onblur="emailcheck()"> <span
+								placeholder="E-mail" onblur="emailcheck()" required> <span
 								class="help-block" id="emailblur"></span>
 						</div>
 					</div>
@@ -314,7 +304,7 @@ $(function(){
 						<div class="col-md-5">
 							<input class="w3-input w3-border w3-round-large"
 								id="customer_phone" name="customer_phone" type="text"
-								placeholder="전화번호">
+								placeholder="ex) 010-2524-4477 양식으로 입력해 주세요" required>
 						</div>
 					</div>
 
@@ -326,7 +316,7 @@ $(function(){
 						<div class="col-md-5">
 							<input class="w3-input w3-border w3-round-large"
 								id="customer_addr" name="customer_addr" type="text"
-								placeholder="주소">
+								placeholder="주소" required>
 						</div>
 					</div>
 
@@ -358,8 +348,7 @@ $(function(){
 						<div class="col text-center"
 							style="margin-top: 10%; margin-bottom: 35%">
 							<button class="btn btn-outline-danger button" type="reset">다시작성</button>
-							<button class="btn btn-outline-info button" type="submit">완
-								료</button>
+							<button class="btn btn-outline-info button" type="submit">완 료</button>
 						</div>
 					</div>
 

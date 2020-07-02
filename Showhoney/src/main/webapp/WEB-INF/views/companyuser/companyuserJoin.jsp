@@ -217,6 +217,7 @@
 			alert("조건을 정확히 입력해주세요");
 			return false;
 		} else {
+			alert("제출 완료! 관리자 승인 후 사용가능합니다 :-)  ")
 			return true;
 		}
 	}

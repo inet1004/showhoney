@@ -22,15 +22,20 @@ body, html {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="/core" class="w3-bar-item w3-button w3-wide">SHOWHONEY</a>
+    <a href="exhibitionList.do" class="w3-bar-item w3-button w3-wide">SHOWHONEY</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
-      <a href="boothList.do" class="w3-bar-item w3-button">MY부스</a>
+      <a href="boothList.do?company_no=${company_no }" class="w3-bar-item w3-button">MY부스</a>
       <a href="pboardList.do" class="w3-bar-item w3-button">발표회</a>
       <a href="/core/room" class="w3-bar-item w3-button">채팅상담</a>
       <a href="ask.do" class="w3-bar-item w3-button">문의사항</a>
-      <a href="companyUserInfo.do" class="w3-bar-item w3-button">기업정보</a>
+      <a href="companyUserInfo.do" class="w3-bar-item w3-button onclick="myFunction()"">기업정보</a>
+      
+      
+      
+      
+      
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 

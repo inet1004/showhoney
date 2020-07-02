@@ -148,12 +148,19 @@
 				res.forEach(function(d, idx){
 					var rn = d.roomName.trim();
 					var roomNumber = d.roomNumber;
-					tag += "<tr class='" + ${param.booth_no} +"'>"+
-								"<td class='num'>"+(idx+1)+"</td>"+
-								"<td class='room'>"+ rn +"</td>"+
-								"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
-							"</tr>";	
-				});
+					var status = d.status;
+					var b_no = ${param.booth_no};
+						if(b_no == d.booth_no) {
+							if(status == "yes") {
+								tag += "<tr class='" + ${param.booth_no} +"'>"+
+											"<td class='num'>"+(idx+1)+"</td>"+
+											"<td class='room'>"+ rn +"</td>"+
+											"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+										"</tr>";									
+							}
+						}		
+					
+				}); 
 				$("#roomList").empty().append(tag);
 			}
 		}
