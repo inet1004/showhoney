@@ -2,6 +2,9 @@ package co.fin.core.nhu.exhibition.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -25,13 +28,11 @@ public class ExhibitionController {
 		HttpSession session = req.getSession();
 		String name = (String) session.getAttribute("customer_id");
 		if (name != null) {
-			if (vo.getCustomer_id() != null) {
 				mav.setViewName("cus/exhibition/exhibitionList");
 			} else {
 				mav.setViewName("com/exhibition/exhibitionList");
-			}
-			return mav;
 		}
+		return mav;
 	}
 
 }
