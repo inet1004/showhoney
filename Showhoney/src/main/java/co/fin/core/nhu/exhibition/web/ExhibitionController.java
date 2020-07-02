@@ -16,13 +16,22 @@ import co.fin.core.nhu.exhibition.vo.ExhibitionService;
 public class ExhibitionController {
 	@Autowired
 	private ExhibitionService exhibitionService;
-	
+
 	@RequestMapping(value = "/exhibitionList.do")
-	public ModelAndView exhibitionList(ModelAndView mav) {
+	public ModelAndView exhibitionList(ModelAndView mav, HttpServletRequest req) {
 		List<Exhibition2Vo> list = exhibitionService.getSelectExhibitionList();
 		mav.addObject("list", list);
-		mav.setViewName("cus/exhibition/exhibitionList");
-		return mav;
+
+		HttpSession session = req.getSession();
+		String name = (String) session.getAttribute("customer_id");
+		if (name != null) {
+			if (vo.getCustomer_id() != null) {
+				mav.setViewName("cus/exhibition/exhibitionList");
+			} else {
+				mav.setViewName("com/exhibition/exhibitionList");
+			}
+			return mav;
+		}
 	}
 
 }
