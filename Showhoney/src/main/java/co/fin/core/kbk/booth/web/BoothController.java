@@ -36,6 +36,11 @@ public class BoothController {
 	@RequestMapping(value = "/boothList.do")
 	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav, HttpServletRequest request) {
 		
+		String companyUserId = (String) request.getSession().getAttribute("comapny_user_id");
+		int companyNo = Integer.parseInt(request.getParameter("company_no"));
+		vo.setCompany_user_id(companyUserId);
+		vo.setCompany_no(companyNo);
+		
 		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
 		mav.addObject("list", list);
 		mav.setViewName("com/booth/boothList");

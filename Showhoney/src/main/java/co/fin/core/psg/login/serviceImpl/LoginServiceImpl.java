@@ -8,6 +8,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import co.fin.core.kjh.company.serviceImpl.CompanyMapper;
+import co.fin.core.kjh.company.vo.CompanyService;
+import co.fin.core.kjh.companyuser.serviceImpl.CompanyUserMapper;
+import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
 import co.fin.core.psg.login.vo.LoginComVo;
 import co.fin.core.psg.login.vo.LoginService;
 import co.fin.core.psg.login.vo.LoginVo;
@@ -26,7 +30,11 @@ public class LoginServiceImpl implements LoginService {
 
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
-
+	
+	@Autowired
+	CompanyUserMapper companyUserMapper;
+	
+	
 	@Override
 	public boolean loginCheck(LoginVo vo, HttpSession session) {
 
@@ -56,6 +64,11 @@ public class LoginServiceImpl implements LoginService {
 		if (result) { // true 일경우 세션 등록
 			// 세션 변수 등록
 			session.setAttribute("company_user_id", cvo.getCompany_user_id());
+			
+			CompanyUserVo companyUserVo = new CompanyUserVo();			
+			companyUserVo.setCompany_user_id(cvo.getCompany_user_id());
+			CompanyUserVo comNo = companyUserMapper.getSelect(companyUserVo);			
+			session.setAttribute("company_no", comNo.getCompany_no());
 			return true;
 		}
 
