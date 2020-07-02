@@ -3,7 +3,17 @@
 <mapper namespace="co.fin.core.kbk.booth.serviceImpl.BoothMapper">
 	
 	<select id="bgetSelectBoothList" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
-		SELECT booth_no, brochure_path, video_path, video_call_path, booth_introduction, company_no, exhibition_no, company_tel, booth_profile, product_mall FROM BOOTH
+		 SELECT booth_no, 
+		 		brochure_path, 
+		 		video_path, 
+		 		video_call_path, 
+		 		booth_introduction, 
+		 		company_no, 
+		 		exhibition_no, 
+		 		company_tel, 
+		 		booth_profile, 
+		 		product_mall 
+		 FROM BOOTH
 		<where>
 		<if test = "company_no != null and company_no != ''">
 			AND company_no = #{company_no}
@@ -13,6 +23,10 @@
 		</if>
 		</where>
 	</select>
+	
+<!-- 	SELECT b.*, (SELECT exhibition_name FROM exhibition e where e.exhibition_no = b.exhibition_no ) exhibition_name  FROM booth b WHERE company_no = #{company_no} -->
+	
+	
 	
 	<select id="getSelectCompanyNo" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
 		select company_no from company_user where company_user_id = #{company_user_id}

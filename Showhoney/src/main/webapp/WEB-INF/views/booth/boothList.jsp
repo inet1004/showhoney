@@ -39,6 +39,7 @@
           <div class="col-md-7 text-center heading-section ftco-animate">
             <!-- <span class="subheading">부스</span> -->
             <h2>부스 목록</h2>
+              <button type="button" class="btn btn-warning btn-lg btn-block" style="width: 20%; margin: auto;" onclick="location.href='boothForm.do'">부스 만들기</button>
           </div>
         </div>
         

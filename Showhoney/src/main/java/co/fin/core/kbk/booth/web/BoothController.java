@@ -34,11 +34,11 @@ public class BoothController {
 	private CompanyUserService companyUserService;
 	
 	@RequestMapping(value = "/boothList.do")
-	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav) {
+	public ModelAndView loginCheck(BoothVo vo, ModelAndView mav, HttpServletRequest request) {
+		
 		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
 		mav.addObject("list", list);
-		mav.setViewName("cus/booth/boothList");
-		
+		mav.setViewName("com/booth/boothList");
 		return mav;
 	}
 	
