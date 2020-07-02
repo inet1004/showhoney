@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<div class="container-fluid video-player">
+
 
 <!DOCTYPE html>
 <html>
@@ -35,7 +35,14 @@ body, html {
   padding: 16px;
 }
 </style>
+<script>
+	function practice(){
+		alert('상담원이 준비중입니다.');
+	}
+</script>
+</head>
 <body>
+<div class="container-fluid video-player">
 	<div class="container">
 		<div style="margin-top: 5%">
 			<div class="screen embed-responsive embed-responsive-16by9">
@@ -73,7 +80,7 @@ body, html {
 							상담원대기중
 						</c:when>
 						<c:otherwise>
-							<button class="w3-btn w3-link w3-xlarge" onclick="">1:1 영상상담</button>
+							<button class="w3-btn w3-link w3-xlarge" onclick="practice();">1:1 영상상담</button>
 							상담원준비중
 						</c:otherwise>
 						</c:choose>
