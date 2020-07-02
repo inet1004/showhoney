@@ -45,7 +45,7 @@ tr.space {
 							<td>패스워드</td>
 							<td><input type="password" name="company_user_pw" id="company_user_pw" maxlength="20"></td>
 						</tr>
-						<c:if test="${msgCom == '실패'}">
+						<c:if test="${param.msgCom == '실패'}">
 							<tr>
 								<td colspan=2>
 									아이디 또는 패스워드가 틀렸습니다.
@@ -70,6 +70,7 @@ tr.space {
 	</div>	
 		
 </body>
+
 <script type="text/javascript">
 	$(document).ready(function(e){
 		$('#loginCom').click(function(){

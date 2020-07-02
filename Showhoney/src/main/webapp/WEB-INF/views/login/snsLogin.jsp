@@ -62,7 +62,7 @@
 							<td><input type="password" name="customer_pw"
 								id="customer_pw" maxlength="20"></td>
 						</tr>
-						<c:if test="${msg == '실패'}">
+						<c:if test="${param.msg == '실패'}">
 							<tr>
 								<td colspan=2>아이디 또는 패스워드가 틀렸습니다.</td>
 							</tr>
