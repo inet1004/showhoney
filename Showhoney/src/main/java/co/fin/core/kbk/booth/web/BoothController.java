@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.fin.core.kbk.booth.vo.BoothService;
@@ -20,7 +19,6 @@ import co.fin.core.kbk.booth.vo.BoothVo;
 import co.fin.core.kbk.booth.vo.ProductVo;
 import co.fin.core.kjh.companyuser.vo.CompanyUserService;
 import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
-import co.fin.core.kjh.pboard.vo.PboardVo;
 import co.fin.core.nhu.exhibition.vo.Exhibition2Vo;
 import co.fin.core.nhu.exhibition.vo.ExhibitionService;
 
@@ -42,8 +40,11 @@ public class BoothController {
 		vo.setCompany_user_id(companyUserId);
 		vo.setCompany_no(companyNo);
 		
+		CompanyUserVo companyUserVo = new CompanyUserVo();
+		companyUserVo.setCompany_user_id(companyUserId);
 		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
 		mav.addObject("list", list);
+		mav.addObject("companyAuth",companyUserService.getSelect(companyUserVo));
 		mav.setViewName("com/booth/boothList");
 		return mav;
 	}
@@ -152,7 +153,7 @@ public class BoothController {
 		if(companyuserid!= null) {
 			List<BoothVo> list = boothService.getSelectCustomerBoothList(vo);
 			mav.addObject("list", list);
-			mav.setViewName("cus/booth/customerBoothList");
+			mav.setViewName("com/booth/customerBoothList");
 			return mav;
 		}else {
 			if(customerid!= null) {
