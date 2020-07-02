@@ -35,11 +35,19 @@ body, html {
   padding: 16px;
 }
 </style>
-<script>
+
+<script type="text/javascript">
+
 	function practice(){
 		alert('상담원이 준비중입니다.');
 	}
+	
+	function chatSangdam(){
+		window.open('room?booth_no=${param.booth_no }', 'newWindow', 'width=800, height=900');
+		//location.href="/core/room?booth_no=" + ${list[0].booth_no };  // 채팅방에 부스번호 넘김
+	}
 </script>
+	
 </head>
 <body>
 <div class="container-fluid video-player">
@@ -90,7 +98,7 @@ body, html {
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->
 						<label><i class="fas fa-comments fa-3x"></i></label>
-						<button class="w3-btn w3-link w3-xlarge">채팅상담</button>
+						<button class="w3-btn w3-link w3-xlarge" id="chatSangdam" onclick="chatSangdam();">채팅상담</button>
 					</div>
 					<!-- 브로슈어 -->
 					<label><i class="fas fa-cloud-download-alt fa-3x"></i></label>

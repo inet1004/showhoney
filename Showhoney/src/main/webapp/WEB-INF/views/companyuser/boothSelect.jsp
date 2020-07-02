@@ -7,7 +7,8 @@
 <script type="text/javascript">
 
 	function chatSangdam(){
-		location.href="/core/room?booth_no=" + ${list[0].booth_no };  // 채팅방에 부스번호 넘김
+		window.open('room?booth_no=${param.booth_no }', 'newWindow', 'width=800, height=900');
+		//location.href="/core/room?booth_no=" + ${list[0].booth_no };  // 채팅방에 부스번호 넘김
 	}
 	
 </script>	
