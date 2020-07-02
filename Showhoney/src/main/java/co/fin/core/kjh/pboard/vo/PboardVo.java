@@ -16,7 +16,8 @@ public class PboardVo {
 	private int exhibition_no;
 	private String exhibition_name;
 	private Date p_date;
-	
+	private String customer_id;
+	private Integer count;
 	
 	public PboardVo() {
 		// TODO Auto-generated constructor stub
@@ -125,7 +126,25 @@ public class PboardVo {
 	public void setP_start_day(Date p_start_day) {
 		this.p_start_day = p_start_day;
 	}
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
 	
+
 	
 	
 

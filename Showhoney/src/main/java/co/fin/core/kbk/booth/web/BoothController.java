@@ -20,6 +20,7 @@ import co.fin.core.kbk.booth.vo.BoothVo;
 import co.fin.core.kbk.booth.vo.ProductVo;
 import co.fin.core.kjh.companyuser.vo.CompanyUserService;
 import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
+import co.fin.core.kjh.pboard.vo.PboardVo;
 import co.fin.core.nhu.exhibition.vo.Exhibition2Vo;
 import co.fin.core.nhu.exhibition.vo.ExhibitionService;
 
@@ -144,29 +145,45 @@ public class BoothController {
 	
 	@RequestMapping("/customerBoothList.do")
 	public ModelAndView customerBoothList(BoothVo vo, HttpServletRequest request, HttpServletResponse response, ModelAndView mav) throws Exception {
-		
+		PrintWriter writer = response.getWriter();
 		int n = 0;
-		
 		String customerid = (String) request.getSession().getAttribute("customer_id");
-		int exhibitionno = Integer.parseInt(request.getParameter("exhibition_no"));
-		vo.setCustomer_id(customerid);
-		vo.setExhibition_no(exhibitionno);
-		
-		n = boothService.ticketCheck(vo);
-		if(n==0) {
-			PrintWriter writer = response.getWriter();
-			response.setContentType("text/html;charset=UTF-8");
-			writer.println("<script>alert('티켓 구매 후 입장 가능합니다!! 구매 페이지로 이동합니다.'); location.href='ticketList.do';</script>");
-			return null;
-			
-		}else {
+		String companyuserid = (String) request.getSession().getAttribute("company_user_id");
+		if(companyuserid!= null) {
 			List<BoothVo> list = boothService.getSelectCustomerBoothList(vo);
 			mav.addObject("list", list);
 			mav.setViewName("cus/booth/customerBoothList");
 			return mav;
+		}else {
+			if(customerid!= null) {
+				int exhibitionno = Integer.parseInt(request.getParameter("exhibition_no"));
+				vo.setCustomer_id(customerid);
+				vo.setExhibition_no(exhibitionno);
+				
+				n = boothService.ticketCheck(vo);
+				if(n==0) {
+					response.setContentType("text/html;charset=UTF-8");
+					writer.println("<script>alert('티켓 구매 후 입장 가능합니다!! 구매 페이지로 이동합니다.'); location.href='ticketList.do';</script>");
+					return null;
+					
+				}else {
+					List<BoothVo> list = boothService.getSelectCustomerBoothList(vo);
+					mav.addObject("list", list);
+					mav.setViewName("cus/booth/customerBoothList");
+					return mav;
+					
+				}	
+			}else {
+				response.setContentType("text/html;charset=UTF-8");
+				writer.println("<script>alert('잘못된 접근입니다.'); location.href='exhibitionList.do';</script>");
+				return null;
+			}
 			
-		}		
+		}
 		
+		
+		
+	
 	}
 	
 	@RequestMapping("/download.do")  
