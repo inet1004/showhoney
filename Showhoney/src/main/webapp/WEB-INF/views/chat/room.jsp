@@ -188,7 +188,7 @@
 	<br><p/>
 	<br><p/>
 		<h1>채팅방</h1>
-		<h4>( Booth: ${param.booth_no })</h4>
+		<h4>( Booth: ${param.booth_no } )</h4>
 
 		<c:choose>
 			<c:when test="${not empty sessionScope.customer_id}">
