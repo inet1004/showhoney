@@ -4,7 +4,7 @@
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
+  <div class="w3-bar w3-white w3-card" id="myNavbar" style="line-height:3;">
     <a href="exhibitionList.do" class="w3-bar-item w3-button w3-wide">SHOWHONEY</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
@@ -17,7 +17,7 @@
       <a class="w3-bar-item w3-button" style="padding-right: 100px;"><i class="fas fa-cog"></i></a>     
 	    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
 	      <a href="companyUserInfo.do" class="w3-bar-item w3-button">내 정보수정</a>
-	      <a href="boothList.do?company_no=${company_no }" class="w3-bar-item w3-button">찜한부스</a>
+      <a href="ask.do" class="w3-bar-item w3-button"> 문의하기</a>
 	      <a href="logout.do" class="w3-bar-item w3-button"> LOGOUT </a>
 	    </div>
 	  </div>
@@ -40,7 +40,7 @@
   <a href="ticketList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 티켓구매하기</a>
   <a href="ask.do" onclick="w3_close()" class="w3-bar-item w3-button"> 문의하기</a>
   <a href="customerUserInfo.do" onclick="w3_close()" class="w3-bar-item w3-button"> 내 정보수정</a>
-  <a href="#" onclick="w3_close()" class="w3-bar-item w3-button"> 찜한부스</a>
+  <a href="ask.do" onclick="w3_close()" class="w3-bar-item w3-button"> 문의하기</a>
   <a href="logout.do" onclick="w3_close()" class="w3-bar-item w3-button"> LOGOUT </a>
 </nav>
 

@@ -24,7 +24,7 @@ function openNav() {
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
+  <div class="w3-bar w3-white w3-card" id="myNavbar" style="line-height:3;">
     <a href="exhibitionList.do" class="w3-bar-item w3-button w3-wide">SHOWHONEY</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">

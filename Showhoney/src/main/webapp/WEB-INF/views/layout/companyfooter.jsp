@@ -10,6 +10,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
+<style>
+footer {
+	margin-top: 70%;
+	}
+</style>
+
+
 <footer class="w3-container w3-padding-32 w3-light-grey w3-center w3-xlarge" style="matgin-top: 50%">
   <div class="w3-section">
   	<div align="center">
