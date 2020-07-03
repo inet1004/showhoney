@@ -111,7 +111,6 @@ public class LoginController {
 		return mav;
 	}
 	
-	
 	//로그아웃 처리
 	@RequestMapping("logout.do")
 	public ModelAndView logout(HttpSession session) {
