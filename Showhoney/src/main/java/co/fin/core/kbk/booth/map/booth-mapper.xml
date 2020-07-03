@@ -97,4 +97,9 @@
 		FROM ticket t, payment_details p
 		WHERE t.ticket_no = p.ticket_no AND t.exhibition_no = #{exhibition_no} AND customer_id = #{customer_id}
 	</select>
+	
+	<update id="videoCallUpdate" parameterType= "co.fin.core.kbk.booth.vo.BoothVo">
+		update booth set video_call_path = #{video_call_path} where booth_no = #{booth_no}
+	</update>
+
 </mapper>

@@ -6,8 +6,8 @@
 	</select>
 	
  	<select id="getSelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
-		SELECT * FROM COMPANY_USER WHERE 
-		 <choose>
+		SELECT * FROM COMPANY_USER WHERE
+	<choose>
     <when test="company_user_id != null and company_user_id != ''">
       company_user_id = #{company_user_id}
     </when>

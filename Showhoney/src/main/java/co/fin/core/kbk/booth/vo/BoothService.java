@@ -25,5 +25,7 @@ public interface BoothService {
 	void productUpdate(BoothVo bvo, ProductVo pvo, HttpServletRequest request) throws IllegalStateException, IOException;
 	void productDelete(ProductVo pvo, BoothVo bvo, HttpServletRequest request) throws IllegalStateException, IOException;
 	
+	//videocall
+	int videoCallUpdate(BoothVo bvo);
 
 }
