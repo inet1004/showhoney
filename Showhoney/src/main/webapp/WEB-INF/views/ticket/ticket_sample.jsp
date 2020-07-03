@@ -63,18 +63,20 @@
 	float: left;
 }
 
+.div2{
+	height: 1000px;
+}
+
 	#btn1 {
 		width:250px;
 		height: 35px;
 	}
 
 </style>
-
-
 	<h1 align="center">티켓내역 LIST</h1>
 	<br>
-	<div align="center">
-	<div> 
+	<div align="center" >
+	<div class="div2"> 
 	<c:forEach var="ticket" items="${tlist }">
 		<div align="center" class="div1">
 		<p/>
@@ -89,7 +91,7 @@
 		</div>
 	</c:forEach>
 		</div>
-      <div align="center">
+      <div align="center" class="div3">
       	<button type="button" id="btn1" class="btn btn-info" onclick="location.href='exhibitionList.do'">박람회 목록 가기</button>
       </div>
 		</div>

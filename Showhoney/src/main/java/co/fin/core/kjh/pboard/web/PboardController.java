@@ -27,7 +27,7 @@ public class PboardController {
 	public ModelAndView pboardList(ModelAndView mav) {
 		List<PboardVo> list = pboardService.getSelectPboardList();
 		mav.addObject("list", list);
-		mav.setViewName("no/pboard/pboardList");
+		mav.setViewName("cus/pboard/pboardList");
 		return mav;
 	}
 	
@@ -35,7 +35,7 @@ public class PboardController {
 	@RequestMapping(value = "/pboardDetail.do")
 	public ModelAndView pboardDetail(ModelAndView mav, PboardVo vo) {
 		mav.addObject("pboard", pboardService.getSelectPboard(vo));
-		mav.setViewName("no/pboard/pboardDetail");
+		mav.setViewName("cus/pboard/pboardDetail");
 		return mav; 
 	}
 	

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>발표회 게시판</title>
+    <title>Ask 문의내역</title>
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <!-- Custom Fonts -->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<style type="text/css">
+<style>
 	body{
 		margin-top:50px;
 	}
@@ -22,43 +22,36 @@
 <body>
 <br>
 <div>
-<h1 align="center">발 표 회</h1><br>
+<h1 align="center">문 의 내 역</h1><br>
 </div>
 <div class="container">
 <table class="table" >
   <tr>
-      <th>글 번 호</th>
-      <th>작 성 일 자</th>
-      <th>박람회</th>
-      <th>부스</th>
+      <th>문 의 번 호</th>
       <th>제 목</th>
-      <th>시작예정시간</th>
-      <th>작성자</th>
+      <th>작 성 일 자</th>
+      <th>닉 네 임</th>
+      <th>이 메 일</th>
   </tr>
-  <c:forEach var="pboard" items="${list }">
-  <tr style="cursor:pointer" onmouseover="this.style.background='pink'" onmouseout="this.style.background='white'" onclick="location.href='pboardDetail.do?p_no=${pboard.p_no}'">
-	  <td>${pboard.p_no }</td>
-      <td>${pboard.p_date }</td>
-	  <td>${pboard.exhibition_name }</td>
-	  <td>${pboard.company_name }</td>
-	  <td>${pboard.p_title }</td>
-       <td>${pboard.p_start_hour }시&nbsp;${pboard.p_start_minute }분</td>
-       <td>${pboard.company_user_id }</td>
+  <c:forEach var="ask" items="${alist }">
+  <tr>
+	  <td>${ask.ask_no }</td>
+      <td><button type="button" onclick="location.href='GoAskDetail.do?ask_no=${ask.ask_no}'"
+       class="btn btn-warning">${ask.ask_title }</button></td>
+	  <td>${ask.ask_date}</td>
+	  <td>${ask.ask_name }</td>
+	  <td>${ask.ask_email }</td>
   </tr>
   
   
     </c:forEach>
 </table>
-</div>
-<br/><br/>
 <div align="center">
-	<c:if test="${not empty sessionScope.company_user_id }">
-	<button type="button" class="btn btn-primary" onclick="location.href='pboardInsertForm.do'">글쓰기</button>
-	</c:if>
-	<button type="button" class="btn btn-success" onclick="window.open('https://192.168.0.109:9001/demos/dashboard/')">발표회가기</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='AskWriteForm.do'">답장하러가기</button>
 </div><br><br>
 <div align="center">
 	<p><strong>항상 ShowHoney를 사랑해주셔서 감사합니다</strong></p>
+	<p><strong>문의 내역은 작성하신 E-mail로 발송됩니다</strong></p>
 	<br><p/>
 	<a href="/core/" alt="홈으로"><i class="fas fa-landmark  fa-3x"></i></a>
 	<br>
