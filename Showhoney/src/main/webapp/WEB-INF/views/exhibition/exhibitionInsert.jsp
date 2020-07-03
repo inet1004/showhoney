@@ -9,12 +9,15 @@
 </head>
 <body>
 <br><br>
+<div align="center">
 	<form id="frm" name="frm" action="ExhibitionInsert.do" method="post"><br><br>
 		박람회 시작 일자 <input type="date" id="exhibition_start_date" name="exhibition_start_date"><br/>
 		박람회 종료 일자 <input type="date" id="exhibition_end_date" name="exhibition_end_date"><br/>
 		박람회 이름 <input type="text" id="exhibition_name" name="exhibition_name"><br/>
 		<button type="submit">등록하기</button>
 		<button type="reset">다시작성</button>
+		<button type="button" onclick="location.href='adminExhibitionManage.do'">돌아가기</button>
 	</form>
+</div>
 </body>
 </html>

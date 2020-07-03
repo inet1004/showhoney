@@ -166,6 +166,12 @@ public class BoothController {
 			return mav;
 		}else {
 			if(customerid!= null) {
+				if(customerid.equals("admin")) {
+					List<BoothVo> list = boothService.getSelectCustomerBoothList(vo);
+					mav.addObject("list", list);
+					mav.setViewName("adm/booth/customerBoothList");
+					return mav;
+				}
 				int exhibitionno = Integer.parseInt(request.getParameter("exhibition_no"));
 				vo.setCustomer_id(customerid);
 				vo.setExhibition_no(exhibitionno);
