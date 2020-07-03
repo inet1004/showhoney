@@ -26,7 +26,7 @@ public class ChatController {
 	@RequestMapping("/chat") // /chat
 	public ModelAndView chat() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("com/chat/chat");
+		mv.setViewName("no/chat/chat");
 		return mv;
 	}
 	
@@ -37,7 +37,7 @@ public class ChatController {
 	@RequestMapping("/room") // /room.do
 	public ModelAndView room() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("com/chat/room");
+		mv.setViewName("no/chat/room");
 		return mv;
 	}
 	
@@ -98,10 +98,10 @@ public class ChatController {
 			mv.addObject("roomName", params.get("roomName"));
 			mv.addObject("roomNumber", params.get("roomNumber"));
 			mv.addObject("booth_no", params.get("booth_no")); // 추가
-			mv.setViewName("com/chat/chat");
+			mv.setViewName("no/chat/chat");
 			System.out.print("mv:==> " + mv);
 		}else {
-			mv.setViewName("com/");
+			mv.setViewName("no/");   //tiles head메뉴 설정이 없는것
 		}
 		return mv;
 	}
