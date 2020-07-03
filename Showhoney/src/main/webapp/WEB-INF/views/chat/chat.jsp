@@ -167,8 +167,11 @@
 	}
 </script>
 <body>
+	<br><p/>
+	<br><p/>
 	<div id="container" class="container">
 		<h1>${roomName}의 채팅방</h1>
+		<h4>( Booth: ${param.booth_no } )</h4>
 	
 		<c:choose>
 			<c:when test="${not empty sessionScope.customer_id}">
