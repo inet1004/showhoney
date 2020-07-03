@@ -28,10 +28,15 @@ public class ExhibitionController {
 		HttpSession session = req.getSession();
 		String name = (String) session.getAttribute("customer_id");
 		if (name != null) {
-				mav.setViewName("cus/exhibition/exhibitionList");
+			if (name.equals("admin")) {
+				mav.setViewName("adm/exhibition/exhibitionList");
 			} else {
-				mav.setViewName("com/exhibition/exhibitionList");
+				mav.setViewName("cus/exhibition/exhibitionList");
+			}
+		} else {
+			mav.setViewName("com/exhibition/exhibitionList");
 		}
+
 		return mav;
 	}
 
