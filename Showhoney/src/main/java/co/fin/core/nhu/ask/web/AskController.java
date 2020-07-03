@@ -1,6 +1,10 @@
 package co.fin.core.nhu.ask.web;
 
+import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,19 +25,43 @@ public class AskController {
 	private AskService askService;
 	
 	@RequestMapping(value = "/ask.do")
-	public ModelAndView askList(ModelAndView mav) {
-		List<AskVo> alist = askService.getSelectAskList();
-		mav.addObject("alist", alist);
-		mav.setViewName("cus/ask/ask");
+	public ModelAndView askList(ModelAndView mav, HttpServletRequest request) {
+		String customerid = (String) request.getSession().getAttribute("customer_id");
+		String companyuserid = (String) request.getSession().getAttribute("company_user_id");
+		if(companyuserid!= null) {
+			List<AskVo> alist = askService.getSelectAskList();
+			mav.addObject("alist", alist);
+			mav.setViewName("com/ask/ask");
+			return mav;	
+		}else if(customerid!= null) {
+			if(customerid.equals("admin")) {
+				List<AskVo> alist = askService.getSelectAskList();
+				mav.addObject("alist", alist);
+				mav.setViewName("adm/ask/ask");
+				return mav;	
+			}
+			List<AskVo> alist = askService.getSelectAskList();
+			mav.addObject("alist", alist);
+			mav.setViewName("cus/ask/ask");
+			return mav;	
+		}
 		return mav;
+	
 	}
 	
 		
 	@RequestMapping(value = "/GoAskDetail.do")
-	public ModelAndView GoAskDetail(ModelAndView mav, AskVo vo) {
-		mav.addObject("Dalist", askService.getSelect(vo));
-		mav.setViewName("cus/ask/askDetail");
-		return mav; 
+	public ModelAndView GoAskDetail(ModelAndView mav, AskVo vo, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		PrintWriter writer = response.getWriter();
+		String customerid = (String) request.getSession().getAttribute("customer_id");
+		if(customerid.equals("admin")) {
+			mav.addObject("Dalist", askService.getSelect(vo));
+			mav.setViewName("cus/ask/askDetail");
+			return mav;
+		}
+		response.setContentType("text/html;charset=UTF-8");
+		writer.println("<script>alert('잘못된 접근입니다.'); location.href='exhibitionList.do';</script>");
+		return null;
 	}
 	
 	

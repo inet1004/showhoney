@@ -38,6 +38,12 @@ public class PboardController {
 			 return mav; 
 		}else {
 			if(customerid!= null) {
+				if(customerid.equals("admin")) {
+					List<PboardVo> list = pboardService.getSelectPboardList();
+					mav.addObject("list", list); 
+					mav.setViewName("adm/pboard/pboardList"); 
+					return mav;				
+				}
 				vo.setCustomer_id(customerid);
 				n = pboardService.pboardTicketCheck(vo);
 				mav.addObject("check", n);

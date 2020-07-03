@@ -1,6 +1,10 @@
 package co.fin.core.kjh.admin.web;
 
+import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,11 +22,18 @@ public class AdminController {
 	
 	@RequestMapping("/adminManage.do")
 
-	public ModelAndView adminManage(ModelAndView mav) {
-		List<AdminVo> list = adminService.getSelectWaitingList();
-		mav.addObject("list", list);
-		mav.setViewName("/admin/adminManage");
-		return mav;
+	public ModelAndView adminManage(ModelAndView mav, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		PrintWriter writer = response.getWriter();
+		String customerid = (String) request.getSession().getAttribute("customer_id");
+		if(customerid.equals("admin")){
+			List<AdminVo> list = adminService.getSelectWaitingList();
+			mav.addObject("list", list);
+			mav.setViewName("adm/admin/adminManage");
+			return mav;
+		}
+		response.setContentType("text/html;charset=UTF-8");
+		writer.println("<script>alert('잘못된 접근입니다.'); location.href='exhibitionList.do';</script>");
+		return null;
 	}
 
 	@RequestMapping("/adminManageList.do")
@@ -42,14 +53,14 @@ public class AdminController {
 	@RequestMapping("/adminUpdate.do")
 	public ModelAndView adminUpdate(AdminVo vo, ModelAndView mav) {
 		adminService.adminUpdate(vo);
-		mav.setViewName("/main/main");
+		mav.setViewName("redirect:adminManage.do");
 		return mav;
 	}
 	
 	@RequestMapping("/adminDelete.do")
 	public ModelAndView adminDelete(AdminVo vo, ModelAndView mav) {
 		adminService.adminDelete(vo);
-		mav.setViewName("/main/main");
+		mav.setViewName("redirect:adminManage.do");
 		return mav;
 	}
 	
@@ -62,11 +73,21 @@ public class AdminController {
 	
 	
 	@RequestMapping("/adminExhibitionManage.do")
-	public ModelAndView adminExhibitionManage(ModelAndView mav) {
-		List<ExhibitionVo> elist = adminService.getSelectExhibitionList();
-		mav.addObject("elist", elist);
-		mav.setViewName("com/admin/adminExhibitionManage");
-		return mav;
+	public ModelAndView adminExhibitionManage(ModelAndView mav, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		PrintWriter writer = response.getWriter();
+		String customerid = (String) request.getSession().getAttribute("customer_id");
+		if(customerid.equals("admin")) {
+			List<ExhibitionVo> elist = adminService.getSelectExhibitionList();
+			mav.addObject("elist", elist);
+			mav.setViewName("adm/admin/adminExhibitionManage");
+			return mav;
+		}
+		
+		response.setContentType("text/html;charset=UTF-8");
+		writer.println("<script>alert('잘못된 접근입니다.'); location.href='exhibitionList.do';</script>");
+		return null;
+		
+		
 	}	
 	
 	
@@ -80,7 +101,7 @@ public class AdminController {
 	
 	@RequestMapping("/ExhibitionInsertForm.do")
 	public ModelAndView ExhibitionInsertForm(ExhibitionVo exvo, ModelAndView mav) {
-		mav.setViewName("com/exhibition/exhibitionInsert");
+		mav.setViewName("adm/exhibition/exhibitionInsert");
 		return mav;
 	}
 	

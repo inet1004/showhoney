@@ -13,10 +13,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<br>
+<br><br/><br/>
 <div>
-<h1 align="center">박람회 등록</h1><br>
+<h1 align="center">박람회 관리</h1><br>
 </div>
+<div align="center">
+	<button type="button" class="btn btn-info" onclick="location.href='ExhibitionInsertForm.do'">박람회생성</button>
+</div>
+<br/>
 <div class="container">
 
 
@@ -42,7 +46,7 @@
       onclick="location.href='ExhibitionDelete.do?exhibition_no=${admin.exhibition_no}'">삭제</button>
   	  </td>
   	  <td><button type="button" class="btn btn-info" data-toggle="" 
-      onclick="location.href='boothList.do?exhibition_no=${admin.exhibition_no}'">입장</button>
+      onclick="location.href='customerBoothList.do?exhibition_no=${admin.exhibition_no}'">입장</button>
   	  </td>
   </tr>
   
