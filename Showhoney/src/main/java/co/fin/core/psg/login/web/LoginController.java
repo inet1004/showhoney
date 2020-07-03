@@ -74,12 +74,12 @@ public class LoginController {
 		
 		if(result) {
 			if(vo.getCustomer_id().equals("admin")) {
-//				mav.setViewName("redirect:info.do");
-				mav.setViewName("adm/login/login");
+				mav.setViewName("redirect:exhibitionList.do");
+//				mav.setViewName("adm/login/login");
 				//mav.addObject("msg","admin 성공");
 			} else {
-//				mav.setViewName("redirect:info.do");
-				mav.setViewName("cus/login/login");
+				mav.setViewName("redirect:exhibitionList.do");
+//				mav.setViewName("cus/login/login");
 				//mav.addObject("msg","성공");
 			}
 		}else {
@@ -100,7 +100,8 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		
 		if(result) {
-			mav.setViewName("com/login/loginCom");
+			mav.setViewName("redirect:boothList.do");
+//			mav.setViewName("com/login/loginCom");
 			//mav.addObject("msgCom","성공");
 		}else {
 			mav.setViewName("redirect:/loginCom.do");
@@ -123,6 +124,5 @@ public class LoginController {
 		
 		return mav;
 	}
-
 	
 }
