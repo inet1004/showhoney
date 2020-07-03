@@ -106,7 +106,7 @@
 				}
 			}else{
 				var url = URL.createObjectURL(new Blob([msg]));
-				alert("파일 업로드한 경우 업로드한 파일을 채팅방에 뿌려준다." + url);
+				//alert("파일 업로드한 경우 업로드한 파일을 채팅방에 뿌려준다." + url);
 				$("#chating").append("<div class='img'><img class='msgImg' src="+url+"></div><div class='clearBoth'></div>");
 			}
 		}
@@ -157,7 +157,7 @@
 				msg : $("#chatting").val(),  //원본
 				userName : $("#userName").val()
 			}
-			alert(JSON.stringify(param));
+			//alert(JSON.stringify(param));
 			ws.send(JSON.stringify(param)); //파일 보내기전 메시지를 보내서 파일을 보냄을 명시한다.
 		    arrayBuffer = this.result;
 			ws.send(arrayBuffer); //파일 소켓 전송
@@ -215,6 +215,7 @@
 					<th height="55" valign="middle"><button onclick="fileSend()" id="sendFileBtn">파일올리기</button></th>
 				</tr>
 			</table>
+			<center>( 파일사이트 8Kb 이하로 올려주세요 )</center>
 		</div>
 	</div>
 </body>
