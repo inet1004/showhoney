@@ -36,12 +36,13 @@ df
 <a href="CouponList.do">쿠폰리스트</a><br/>
 <a href="exhibitionList.do">박람회 목록</a><br/>
 <a href="ticketList.do">티켓리스트</a><br/>
-<a href="pay.do">결제하러가기</a>
-<a href="like.do">좋아요</a>
+<a href="pay.do">결제하러가기</a><br>
+<a href="like.do">좋아요</a><br>
 <a href="customerPaymentDetails.do">결제내역</a>
-
-<a href="companyUserInfo.do">기업고객정보보기</a>
-<a href="customerUserInfo.do">고객정보보기</a>
+<br>
+<a href="companyUserInfo.do">기업고객정보보기</a><br>
+<a href="customerUserInfo.do">고객정보보기</a><br>
+<a href="adminAsk.do">관리자 메일 보내기</a>
 </body>
 
 <br><p/>

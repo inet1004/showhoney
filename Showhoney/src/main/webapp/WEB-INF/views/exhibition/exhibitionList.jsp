@@ -35,9 +35,7 @@
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 <style>
-body {
-	font-size: 1.3rem;
-}
+
 </style>
 	<!-- ======= Portfolio Section ======= -->
    	<section id="portfolio" class="portfolio">

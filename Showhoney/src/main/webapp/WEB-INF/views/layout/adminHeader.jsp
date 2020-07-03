@@ -34,7 +34,7 @@ body, html {
       <a href="boothList.do" class="w3-bar-item w3-button"> 부스관리</a>
       <a href="https://192.168.0.109:9001/demos/dashboard/" target="_blank" class="w3-bar-item w3-button">발표회</a>
       <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓관리</a>
-      <a href="ask.do" class="w3-bar-item w3-button"> 문의사항</a>
+      <a href="adminAsk.do" class="w3-bar-item w3-button"> 문의사항</a>
       <a href="adminManage.do" class="w3-bar-item w3-button"> Admin</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
