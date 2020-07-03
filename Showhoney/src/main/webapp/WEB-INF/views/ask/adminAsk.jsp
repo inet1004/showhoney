@@ -24,7 +24,6 @@
 <div>
 <h1 align="center">문 의 내 역</h1><br>
 </div>
-<div class="container">
 <table class="table" >
   <tr>
       <th>문 의 번 호</th>
@@ -32,6 +31,7 @@
       <th>작 성 일 자</th>
       <th>닉 네 임</th>
       <th>이 메 일</th>
+      <th></th>
   </tr>
   <c:forEach var="ask" items="${alist }">
   <tr>
@@ -41,14 +41,15 @@
 	  <td>${ask.ask_date}</td>
 	  <td>${ask.ask_name }</td>
 	  <td>${ask.ask_email }</td>
+	  <td>
+	  	<button type="button" class="btn btn-primary" onclick="location.href='adminSendMail.do'">답장하러가기</button>
+	  </td>
   </tr>
   
   
     </c:forEach>
 </table>
-<div align="center">
-	<button type="button" class="btn btn-primary" onclick="location.href='AskWriteForm.do'">답장하러가기</button>
-</div><br><br>
+
 <div align="center">
 	<p><strong>항상 ShowHoney를 사랑해주셔서 감사합니다</strong></p>
 	<p><strong>문의 내역은 작성하신 E-mail로 발송됩니다</strong></p>
