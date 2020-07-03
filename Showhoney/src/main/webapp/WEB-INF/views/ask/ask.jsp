@@ -20,7 +20,13 @@
 </style>
 </head>
 <body>
-<br>
+
+<br><p/>
+<br><p/>
+<br><p/>
+<br><p/>
+
+
 <div>
 <h1 align="center">문 의 내 역</h1><br>
 </div>
