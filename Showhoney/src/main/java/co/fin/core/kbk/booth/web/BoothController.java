@@ -3,7 +3,9 @@ package co.fin.core.kbk.booth.web;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,8 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import co.fin.core.kbk.booth.vo.BoothService;
 import co.fin.core.kbk.booth.vo.BoothVo;
@@ -206,5 +212,19 @@ public class BoothController {
 		model.addAttribute("productlist", boothService.getSelectList(pvo));
 		model.addAttribute("list", list);
 		return "cus/booth/customerBoothSelect";
+	}
+	
+	@RequestMapping(value = "/videoCallUpdate.do")
+	@ResponseBody
+	public int videoCallUpdate(BoothVo bvo, Model model, ProductVo pvo,HttpServletRequest request) throws Exception {
+		int n = 0;
+		n = boothService.videoCallUpdate(bvo);
+		
+		List<BoothVo> list = boothService.bgetSelectBoothList(bvo);
+		
+		model.addAttribute("productlist", boothService.getSelectList(pvo));
+		model.addAttribute("list", list);
+		
+		return n;
 	}
 }

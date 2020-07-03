@@ -29,5 +29,7 @@ public interface BoothMapper {
 	void productInsert(ProductVo pvo) throws IOException;
 	void productUpdate(ProductVo pvo) throws IllegalStateException, IOException;
 	void productDelete(ProductVo pvo) throws IllegalStateException, IOException;
-
+	
+	//videocall
+	int videoCallUpdate(BoothVo bvo);
 }

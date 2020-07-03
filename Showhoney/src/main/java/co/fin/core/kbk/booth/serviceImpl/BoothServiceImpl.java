@@ -176,4 +176,10 @@ public class BoothServiceImpl implements BoothService {
 		
 	}
 
+	@Override
+	public int videoCallUpdate(BoothVo bvo) {
+		return dao.videoCallUpdate(bvo);
+		
+	}
+
 }
