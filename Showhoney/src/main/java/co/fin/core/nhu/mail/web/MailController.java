@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.fin.core.nhu.ask.vo.AskVo;
+
 @Controller
 public class MailController {
 
@@ -18,9 +20,9 @@ public class MailController {
 
 	// mailSending 코드
 	@RequestMapping(value = "mailSending.do")
-	public String mailSending(HttpServletRequest request) {
+	public ModelAndView mailSending(ModelAndView mav, HttpServletRequest request) {
 
-		String setfrom = "hyeonug3512@hanmail.net";
+		String setfrom = "yedamtest@gmail.com";
 		String tomail = request.getParameter("tomail"); // 받는 사람 이메일
 		String title = request.getParameter("title"); // 제목
 		String content = request.getParameter("content"); // 내용
@@ -39,8 +41,9 @@ public class MailController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
-		return "exhibitionList.do";
+		
+		mav.setViewName("redirect:exhibitionList.do");
+		return mav;
 	}
 	
 	@RequestMapping("/sendMail.do")

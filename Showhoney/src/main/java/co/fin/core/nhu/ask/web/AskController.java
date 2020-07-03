@@ -65,7 +65,8 @@ public class AskController {
 		
 	@RequestMapping("/adminSendMail.do")
 	
-	public ModelAndView adminSendMail(ModelAndView mav) {
+	public ModelAndView adminSendMail(AskVo vo, ModelAndView mav) {
+		mav.addObject("ask", askService.getSelect(vo));
 		mav.setViewName("adm/ask/adminMailSend");
 		return mav;
 	}
