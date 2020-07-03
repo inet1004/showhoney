@@ -122,7 +122,7 @@
 	<div class="play-list mt-5 pt-4">
 		<div align="center">
 			<label><i class="fas fa-shopping-cart fa-3x"></i></label>
-			<a onclick="${list[0].product_mall}">구매하러가기</a>
+			<a href="${list[0].product_mall}" target="_blank">구매하러가기</a>
 		</div>
 		<div class="w3-row-padding w3-padding-16 w3-center" id="food" style="margin-top:5%">
 			<c:forEach var="product" items="${productlist }" varStatus="i">
