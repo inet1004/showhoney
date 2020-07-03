@@ -38,11 +38,11 @@ df
 <a href="ticketList.do">티켓리스트</a><br/>
 <a href="pay.do">결제하러가기</a><br>
 <a href="like.do">좋아요</a><br>
-<a href="customerPaymentDetails.do">결제내역</a>
-<br>
+<a href="customerPaymentDetails.do">결제내역</a><br>
 <a href="companyUserInfo.do">기업고객정보보기</a><br>
 <a href="customerUserInfo.do">고객정보보기</a><br>
-<a href="adminAsk.do">관리자 메일 보내기</a>
+<a href="adminAsk.do">관리자 메일 보내기</a><br>
+<a href="ticketInsertForm.do">티켓등록</a>
 </body>
 
 <br><p/>
