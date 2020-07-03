@@ -42,7 +42,7 @@
 	  <td>${ask.ask_name }</td>
 	  <td>${ask.ask_email }</td>
 	  <td>
-	  	<button type="button" class="btn btn-primary" onclick="location.href='adminSendMail.do'">답장하러가기</button>
+	  	<button type="button" class="btn btn-primary" onclick="location.href='adminSendMail.do?ask_no=${ask.ask_no}'">답장하러가기</button>
 	  </td>
   </tr>
   

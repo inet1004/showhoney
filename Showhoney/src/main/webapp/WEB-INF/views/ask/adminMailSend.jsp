@@ -11,14 +11,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+	<style>
+		body{
+			margin-top:50px;
+		}
+	</style>
+
 </head>
 <body>
 	<h4 align="center">메일 보내기</h4>
     <form action="mailSending.do" method="post">
       <div>
-        <input type="text" name="tomail" size="120"
-        style="width: 100%" placeholder="상대의 이메일"
-        class="form-control">
+        <input type="text" name="tomail" size="120" style="width: 100%" value="${ask.ask_email }" class="form-control" readonly>
       </div>
       <div align="center">
         <!-- 제목 -->
@@ -30,7 +34,7 @@
           <div align="center">
           <!-- 내용 -->
             <textarea name="content" cols="120" rows="12"
-            style="width: 100%; resize: none" placeholder="내용#"
+            style="width: 100%; resize: none" placeholder="내용을 입력해주세요"
             class="form-control"></textarea>
           </div>
         <p>

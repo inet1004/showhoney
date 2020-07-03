@@ -36,7 +36,7 @@
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 <style>
 body {
-	font-size: 1.4rem;
+	font-size: 1.1rem;
 }
 </style>
 	<!-- ======= Portfolio Section ======= -->
