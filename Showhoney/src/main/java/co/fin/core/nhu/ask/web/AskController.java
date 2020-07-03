@@ -44,10 +44,29 @@ public class AskController {
 		return mav;
 	}
 	
+	
 	@RequestMapping("/InsertAskWrite.do")
 	public ModelAndView InsertAskWrite(AskVo vo, ModelAndView mav) {
 		askService.askInsert(vo);		
 		mav.setViewName("redirect:ask.do");
+		return mav;
+	}
+	
+	
+	@RequestMapping("/adminAsk.do")
+	
+	public ModelAndView adminAsk(ModelAndView mav) {
+		List<AskVo> alist = askService.getSelectAskList();
+		mav.addObject("alist", alist);
+		mav.setViewName("adm/ask/adminAsk");
+		return mav;
+	}	
+	
+		
+	@RequestMapping("/adminSendMail.do")
+	
+	public ModelAndView adminSendMail(ModelAndView mav) {
+		mav.setViewName("adm/ask/adminMailSend");
 		return mav;
 	}
 }

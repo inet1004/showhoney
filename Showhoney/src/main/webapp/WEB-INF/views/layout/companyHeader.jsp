@@ -18,6 +18,7 @@ body, html {
   padding: 16px;
 }
 </style>
+
 <script>
 function myFunction() {
   var x = document.getElementById("Demo");
@@ -40,9 +41,8 @@ function myFunction() {
       <a href="pboardList.do" class="w3-bar-item w3-button">발표회</a>
       <a href="/core/room" class="w3-bar-item w3-button">채팅상담</a>
       <a href="ask.do" class="w3-bar-item w3-button">문의사항</a>
-      <a href="" class="w3-bar-item w3-button" onclick="myFunction()">기업정보</a>
-		   
-		
+      <a href="companyUserInfo.do" class="w3-bar-item w3-button">기업정보</a>
+	
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
