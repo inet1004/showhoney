@@ -11,7 +11,6 @@
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
       <a href="pboardList.do" class="w3-bar-item w3-button">발표회</a>
       <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓구매하기</a>
-      <a href="/core/room" class="w3-bar-item w3-button"> 채팅문의</a>
       <a href="ask.do" class="w3-bar-item w3-button"> 문의하기</a>
         <a href="#" class="w3-bar-item w3-button" ><b>${customer_id}님!</b></a>
       <div class="w3-dropdown-hover">
@@ -39,7 +38,6 @@
   <a href="exhibitionList.do" onclick="w3_close()" class="w3-bar-item w3-button">박람회</a>
   <a href="pboardList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 발표회</a>
   <a href="ticketList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 티켓구매하기</a>
-  <a href="/core/room" onclick="w3_close()" class="w3-bar-item w3-button"> 채팅문의</a>
   <a href="ask.do" onclick="w3_close()" class="w3-bar-item w3-button"> 문의하기</a>
   <a href="customerUserInfo.do" onclick="w3_close()" class="w3-bar-item w3-button"> 내 정보수정</a>
   <a href="#" onclick="w3_close()" class="w3-bar-item w3-button"> 찜한부스</a>

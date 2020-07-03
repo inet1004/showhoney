@@ -31,7 +31,6 @@ function openNav() {
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
       <a href="boothList.do?company_no=${company_no }" class="w3-bar-item w3-button">MY부스</a>
       <a href="pboardList.do" class="w3-bar-item w3-button">발표회</a>
-      <a href="/core/room" class="w3-bar-item w3-button">채팅상담</a>
       <a href="ask.do" class="w3-bar-item w3-button">문의사항</a>
       <a href="#" class="w3-bar-item w3-button" ><b>${company_user_id}님!</b></a>
       <div class="w3-dropdown-hover">
@@ -59,7 +58,6 @@ function openNav() {
   <a href="exhibitionList.do" onclick="w3_close()" class="w3-bar-item w3-button">박람회</a>
   <a href="boothList.do" onclick="w3_close()" class="w3-bar-item w3-button">MY부스</a>
   <a href="pboardList.do" onclick="w3_close()" class="w3-bar-item w3-button">발표회</a>
-  <a href="/core/room" onclick="w3_close()" class="w3-bar-item w3-button">채팅상담</a>
   <a href="ask.do" onclick="w3_close()" class="w3-bar-item w3-button">문의사항</a>
   <a href="companyUserInfo.do" onclick="w3_close()" class="w3-bar-item w3-button">기업정보수정</a>
   <a href="logout.do" onclick="w3_close()" class="w3-bar-item w3-button">로그아웃</a>
