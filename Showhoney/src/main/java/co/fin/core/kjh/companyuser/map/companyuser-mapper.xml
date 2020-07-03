@@ -19,7 +19,7 @@
 	
 <!-- 수정필요 -->
 	<select id="companyUserSelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
-		SELECT c.company_no, c.company_name, c.company_phone, c.company_addr, c.company_email, c.ceo_name, c.ceo_phone, u.company_user_id, c.business_license_number, u.company_user_pw, u.company_profile FROM company c, company_user u WHERE c.company_no = u.company_no and u.company_user_id = 'coco'
+		SELECT c.company_no, c.company_name, c.company_phone, c.company_addr, c.company_email, c.ceo_name, c.ceo_phone, u.company_user_id, c.business_license_number, u.company_user_pw, u.company_profile FROM company c, company_user u WHERE c.company_no = u.company_no and u.company_user_id = #{company_user_id}
 	</select>
 	
 	<select id="companySelect" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo" resultType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">

@@ -83,8 +83,8 @@ public class LoginController {
 				//mav.addObject("msg","성공");
 			}
 		}else {
-			mav.setViewName("cus/login/login");
-			//mav.addObject("msg","실패");
+			mav.setViewName("redirect:/snslogin.do");
+			mav.addObject("msg","실패");
 		}
 		
 		return mav;
@@ -103,8 +103,8 @@ public class LoginController {
 			mav.setViewName("com/login/loginCom");
 			//mav.addObject("msgCom","성공");
 		}else {
-			mav.setViewName("com/login/loginCom");
-			//mav.addObject("msgCom","실패");
+			mav.setViewName("redirect:/loginCom.do");
+			mav.addObject("msgCom","실패");
 		}
 		
 		return mav;

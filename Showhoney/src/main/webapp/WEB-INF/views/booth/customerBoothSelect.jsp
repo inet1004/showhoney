@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<div class="container-fluid video-player">
+
 
 <!DOCTYPE html>
 <html>
@@ -35,7 +35,22 @@ body, html {
   padding: 16px;
 }
 </style>
+
+<script type="text/javascript">
+
+	function practice(){
+		alert('상담원이 준비중입니다.');
+	}
+	
+	function chatSangdam(){
+		window.open('room?booth_no=${param.booth_no }', 'newWindow', 'width=800, height=900');
+		//location.href="/core/room?booth_no=" + ${list[0].booth_no };  // 채팅방에 부스번호 넘김
+	}
+</script>
+	
+</head>
 <body>
+<div class="container-fluid video-player">
 	<div class="container">
 		<div style="margin-top: 5%">
 			<div class="screen embed-responsive embed-responsive-16by9">
@@ -73,7 +88,7 @@ body, html {
 							상담원대기중
 						</c:when>
 						<c:otherwise>
-							<button class="w3-btn w3-link w3-xlarge" onclick="">1:1 영상상담</button>
+							<button class="w3-btn w3-link w3-xlarge" onclick="practice();">1:1 영상상담</button>
 							상담원준비중
 						</c:otherwise>
 						</c:choose>
@@ -83,11 +98,11 @@ body, html {
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->
 						<label><i class="fas fa-comments fa-3x"></i></label>
-						<button class="w3-btn w3-link w3-xlarge">채팅상담</button>
+						<button class="w3-btn w3-link w3-xlarge" id="chatSangdam" onclick="chatSangdam();">채팅상담</button>
 					</div>
 					<!-- 브로슈어 -->
 					<label><i class="fas fa-cloud-download-alt fa-3x"></i></label>
-					<button class="w3-btn w3-link w3-xlarge">브로슈어 download</button>
+					<button class="w3-btn w3-link w3-xlarge" onclick="location.href='download.do?booth_no=${list[0].booth_no }'">브로슈어 download</button>
 				</div>
 			</div>
 		</div>
@@ -101,13 +116,13 @@ body, html {
 	<div class="play-list mt-5 pt-4">
 		<div align="center">
 			<label><i class="fas fa-shopping-cart fa-3x"></i></label>
-			<a href="${list[0].product_mall}">구매하러가기</a>
+			<a onclick="${list[0].product_mall}">구매하러가기</a>
 		</div>
-		<div class="w3-row-padding w3-padding-16 w3-center" id="food">
+		<div class="w3-row-padding w3-padding-16 w3-center" id="food" style="margin-top:5%">
 			<c:forEach var="product" items="${productlist }" varStatus="i">
-				<div class="w3-quarter">
+				<div class="w3-quarter" style="margin-left:5%">
 					<img src="<spring:url value='/resources/FileUpload/product/${product.product_image_path }'/>"
-						alt="상품" style="width: 100%">
+						alt="상품" style="width:100%;">
 					<h3>${product.product_name}</h3>
 					<p>${product.product_desc}</p>
 				</div>

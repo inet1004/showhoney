@@ -25,9 +25,12 @@ $(".remove_btn").click(function(){
 		<div class="container-fluid video-player">
 			<div class="container">
 				<div style="margin-top: 10%">
-					<input type="hidden" name="booth_no" id="booth_no"
-						value="${list[0].booth_no }"> <label for="video">
+					<input type="hidden" name="booth_no" id="booth_no" value="${list[0].booth_no }">
+					<label for="video">
 						홍보영상 주소를 입력해 주세요 </label>
+					<p class="w3-dropdown-hover">※ 필 독 ※
+    					<span class="w3-dropdown-content w3-padding"><img src="img/info/promotionInfo.jpg" style="width:500%; height:500%;"></span>
+  					</p>
 					<textarea class="w3-input w3-border w3-animate-input" rows="5"
 						cols="50" id="video_path" name="video_path">${list[0].video_path }</textarea>
 				</div>
@@ -36,9 +39,9 @@ $(".remove_btn").click(function(){
 					<div class="col-md-8 mb-4">
 						<div class="row">
 							<div class="col-md-12 col-lg-6 light-bg pr-0 pd-md">
-								<label for="company_logo">Logo사진 첨부</label> <input
-									class="w3-input w3-border w3-round-large" id="booth_profile"
-									name="booth_uploadfile" type="file"> <span>${list[0].booth_profile }</span>
+								<label for="company_logo">Logo사진 첨부</label> 
+								<input class="w3-input w3-border w3-round-large" id="booth_profile"
+									name="booth_uploadfile" type="file"> <span> 현재 파일 : ${list[0].booth_profile }</span>
 							</div>
 							<div class="col-md-12 col-lg-6 light-bg ">
 								<label for="comment">부스를 소개해주세요</label>
@@ -57,16 +60,10 @@ $(".remove_btn").click(function(){
 							<p><label>1:1 영상상담 주소 입력란</label>&nbsp;&nbsp;<button type="button" class="btn btn-primary add_btn" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html')">방만들기</button>
 						  <textarea class="w3-input w3-border" name="video_call_path" id="video_call_path" rows="5" cols="50" placeholder="사용하지 않으실 때에는  비워두세요.">${list[0].video_call_path }</textarea></p>
 							<p>
-								<label>고객상담 전화번호 입력란</label> <input class="w3-input w3-border"
-									name="company_tel" id="company_tel" type="text"
-									value="${list[0].company_tel }">
-							</p>
-
-							<p>
 								<label>브로슈어 파일 업로드</label> <input class="w3-input w3-border"
 									name="brochure_uploadfile" id="brochure_path" type="file">
 							</p>
-							<span>${list[0].brochure_path }</span>
+							<span> 현재 브로슈어 : ${list[0].brochure_path }</span>
 						</div>
 					</div>
 					<div class="container">
@@ -87,20 +84,13 @@ $(".remove_btn").click(function(){
 
 
 	<!-- 상품 -->
-
-				<h2 class="text-uppercase text-center">PRODUCT</h2>
-				<hr class="mx-auto" />
+	<h2 class="text-uppercase text-center">PRODUCT</h2>
+	<hr class="mx-auto" />
 	<c:forEach var="product" items="${productlist }" varStatus="i">
-		<form id="productfrm" name="productfrm" action="productUpdate.do"
-			method="post" enctype="multipart/form-data">
-			<div class="container-fluid fh5co-recent-news mt-5 pb-5"
-				style="margin-top: 10%">
+		<form id="productfrm" name="productfrm" action="productUpdate.do" method="post" enctype="multipart/form-data">
+			<div class="container-fluid fh5co-recent-news mt-5 pb-5" style="margin-top: 10%">
 				<div class="play-list mt-5 pt-4">
 					<div class="container" id="productlist">
-						<div style="margin-top: 5%;">
-							<button type="button" class="w3-button w3-lime w3-round-large"
-								onclick="location.href='productdelete.do?booth_no=${list[0].booth_no }'">추가</button>
-						</div>
 						<table class="w3-table" style="text-align: center;">
 							<thead>
 								<tr>
@@ -118,18 +108,12 @@ $(".remove_btn").click(function(){
 									<td><input class="w3-input" name="product_desc"
 										id="product_desc" type="text" value="${product.product_desc }"></td>
 									<td><input class="w3-input" name="product_uploadfile"
-										id="product_image_path" type="file"> <label>현재
-											파일 : </label><span>${product.product_image_path }</span></td>
-									<td><button
-											class="w3-button w3-light-blue w3-round-xlarge" type="submit">수
-											정</button></td>
-									<td><button
-											class="w3-button w3-pale-red w3-round-xlarge remove_btn"
-											type="button">삭 제</button></td>
-									<td colspan="2"><input type="hidden" name="product_no"
-										id="product_no" value="${product.product_no }"> <input
-										type="hidden" name="booth_no" id="booth_no"
-										value="${list[0].booth_no }"></td>
+										id="product_image_path" type="file"> 
+										<label>현재 파일 : </label><span>${product.product_image_path }</span></td>
+									<td><button class="w3-button w3-light-blue w3-round-xlarge" type="submit">수 정</button></td>
+									<td><button class="w3-button w3-pale-red w3-round-xlarge remove_btn" type="button">삭 제</button></td>
+									<td colspan="2"><input type="hidden" name="product_no" id="product_no" value="${product.product_no }"> 
+									<input type="hidden" name="booth_no" id="booth_no" value="${list[0].booth_no }"></td>
 								</tr>
 
 							</tbody>
@@ -139,6 +123,34 @@ $(".remove_btn").click(function(){
 			</div>
 		</form>
 	</c:forEach>
+	<hr>
+	<div style="margin-top: 15%;">
+		<h2>ADD PRODUCT</h2>
+	</div>
+	<form action="productInsert.do" method="post" id="addproduct" name="addproduct" enctype="multipart/form-data">
+	<div class="container" id="productlist">
+						<table class="w3-table" style="text-align: center;">
+							<thead>
+								<tr>
+									<th style="background-color: #fafafa; text-align: center;">상품이름</th>
+									<th style="background-color: #fafafa; text-align: center;">상품소개</th>
+									<th style="background-color: #fafafa; text-align: center;">상품이미지</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr>
+									<td><input class="w3-input" type="text" name="product_name" id="product_name" type="text" placeholder="상품이름을 입력하세요"></td>
+									<td><input class="w3-input" name="product_desc" id="product_desc" type="text" placeholder="상품소개를 입력하세요"></td>
+									<td><input class="w3-input" name="product_uploadfile" id="product_image_path" type="file"></td>
+									<td><button class="w3-button w3-light-blue w3-round-xlarge" type="submit">등 록</button></td>
+									<td><input type="hidden" name="booth_no" id="booth_no" value="${list[0].booth_no }"></td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</form>
 	<button class="w3-button w3-green w3-round-xlarge" type="button"
 		onclick="location.href='boothSelect.do?booth_no=${list[0].booth_no }'">부스보기</button>
 	<button class="w3-button w3-red w3-round-xlarge" type="button" id="remove_booth" onclick="location.href='boothdelete.do?booth_no=${list[0].booth_no }'">

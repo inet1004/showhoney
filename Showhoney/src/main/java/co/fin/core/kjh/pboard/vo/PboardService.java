@@ -11,6 +11,7 @@ public interface PboardService {
 	
 	List<PboardVo> getSelectBooth(PboardVo vo);
 	PboardVo getSelectCompany(PboardVo vo);
+	int pboardTicketCheck(PboardVo vo);
 	
 
 }

@@ -51,4 +51,9 @@ public class PboardServiceImpl implements PboardService {
 		return dao.getSelectCompany(vo);
 	}
 
+	@Override
+	public int pboardTicketCheck(PboardVo vo) {
+		return dao.pboardTicketCheck(vo);
+	}
+
 }

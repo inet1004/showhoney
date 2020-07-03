@@ -61,6 +61,7 @@
     	}
     		
     </script>
+    
   </head>
   
  <body>
@@ -72,29 +73,59 @@
             <!-- <span class="subheading">부스</span> -->
             <h2>${list[0].exhibition_name } 부스 </h2>
             <div>
+            <c:if test="${not empty sessionScope.customer_id}">
             <button id="btn" name="btn" class="btn btn-primary" onclick="location.href='customerLikeBoothList.do?exhibition_no=${list[0].exhibition_no}'">찜한 목록</button>
+            </c:if>
             </div>
           </div>
         </div>
-        
         <div class="row">
 			<c:forEach var="booth" items="${list }">
 			<input type="hidden" name="exhibition_no" id="exhibition_no" value="${booth.exhibition_no }">
 	          <div class="col-md-4 ftco-animate">
 	            <div class="blog-entry">
-	              <a href="customerBoothSelect.do?booth_no=${booth.booth_no }" class="block-20" style="background-image: url('resources/FileUpload/boothProfile/${booth.booth_profile}');">
-	              </a>
+	      			<c:choose>
+						<c:when test="${sessionScope.company_no==booth.company_no}">
+			            	<a href="boothSelect.do?booth_no=${booth.booth_no }" class="block-20" style="background-image: url('resources/FileUpload/boothProfile/${booth.booth_profile}');"></a>
+			            </c:when>
+			            <c:otherwise>
+			            	<a href="customerBoothSelect.do?booth_no=${booth.booth_no }" class="block-20" style="background-image: url('resources/FileUpload/boothProfile/${booth.booth_profile}');"></a>
+			            </c:otherwise>
+		           </c:choose> 
 	              <div class="text p-4 d-block">
 	                <div class="meta mb-3">
-	                  <div><a href="customerBoothSelect.do?booth_no=${booth.booth_no }">${booth.company_name }</a></div>&nbsp;
+	                	<c:choose>
+							<c:when test="${sessionScope.company_no==booth.company_no}">
+			            	 	<div><a href="boothSelect.do?booth_no=${booth.booth_no }">${booth.company_name }</a></div>&nbsp;
+			            	</c:when>
+			            <c:otherwise>
+			            	 <div><a href="customerBoothSelect.do?booth_no=${booth.booth_no }">${booth.company_name }</a></div>&nbsp;
+			            </c:otherwise>
+		           		</c:choose>
+	        
+	                <%--   <div><a href="customerBoothSelect.do?booth_no=${booth.booth_no }">${booth.company_name }</a></div>&nbsp; --%>
 	                  <%-- <div><span><i class="far fa-heart" id="${booth.booth_no }" name="${booth.booth_no }" onclick="likeBooth(${booth.booth_no})"></i></span></div> --%>
-	                  <div><a href="javascript:void(0)" onclick="likeBooth(${booth.booth_no})" id="${booth.booth_no}"><i class="far fa-heart"></i></a></div>
+	                  <c:if test="${not empty sessionScope.customer_id}">
+	                  	<div><a href="javascript:void(0)" onclick="likeBooth(${booth.booth_no})" id="${booth.booth_no}"><i class="far fa-heart"></i></a></div>
+	                  </c:if>
+	                  <c:if test="${not empty sessionScope.company_user_id}">
+	                  	<c:if test="${sessionScope.company_no==booth.company_no }">
+	                  		<div><a href="boothSelect.do?booth_no=${booth.booth_no }"><i class="fas fa-home"></i></a></div>
+	                  	</c:if>
+	                  </c:if>
 	                </div>
-	                <h3 class="heading"><a href="customerBoothSelect.do?booth_no=${booth.booth_no }">${booth.booth_introduction }</a></h3>
-	              </div>
-	            </div>
+	                <c:choose>
+						<c:when test="${sessionScope.company_no==booth.company_no}">
+			            	 <h3 class="heading"><a href="boothSelect.do?booth_no=${booth.booth_no }">${booth.booth_introduction }</a></h3>
+			            </c:when>
+			            <c:otherwise>
+			            	 <h3 class="heading"><a href="customerBoothSelect.do?booth_no=${booth.booth_no }">${booth.booth_introduction }</a></h3>
+			            </c:otherwise>
+		           </c:choose>
+				</div>
 	          </div>
-			</c:forEach>
+	        </div>
+		</c:forEach>
         
           
           <!--원래 2번째부스자리 정보 <div class="col-md-4 ftco-animate">

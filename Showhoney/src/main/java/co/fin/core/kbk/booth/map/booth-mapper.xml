@@ -3,7 +3,16 @@
 <mapper namespace="co.fin.core.kbk.booth.serviceImpl.BoothMapper">
 	
 	<select id="bgetSelectBoothList" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
-		SELECT booth_no, brochure_path, video_path, video_call_path, booth_introduction, company_no, exhibition_no, company_tel, booth_profile, product_mall FROM BOOTH
+		 SELECT booth_no, 
+		 		brochure_path, 
+		 		video_path, 
+		 		video_call_path, 
+		 		booth_introduction, 
+		 		company_no, 
+		 		exhibition_no, 
+		 		booth_profile, 
+		 		product_mall 
+		 FROM BOOTH
 		<where>
 		<if test = "company_no != null and company_no != ''">
 			AND company_no = #{company_no}
@@ -13,6 +22,10 @@
 		</if>
 		</where>
 	</select>
+	
+<!-- 	SELECT b.*, (SELECT exhibition_name FROM exhibition e where e.exhibition_no = b.exhibition_no ) exhibition_name  FROM booth b WHERE company_no = #{company_no} -->
+	
+	
 	
 	<select id="getSelectCompanyNo" parameterType="co.fin.core.kbk.booth.vo.BoothVo" resultType="co.fin.core.kbk.booth.vo.BoothVo">
 		select company_no from company_user where company_user_id = #{company_user_id}
@@ -31,7 +44,7 @@
 		<selectKey resultType="int" keyProperty="booth_no" order="BEFORE">
 			SELECT SEQ_BOOTH_NO.nextval FROM dual
 		</selectKey>
-			INSERT INTO BOOTH(BOOTH_NO, BROCHURE_PATH, VIDEO_PATH, VIDEO_CALL_PATH, BOOTH_INTRODUCTION, COMPANY_NO, EXHIBITION_NO, BOOTH_PROFILE, COMPANY_TEL, PRODUCT_MALL) VALUES (#{booth_no}, #{brochure_path}, #{video_path}, #{video_call_path}, #{booth_introduction}, #{company_no}, #{exhibition_no}, #{booth_profile}, #{company_tel}, #{product_mall})
+			INSERT INTO BOOTH(BOOTH_NO, BROCHURE_PATH, VIDEO_PATH, VIDEO_CALL_PATH, BOOTH_INTRODUCTION, COMPANY_NO, EXHIBITION_NO, BOOTH_PROFILE, PRODUCT_MALL) VALUES (#{booth_no}, #{brochure_path}, #{video_path}, #{video_call_path}, #{booth_introduction}, #{company_no}, #{exhibition_no}, #{booth_profile}, #{product_mall})
 	</insert>
 	
 	<insert id="productInsert" parameterType="co.fin.core.kbk.booth.vo.ProductVo">
@@ -44,7 +57,7 @@
 	<update id="boothUpdate" parameterType="co.fin.core.kbk.booth.vo.BoothVo">
 		UPDATE BOOTH
 		<set>
-			video_path = #{video_path}, video_call_path = #{video_call_path}, booth_introduction = #{booth_introduction}, company_tel = #{company_tel}, product_mall = #{product_mall}
+			video_path = #{video_path}, video_call_path = #{video_call_path}, booth_introduction = #{booth_introduction}, product_mall = #{product_mall}
 			<if test = "brochure_path != null and brochure_path != ''">
 				,brochure_path = #{brochure_path}
 			</if>

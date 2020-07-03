@@ -77,10 +77,10 @@ public class CompanyUserController {
 	public String companyUserInfo(CompanyUserVo vo, Model model, HttpServletRequest request) {
 		
 		String company_user_id = (String) request.getSession().getAttribute("company_user_id");
-		int company_no = (int) request.getSession().getAttribute("company_no");
+		//int company_no = (int) request.getSession().getAttribute("company_no");
 		
 		vo.setCompany_user_id(company_user_id);
-		vo.setCompany_no(company_no);
+		//vo.setCompany_no(company_no);
 		
 		CompanyUserVo comuservo = companyUserService.companyUserSelect(vo);
 		model.addAttribute("vo", comuservo);

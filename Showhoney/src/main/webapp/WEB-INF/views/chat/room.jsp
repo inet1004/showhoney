@@ -7,6 +7,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <meta charset="UTF-8">
 	<title>Room</title>
 	<style>
@@ -108,6 +109,7 @@
 		//location.href="/core/moveChating?roomName="+name+"&"+"roomNumber="+number;  // /moveChating
 		// "" 안에 모두 넣어 주어야 함, + 사용시 받는 쪽에서 변수로 봄
 		location.href="/core/moveChating?booth_no="+${param.booth_no}+"&"+"roomName="+name+"&"+"roomNumber="+number;  // /moveChating
+		//location.href="/core/moveChating?booth_no=${param.booth_no}&roomName=name&roomNumber=number";  // /moveChating
 	}
 
 	function createChatingRoom(res, a){
@@ -119,14 +121,24 @@
 				res.forEach(function(d, idx){
 					var rn = d.roomName.trim();
 					var roomNumber = d.roomNumber;
+					var status = d.status;
 					var b_no = ${param.booth_no};
-					if( b_no == d.booth_no) {
-						tag += "<tr>"+
-									"<td class='num'>"+(idx+1)+"</td>"+
-									"<td class='room'>"+ rn +"</td>"+
-									"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
-								"</tr>";	
-					}		
+						if(b_no == d.booth_no) {
+							if(status == "yes") {
+								tag += "<tr>"+
+											"<td class='num'>"+(idx+1)+"</td>"+
+											"<td class='room'>"+ rn +"</td>"+
+											"<td class='go'><button type='button' class='btn btn-primary' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+										"</tr>";	
+							}else {
+								tag += "<tr>"+
+								"<td class='num'>"+(idx+1)+"</td>"+
+								"<td class='room'>"+ rn +"</td>"+
+								"<td class='go'><button type='button' class='btn btn-dark' >불가</button></td>" +
+							"</tr>";									
+							}
+						}		
+					
 				}); 
 				$("#roomList").empty().append(tag);
 			}
@@ -136,12 +148,19 @@
 				res.forEach(function(d, idx){
 					var rn = d.roomName.trim();
 					var roomNumber = d.roomNumber;
-					tag += "<tr class='" + ${param.booth_no} +"'>"+
-								"<td class='num'>"+(idx+1)+"</td>"+
-								"<td class='room'>"+ rn +"</td>"+
-								"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
-							"</tr>";	
-				});
+					var status = d.status;
+					var b_no = ${param.booth_no};
+						if(b_no == d.booth_no) {
+							if(status == "yes") {
+								tag += "<tr class='" + ${param.booth_no} +"'>"+
+											"<td class='num'>"+(idx+1)+"</td>"+
+											"<td class='room'>"+ rn +"</td>"+
+											"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+										"</tr>";									
+							}
+						}		
+					
+				}); 
 				$("#roomList").empty().append(tag);
 			}
 		}

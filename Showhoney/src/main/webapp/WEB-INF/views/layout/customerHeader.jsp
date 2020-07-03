@@ -5,7 +5,7 @@
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="/core" class="w3-bar-item w3-button w3-wide">SHOWHONEY</a>
+    <a href="exhibitionList.do" class="w3-bar-item w3-button w3-wide">SHOWHONEY</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="exhibitionList.do" class="w3-bar-item w3-button">박람회</a>
@@ -13,7 +13,7 @@
       <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓구매하기</a>
       <a href="/core/room" class="w3-bar-item w3-button"> 채팅문의</a>
       <a href="ask.do" class="w3-bar-item w3-button"> 문의하기</a>
-      <a href="myPage.do" class="w3-bar-item w3-button"> 내정보</a>
+      <a href="customerUserInfo.do" class="w3-bar-item w3-button"> 내정보</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 

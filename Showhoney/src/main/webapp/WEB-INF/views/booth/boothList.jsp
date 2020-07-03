@@ -36,10 +36,21 @@
 <section class="ftco-section ftco-degree-bg">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
+        <c:choose>
+        <c:when test="${companyAuth = 'y' }">
           <div class="col-md-7 text-center heading-section ftco-animate">
             <!-- <span class="subheading">부스</span> -->
             <h2>부스 목록</h2>
+              <button type="button" class="btn btn-warning btn-lg btn-block" style="width: 20%; margin: auto;" onclick="location.href='boothForm.do'">부스 만들기</button>
           </div>
+          </c:when>
+          <c:otherwise>
+          <div>
+		<h2><strong>관리자 승인 후 부스생성이 가능합니다 :)</strong></h2>
+		<br/><br/>
+		</div>
+		</c:otherwise>
+		</c:choose>
         </div>
         
         <div class="row">
