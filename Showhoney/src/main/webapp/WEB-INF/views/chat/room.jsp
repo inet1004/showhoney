@@ -201,7 +201,7 @@
 				<h5>로그인이 필요한 서비스입니다.</h5>
 			</c:otherwise>
 		</c:choose>
-
+		
 		<div id="roomContainer" class="roomContainer">
 			<table id="roomList" class="roomList"></table>
 		</div>
@@ -224,6 +224,13 @@
 		</c:choose>
 			
 			</table>
+			
+		<br><p/>
+		<center>			
+		<a href="javascript:window.location.reload(true);">페이지 다시 읽기</a>
+		<input type="button" value="Click" onclick="location.reload()" />
+		</center>
+			
 		</div>
 	</div>
 </body>
