@@ -106,7 +106,7 @@
 				}
 			}else{
 				var url = URL.createObjectURL(new Blob([msg]));
-				alert("파일 업로드한 경우 업로드한 파일을 채팅방에 뿌려준다." + url);
+				//alert("파일 업로드한 경우 업로드한 파일을 채팅방에 뿌려준다." + url);
 				$("#chating").append("<div class='img'><img class='msgImg' src="+url+"></div><div class='clearBoth'></div>");
 			}
 		}
@@ -157,7 +157,7 @@
 				msg : $("#chatting").val(),  //원본
 				userName : $("#userName").val()
 			}
-			alert(JSON.stringify(param));
+			//alert(JSON.stringify(param));
 			ws.send(JSON.stringify(param)); //파일 보내기전 메시지를 보내서 파일을 보냄을 명시한다.
 		    arrayBuffer = this.result;
 			ws.send(arrayBuffer); //파일 소켓 전송
@@ -176,18 +176,14 @@
 		<c:choose>
 			<c:when test="${not empty sessionScope.customer_id}">
 				<h5>고객회원: [ ${sessionScope.customer_id} ]님 환영합니다.</h5>
-				<a href="logout.do">&nbsp;&nbsp;*로그아웃 하기 &nbsp;&nbsp;</a>
 				<button type="button" onclick="leaveChating()" id="leaveChating">채팅방 나가기</button>
 			</c:when>
 			<c:when test="${not empty sessionScope.company_user_id}">
 				<h5>기업회원: [ ${sessionScope.company_user_id} ]님 환영합니다.</h5>
-				<a href="logout.do">&nbsp;&nbsp;*로그아웃 하기 &nbsp;&nbsp;</a>
 				<a href="room?booth_no=${param.booth_no }">&nbsp;&nbsp;*채팅방 나가기 &nbsp;&nbsp;</a>
 			</c:when>
 			<c:otherwise>
 				<h5>로그인이 필요한 서비스입니다.</h5>
-				<a href="snslogin.do">&nbsp;&nbsp;*고객 로그인 &nbsp;&nbsp;</a>
-				<a href="loginCom.do">&nbsp;&nbsp;*기업로그인 </a>
 			</c:otherwise>
 		</c:choose>
 
@@ -219,6 +215,7 @@
 					<th height="55" valign="middle"><button onclick="fileSend()" id="sendFileBtn">파일올리기</button></th>
 				</tr>
 			</table>
+			<center>( 파일사이트 8Kb 이하로 올려주세요 )</center>
 		</div>
 	</div>
 </body>
