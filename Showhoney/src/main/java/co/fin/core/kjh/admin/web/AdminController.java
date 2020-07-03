@@ -53,14 +53,14 @@ public class AdminController {
 	@RequestMapping("/adminUpdate.do")
 	public ModelAndView adminUpdate(AdminVo vo, ModelAndView mav) {
 		adminService.adminUpdate(vo);
-		mav.setViewName("/main/main");
+		mav.setViewName("redirect:adminManage.do");
 		return mav;
 	}
 	
 	@RequestMapping("/adminDelete.do")
 	public ModelAndView adminDelete(AdminVo vo, ModelAndView mav) {
 		adminService.adminDelete(vo);
-		mav.setViewName("/main/main");
+		mav.setViewName("redirect:adminManage.do");
 		return mav;
 	}
 	
