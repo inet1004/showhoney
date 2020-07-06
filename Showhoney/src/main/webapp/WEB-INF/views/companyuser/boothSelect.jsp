@@ -84,14 +84,14 @@
 					<div>
 						<!-- 영상 <a href="${list[0].video_call_path }"> -->
 						<div>
-						<label><i class="fas fa-video fa-3x"></i></label>
+						<label><i class="fas fa-video fa-2x"></i></label>
 						<button class="w3-btn w3-link w3-xlarge" id="btn" name="btn" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html#${list[0].video_call_path }')">1:1 영상상담</button>
-						<button class="w3-btn w3-link w3-medium" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html')">방만들기</button>						
+						<button class="w3-btn w3-link w3-small" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html')">방만들기</button>						
 						<!-- <span onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html')"><i class="fas fa-sign-in-alt"></i></span> -->
 						</div>
 						<div>
-						<label><i class="fas fa-map-marker-alt fa-3x"></i>&nbsp;&nbsp;방이름</label>
-							<input type="text" value="${list[0].video_call_path }" name="video_call_path" id="video_call_path" onkeyup="enterkey();" placeholder="미사용시 비워주세요">
+						<label><i class="fas fa-map-marker-alt fa-2x"></i>&nbsp;&nbsp;방이름</label>
+							<input type="text" value="${list[0].video_call_path }" name="video_call_path" id="video_call_path" onkeyup="enterkey();" placeholder="미사용시 비워주세요" size="15">
 							<input type="hidden" value="${list[0].booth_no }" name="booth_no" id="booth_no">
 							<i class="fas fa-pencil-alt" onclick="videoCallUpdate(${list[0].booth_no})"></i>
 						</div>
@@ -102,11 +102,11 @@
 					</div>
 					<div>
 						<!-- 전화 onclick="${list[0].company_tel }"-->
-						<label><i class="fas fa-comments fa-3x"></i></label>
+						<label><i class="fas fa-comments fa-2x"></i></label>
 						<button class="w3-btn w3-link w3-xlarge" id="chatSangdam" onclick="chatSangdam();">채팅상담</button>
 					</div>
 					<!-- 브로슈어 -->
-					<label><i class="fas fa-cloud-download-alt fa-3x"></i></label>
+					<label><i class="fas fa-cloud-download-alt fa-2x"></i></label>
 					<button class="w3-btn w3-link w3-xlarge" onclick="location.href='download.do?booth_no=${list[0].booth_no }'">브로슈어 download</button>
 				
 				</div>
