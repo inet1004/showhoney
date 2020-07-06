@@ -8,20 +8,22 @@
 		 		video_path, 
 		 		video_call_path, 
 		 		booth_introduction, 
-		 		company_no, 
+		 		b.company_no, 
 		 		exhibition_no, 
 		 		booth_profile, 
-		 		product_mall, 
+		 		product_mall,
+		 		company_name, 
 		 		(SELECT exhibition_name FROM exhibition e where e.exhibition_no = b.exhibition_no ) exhibition_name
-		 FROM BOOTH b
-		<where>
+		 FROM BOOTH b, company c 
+		 where b.company_no = c.company_no
+		
 		<if test = "company_no != null and company_no != ''">
-			AND company_no = #{company_no}
+			AND b.company_no = #{company_no}
 		</if>
 		<if test = "booth_no != null and booth_no != ''">
 			AND booth_no = #{booth_no}
 		</if>
-		</where>
+		
 	</select>
 	
 <!-- 	SELECT b.*, (SELECT exhibition_name FROM exhibition e where e.exhibition_no = b.exhibition_no ) exhibition_name  FROM booth b WHERE company_no = #{company_no} -->

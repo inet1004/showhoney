@@ -34,6 +34,18 @@ body, html {
       <a href="pboardList.do" class="w3-bar-item w3-button">발표회</a>
       <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓관리</a>
       <a href="adminAsk.do" class="w3-bar-item w3-button"> 문의사항</a>
+         
+      <a href="#" class="w3-bar-item w3-button" ><b>${customer_id}님!</b></a>
+         
+            <div class="w3-dropdown-hover">
+      <a class="w3-bar-item w3-button" style="padding-right: 100px;"><i class="fas fa-cog"></i></a>     
+	    
+	    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+	      <a href="customerUserInfo.do" class="w3-bar-item w3-button">내 정보수정</a>
+	      <a href="logout.do" class="w3-bar-item w3-button"> LOGOUT </a>
+	    </div>
+	    
+	  </div>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 

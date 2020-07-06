@@ -64,7 +64,12 @@ public class CustomerController {
 		CustomerVo cvo = customerService.getSelect(vo);
 		model.addAttribute("vo", cvo);
 		
-		return "cus/customer/customerUserInfo";
+		if(customer_id.equals("admin")){
+			return "adm/customer/customerUserInfo";
+		}else{
+			
+			return "cus/customer/customerUserInfo";
+		}
 	}
 	
 	@RequestMapping("/customerUpdate.do")

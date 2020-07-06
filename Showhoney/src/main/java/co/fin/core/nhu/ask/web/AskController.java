@@ -28,7 +28,15 @@ public class AskController {
 	public ModelAndView askList(ModelAndView mav, HttpServletRequest request) {
 		String customerid = (String) request.getSession().getAttribute("customer_id");
 		String companyuserid = (String) request.getSession().getAttribute("company_user_id");
-		if(companyuserid!= null) {
+		
+		
+		if(companyuserid == null && customerid == null) {
+			List<AskVo> alist = askService.getSelectAskList();
+			mav.addObject("alist", alist);
+			mav.setViewName("no/ask/ask");
+			return mav;	
+		}		
+		else if(companyuserid!= null) {
 			List<AskVo> alist = askService.getSelectAskList();
 			mav.addObject("alist", alist);
 			mav.setViewName("com/ask/ask");
@@ -85,9 +93,32 @@ public class AskController {
 	
 	@RequestMapping("/AskWriteForm.do")
 	
-	public ModelAndView AskWriteForm(ModelAndView mav) {
-		mav.setViewName("cus/ask/askWriteForm");
-		return mav;
+	public ModelAndView AskWriteForm(ModelAndView mav, HttpServletRequest request) {
+		
+		
+		
+			String customerid = (String) request.getSession().getAttribute("customer_id");
+			String companyuserid = (String) request.getSession().getAttribute("company_user_id");
+			
+			
+			if(companyuserid == null && customerid == null) {
+				mav.setViewName("no/ask/askWriteForm");
+				return mav;	
+			}		
+			else if(companyuserid!= null) {
+				mav.setViewName("com/ask/askWriteForm");
+				return mav;	
+			}else if(customerid!= null) {
+				if(customerid.equals("admin")) {
+					List<AskVo> alist = askService.getSelectAskList();
+					mav.addObject("alist", alist);
+					mav.setViewName("adm/ask/ask");
+					return mav;	
+				}
+				mav.setViewName("cus/ask/askWriteForm");
+				return mav;		
+			}
+			return mav;		
 	}
 	
 	

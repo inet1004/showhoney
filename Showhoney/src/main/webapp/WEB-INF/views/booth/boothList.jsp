@@ -46,7 +46,7 @@
 							<!-- <span class="subheading">부스</span> -->
 							<h2>부스 목록</h2>
 							<button type="button" class="btn btn-warning btn-lg btn-block"
-								style="width: 20%; margin: auto;"
+								 margin: auto;"
 								onclick="location.href='boothForm.do'">부스 만들기</button>
 						</div>
 					</c:when>
@@ -66,7 +66,7 @@
 				<c:forEach var="booth" items="${list }">
 					<div class="col-md-4 ftco-animate">
 						<div class="blog-entry">
-							<a href="#" class="block-20"
+							<a href="boothSelect.do?booth_no=${booth.booth_no }" class="block-20"
 								style="background-image: url('resources/FileUpload/boothProfile/${booth.booth_profile}');">
 							</a>
 							<div class="text p-4 d-block">

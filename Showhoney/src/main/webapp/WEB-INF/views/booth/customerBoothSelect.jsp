@@ -105,7 +105,7 @@ body, html {
 					<!-- 브로슈어 -->
 					<div>
 					<label><i class="fas fa-cloud-download-alt fa-2x"></i></label>
-					<button class="w3-btn w3-link w3-xlarge" onclick="location.href='download.do?booth_no=${list[0].booth_no }'">브로슈어 download</button>
+					<button class="w3-btn w3-link w3-xlarge" onclick="location.href='download.do?booth_no=${list[0].booth_no }'">브로슈어</button>
 					</div>
 				</div>
 			</div>
