@@ -76,7 +76,7 @@
 									</div>
 									&nbsp;
 									<div>
-										<a href="#"><i class="far fa-heart"></i></a>
+										<a href="#"><i class="far fa-heart"></i></a><div>${booth.exhibition_name }</div>
 									</div>
 								</div>
 								<h3 class="heading">

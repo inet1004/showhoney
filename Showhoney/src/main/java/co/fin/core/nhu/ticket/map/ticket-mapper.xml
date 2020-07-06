@@ -12,7 +12,11 @@ t.ticket_price FROM ticket t, exhibition e WHERE e.exhibition_no = t.exhibition_
 	</select>
 	
 	<insert id="ticketInsert" parameterType="co.fin.core.nhu.ticket.vo.TicketVo">
-		
+		<selectKey resultType="int" keyProperty="ticket_no" order="BEFORE">
+			SELECT SEQ_TICKET_NO.nextval FROM dual
+		</selectKey>
+		INSERT INTO TICKET
+		VALUES(#{ticket_no}, #{ticket_price}, #{ticket_status}, #{exhibition_no}, #{ticket_name})
 	</insert>
 	
 	<update id="ticketUpdate" parameterType="co.fin.core.nhu.ticket.vo.TicketVo">

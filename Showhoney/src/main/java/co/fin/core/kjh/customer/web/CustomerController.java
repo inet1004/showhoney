@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -80,6 +81,18 @@ public class CustomerController {
 		
 		customerService.customerPwUpdate(vo);
 		mav.setViewName("redirect:/customerUserInfo.do?customer_id="+vo.getCustomer_id());
+		return mav;
+		
+	}
+	
+	@RequestMapping("/customerDelete.do")
+	public ModelAndView customerDelete(CustomerVo vo, ModelAndView mav, HttpServletRequest request) {
+		
+		String customer_id = (String) request.getSession().getAttribute("customer_id");
+		vo.setCustomer_id(customer_id);
+		
+		customerService.customerDelete(vo, request);
+		mav.setViewName("no/main/info");
 		return mav;
 		
 	}

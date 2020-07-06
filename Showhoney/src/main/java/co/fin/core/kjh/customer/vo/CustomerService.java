@@ -11,7 +11,7 @@ public interface CustomerService {
 	CustomerVo customerSelect(CustomerVo vo);
 	void customerInsert(CustomerVo vo, HttpServletRequest request) throws IllegalStateException, IOException;
 	void customerUpdate(CustomerVo vo, HttpServletRequest request) throws IllegalStateException, IOException;
-	void customerDelete(CustomerVo vo);
 	void customerPwUpdate(CustomerVo vo);
+	void customerDelete(CustomerVo vo, HttpServletRequest request);
 
 }

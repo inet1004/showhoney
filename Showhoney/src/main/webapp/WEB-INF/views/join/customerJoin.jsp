@@ -62,7 +62,7 @@ a{
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="ask.do">문의사항</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="loginType.do">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="joinType.do">회원가입</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="loginType.do">회원가입</a></li>
                     </ul>
                 </div>
             </div>
