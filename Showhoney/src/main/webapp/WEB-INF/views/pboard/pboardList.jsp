@@ -64,7 +64,7 @@
 	<c:choose>
 		<c:when test="${not empty sessionScope.company_user_id }">
 			<button type="button" class="btn btn-primary" onclick="location.href='pboardInsertForm.do'">글쓰기</button>
-			<button type="button" class="btn btn-success" onclick="window.open('https://192.168.0.109:9001/demos/dashboard/')">발표회가기</button>
+			<button type="button" class="btn btn-success" onclick="window.open('https://39.116.34.40:9001/demos/dashboard/')">발표회가기</button>
 		</c:when>
 		<c:otherwise>
 			<%-- <c:when test="${not empty sessionScope.customer_id}">
@@ -76,13 +76,13 @@
 	</c:choose>
 	<c:choose>
 		<c:when test="${sessionScope.customer_id eq 'admin'}">
-			<button type="button" class="btn btn-success" onclick="window.open('https://192.168.0.109:9001/demos/dashboard/')">발표회가기</button>
+			<button type="button" class="btn btn-success" onclick="window.open('https://39.116.34.40:9001/demos/dashboard/')">발표회가기</button>
 		</c:when>
 		<c:when test="${not empty sessionScope.customer_id and check==0}">
 			<button type="button" class="btn btn-success" onclick="ticketCheck();">발표회가기</button>			
 		</c:when>
 		<c:when test="${not empty sessionScope.customer_id and check>0}">
-			<button type="button" class="btn btn-success" onclick="window.open('https://192.168.0.109:9001/demos/dashboard/')">발표회가기</button>
+			<button type="button" class="btn btn-success" onclick="window.open('https://39.116.34.40:9001/demos/dashboard/')">발표회가기</button>
 		</c:when>
 		<c:otherwise>
 		</c:otherwise>

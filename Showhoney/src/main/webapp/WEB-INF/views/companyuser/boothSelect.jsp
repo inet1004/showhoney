@@ -85,8 +85,8 @@
 						<!-- 영상 <a href="${list[0].video_call_path }"> -->
 						<div>
 						<label><i class="fas fa-video fa-2x"></i></label>
-						<button class="w3-btn w3-link w3-xlarge" id="btn" name="btn" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html#${list[0].video_call_path }')">1:1 영상상담</button>
-						<button class="w3-btn w3-link w3-small" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html')">방만들기</button>						
+						<button class="w3-btn w3-link w3-xlarge" id="btn" name="btn" onclick="window.open('https://39.116.34.40:9001/demos/one-to-one.html#${list[0].video_call_path }')">1:1 영상상담</button>
+						<button class="w3-btn w3-link w3-small" onclick="window.open('https://39.116.34.40:9001/demos/one-to-one.html')">방만들기</button>						
 						<!-- <span onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html')"><i class="fas fa-sign-in-alt"></i></span> -->
 						</div>
 						<div>

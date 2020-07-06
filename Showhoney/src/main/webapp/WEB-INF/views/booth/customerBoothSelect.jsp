@@ -84,7 +84,7 @@ body, html {
 						
 						<c:choose>
 						<c:when test="${not empty list[0].video_call_path}">
-							<button class="w3-btn w3-link w3-xlarge" onclick="window.open('https://192.168.0.109:9001/demos/one-to-one.html#${list[0].video_call_path }')">1:1 영상상담</button>
+							<button class="w3-btn w3-link w3-xlarge" onclick="window.open('https://39.116.34.40:9001/demos/one-to-one.html#${list[0].video_call_path }')">1:1 영상상담</button>
 							이용가능
 						</c:when>
 						
