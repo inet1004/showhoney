@@ -37,15 +37,15 @@
 			border: none;
 		}
 		.roomList th{
-			border: 1px solid #FFBB00;
+			border: 1px solid #005bf7; 
 			background-color: #fff;
-			color: #FFBB00;
+			color: #005bf7;
 		}
 		.roomList td{
-			border: 1px solid #FFBB00;
+			border: 1px solid #005bf7;
 			background-color: #fff;
 			text-align: left;
-			color: #FFBB00;
+			color: #005bf7;
 		}
 		.roomList .num{
 			width: 75px;  /* 75px */
@@ -117,7 +117,7 @@
 		//alert(a + "<== 1은 테이블 그냥 불러오는 경우, 2는 방만드는 경우");
 		if(a == 1){  
 			if(res != null){
-				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;방 이름</th><th class='go'>입장</th></tr>";
+				var tag = "<tr><th class='num'>순서</th><th class='room'>&nbsp;&nbsp;&nbsp;&nbsp;채팅방 이름</th><th class='go'>입장</th></tr>";
 				res.forEach(function(d, idx){
 					var rn = d.roomName.trim();
 					var roomNumber = d.roomNumber;
