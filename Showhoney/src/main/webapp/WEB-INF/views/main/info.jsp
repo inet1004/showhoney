@@ -69,8 +69,8 @@ a {
 					<c:when test="${not empty sessionScope.customer_id}">
 
 						<ul class="navbar-nav ml-auto my-2 my-lg-0">
-							<li class="nav-item"><a class="nav-link js-scroll-trigger"
-								href="doing.do">공사중</a></li>
+							<!--  <li class="nav-item"><a class="nav-link js-scroll-trigger"
+								href="doing.do">공사중</a></li>-->
 							<li class="nav-item"><a class="nav-link js-scroll-trigger"
 								href="ask.do">문의사항</a></li>
 							<li class="nav-item"><a class="nav-link js-scroll-trigger"
@@ -81,8 +81,8 @@ a {
 					<c:when test="${not empty sessionScope.company_user_id}">
 
 						<ul class="navbar-nav ml-auto my-2 my-lg-0">
-							<li class="nav-item"><a class="nav-link js-scroll-trigger"
-								href="doing.do">공사중</a></li>
+							<!--<li class="nav-item"><a class="nav-link js-scroll-trigger"
+								href="doing.do">공사중</a></li>-->
 							<li class="nav-item"><a class="nav-link js-scroll-trigger"
 								href="ask.do">문의사항</a></li>
 							<li class="nav-item"><a class="nav-link js-scroll-trigger"
@@ -93,8 +93,8 @@ a {
 					<c:otherwise>
 
 						<ul class="navbar-nav ml-auto my-2 my-lg-0">
-							<li class="nav-item"><a class="nav-link js-scroll-trigger"
-								href="doing.do">공사중</a></li>
+							<!-- <li class="nav-item"><a class="nav-link js-scroll-trigger"
+								href="doing.do">공사중</a></li> -->
 							<li class="nav-item"><a class="nav-link js-scroll-trigger"
 								href="ask.do">문의사항</a></li>
 							<li class="nav-item"><a class="nav-link js-scroll-trigger"
