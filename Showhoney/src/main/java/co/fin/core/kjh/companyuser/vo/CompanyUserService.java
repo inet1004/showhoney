@@ -14,9 +14,9 @@ public interface CompanyUserService {
 	void companyUserInsert3(CompanyUserVo vo);
 	void companyUserDelete(CompanyUserVo vo);
 	void companyUserUpdate(CompanyUserVo vo, HttpServletRequest request) throws IllegalStateException, IOException; //프로필 변경
-	void companyUserPwUpdate(CompanyUserVo vo);
 	void companyUpdate(CompanyUserVo vo);
 	CompanyUserVo companySelect(CompanyUserVo vo);
 	CompanyUserVo companyUserSelect(CompanyUserVo vo);
+	void companyUserPwUpdate(CompanyUserVo vo, HttpServletRequest request);
 
 }

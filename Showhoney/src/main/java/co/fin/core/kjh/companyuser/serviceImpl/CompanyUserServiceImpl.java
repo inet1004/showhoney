@@ -100,7 +100,7 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 	}
 
 	@Override
-	public void companyUserPwUpdate(CompanyUserVo vo) {
+	public void companyUserPwUpdate(CompanyUserVo vo, HttpServletRequest request) {
 		
 		vo.setCompany_user_pw(bCryptPasswordEncoder.encode(vo.getCompany_user_pw()));
 		dao.companyUserPwUpdate(vo);

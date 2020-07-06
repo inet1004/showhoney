@@ -43,8 +43,16 @@ html, body, h1, h2, h3, h4, h5 {
 	function pwcheck() {
 		var pwck = $("#customer_pw").val();
 		var pw = $("#customer_pwcheck").val();
+		var pwtype = /^[a-zA-Z0-9]{6,12}$/;
+		
+		
 
-		if (pw != '' && pwck == pw) {
+		if (pw == '' || !pwtype.test(pw)) {
+			$('#pwblurck').html("6~20자 영문자 또는 숫자 입력.");
+			$('#pwblurck').css("color", "red");
+			checkpw = false
+
+		}else if (pw != '' && pwck == pw) {
 			$('#pwblurck').html("비밀번호 일치");
 			$('#pwblurck').css("color", "green");
 			checkpw = true
@@ -61,6 +69,7 @@ html, body, h1, h2, h3, h4, h5 {
 			alert("조건을 정확히 입력해주세요");
 			return false;
 		} else {
+			alert("수정 완료!")
 			return true;
 		}
 	}
@@ -83,15 +92,30 @@ html, body, h1, h2, h3, h4, h5 {
 		}
 	}
 
-	function infocheck() {
-
-		if (checkval == false) {
-			alert("조건을 정확히 입력해주세요");
-			return false;
+	$(document).ready(function(){
+		  $("#submitval").click(function(){
+			  
+			  if (checkval == false) {
+					alert("조건을 정확히 입력해주세요");
+					return false;
+				} else {
+					alert("수정 완료!")
+					return true;
+				}
+		  });
+		});
+	
+	function bye() {
+		var result = confirm("정말로 탈퇴하시겠습니까?");
+		if(result) {
+			alert ("탈퇴 처리 되었습니다");
+			true;
 		} else {
-			return true;
+			false;
 		}
+		
 	}
+	
 </script>
 </head>
 <body class="w3-theme-l5">
@@ -115,8 +139,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<hr>
 						<p>ID : ${vo.customer_id }</p>
 						<p>이름 : ${vo.customer_name }</p>
-						<p>비밀번호 수정</p>
-						<p>my 부스</p>
+						<p><a href="customerDelete.do" onclick="bye()" id="bye"> 회원탈퇴하기 </a></p>
 					</div>
 				</div>
 				<br>
@@ -130,7 +153,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<form action="customerUpdate.do" method="post" id="infoModify"
 							name="infoModify"
 							class="w3-container w3-card-4 w3-light-grey w3-text-gray w3-margin"
-							enctype="multipart/form-data" onsubmit="return infocheck()">
+							enctype="multipart/form-data">
 							<h2 class="w3-center">내 정보</h2>
 							<div class="w3-row w3-section">
 								<div class="w3-col" style="width: 50px">
@@ -215,7 +238,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 							<p class="w3-center">
 								<button type="submit"
-									class="w3-button w3-section w3-blue w3-ripple">수정완료</button>
+									class="w3-button w3-section w3-blue w3-ripple" id="submitval">수정완료</button>
 								<button type="reset"
 									class="w3-button w3-section w3-blue w3-ripple">취소</button>
 							</p>
@@ -228,8 +251,7 @@ html, body, h1, h2, h3, h4, h5 {
 			<div class="w3-col m7" style="margin-left: 25%; margin-top: 5%">
 				<div class="w3-row-padding">
 					<div class="w3-col m12">
-						<form id="pwModify" name="pwModify" method="post" action="customerPwUpdate.do"
-							class="w3-container w3-card-4 w3-light-grey w3-text-gray w3-margin" onsubmit="return pwpw()">
+				<form id="pwModify" name="pwModify" method="post" action="customerPwUpdate.do" class="w3-container w3-card-4 w3-light-grey w3-text-gray w3-margin" onsubmit="return pwpw()">
 							<h2 class="w3-center">비밀번호 수정</h2>
 							<input class="w3-input w3-border" name="customer_id"
 								id="customer_id" type="hidden" value="${vo.customer_id }">
@@ -274,10 +296,6 @@ html, body, h1, h2, h3, h4, h5 {
 
 		<!-- End Page Container -->
 	</div>
-	<button type="button" onclick="location.href='exhibitionList.do'">박람회가기</button>
-	<br>
-
-
 
 </body>
 </html>

@@ -96,9 +96,9 @@ public class CompanyUserController {
 	}
 
 	@RequestMapping("/companyPwUpdate.do")
-	public ModelAndView companyPwUpdate(CompanyUserVo vo, ModelAndView mav) {
+	public ModelAndView companyPwUpdate(CompanyUserVo vo, ModelAndView mav, HttpServletRequest request) {
 		
-		companyUserService.companyUserPwUpdate(vo);
+		companyUserService.companyUserPwUpdate(vo, request);
 		mav.setViewName("redirect:/companyUserInfo.do?company_user_id="+vo.getCompany_user_id());
 		return mav;
 		

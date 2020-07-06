@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+ <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -16,7 +16,7 @@
       <div class="w3-dropdown-hover">
       <a class="w3-bar-item w3-button" style="padding-right: 100px;"><i class="fas fa-cog"></i></a>     
 	    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-	      <a href="companyUserInfo.do" class="w3-bar-item w3-button">내 정보수정</a>
+	      <a href="customerUserInfo.do" class="w3-bar-item w3-button">내 정보수정</a>
       <a href="ask.do" class="w3-bar-item w3-button"> 문의하기</a>
 	      <a href="logout.do" class="w3-bar-item w3-button"> LOGOUT </a>
 	    </div>

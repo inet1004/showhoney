@@ -71,7 +71,7 @@
                             <c:forEach var="companyuser" items="${companyuserlist }">
                             <h3>${companyuser.company_name }</h3>
                             </c:forEach>
-                            <h4> ${list[0].booth_introduction } </h4>
+                            <p> ${list[0].booth_introduction } </p>
                         </div>
 				</div>
 			</div>
@@ -126,7 +126,7 @@
 		</div>
 		<div class="w3-row-padding w3-padding-16 w3-center" id="food" style="margin-top:5%">
 			<c:forEach var="product" items="${productlist }" varStatus="i">
-				<div class="w3-quarter" style="margin-left:5%">
+				<div class="w3-quarter">
 					<img src="<spring:url value='/resources/FileUpload/product/${product.product_image_path }'/>"
 						alt="상품" style="width:100%;">
 					<h3>${product.product_name}</h3>

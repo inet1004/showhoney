@@ -94,7 +94,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void customerDelete(CustomerVo vo) {
+	public void customerDelete(CustomerVo vo, HttpServletRequest request) {
 		dao.customerDelete(vo);
 
 	}

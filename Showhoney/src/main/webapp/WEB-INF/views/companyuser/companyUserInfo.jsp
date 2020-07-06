@@ -43,8 +43,14 @@ html, body, h1, h2, h3, h4, h5 {
 	function pwcheck() {
 		var pwck = $("#company_user_pw").val();
 		var pw = $("#company_user_pwcheck").val();
+		var pwtype = /^[a-zA-Z0-9]{6,12}$/;
+		
+		if (pw == '' || !pwtype.test(pw)) {
+			$('#pwblurck').html("6~20자 영문자 또는 숫자 입력.");
+			$('#pwblurck').css("color", "red");
+			checkpw = false
 
-		if (pw != '' && pwck == pw) {
+		}else if (pw != '' && pwck == pw) {
 			$('#pwblurck').html("비밀번호 일치");
 			$('#pwblurck').css("color", "green");
 			checkpw = true
@@ -61,6 +67,7 @@ html, body, h1, h2, h3, h4, h5 {
 			alert("조건을 정확히 입력해주세요");
 			return false;
 		} else {
+			alert("수정 완료!")
 			return true;
 		}
 	}
@@ -83,15 +90,18 @@ html, body, h1, h2, h3, h4, h5 {
 		}
 	}
 
-	function infocheck() {
-
-		if (checkval == false) {
-			alert("조건을 정확히 입력해주세요");
-			return false;
-		} else {
-			return true;
-		}
-	}
+	$(document).ready(function(){
+		  $("#submitval").click(function(){
+			  
+			  if (checkval == false) {
+					alert("조건을 정확히 입력해주세요");
+					return false;
+				} else {
+					alert("수정 완료!")
+					return true;
+				}
+		  });
+		});
 </script>
 </head>
 <body class="w3-theme-l5">
@@ -140,7 +150,7 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-col m12">
 
 						<form action="companyUpdate.do" method="post" id="infoModify"
-							name="infoModify" class="w3-container w3-card-4 w3-light-grey w3-text-gray w3-margin" onsubmit="return infocheck()">
+							name="infoModify" class="w3-container w3-card-4 w3-light-grey w3-text-gray w3-margin" >
 							<h2 class="w3-center">내 정보</h2>
 							<input type="hidden" name="company_no" value="${vo.company_no }">
 							<div class="w3-row w3-section">
@@ -239,7 +249,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 							<p class="w3-center">
 								<button type="submit"
-									class="w3-button w3-section w3-blue w3-ripple">수정완료</button>
+									class="w3-button w3-section w3-blue w3-ripple" id="submitval">수정완료</button>
 								<button type="reset"
 									class="w3-button w3-section w3-blue w3-ripple">취소</button>
 							</p>

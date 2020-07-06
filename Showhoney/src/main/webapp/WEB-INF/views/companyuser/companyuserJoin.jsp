@@ -31,8 +31,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script>
-	var checkval = true;
-	
 	function check(re, what, message) {
 		   if(re.test(what.value)) {
 		       return true;
@@ -115,6 +113,8 @@
 						});
 		
 	});
+	
+	var checkval = true;
 	//기업 ID 1
 	function pwtypecheck() {
 		var pw = $("#company_user_pw").val();
@@ -217,7 +217,7 @@
 			alert("조건을 정확히 입력해주세요");
 			return false;
 		} else {
-			alert("제출 완료! 관리자 승인 후 사용가능합니다 :-)  ")
+			alert("제출 완료! 관리자 승인 후 사용가능합니다 :-) ")
 			return true;
 		}
 	}
@@ -274,7 +274,7 @@ a{
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     	<li class="nav-item"><a class="nav-link js-scroll-trigger" href="info.do">HOME</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">문의사항</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="joinType.do">로그인</a></li>
                     </ul>
                 </div>
             </div>
