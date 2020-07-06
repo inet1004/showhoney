@@ -15,6 +15,7 @@
         <a href="#" class="w3-bar-item w3-button" ><b>${customer_id}님!</b></a>
       <div class="w3-dropdown-hover">
       <a class="w3-bar-item w3-button" style="padding-right: 100px;"><i class="fas fa-cog"></i></a>     
+	    
 	    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
 	      <a href="customerUserInfo.do" class="w3-bar-item w3-button">내 정보수정</a>
       <a href="ask.do" class="w3-bar-item w3-button"> 문의하기</a>
