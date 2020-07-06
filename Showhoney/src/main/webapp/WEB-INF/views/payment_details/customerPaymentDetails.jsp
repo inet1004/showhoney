@@ -13,17 +13,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <!-- Custom Fonts -->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
 <style>
-	body{
+	.startPayment{
 		margin-top:50px;
-	}	
+	}
 </style>
+
 
 </head>
 <body>
 <br>
-<div>
+<div class="startPayment">
 <h1 align="center">결 제 내 역</h1><br>
 </div>
 <div align="center">

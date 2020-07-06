@@ -66,40 +66,7 @@ body {
                 	</div>
             </div>
           </div>
-		</c:forEach>
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/exhibition2.jpg" class="img-fluid" alt="">
-                <a href="portfolio-details.html" class="link-details" title="티켓 구매하러 가기"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4>꽃 박람회</h4>
-                <p>2020/05/05~2020/05/06</p>
-                <p><button type="button" onclick="location.href='adminExhibitionManage.do'" class="btn btn-primary">부스입장</button>
-                	<button type="button" onclick="location.href='adminExhibitionManage.do'" class="btn btn-primary">발표회입장</button></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/exhibition2.jpg" class="img-fluid" alt="">
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4>타이어 박람회</h4>
-                <p>2020/05/10~2020/05/11</p>
-                <p><button type="button" onclick="location.href='adminExhibitionManage.do'" class="btn btn-primary">부스입장</button>
-                	<button type="button" onclick="location.href='adminExhibitionManage.do'" class="btn btn-primary">발표회입장</button></p>
-              </div>
-            </div>
-          </div> -->
-	
-          
+		</c:forEach>    
 
         </div>
 

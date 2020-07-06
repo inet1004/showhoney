@@ -15,12 +15,12 @@
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 <style>
 	body{
-		margin-top:50px;
+		margin-top:90px;
 	}
 </style>
 </head>
 <body>
-<br>
+<br><br>
 <div>
 <h1 align="center">문 의 내 역</h1><br>
 </div>

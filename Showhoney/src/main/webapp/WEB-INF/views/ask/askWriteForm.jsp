@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 <!-- Custom Fonts -->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<style>
+	.askStart{
+		margin-top:70px;
+	}
+</style>
 </head>
 <body>
 <script>
@@ -34,7 +39,9 @@
 		return true;
 	}
 </script>
+<div class="askStart">
 <h1 align="center">문 의 하 기</h1><br>
+</div>
 <form id="frm" name="frm" action="InsertAskWrite.do" method="post" onsubmit="return test()">
 <div align="center">
 <table border="1">		
