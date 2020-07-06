@@ -102,6 +102,18 @@ html, body, h1, h2, h3, h4, h5 {
 				}
 		  });
 		});
+	
+	function bye() {
+		var result = confirm("회원탈퇴시 모든 정보가 삭제됩니다. 정말로 탈퇴하시겠습니까?");
+		if(result == true) {
+			alert ("탈퇴 처리 되었습니다");
+			location.href = "companyUserDelete.do"
+		} else {
+			return;
+		}
+		
+	}
+	
 </script>
 </head>
 <body class="w3-theme-l5">
@@ -127,17 +139,18 @@ html, body, h1, h2, h3, h4, h5 {
 							<hr>
 							<p>ID : ${vo.company_user_id }</p>
 							<p>기업이름 : ${vo.company_name }</p>
+							<p><a href="#" onclick="bye()" id="bye"> 회원탈퇴하기 </a></p>
+							<hr>
+							<br>
 							<p>
 								<input type="file" id="company_profile" name="uploadFile">
 							</p>
-							<input type="hidden" id="company_user_id" name="company_user_id"
-								value="${vo.company_user_id }"> <span>현재 파일 :
-								${vo.company_profile }</span>
-							<p>
-								<small><button type="submit"
-										class="w3-button w3-section w3-blue w3-ripple">프로필
-										사진수정</button></small>
+							<input type="hidden" id="company_user_id" name="company_user_id" value="${vo.company_user_id }"> 
+							<span><small>현재 파일 : ${vo.company_profile }</small></span>
+							<p><button type="submit" class="w3-button w3-section w3-blue w3-ripple">프로필
+								사진 수정하기</button>
 							</p>
+							<span style="font-color:red;"><small>*이미지 업로드 후 클릭하세요</small></span>
 						</div>
 					</form>
 				</div>

@@ -92,7 +92,7 @@ public class CustomerController {
 		vo.setCustomer_id(customer_id);
 		
 		customerService.customerDelete(vo, request);
-		mav.setViewName("no/main/info");
+		mav.setViewName("redirect:logout.do");
 		return mav;
 		
 	}

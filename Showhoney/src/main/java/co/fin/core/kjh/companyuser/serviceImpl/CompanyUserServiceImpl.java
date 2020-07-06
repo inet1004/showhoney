@@ -44,7 +44,9 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 
 
 	@Override
-	public void companyUserDelete(CompanyUserVo vo) {
+	public void companyUserDelete(CompanyUserVo vo, HttpServletRequest request) {
+		
+		
 		dao.companyUserDelete(vo);
 
 	}

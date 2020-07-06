@@ -106,12 +106,12 @@ html, body, h1, h2, h3, h4, h5 {
 		});
 	
 	function bye() {
-		var result = confirm("정말로 탈퇴하시겠습니까?");
-		if(result) {
+		var result = confirm("회원탈퇴시 모든 정보가 삭제됩니다. 정말로 탈퇴하시겠습니까?");
+		if(result == true) {
 			alert ("탈퇴 처리 되었습니다");
-			true;
+			location.href = "customerDelete.do"
 		} else {
-			false;
+			return;
 		}
 		
 	}
@@ -139,7 +139,7 @@ html, body, h1, h2, h3, h4, h5 {
 						<hr>
 						<p>ID : ${vo.customer_id }</p>
 						<p>이름 : ${vo.customer_name }</p>
-						<p><a href="customerDelete.do" onclick="bye()" id="bye"> 회원탈퇴하기 </a></p>
+						<p><a href="#" onclick="bye()" id="bye"> 회원탈퇴하기 </a></p>
 					</div>
 				</div>
 				<br>

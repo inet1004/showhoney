@@ -73,7 +73,7 @@
 	</update>
 	
 	<delete id="companyUserDelete" parameterType="co.fin.core.kjh.companyuser.vo.CompanyUserVo">
-		
+		DELETE FROM company_user WHERE company_user_id = #{company_user_id}
 	</delete>
 	
 </mapper>

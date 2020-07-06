@@ -76,7 +76,7 @@
 									</div>
 									&nbsp;
 									<div>
-										<a href="#"><i class="far fa-heart"></i></a><div>${booth.exhibition_name }</div>
+										<p>박람회 이름 : ${booth.exhibition_name }</p>
 									</div>
 								</div>
 								<h3 class="heading">

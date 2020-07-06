@@ -112,5 +112,18 @@ public class CompanyUserController {
 		return mav;
 		
 	}
+	
+	@RequestMapping("/companyUserDelete.do")
+	public ModelAndView companyUserDelete(CompanyUserVo vo, ModelAndView mav, HttpServletRequest request) {
+		
+		String company_user_id = (String) request.getSession().getAttribute("company_user_id");
+		vo.setCompany_user_id(company_user_id);
+		
+		
+		companyUserService.companyUserDelete(vo, request);
+		mav.setViewName("redirect:logout.do");
+		return mav;
+		
+	}
 
 }

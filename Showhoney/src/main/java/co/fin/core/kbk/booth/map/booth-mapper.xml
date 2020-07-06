@@ -11,8 +11,9 @@
 		 		company_no, 
 		 		exhibition_no, 
 		 		booth_profile, 
-		 		product_mall 
-		 FROM BOOTH
+		 		product_mall, 
+		 		(SELECT exhibition_name FROM exhibition e where e.exhibition_no = b.exhibition_no ) exhibition_name
+		 FROM BOOTH b
 		<where>
 		<if test = "company_no != null and company_no != ''">
 			AND company_no = #{company_no}
