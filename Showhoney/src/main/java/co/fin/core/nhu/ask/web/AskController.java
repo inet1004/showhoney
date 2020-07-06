@@ -54,14 +54,32 @@ public class AskController {
 	public ModelAndView GoAskDetail(ModelAndView mav, AskVo vo, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		PrintWriter writer = response.getWriter();
 		String customerid = (String) request.getSession().getAttribute("customer_id");
-		if(customerid.equals("admin")) {
-			mav.addObject("Dalist", askService.getSelect(vo));
-			mav.setViewName("cus/ask/askDetail");
-			return mav;
+		String companyuserid = (String) request.getSession().getAttribute("company_user_id"); 
+		if(companyuserid!= null) {
+			response.setContentType("text/html;charset=UTF-8");
+			writer.println("<script>alert('관리자만 볼 수 있습니다.'); location.href='ask.do';</script>");
+			return null;
+		}else {
+			if(customerid.equals("admin")) {
+				mav.addObject("Dalist", askService.getSelect(vo));
+				mav.setViewName("cus/ask/askDetail");
+				return mav;
+			}
+			response.setContentType("text/html;charset=UTF-8");
+			writer.println("<script>alert('관리자만 볼 수 있습니다.'); location.href='ask.do';</script>");
+			return null;
 		}
-		response.setContentType("text/html;charset=UTF-8");
-		writer.println("<script>alert('잘못된 접근입니다.'); location.href='exhibitionList.do';</script>");
-		return null;
+		
+		
+		
+		
+		/*
+		 * if(customerid.equals("admin")) { mav.addObject("Dalist",
+		 * askService.getSelect(vo)); mav.setViewName("cus/ask/askDetail"); return mav;
+		 * } response.setContentType("text/html;charset=UTF-8"); writer.
+		 * println("<script>alert('관리자만 볼 수 있습니다.'); location.href='ask.do';</script>");
+		 * return null;
+		 */
 	}
 	
 	

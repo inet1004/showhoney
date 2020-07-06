@@ -34,6 +34,7 @@
       <th>박람회이름</th>
       <th>상태</th>
       <th>입장</th>
+      <th>티켓생성</th>
   </tr>
   <c:forEach var="admin" items="${elist }">
   <tr>
@@ -45,8 +46,13 @@
       <button type="button" class="btn btn-info" data-toggle="" 
       onclick="location.href='ExhibitionDelete.do?exhibition_no=${admin.exhibition_no}'">삭제</button>
   	  </td>
+  	  
   	  <td><button type="button" class="btn btn-info" data-toggle="" 
       onclick="location.href='customerBoothList.do?exhibition_no=${admin.exhibition_no}'">입장</button>
+  	  </td>
+  	  
+  	  <td><button type="button" class="btn btn-info" data-toggle="" 
+      onclick="location.href='ticketInsertForm.do?exhibition_no=${admin.exhibition_no}'">티켓생성</button>
   	  </td>
   </tr>
   

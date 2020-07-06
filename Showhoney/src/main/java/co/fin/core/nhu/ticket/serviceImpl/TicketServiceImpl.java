@@ -30,8 +30,7 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public void tickekInsert(TicketVo vo) {
-		dao.ticketInsert(vo);
-		
+		dao.ticketInsert(vo);		
 	}
 
 	@Override

@@ -8,7 +8,7 @@ t.ticket_price FROM ticket t, exhibition e WHERE e.exhibition_no = t.exhibition_
 	</select>
 	
 	<select id="getSelect" parameterType="co.fin.core.nhu.ticket.vo.TicketVo" resultType="co.fin.core.nhu.ticket.vo.TicketVo">
-		
+		SELECT EXHIBITION_NO FROM EXHIBITION WHERE EXHIBITION_NO = #{exhibition_no} 
 	</select>
 	
 	<insert id="ticketInsert" parameterType="co.fin.core.nhu.ticket.vo.TicketVo">

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.fin.core.kbk.booth.vo.BoothVo;
+import co.fin.core.kjh.admin.vo.ExhibitionVo;
 import co.fin.core.nhu.ticket.vo.TicketService;
 import co.fin.core.nhu.ticket.vo.TicketVo;
 
@@ -50,6 +51,21 @@ public class TicketController {
 	
 	public ModelAndView ticketPayment(ModelAndView mav) {
 		mav.setViewName("com/price/payment");
+		return mav;
+	}
+	
+	@RequestMapping("/ticketInsertForm.do")
+	
+	public ModelAndView ticketInsertFrom(TicketVo vo, ModelAndView mav) {
+		mav.addObject("admin", ticketService.getSelect(vo));
+		mav.setViewName("adm/ticket/ticketInsert");
+		return mav;
+	}
+	
+	@RequestMapping("/ticketInsert.do")
+	public ModelAndView ExhibitionInsert(TicketVo vo, ModelAndView mav) {
+		ticketService.tickekInsert(vo);
+		mav.setViewName("redirect:adminExhibitionManage.do");
 		return mav;
 	}
 }

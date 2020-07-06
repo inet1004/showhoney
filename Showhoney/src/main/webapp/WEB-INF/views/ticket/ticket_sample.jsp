@@ -72,8 +72,13 @@
 		height: 35px;
 	}
 
+	.ticket_start{
+		margin-top:90px;
+	}
 </style>
+<div class="ticket_start">
 	<h1 align="center">티켓내역 LIST</h1>
+	</div>
 	<br>
 	<div align="center" >
 	<div class="div2"> 
@@ -81,10 +86,10 @@
 		<div align="center" class="div1">
 		<p/>
 			<p align="center">NO.${ticket.ticket_no }</p>
-			<h1 align="center">${ticket.exhibition_name }&nbsp;
+			<h2 align="center">${ticket.exhibition_name }&nbsp;
 			
 			<button type="button" class="btn btn-info" data-toggle="" 
-			onclick="requestPay('${ticket.exhibition_name }','${ticket.ticket_price }','${ticket.ticket_no }')">구매</button></h1>			
+			onclick="requestPay('${ticket.exhibition_name }','${ticket.ticket_price }','${ticket.ticket_no }')">구매</button></h2>		
 			
 			<p align="center">${ticket.exhibition_start_date }~${ticket.exhibition_end_date }</p>
 			<p align="center">${ticket.ticket_price }원</p>

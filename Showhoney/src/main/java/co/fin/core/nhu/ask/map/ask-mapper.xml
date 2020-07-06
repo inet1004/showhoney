@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="co.fin.core.nhu.ask.serviceImpl.AskMapper">
 	<select id="getSelectAskList" resultType="co.fin.core.nhu.ask.vo.AskVo">
-		SELECT ASK_NO, ASK_TITLE, ASK_DATE, ASK_NAME, ASK_EMAIL FROM ASK
+		SELECT ASK_NO, ASK_TITLE, ASK_DATE, ASK_NAME, ASK_EMAIL FROM ASK order by 1 DESC
 	</select>
 	
 	<select id="getSelect" parameterType="co.fin.core.nhu.ask.vo.AskVo" resultType="co.fin.core.nhu.ask.vo.AskVo">
