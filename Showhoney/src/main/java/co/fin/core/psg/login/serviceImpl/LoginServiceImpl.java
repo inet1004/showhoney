@@ -12,6 +12,8 @@ import co.fin.core.kjh.company.serviceImpl.CompanyMapper;
 import co.fin.core.kjh.company.vo.CompanyService;
 import co.fin.core.kjh.companyuser.serviceImpl.CompanyUserMapper;
 import co.fin.core.kjh.companyuser.vo.CompanyUserVo;
+import co.fin.core.kjh.customer.serviceImpl.CustomerMapper;
+import co.fin.core.kjh.customer.vo.CustomerVo;
 import co.fin.core.psg.login.vo.LoginComVo;
 import co.fin.core.psg.login.vo.LoginService;
 import co.fin.core.psg.login.vo.LoginVo;
@@ -34,6 +36,8 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	CompanyUserMapper companyUserMapper;
 	
+	@Autowired
+	CustomerMapper customerMapper;
 	
 	@Override
 	public boolean loginCheck(LoginVo vo, HttpSession session) {
@@ -49,6 +53,10 @@ public class LoginServiceImpl implements LoginService {
 		// if (result == 1) { //true 일경우 세션 등록
 		if (result) { // true 일경우 세션 등록 //세션 변수 등록
 			session.setAttribute("customer_id", vo.getCustomer_id());
+			CustomerVo customerVo = new CustomerVo();
+			customerVo.setCustomer_id(vo.getCustomer_id());
+			CustomerVo cusProfile = customerMapper.getSelect(customerVo);
+			session.setAttribute("customer_profile", cusProfile.getCustomer_profile());
 			return true;
 		}
 
@@ -69,6 +77,7 @@ public class LoginServiceImpl implements LoginService {
 			companyUserVo.setCompany_user_id(cvo.getCompany_user_id());
 			CompanyUserVo comNo = companyUserMapper.getSelect(companyUserVo);			
 			session.setAttribute("company_no", comNo.getCompany_no());
+			session.setAttribute("company_profile", comNo.getCompany_profile());
 			return true;
 		}
 

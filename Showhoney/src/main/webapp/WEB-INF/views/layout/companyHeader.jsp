@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<style>
+.profile-ava {
 
+    border-radius: 50%;
+
+    -webkit-border-radius: 50%;
+
+    border: 2px solid #688a7e;
+
+    display: inline-block;
+}
+</style>
 <script>
 function myFunction() {
   var x = document.getElementById("Demo");
@@ -32,7 +45,7 @@ function openNav() {
       <a href="boothList.do?company_no=${company_no }" class="w3-bar-item w3-button">MY부스</a>
       <a href="pboardList.do" class="w3-bar-item w3-button">발표회</a>
       <a href="ask.do" class="w3-bar-item w3-button">문의사항</a>
-      <a href="#" class="w3-bar-item w3-button" ><b>${company_user_id}님!</b></a>
+      <a href="#" class="w3-bar-item w3-button" ><img src="<spring:url value='/resources/FileUpload/companyUserProfile/${company_profile }'/>" class="profile-ava" style="width:50px;height:50px">&nbsp;<b>${company_user_id}님!</b></a>
       <div class="w3-dropdown-hover">
       <a class="w3-bar-item w3-button" style="padding-right: 100px;"><i class="fas fa-cog"></i></a>     
 	    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
@@ -53,7 +66,7 @@ function openNav() {
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="companyInfo.do" onclick="w3_close()" class="w3-bar-item w3-button">${company_user_id }님 !</a>
+  <a href="companyInfo.do" onclick="w3_close()" class="w3-bar-item w3-button"><img src="<spring:url value='/resources/FileUpload/companyUserProfile/${company_profile }'/>" class="profile-ava" style="width:50px;height:50px">&nbsp;${company_user_id }님 !</a>
   <hr style="color:white;">
   <a href="exhibitionList.do" onclick="w3_close()" class="w3-bar-item w3-button">박람회</a>
   <a href="boothList.do" onclick="w3_close()" class="w3-bar-item w3-button">MY부스</a>
