@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -20,11 +21,23 @@ body, html {
   padding: 16px;
 }
 </style>
+<style>
+.profile-ava {
+
+    border-radius: 50%;
+
+    -webkit-border-radius: 50%;
+
+    border: 2px solid #688a7e;
+
+    display: inline-block;
+}
+</style>
 <!-- Navbar (sit on top) -->
 
 
 <div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
+  <div class="w3-bar w3-white w3-card" id="myNavbar" style="line-height:3;">
     <a href="/core" class="w3-bar-item w3-button w3-wide">SHOWHONEY</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
@@ -32,10 +45,16 @@ body, html {
       <a href="exhibitionList.do" class="w3-bar-item w3-button"> 박람회</a>
       <a href="adminExhibitionManage.do" class="w3-bar-item w3-button"> 박람회관리</a>
       <a href="pboardList.do" class="w3-bar-item w3-button">발표회</a>
-      <a href="ticketList.do" class="w3-bar-item w3-button"> 티켓관리</a>
       <a href="adminAsk.do" class="w3-bar-item w3-button"> 문의사항</a>
-         
-      <a href="#" class="w3-bar-item w3-button" ><b>${customer_id}님!</b></a>
+      <c:choose>
+      	<c:when test="${not empty customer_profile }">
+      		<a href="#" class="w3-bar-item w3-button" ><img src="<spring:url value='/resources/FileUpload/customerProfile/${customer_profile }'/>" class="profile-ava" style="width:50px;height:45px">&nbsp;<b>${customer_id}님!</b></a>
+      	</c:when>
+      	<c:otherwise>
+      		<a href="#" class="w3-bar-item w3-button" ><img src="<spring:url value='/resources/FileUpload/customerProfile/noprofile.jpg'/>" class="profile-ava" style="width:50px;height:45px">&nbsp;<b>${customer_id}님!</b></a>
+      	</c:otherwise>
+      </c:choose>
+      <!--<a href="#" class="w3-bar-item w3-button" ><b>${customer_id}님!</b></a>-->
          
             <div class="w3-dropdown-hover">
       <a class="w3-bar-item w3-button" style="padding-right: 100px;"><i class="fas fa-cog"></i></a>     
@@ -58,11 +77,18 @@ body, html {
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <c:choose>
+  	<c:when test="${not empty customer_profile }">
+  		<a href="myPage.do" onclick="w3_close()" class="w3-bar-item w3-button"><img src="<spring:url value='/resources/FileUpload/customerProfile/${customer_profile }'/>" class="profile-ava" style="width:50px;height:45px">&nbsp;${customer_id}님!</a>
+  	</c:when>
+  <c:otherwise>
+  	<a href="myPage.do" onclick="w3_close()" class="w3-bar-item w3-button"><img src="<spring:url value='/resources/FileUpload/customerProfile/noprofile.jpg'/>" class="profile-ava" style="width:50px;height:45px">&nbsp;${customer_id}님!</a>
+  </c:otherwise>
+  </c:choose>
   <a href="adminManage.do" onclick="w3_close()" class="w3-bar-item w3-button">회원가입승인</a>
   <a href="exhibitionList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 박람회</a>
   <a href="adminExhibitionManage.do" onclick="w3_close()" class="w3-bar-item w3-button"> 박람회관리</a>
   <a href="pboardList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 발표회</a>
-  <a href="ticketList.do" onclick="w3_close()" class="w3-bar-item w3-button"> 티켓관리</a>
   <a href="adminAsk.do" onclick="w3_close()" class="w3-bar-item w3-button"> 문의사항</a>
 </nav>
 

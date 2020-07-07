@@ -131,10 +131,23 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container">
 						<h4 class="w3-center">My Profile</h4>
 						<p class="w3-center">
-							<img
+							
+								
+								
+							<c:choose>
+								<c:when test="${not empty vo.customer_profile }">
+									<img
 								src="<spring:url value='/resources/FileUpload/customerProfile/${vo.customer_profile }'/>"
 								class="w3-circle" style="height: 106px; width: 106px"
 								alt="Avatar">
+								</c:when>
+								<c:otherwise>
+									<img
+								src="<spring:url value='/resources/FileUpload/customerProfile/noprofile.jpg'/>"
+								class="w3-circle" style="height: 106px; width: 106px"
+								alt="Avatar">
+								</c:otherwise>
+							</c:choose>
 						</p>
 						<hr>
 						<p>ID : ${vo.customer_id }</p>

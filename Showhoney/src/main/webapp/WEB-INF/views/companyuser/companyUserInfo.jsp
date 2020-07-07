@@ -130,11 +130,22 @@ html, body, h1, h2, h3, h4, h5 {
 						id="profilefrm" name="profilefrm" enctype="multipart/form-data">
 						<div class="w3-container">
 							<h4 class="w3-center">My Profile</h4>
-							<p class="w3-center">
-								<img
+							<p class="w3-center">	
+								<c:choose>
+									<c:when test="${not empty vo.company_profile }">
+										<img
 									src="<spring:url value='/resources/FileUpload/companyUserProfile/${vo.company_profile }'/>"
 									class="w3-circle" style="height: 106px; width: 106px"
 									alt="Avatar">
+									</c:when>
+									<c:otherwise>
+										<img
+									src="<spring:url value='/resources/FileUpload/companyUserProfile/noprofile.jpg'/>"
+									class="w3-circle" style="height: 106px; width: 106px"
+									alt="Avatar">
+									</c:otherwise>		
+								</c:choose>
+									
 							</p>
 							<hr>
 							<p>ID : ${vo.company_user_id }</p>

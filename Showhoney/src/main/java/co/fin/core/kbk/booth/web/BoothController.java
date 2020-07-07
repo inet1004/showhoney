@@ -215,12 +215,71 @@ public class BoothController {
 
 	
 	@RequestMapping("/customerBoothSelect.do")
-	public String customerBoothSelect(BoothVo vo, ProductVo pvo, Model model) {
-		List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+	public String customerBoothSelect(BoothVo vo, ProductVo pvo, Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		PrintWriter writer = response.getWriter();
+		int n = 0;
+		String customerid = (String) request.getSession().getAttribute("customer_id");
+		String companyuserid = (String) request.getSession().getAttribute("company_user_id");
 		
-		model.addAttribute("productlist", boothService.getSelectList(pvo));
-		model.addAttribute("list", list);
-		return "cus/booth/customerBoothSelect";
+		
+		if(companyuserid!= null) {
+			List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+			
+			model.addAttribute("productlist", boothService.getSelectList(pvo));
+			model.addAttribute("list", list);
+			return "com/booth/customerBoothSelect";
+		}else {
+			if(customerid!= null) {
+				if(customerid.equals("admin")) {
+					List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+					
+					model.addAttribute("productlist", boothService.getSelectList(pvo));
+					model.addAttribute("list", list);
+					return "adm/booth/customerBoothSelect";
+				}
+				List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+				
+				model.addAttribute("productlist", boothService.getSelectList(pvo));
+				model.addAttribute("list", list);
+				return "cus/booth/customerBoothSelect";
+			}else {
+				response.setContentType("text/html;charset=UTF-8");
+				writer.println("<script>alert('잘못된 접근입니다.'); location.href='exhibitionList.do';</script>");
+				return null;
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		 * List<BoothVo> list = boothService.bgetSelectBoothList(vo);
+		 * 
+		 * model.addAttribute("productlist", boothService.getSelectList(pvo));
+		 * model.addAttribute("list", list); return "cus/booth/customerBoothSelect";
+		 */
 	}
 	
 	@RequestMapping(value = "/videoCallUpdate.do")

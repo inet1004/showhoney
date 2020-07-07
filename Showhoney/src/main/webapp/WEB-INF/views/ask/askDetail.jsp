@@ -10,7 +10,8 @@
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>문 의 내 용</h1>
+<br/><br/><br/>
+<div align="center"><h1>문 의 내 용</h1></div>
 <form action="" method="post">
 <div align="center">
 <table border="1">

@@ -19,6 +19,7 @@
 
 </head>
 <body>
+<br/><br/><br/>
 	<h4 align="center">메일 보내기</h4>
     <form action="mailSending.do" method="post">
       <div>

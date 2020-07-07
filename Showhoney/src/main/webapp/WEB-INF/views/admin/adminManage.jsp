@@ -13,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<br><br/>
+<br><br/><br/>
 <div>
 <h1 align="center">기업 신청 목록</h1><br>
 </div>
